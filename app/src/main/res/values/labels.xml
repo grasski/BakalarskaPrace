@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="labels">
+        <item>Kočka domácí</item>
+        <item>Pes domácí</item>
+        <item>Kachna divoká</item>
+        <item>Slon</item>
+        <item>Plameňák růžový</item>
+        <item>Žirafa</item>
+        <item>Gorila</item>
+        <item>Klokan obrovský</item>
+        <item>Lev</item>
+        <item>Papoušek</item>
+        <item>Tučňák</item>
+        <item>Lachtan hřívnatý</item>
+        <item>Tygr</item>
+        <item>Želva mohutná</item>
+        <item>Zebra</item>
+    </array>
+
+</resources>

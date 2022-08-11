@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zoo</string>
+    <string name="categoryTitle">Categories</string>
+    <string name="detectionByCamera">Detect by camera</string>
+
+<!--    <string-array name="categories">-->
+<!--        <item>Mammals</item>-->
+<!--        <item>Birds</item>-->
+<!--        <item>Reptiles</item>-->
+<!--    </string-array>-->
+
+<!--    <string-array name="animalInfo">-->
+<!--        <item>Weight</item>-->
+
+<!--        <item>Body length</item>-->
+<!--        <item>Body height</item>-->
+<!--        <item>Tail length</item>-->
+
+<!--        <item>Life length</item>-->
+<!--        <item>Located at</item>-->
+<!--        <item>Female pregnancy</item>-->
+<!--    </string-array>-->
+</resources>

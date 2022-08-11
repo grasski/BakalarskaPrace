@@ -1,0 +1,15 @@
+Cat
+Dog
+Duck
+Elephant
+Flamingo
+Giraffe
+Gorilla
+Kangaroo
+Lion
+Parrot
+Penguin
+Sea lion
+Tiger
+Turtle
+Zebra

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Zoo</string>
+    <string name="empty" translatable="false" />
+    <string name="categoryTitle">Kategorie</string>
+    <string name="detectionByCamera">Rozpoznej kamerou</string>
+
+    <string name="detectionStoppedNotice">Rozpoznávání zvířat je pozastaveno</string>
+
+
+    <array name="missingPermissions">
+        <item>Ups!</item>
+        <item>Pro identifikaci zvířat chybí povolený přístup k funkcem mobilního telefonu.</item>
+        <item>Prosím, povolte je v nastavení aplikace.</item>
+    </array>
+    <array name="permissions">
+        <item>Kamera</item>
+        <item>Úložiště</item>
+    </array>
+    <string name="settings">Nastavení</string>
+
+
+    <string-array name="animalInfo">
+        <item>Váha</item>
+
+        <item>Délka těla</item>
+        <item>Výška těla</item>
+        <item>Délka ocasu/Rozpětí křídel</item>
+
+        <item>Délka života</item>
+        <item>Výskyt</item>
+        <item>Březost samic</item>
+    </string-array>
+
+</resources>

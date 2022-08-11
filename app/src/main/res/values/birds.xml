@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="birds">
+        <item>Plameňák růžový</item>
+        <item>Kachna divoká</item>
+    </string-array>
+
+
+    <string-array name="flamingoInfo">
+        <item>2.1–4.1 kg</item>
+        <item>None</item>
+        <item>120–145 cm</item>
+        <item>140–170 cm</item>
+        <item>Kolem 15 let</item>
+        <item>Mělké slané laguny Afriky, Madagaskaru, Asie, Evropa.</item>
+        <item>Líhne 1 vejce po 27 dnech</item>
+    </string-array>
+    <array name="flamingo">
+        <item>Plameňák růžový</item>
+        <item>Pták</item>
+        <item>Plameňáci jsou velcí ptáci s neobyčejně dlouhým krkem a nohama vzhledem k celkem malému, oválnému tělu. Krk tvoří 17 obratlů. Nejnápadnějším znakem je silný a lomený zobák, po vnitřních okrajích čelistí lamelovaný. Jsou to společenští ptáci, hnízdí v koloniích čítajících i tisíc jedinců. Probíhá u nich hromadný tok, samičky pak kladou vejce takřka ve stejnou dobu. Hnízdo ve tvaru kužele si pár staví z bláta, na snůšce sedí 31 dnů oba dva rodiče.</item>
+    </array>
+
+
+    <string-array name="duckInfo">
+        <item>0.7–1.3 kg</item>
+        <item>50–60 cm</item>
+        <item>None</item>
+        <item>81–95 cm</item>
+        <item>5–10 let</item>
+        <item>Celý svět</item>
+        <item>8–16 mláďat po 25 dnech</item>
+    </string-array>
+    <array name="duck">
+        <item>Kachna divoká</item>
+        <item>Pták</item>
+        <item>Kachna divoká je vodní pták, k životu potřebuje stojaté vody rybníků a jezer nebo pomalu tekoucí řeky s bujnou vegetací. Často je k vidění i ve městech.
+            Je všežravec, na jaře tvoří její jídelníček především hmyz, slimáci i drobné rybky či žabky, v létě a na podzim zase nejrůznější semena, vodní rostliny, trávy a řasy.
+            Kachna má husté mastné peří, které se nenamočí, a vrstvu tuku, která ji chrání před chladem. Pro život ve vodě jsou uzpůsobeny i její nohy s plovacími blánami mezi prsty, jimiž pod vodou vesluje. Umí ale i skvěle létat.
+        </item>
+    </array>
+
+
+</resources>

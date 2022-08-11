@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="mammalsCategory">
+        <item>Savci</item>
+        <item>Savci, jsou třída obratlovců, která se v současné době vyskytuje téměř po celém světě. Jejich hlavním spojovacím znakem je výživa mláďat produktem modifikovaných kožních žláz, tedy kojení mláďat.</item>
+    </array>
+
+    <array name="birdsCategory">
+        <item>Ptáci</item>
+        <item>Ptáci jsou třída teplokrevných obratlovců, pro kterou je charakteristická přítomnost peří, bezzubého zobáku, snášení skořápkových vajec, vysoká rychlost metabolismu, čtyřdílné srdce a pevná lehká kostra s častými srůsty kostí. Přední končetiny jsou přeměny v křídla.</item>
+    </array>
+
+    <array name="reptilesCategory">
+        <item>Plazi</item>
+        <item>Plazi jsou skupina obratlovců chápaná různým způsobem: jako parafyletická skupina zahrnující všechna Sauropsida kromě ptáků; jako parafyletická skupina zahrnující všechna Sauropsida kromě ptáků a všechna Synapsida kromě savců; jako monofyletická skupina zahrnující všechna Sauropsida.</item>
+    </array>
+
+    <array name="animalCategory">
+        <item>Savec</item>
+        <item>Pták</item>
+        <item>Plaz</item>
+    </array>
+
+</resources>
