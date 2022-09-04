@@ -27,10 +27,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import zoo.animals.R
 import zoo.animals.UiTexts
-import zoo.animals.Utils
 import zoo.animals.animations.ContentAnimation
 import zoo.animals.data.Animal
 import zoo.animals.TopBar
+import zoo.animals.stringMapToIndexKey
 
 
 @Composable
@@ -62,14 +62,14 @@ fun ShowAnimalInfo(navController: NavController, animalData: Animal?, showTopBar
 
 @Composable
 fun ContentScreen(animalData: Animal){
-    val infoKeys = remember { Utils().stringMapToIndex(animalData.info) }
+    val infoKeys = remember { stringMapToIndexKey(animalData.info) }
     val animations = ContentAnimation()
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         item {
             Box{
                 Image(
-                    painter = painterResource(id = animalData.previewImage),
+                    painter = painterResource(id = animalData.mainImage),
                     contentDescription = animalData.name,
                     modifier = Modifier
                         .height(450.dp)
@@ -95,7 +95,7 @@ fun ContentScreen(animalData: Animal){
                     .align(Alignment.BottomStart)
                     .padding(bottom = 90.dp, start = 20.dp, end = 20.dp)
                 ) {
-                    animations.ShowsFromVerticallySide(offsetY = -500, duration = 800) {
+                    animations.FadeInFromVerticallySide(offsetY = -500, duration = 800) {
                         Text(
                             animalData.name,
                             fontSize = 50.sp,
@@ -120,7 +120,7 @@ fun ContentScreen(animalData: Animal){
                         }
                     val weight = infoKeys[0]
 
-                    animations.ShowsFromHorizontallySide(offsetX = -500, duration = 800) {
+                    animations.FadeInFromHorizontallySide(offsetX = -500, duration = 800) {
                         RowDetailsContent(
                             animalData = animalData,
                             listOf(
@@ -143,7 +143,7 @@ fun ContentScreen(animalData: Animal){
                     .offset(y = (-10).dp)
             )
 
-            animations.ShowsFromHorizontallySide(offsetX = 500, duration = 800) {
+            animations.FadeInFromHorizontallySide(offsetX = 500, duration = 800) {
                 RowDetailsContent(
                     animalData = animalData,
                     listOf(
@@ -173,6 +173,7 @@ fun RowDetailsContent(animalData: Animal, infoKey: List<String>){
             ) {
                 Box{
                     Box(modifier = Modifier
+                        .padding(start = 6.dp, end = 6.dp)
                         .align(Alignment.TopCenter)
                     ) {
                         Text(infoKey[index],

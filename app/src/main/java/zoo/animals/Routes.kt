@@ -8,5 +8,4 @@ sealed class Routes(val route: String) {
     object Reptiles: Routes("reptiles")
     object Camera: Routes("camera")
     object AnimalInfo: Routes("animalInfo")
-    object NoPermissions: Routes("noPermissions")
 }

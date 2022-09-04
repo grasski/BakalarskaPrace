@@ -9,9 +9,8 @@ interface IAnimals {
 
     fun animalsToList(
         context: Context,
-        animalCategory: Array<String>,
-        infoOfAnimals: List<Int>,
-        detailsOfAnimals: List<Int>,
-        imagesOfAnimals: List<List<Int>>
+        category: String,
+        animals: List<Int>,
+        images: List<List<Int>>
     ): MutableMap<String, Animal>
 }

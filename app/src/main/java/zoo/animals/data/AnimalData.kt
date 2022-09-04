@@ -2,55 +2,59 @@ package zoo.animals.data
 
 
 import android.content.Context
-import android.content.res.Resources
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import zoo.animals.R
 import zoo.animals.UiTexts
 
 
 object AnimalData: IAnimals {
-    override fun mammals(context: Context): MutableMap<String, Animal> {
-        val mammalsAnimals = context.resources.getStringArray(R.array.mammals)
 
-        val infoOfAnimals: List<Int> = listOf(
-            R.array.agutiInfo,
-            R.array.alpakaInfo,
-            R.array.bizonInfo,
-            R.array.beaverInfo,
-            R.array.yakInfo,
-            R.array.badgerInfo,
-            R.array.capybaraInfo,
-            R.array.kangarooInfo,
-            R.array.elephantInfo,
-            R.array.giraffeInfo,
-            R.array.gorillaInfo,
-            R.array.lionInfo,
-            R.array.tigerInfo,
-            R.array.zebraInfo,
-            R.array.sealionInfo,
-            R.array.catInfo,
-            R.array.dogInfo,
+    var allAnimalsInstance = mutableListOf<MutableMap<String, Animal>>()
+    fun init(context: Context): MutableList<MutableMap<String, Animal>> {
+        if(allAnimalsInstance.isEmpty()){
+            allAnimalsInstance.add(mammals(context))
+            allAnimalsInstance.add(birds(context))
+            allAnimalsInstance.add(reptiles(context))
+        }
+        return allAnimalsInstance
+    }
+
+    override fun mammals(context: Context): MutableMap<String, Animal> {
+        val animalInfo: List<Int> = listOf(
+            R.array.Agouti,
+            R.array.Alpaca,
+            R.array.Bison,
+            R.array.Beaver,
+            R.array.Yak,
+            R.array.Badger,
+            R.array.Capybara,
+            R.array.Kangaroo,
+            R.array.Elephant,
+            R.array.Giraffe,
+            R.array.Gorilla,
+            R.array.Lion,
+            R.array.Tiger,
+            R.array.Zebra,
+            R.array.SeaLion,
+            R.array.Cat,
+            R.array.Dog,
+
+            R.array.Chinchilla,
+            R.array.EuropeanFallowDeer,
+            R.array.Porcupine,
+            R.array.Cheetah,
+            R.array.Hedgehog,
+            R.array.Goat,
+            R.array.Lemur,
+            R.array.AsianBlackBear,
+            R.array.Degu,
+            R.array.Sheep,
+            R.array.Meerkat,
+            R.array.Camel,
         )
-        val detailsOfAnimals: List<Int> = listOf(
-            R.array.aguti,
-            R.array.alpaka,
-            R.array.bizon,
-            R.array.beaver,
-            R.array.yak,
-            R.array.badger,
-            R.array.capybara,
-            R.array.kangaroo,
-            R.array.elephant,
-            R.array.giraffe,
-            R.array.gorilla,
-            R.array.lion,
-            R.array.tiger,
-            R.array.zebra,
-            R.array.sealion,
-            R.array.cat,
-            R.array.dog,
-        )
-        val imagesOfAnimals: List<List<Int>> = listOf(
-            listOf(R.drawable.aguti_preview, R.drawable.aguti_main),
+        val animalImages: List<List<Int>> = listOf(
+            listOf(R.drawable.agouti_preview, R.drawable.agouti_main),
             listOf(R.drawable.alpaka_preview, R.drawable.alpaka_main),
             listOf(R.drawable.bison_preview, R.drawable.bison_main),
             listOf(R.drawable.beaver_preview, R.drawable.beaver_main),
@@ -68,112 +72,146 @@ object AnimalData: IAnimals {
 
             listOf(R.drawable.cat_preview, R.drawable.cat_main),
             listOf(R.drawable.dog_preview, R.drawable.dog_main),
+
+
+            listOf(R.drawable.chinchilla_preview, R.drawable.chinchilla_main),
+            listOf(R.drawable.europeanfallowdeer_preview, R.drawable.europeanfallowdeer_main),
+            listOf(R.drawable.porcupine_preview, R.drawable.porcupine_main),
+            listOf(R.drawable.cheetah_preview, R.drawable.cheetah_main),
+            listOf(R.drawable.hedgehog_preview, R.drawable.hedgehog_main),
+            listOf(R.drawable.goat_preview, R.drawable.goat_main),
+            listOf(R.drawable.lemur_preview, R.drawable.lemur_main),
+            listOf(R.drawable.asianblackbear_preview, R.drawable.asianblackbear_main),
+            listOf(R.drawable.degu_preview, R.drawable.degu_main),
+            listOf(R.drawable.sheep_preview, R.drawable.sheep_main),
+            listOf(R.drawable.meerkat_preview, R.drawable.meerkat_main),
+            listOf(R.drawable.camel_preview, R.drawable.camel_main),
         )
 
         return animalsToList(
             context,
-            mammalsAnimals,
-            infoOfAnimals,
-            detailsOfAnimals,
-            imagesOfAnimals
+            UiTexts.ArrayResource(R.array.animalCategories, 0).asString(context),
+            animalInfo,
+            animalImages
         )
     }
 
 
     override fun birds(context: Context): MutableMap<String, Animal> {
-        val birdsAnimals = context.resources.getStringArray(R.array.birds)
-
-        val infoOfAnimals: List<Int> = listOf(
-            R.array.flamingoInfo,
-            R.array.duckInfo
+        val animalInfo: List<Int> = listOf(
+            R.array.Flamingo,
+            R.array.Duck,
+            R.array.Agapornis,
+            R.array.Budgerigar,
+            R.array.Pheasant,
+            R.array.Vanellinae,
+            R.array.Emu,
+            R.array.Goose,
+            R.array.Crane,
+            R.array.Canary,
+            R.array.Raven,
+            R.array.Kookaburra,
+            R.array.SeaEagle,
+            R.array.MountainEagle,
+            R.array.GuineaFowl,
+            R.array.Peafowl,
+            R.array.SnowyOwl
         )
-        val detailsOfAnimals: List<Int> = listOf(
-            R.array.flamingo,
-            R.array.duck
-        )
-        val imagesOfAnimals: List<List<Int>> = listOf(
+        val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.flamingo_preview, R.drawable.flamingo_main),
             listOf(R.drawable.duck_preview, R.drawable.duck_main),
+            listOf(R.drawable.agapornis_preview, R.drawable.agapornis_main),
+            listOf(R.drawable.budgerigar_preview, R.drawable.budgerigar_main),
+            listOf(R.drawable.pheasant_preview, R.drawable.pheasant_main),
+            listOf(R.drawable.vanellinae_preview, R.drawable.vanellinae_main),
+            listOf(R.drawable.emu_preview, R.drawable.emu_main),
+            listOf(R.drawable.goose_preview, R.drawable.goose_main),
+            listOf(R.drawable.crane_preview, R.drawable.crane_main),
+            listOf(R.drawable.canary_preview, R.drawable.canary_main),
+            listOf(R.drawable.raven_preview, R.drawable.raven_main),
+            listOf(R.drawable.kookaburra_preview, R.drawable.kookaburra_main),
+            listOf(R.drawable.seaeagle_preview, R.drawable.seaeagle_main),
+            listOf(R.drawable.mountaineagle_preview, R.drawable.mountaineagle_main),
+            listOf(R.drawable.guineafowl_preview, R.drawable.guineafowl_main),
+            listOf(R.drawable.peafowl_preview, R.drawable.peafowl_main),
+            listOf(R.drawable.snowyowl_preview, R.drawable.snowyowl_main),
         )
 
         return animalsToList(
             context,
-            birdsAnimals,
-            infoOfAnimals,
-            detailsOfAnimals,
-            imagesOfAnimals
+            UiTexts.ArrayResource(R.array.animalCategories, 1).asString(context),
+            animalInfo,
+            animalImages
         )
     }
 
 
     override fun reptiles(context: Context): MutableMap<String, Animal> {
-        val birdsAnimals = context.resources.getStringArray(R.array.reptiles)
-
-        val infoOfAnimals: List<Int> = listOf(
-            R.array.turtleInfo,
+        val animalInfo: List<Int> = listOf(
+            R.array.Turtle,
         )
-        val detailsOfAnimals: List<Int> = listOf(
-            R.array.turtle,
-        )
-        val imagesOfAnimals: List<List<Int>> = listOf(
+        val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.turtle_preview, R.drawable.turtle_main),
         )
 
         return animalsToList(
             context,
-            birdsAnimals,
-            infoOfAnimals,
-            detailsOfAnimals,
-            imagesOfAnimals
+            UiTexts.ArrayResource(R.array.animalCategories, 2).asString(context),
+            animalInfo,
+            animalImages
         )
     }
 
 
     override fun animalsToList(
         context: Context,
-        animalCategory: Array<String>,
-        infoOfAnimals: List<Int>,
-        detailsOfAnimals: List<Int>,
-        imagesOfAnimals: List<List<Int>>
+        category: String,
+        animals: List<Int>,
+        images: List<List<Int>>
     ): MutableMap<String, Animal> {
-        val animalInfo = context.resources.getStringArray(R.array.animalInfo)
+        val animalsList: MutableMap<String, Animal> = mutableMapOf()
 
-        if (animalCategory[0] in UiTexts.ArrayResource(R.array.mammals, 0).asArray(context)
-        ){
+        val animalsInfoGlobal = context.resources.getStringArray(R.array.animalInfo)
+        if (category == UiTexts.ArrayResource(R.array.animalCategories, 0).asString(context)
+        ) {
             // Mammal -> gets Délka ocasu
-            animalInfo[3] = animalInfo[3].split("/")[0]
-        }
-        else if (animalCategory[0] in UiTexts.ArrayResource(R.array.birds, 0).asArray(context)
-        ){
+            animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[0]
+        } else if (category == UiTexts.ArrayResource(R.array.animalCategories, 1).asString(context)
+        ) {
             // Bird -> gets Rozpětí křídel
-            animalInfo[3] = animalInfo[3].split("/")[1]
+            animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[1]
         }
-        val originalSpecialAnimalInfo = animalInfo[3]
+        val originalSpecialAnimalInfo = animalsInfoGlobal[3]
 
-        val animals: MutableMap<String, Animal> = mutableMapOf()
-        for (i in animalCategory.indices){
-            val info = context.resources.getStringArray(infoOfAnimals[i])
-            val details = context.resources.getStringArray(detailsOfAnimals[i])
+        for ((i, animalID) in animals.withIndex()) {
+            val animalArray = UiTexts.ArrayResource(animalID, 0).asArray(context)
 
-            if (":" in info[3]){
-                val specialInfo = info[3].split(":")
-                animalInfo[3] = specialInfo[0]
-                info[3] = specialInfo[1]
-            } else{
-                animalInfo[3] = originalSpecialAnimalInfo
+            val name = animalArray[0]
+            val description = animalArray[animalArray.lastIndex]
+            val imagesList = images[i]
+
+            val infos = mutableListOf<String>()
+            for (info in animalArray.subList(2, animalArray.lastIndex)) {
+                infos.add(info)
             }
 
-            val animal = Animal(
-                details[0],
-                details[1],
-                animalInfo.zip(info).toMap(),
-                details[2],
-                imagesOfAnimals[i][0],
-                imagesOfAnimals[i][1]
+            if (":" in infos[3]) {
+                val specialInfo = infos[3].split(":")
+                animalsInfoGlobal[3] = specialInfo[0]
+                infos[3] = specialInfo[1]
+            } else {
+                animalsInfoGlobal[3] = originalSpecialAnimalInfo
+            }
+
+            animalsList[name] = Animal(
+                name,
+                category,
+                animalsInfoGlobal.zip(infos).toMap(),
+                description,
+                imagesList[0],
+                imagesList[1]
             )
-            animals[animalCategory[i]] = animal
         }
-        return animals
+        return animalsList.toSortedMap()
     }
 }
-

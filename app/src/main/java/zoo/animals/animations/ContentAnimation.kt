@@ -1,9 +1,11 @@
 package zoo.animals.animations
 
+import android.transition.Transition
 import androidx.compose.animation.*
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,7 +30,7 @@ class ContentAnimation {
     }
 
     @Composable
-    fun ShowsFromVerticallySide(offsetY: Int, duration: Int, targetState: Boolean=true, content: @Composable () -> Unit){
+    fun FadeInFromVerticallySide(offsetY: Int, duration: Int, targetState: Boolean=true, content: @Composable () -> Unit){
         val visibleState = remember { MutableTransitionState(false) }
         visibleState.targetState = targetState
 
@@ -49,7 +51,7 @@ class ContentAnimation {
     }
 
     @Composable
-    fun ShowsFromHorizontallySide(offsetX: Int, duration: Int, content: @Composable () -> Unit){
+    fun FadeInFromHorizontallySide(offsetX: Int, duration: Int, content: @Composable () -> Unit){
         val visibleState = remember { MutableTransitionState(false) }
         visibleState.targetState = true
 
@@ -64,4 +66,24 @@ class ContentAnimation {
             content()
         }
     }
+
+
+
+    @Composable
+    fun ShrinkInFromHorizontallySide(offsetX: Int, duration: Int, targetState: Boolean=true, content: @Composable () -> Unit){
+        val visibleState = remember { MutableTransitionState(!targetState) }
+        visibleState.targetState = targetState
+
+        AnimatedVisibility(
+            visibleState = visibleState,
+            enter = expandHorizontally { offsetX },
+            exit = shrinkHorizontally(
+                animationSpec = tween(durationMillis = duration),
+                shrinkTowards = Alignment.End,
+            ) { 0 }
+        ) {
+            content()
+        }
+    }
+
 }

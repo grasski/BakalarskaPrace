@@ -15,9 +15,22 @@
         <item>Lion</item>
         <item>Tiger</item>
         <item>Zebra</item>
-        <item>Sea lion</item>
+        <item>SeaLion</item>
         <item>Cat</item>
         <item>Dog</item>
+
+        <item>Chinchilla</item>
+        <item>EuropeanFallowDeer</item>
+        <item>Porcupine</item>
+        <item>Cheetah</item>
+        <item>Hedgehog</item>
+        <item>Goat</item>
+        <item>Lemur</item>
+        <item>AsianBlackBear</item>
+        <item>Degu</item>
+        <item>Sheep</item>
+        <item>Meerkat</item>
+        <item>Camel</item>
     </string-array>
 
 

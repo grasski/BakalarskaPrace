@@ -16,7 +16,7 @@
         <item>Plazi jsou skupina obratlovců chápaná různým způsobem: jako parafyletická skupina zahrnující všechna Sauropsida kromě ptáků; jako parafyletická skupina zahrnující všechna Sauropsida kromě ptáků a všechna Synapsida kromě savců; jako monofyletická skupina zahrnující všechna Sauropsida.</item>
     </array>
 
-    <array name="animalCategory">
+    <array name="animalCategories">
         <item>Savec</item>
         <item>Pták</item>
         <item>Plaz</item>

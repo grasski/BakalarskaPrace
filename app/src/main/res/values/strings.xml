@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Zoo</string>
+    <string name="app_name">Zoo tlapky</string>
     <string name="empty" translatable="false" />
     <string name="categoryTitle">Kategorie</string>
     <string name="detectionByCamera">Rozpoznej kamerou</string>

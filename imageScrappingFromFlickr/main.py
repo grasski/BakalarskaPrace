@@ -100,30 +100,28 @@ class ImageWorker:
             iaa.Sometimes(0.5, iaa.LinearContrast((0.6, 1.5)))
         ])
 
-        images = []
         for animalPath in animalsPath:
+            if "Cat" in animalPath or "Dog" in animalPath or "Duck" in animalPath\
+                    or "Elephant" in animalPath or "Flamingo" in animalPath or "Giraffe" in animalPath\
+                    or "Gorilla" in animalPath or "Kangaroo" in animalPath or "Lion" in animalPath\
+                    or "Parrot" in animalPath or "Penguin" in animalPath or "SeaLion" in animalPath\
+                    or "Tiger" in animalPath or "Turtle" in animalPath or "Zebra" in animalPath:
+                continue
             imagesPath = glob.glob(os.path.join(animalPath, "*"))
-            print("Collecting images of: " + animalPath)
-            category = ""
-            for imgPath in imagesPath:
+            print("Images of: " + animalPath)
+            rep = 2 if "Jaguar" in animalPath else 3
+            for i, imgPath in enumerate(imagesPath):
                 category = os.path.basename(os.path.dirname(imgPath))
                 img = cv2.imread(imgPath)
-                images.append(img)
-
-            print(f"IMAGE SAVING OF CATEGORY {category} STARTED")
-            reps = 2
-            for r in range(reps):
-                print(f"Repeat no. {r}")
-                augmentedImg = augmentation(images=images)
                 saveTo = os.path.join("..\\animalsData\\images\\", category)
-                for i, im in enumerate(augmentedImg):
-                    name = os.path.join(saveTo, f"aug_{r}_{i}.jpg")
-                    cv2.imwrite(name, im)
+                for r in range(rep-1):
+                    augmImage = augmentation(image=img)
 
-            images = []
+                    name = os.path.join(saveTo, f"{category}_{i}_aug_{r}.jpg")
+                    cv2.imwrite(name, augmImage)
 
 
 if __name__ == "__main__":
     worker = ImageWorker()
-    worker.flickrdownloader()
-    # worker.imageAugmentation()
+    # worker.flickrdownloader()
+    worker.imageAugmentation()

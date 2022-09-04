@@ -2,47 +2,50 @@ package zoo.animals
 
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.pm.ActivityInfo
-import android.graphics.Paint
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
-import android.widget.PopupMenu
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
-import androidx.compose.animation.*
-import androidx.compose.foundation.BorderStroke
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.core.TweenSpec
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.ButtonColors
-import androidx.compose.material.ModalBottomSheetDefaults
-import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Popup
-import androidx.compose.ui.window.PopupProperties
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.annotation.Destination
 import kotlinx.coroutines.launch
+import zoo.animals.animations.ContentAnimation
+import zoo.animals.data.Animal
+import zoo.animals.data.AnimalData
 import zoo.animals.data.CategoryData
+import zoo.animals.screens.CategoryAnimalsScreen
+import zoo.animals.screens.NavGraphs
 import zoo.animals.ui.theme.ZooTheme
 
 
@@ -60,7 +63,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Navigation()
+//                    AnimalData.init(LocalContext.current)
+//                    Navigation()
+                    DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
         }
@@ -69,7 +74,7 @@ class MainActivity : ComponentActivity() {
 
 
 @OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter", "MutableCollectionMutableState")
 @Composable
 fun TopBar(
     title: String,
@@ -85,11 +90,15 @@ fun TopBar(
         rememberTopAppBarState()
     )
 
+    var searching by rememberSaveable { mutableStateOf(false) }
+    var searchedAnimals by remember { mutableStateOf(mutableMapOf<String, Animal>()) }
+
+
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             SmallTopAppBar(
-                title = { Text(title) },
+                title = { ContentAnimation().ShrinkInFromHorizontallySide(-200, 100, !searching) { Text(title) } },
                 navigationIcon = {
                     IconButton(onClick = {
                         scope.launch {
@@ -114,11 +123,9 @@ fun TopBar(
 //                            }
 //                        }
 //                    }
-                    if (showSearch){
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(Icons.Filled.Search, contentDescription = null)
-                        }
-                    }
+
+                    searchingButton(searching, showSearch, {searching = it}, {searchedAnimals = it})
+
                     if (showBackBtn){
                         IconButton(onClick = {
                             navController.popBackStack()
@@ -137,11 +144,21 @@ fun TopBar(
             ) {
                 ModalNavigationDrawer(
                     drawerState = drawerState,
+                    scrimColor = MaterialTheme.colorScheme.background,
                     drawerContent = {
                         DrawerView(navController = navController)
                     },
                     content = {
-                        content()
+                        if (searchedAnimals.isEmpty()){
+                            content()
+                        } else{
+                            CategoryAnimalsScreen().Screen(
+                                navController = navController,
+                                animals = searchedAnimals,
+                                title = "",
+                                showTopBar = false
+                            )
+                        }
                     }
                 )
             }
@@ -168,7 +185,116 @@ fun DrawerView(navController: NavController) {
         item {
             DrawerButton(cameraIcon, cameraTileText.asString(), navController, Routes.Camera.route, false)
         }
+        item {
+            Button(
+                onClick = {  },
+                Modifier
+                    .width(300.dp)
+                    .padding(top = 15.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            ) {
+                Row(modifier = Modifier
+                    .width(IntrinsicSize.Max),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
+
+                    Text(
+                        text = "Seznam Zoo",
+                        fontSize = 22.sp,
+                        textAlign = TextAlign.Start,
+                    )
+                }
+            }
+        }
     }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun searchingButton(
+    searching: Boolean,
+    showSearch: Boolean,
+    _searching: (Boolean) -> Unit,
+    _searchedAnimal: (MutableMap<String, Animal>) -> Unit): Boolean
+{
+    var searchingText by rememberSaveable { mutableStateOf("") }
+    val focusRequester = remember { FocusRequester() }
+
+    if (searching){
+        ContentAnimation().ShrinkInFromHorizontallySide(0, 500, searching) {
+            LaunchedEffect(Unit) {
+                focusRequester.requestFocus()
+            }
+
+            TextField(
+                value = searchingText,
+                onValueChange = { searchingText = it },
+
+                colors = TextFieldDefaults.textFieldColors(
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                    disabledIndicatorColor = Color.Transparent,
+                    errorIndicatorColor = Color.Transparent
+                ),
+                singleLine = true,
+                maxLines = 1,
+
+                modifier = Modifier
+                    .focusRequester(focusRequester)
+                    .clip(RoundedCornerShape(10.dp)),
+//                keyboardActions = KeyboardActions(onDone = { searching = false })
+            )
+        }
+    }
+
+    if (showSearch){
+        Crossfade(
+            targetState = !searching,
+            animationSpec = TweenSpec(durationMillis = 350)
+        ) { isChecked ->
+            if (isChecked) {
+                IconButton(onClick = { _searching(true) }) {
+                    Icon(Icons.Filled.Search, contentDescription = null)
+                }
+            } else {
+                IconButton(onClick = {
+                    _searching(false)
+                    searchingText = ""
+                }) {
+                    Icon(Icons.Filled.Close, contentDescription = null)
+                }
+            }
+        }
+    }
+
+    var searchedAnimals = remember { mutableMapOf<String, Animal>() }
+    if (searchingText.length >= 2){
+        searchedAnimals = (
+                AnimalData.allAnimalsInstance[0] +
+                AnimalData.allAnimalsInstance[1] +
+                AnimalData.allAnimalsInstance[2]
+                ) as MutableMap<String, Animal>
+
+
+        searchedAnimals =
+            searchedAnimals.filter { it.key
+                    .replace("\\s".toRegex(), "")
+                    .lowercase().normalize()
+
+                    .contains(searchingText.replace(
+                        "\\s".toRegex(),
+                        ""
+                    ).lowercase().normalize())
+            } as MutableMap<String, Animal>
+    }
+
+    _searchedAnimal(searchedAnimals)
+    return searchingText.length >= 2
 }
 
 
@@ -252,111 +378,10 @@ fun DrawerButton(
 //                                    color = MaterialTheme.colorScheme.background,
                                     textAlign = TextAlign.Center
                                 )
-                            }}
+                            } }
                     )
                 }
             }
         }
     }
 }
-
-
-
-//    Button(
-//        onClick = { navController.navigate(route) },
-//        Modifier
-//            .widthIn(100.dp, 300.dp)
-//            .padding(top = 15.dp)
-//            .height(100.dp)
-//    ) {
-//        Row(
-//            Modifier
-//                .heightIn(10.dp, 80.dp)
-//                .fillMaxWidth()
-//        ) {
-//            Box(
-//                Modifier
-//                    .align(Alignment.CenterVertically)
-//                    .fillMaxWidth(0.1f)
-//            ){
-//                Icon(
-//                    imageVector = icon,
-//                    contentDescription = title,
-//                    modifier = Modifier
-//                        .size(34.dp)
-//                )
-//            }
-//
-//            Spacer(modifier = Modifier.width(20.dp))
-//
-//            Box(
-//                Modifier
-//                    .align(Alignment.CenterVertically)
-//                    .fillMaxWidth(0.85f),
-//                contentAlignment = Alignment.CenterStart
-//            ){
-//                Text(
-//                    text = title,
-//                    fontSize = 22.sp,
-//                    textAlign = TextAlign.Start,
-//                    color = MaterialTheme.colorScheme.background
-//                )
-//            }
-//
-//            Box(
-//                Modifier
-//                    .align(Alignment.CenterVertically)
-//                    .fillMaxWidth(),
-//                contentAlignment = Alignment.CenterEnd
-//            ){
-//                if (expand) {
-//                    IconButton(
-//                        onClick = { expanded = !expanded },
-//                    ) {
-//                        Icon(
-//                            Icons.Filled.ArrowDropDown,
-//                            contentDescription = title,
-//                            modifier = Modifier
-//                                .size(40.dp)
-//                        )
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//    Column {
-//        AnimatedVisibility(
-//            visible = expanded,
-//
-//            enter = slideInVertically(
-//                initialOffsetY = { -40 }
-//            ) + expandVertically(
-//                expandFrom = Alignment.Top
-//            ) + scaleIn(
-//                transformOrigin = TransformOrigin(0.5f, 0f)
-//            ) + fadeIn(initialAlpha = 0.2f),
-//
-//            exit = slideOutVertically(
-//                targetOffsetY = { 0 }
-//            ) + scaleOut(
-//                transformOrigin = TransformOrigin(0.5f, 0f)
-//            ) + shrinkVertically(
-//                shrinkTowards = Alignment.Top
-//            )
-//        ) {
-//            val context = LocalContext.current
-//            Column {
-//                CategoryData.categoriesList(context).forEach { item ->
-//                    Button(onClick = { navController.navigate(item.route.route) }) {
-//                        Text(
-//                            text = item.categoryName,
-//                            color = MaterialTheme.colorScheme.background
-//                        )
-//                    }
-//                }
-//            }
-//        }
-//    }
-//        }
-//}

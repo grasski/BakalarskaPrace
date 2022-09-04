@@ -19,18 +19,27 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import zoo.animals.R
 import zoo.animals.TopBar
 import zoo.animals.UiTexts
 import zoo.animals.data.Category
 import zoo.animals.data.CategoryData
+import zoo.animals.screens.destinations.CategoryCardDestination
 import java.lang.reflect.Field
 
 
+@Destination(start = true)
 @Composable
-fun CategoryScreen(navController: NavController) {
-    CategoriesList(navController)
+fun CategoryScreen(
+//    navController: NavController
+    navigator: DestinationsNavigator
+) {
+    Text("AHOJ")
+//    CategoriesList(navController)
 }
+
 
 @Composable
 fun CategoriesList(navController: NavController){
@@ -38,37 +47,31 @@ fun CategoriesList(navController: NavController){
         val context = LocalContext.current
         TopBar(title = UiTexts.StringResource(R.string.categoryTitle).asString(), navController = navController)
         {
-            LazyColumn {
-                item {
-                    CategoryCard(Arrangement.Start, CategoryData.mammals(context), navController)
-                }
-                item {
-                    CategoryCard(Arrangement.End, CategoryData.birds(context), navController)
-                }
-                item {
-                    CategoryCard(Arrangement.Start, CategoryData.reptiles(context), navController)
-                }
-                item {
-                    val name = "missingPermissions"
-                    val drawableId = derivedStateOf {context.resources.getIdentifier(
-                        name,
-                        "array",
-                        context.packageName
-                    ) }
-                    Text("tu: " + UiTexts.ArrayResource(drawableId.value,0).asString())
-                }
-            }
+
+//            LazyColumn {
+//                item {
+//                    CategoryCard(Arrangement.Start, CategoryData.mammals(context), navController)
+//                }
+//                item {
+//                    CategoryCard(Arrangement.End, CategoryData.birds(context), navController)
+//                }
+//                item {
+//                    CategoryCard(Arrangement.Start, CategoryData.reptiles(context), navController)
+//                }
+//            }
         }
     }
 }
 
 
+@Destination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryCard(
     position: Arrangement.Horizontal,
     category: Category,
-    navController: NavController,
+//    navController: NavController,
+    navigator: DestinationsNavigator
 ) {
     val image: Painter = painterResource(id = category.imageId)
 
@@ -78,7 +81,7 @@ fun CategoryCard(
             .padding(all = 15.dp)
             .heightIn(100.dp, 250.dp),
         shape = RoundedCornerShape(8.dp),
-        onClick = { navController.navigate(category.route.route) }
+        onClick = { /*navController.navigate(category.route.route)*/ }
     ) {
         Row {
             if (position == Arrangement.End) {

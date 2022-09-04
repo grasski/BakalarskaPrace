@@ -9,7 +9,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Camera
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material3.*
@@ -24,12 +23,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import zoo.animals.R
 import zoo.animals.Routes
-import java.security.Permission
 
 
 @Composable
 fun btnRecognitionToggle(): Boolean{
-    var running by remember { mutableStateOf(true) }
+    var running by remember { mutableStateOf(RecognitionRunning.status) }
 
     val interactionSource = MutableInteractionSource()
     Box(
@@ -53,7 +51,7 @@ fun btnRecognitionToggle(): Boolean{
                     painter = painterResource(id = R.drawable.eye_open),
                     contentDescription = "DetectionToggleButton",
                     modifier = Modifier.fillMaxSize(),
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             } else {
                 Icon(
@@ -65,30 +63,34 @@ fun btnRecognitionToggle(): Boolean{
             }
         }
     }
-
     return running
 }
 
 
 @Composable
-fun BtnCapture(){
+fun BtnCapture(
+    takePhoto: () -> Unit,
+    clicked: (Boolean) -> Unit
+){
     OutlinedButton(
-        onClick = { },
+        onClick = {
+            takePhoto()
+            clicked(true)
+        },
         modifier= Modifier.size(70.dp),
         shape = CircleShape,
         border= BorderStroke(5.dp, MaterialTheme.colorScheme.surfaceVariant),
-        contentPadding = PaddingValues(0.dp),
+        contentPadding = PaddingValues(5.dp),
     ) {
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize()
+                .background(MaterialTheme.colorScheme.onSurfaceVariant),
             contentAlignment = Alignment.Center
         ){
-            OutlinedButton(
-                onClick = { },
-                modifier= Modifier.fillMaxSize(0.9f),
-                shape = CircleShape,
-                border= BorderStroke(5.dp, MaterialTheme.colorScheme.onSurfaceVariant),
-                contentPadding = PaddingValues(0.dp),
+            Box(modifier = Modifier
+                .clip(CircleShape)
+                .background(MaterialTheme.colorScheme.surfaceVariant)
+                .fillMaxSize(0.9f)
             ) {
                 Box(
                     Modifier
@@ -100,7 +102,7 @@ fun BtnCapture(){
                         "ImageCaptureButton",
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(10.dp),
+                            .padding(5.dp),
                         tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
@@ -112,21 +114,26 @@ fun BtnCapture(){
 
 @Composable
 fun BtnClose(navController: NavController){
-    IconButton(
-        onClick = {
-            navController.navigate(Routes.Categories.route)
-        },
-        modifier = Modifier
-            .then(Modifier.size(40.dp))
-            .clip(CircleShape)
-            .background(MaterialTheme.colorScheme.surfaceVariant),
-    ) {
-        Icon(
-            Icons.Filled.Home,
-            contentDescription = "DetectionToggleButton",
-            modifier = Modifier.fillMaxSize(),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+    Box(
+        Modifier
+            .padding(start = 20.dp)
+    ){
+        IconButton(
+            onClick = {
+                navController.navigate(Routes.Categories.route)
+            },
+            modifier = Modifier
+                .then(Modifier.size(40.dp))
+                .clip(CircleShape)
+                .background(MaterialTheme.colorScheme.surfaceVariant),
+        ) {
+            Icon(
+                Icons.Filled.Home,
+                contentDescription = "DetectionToggleButton",
+                modifier = Modifier.fillMaxSize(),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
     }
 }
 

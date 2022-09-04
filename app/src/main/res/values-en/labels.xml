@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="labels">
-        <item>Cat</item>
-        <item>Dog</item>
-        <item>Duck</item>
-        <item>Elephant</item>
-        <item>Flamingo</item>
-        <item>Giraffe</item>
-        <item>Gorilla</item>
-        <item>Kangaroo</item>
-        <item>Lion</item>
-        <item>Parrot</item>
-        <item>Penguin</item>
-        <item>Sea lion</item>
-        <item>Tiger</item>
-        <item>Turtle</item>
-        <item>Zebra</item>
-    </array>
+<!--    <array name="labels">-->
+<!--        <item>Cat</item>-->
+<!--        <item>Dog</item>-->
+<!--        <item>Duck</item>-->
+<!--        <item>Elephant</item>-->
+<!--        <item>Flamingo</item>-->
+<!--        <item>Giraffe</item>-->
+<!--        <item>Gorilla</item>-->
+<!--        <item>Kangaroo</item>-->
+<!--        <item>Lion</item>-->
+<!--        <item>Parrot</item>-->
+<!--        <item>Penguin</item>-->
+<!--        <item>Sea lion</item>-->
+<!--        <item>Tiger</item>-->
+<!--        <item>Turtle</item>-->
+<!--        <item>Zebra</item>-->
+<!--    </array>-->
 </resources>

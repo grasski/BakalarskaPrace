@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="birds">
+    <array name="birds">
         <item>Flamingo</item>
         <item>Duck</item>
-    </string-array>
+
+        <item>Agapornis</item>
+        <item>Budgerigar</item>
+        <item>Pheasant</item>
+        <item>Vanellinae</item>
+        <item>Emu</item>
+        <item>Goose</item>
+        <item>Crane</item>
+        <item>Canary</item>
+        <item>Raven</item>
+        <item>Kookaburra</item>
+        <item>SeaEagle</item>
+        <item>MountainEagle</item>
+        <item>GuineaFowl</item>
+        <item>Peafowl</item>
+        <item>SnowyOwl</item>
+
+    </array>
 </resources>
