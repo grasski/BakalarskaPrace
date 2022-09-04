@@ -9,12 +9,8 @@ import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.TweenSpec
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -26,26 +22,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.ramcosta.composedestinations.DestinationsNavHost
-import com.ramcosta.composedestinations.annotation.Destination
 import kotlinx.coroutines.launch
 import zoo.animals.animations.ContentAnimation
 import zoo.animals.data.Animal
 import zoo.animals.data.AnimalData
 import zoo.animals.data.CategoryData
 import zoo.animals.screens.CategoryAnimalsScreen
-import zoo.animals.screens.NavGraphs
 import zoo.animals.ui.theme.ZooTheme
 
 
@@ -63,9 +53,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-//                    AnimalData.init(LocalContext.current)
-//                    Navigation()
-                    DestinationsNavHost(navGraph = NavGraphs.root)
+                    AnimalData.init(LocalContext.current)
+                    Navigation()
                 }
             }
         }
