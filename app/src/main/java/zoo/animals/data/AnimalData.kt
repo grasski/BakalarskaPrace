@@ -2,8 +2,6 @@ package zoo.animals.data
 
 
 import android.content.Context
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import zoo.animals.R
 import zoo.animals.UiTexts
 
@@ -185,6 +183,7 @@ object AnimalData: IAnimals {
 
         for ((i, animalID) in animals.withIndex()) {
             val animalArray = UiTexts.ArrayResource(animalID, 0).asArray(context)
+            val id = context.resources.getResourceEntryName(animalID)
 
             val name = animalArray[0]
             val description = animalArray[animalArray.lastIndex]
@@ -203,7 +202,7 @@ object AnimalData: IAnimals {
                 animalsInfoGlobal[3] = originalSpecialAnimalInfo
             }
 
-            animalsList[name] = Animal(
+            animalsList[id] = Animal(
                 name,
                 category,
                 animalsInfoGlobal.zip(infos).toMap(),
@@ -212,6 +211,8 @@ object AnimalData: IAnimals {
                 imagesList[1]
             )
         }
-        return animalsList.toSortedMap()
+
+        val result = animalsList.toList().sortedBy { (_, value) -> value.name}.toMap()
+        return result.toMutableMap()
     }
 }

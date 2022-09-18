@@ -6,6 +6,6 @@ sealed class Routes(val route: String) {
     object Mammals : Routes("mammals")
     object Birds : Routes("birds")
     object Reptiles: Routes("reptiles")
-    object Camera: Routes("camera")
     object AnimalInfo: Routes("animalInfo")
+    object Camera: Routes("camera")
 }

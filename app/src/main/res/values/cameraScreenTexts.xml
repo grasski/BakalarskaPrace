@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="detectionStoppedNotice">Rozpoznávání zvířat je pozastaveno</string>
+
+    <string name="liveCamera">Živě</string>
+    <string name="photoSelect">Fotografie</string>
+
+    <string name="selectImage">Vyberte obrázek z galerie pro možnost rozpoznat zvíře.</string>
+    <string name="openGallery">Otevři galerii</string>
+    <string name="animalNotRecognized1">Zvíře nebylo rozpoznané!</string>
+    <string name="animalNotRecognized2">Zkuste prosím vyfotit zvíře z jiného úhlu nebo menší vzdálenosti, popř. využijte zoom fotoaparátu.</string>
+    <string name="animalRecognized">Nalezeno zvíře</string>
+
+
+</resources>

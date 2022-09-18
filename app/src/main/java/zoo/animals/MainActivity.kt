@@ -8,7 +8,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.Crossfade
-import androidx.compose.animation.core.TweenSpec
+import androidx.compose.animation.core.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,8 +22,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -30,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import zoo.animals.animations.ContentAnimation
 import zoo.animals.data.Animal
@@ -37,6 +42,7 @@ import zoo.animals.data.AnimalData
 import zoo.animals.data.CategoryData
 import zoo.animals.screens.CategoryAnimalsScreen
 import zoo.animals.ui.theme.ZooTheme
+import kotlin.coroutines.CoroutineContext
 
 
 class MainActivity : ComponentActivity() {
@@ -55,6 +61,120 @@ class MainActivity : ComponentActivity() {
                 ) {
                     AnimalData.init(LocalContext.current)
                     Navigation()
+                }
+            }
+        }
+    }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@Composable
+fun BottomCameraSwitch(
+    cameraPreview: @Composable () -> Unit,
+    galleryPreview: @Composable () -> Unit
+){
+    var liveSelected by rememberSaveable { mutableStateOf(true) }
+
+    val liveWidth: Float by animateFloatAsState(if (liveSelected) 1f else 0f)
+    val photoWidth: Float by animateFloatAsState(if (!liveSelected) 1f else 0f)
+
+    val interactionSource = MutableInteractionSource()
+
+    Scaffold (
+        bottomBar = {
+            BottomAppBar(
+                Modifier.heightIn(30.dp, 50.dp),
+                containerColor = MaterialTheme.colorScheme.background,
+                tonalElevation = 0.dp,
+            ){
+                Row(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(5.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceAround
+                ) {
+                    Box(modifier = Modifier
+                        .fillMaxWidth(0.5f)
+                        .fillMaxHeight()
+                        .align(Alignment.CenterVertically)
+                        .clickable(
+                            onClick = { liveSelected = true },
+                            interactionSource = interactionSource,
+                            indication = null
+                        )
+                        .drawBehind {
+                            val lineOffset = 50f
+                            val lineWidth = size.width - lineOffset * 2
+                            val linePivot = size.width / 2
+
+                            drawLine(
+                                Color.Green,
+                                start = Offset(
+                                    x = linePivot - (lineWidth / 2 * liveWidth),
+                                    y = size.height
+                                ),
+                                end = Offset(
+                                    x = linePivot + (lineWidth / 2 * liveWidth),
+                                    y = size.height
+                                ),
+                                strokeWidth = 3f
+                            )
+                        },
+                        contentAlignment = Alignment.Center
+                    ){
+                        Text(UiTexts.StringResource(R.string.liveCamera).asString())
+                    }
+
+                    Spacer(modifier = Modifier.width(10.dp))
+
+                    Box(modifier = Modifier
+                        .fillMaxSize()
+                        .align(Alignment.CenterVertically)
+                        .clickable(
+                            onClick = { liveSelected = false },
+                            interactionSource = interactionSource,
+                            indication = null
+                        )
+                        .drawBehind {
+                            val lineOffset = 50f
+                            val lineWidth = size.width - lineOffset * 2
+                            val linePivot = size.width / 2
+
+                            drawLine(
+                                Color.Green,
+                                start = Offset(
+                                    x = linePivot - (lineWidth / 2 * photoWidth),
+                                    y = size.height
+                                ),
+                                end = Offset(
+                                    x = linePivot + (lineWidth / 2 * photoWidth),
+                                    y = size.height
+                                ),
+                                strokeWidth = 3f
+                            )
+                        },
+                        contentAlignment = Alignment.Center
+                    ){
+                        Text(UiTexts.StringResource(R.string.photoSelect).asString())
+                    }
+                }
+            }
+        }
+    ){
+        Crossfade(
+            targetState = liveSelected,
+            animationSpec = TweenSpec(durationMillis = 500)
+        ) { isChecked ->
+            if (isChecked) {
+                ContentAnimation().FadeInFromHorizontallySide(offsetX = -5000, duration = 250) {
+                    cameraPreview()
+                }
+            } else {
+                ContentAnimation().FadeInFromHorizontallySide(offsetX = 5000, duration = 250) {
+                    galleryPreview()
                 }
             }
         }
@@ -328,7 +448,6 @@ fun DrawerButton(
                     textAlign = TextAlign.Start,
                 )
 
-
                 if (expand) {
                     IconButton(
                         onClick = { expanded = !expanded },
@@ -374,3 +493,6 @@ fun DrawerButton(
         }
     }
 }
+
+
+

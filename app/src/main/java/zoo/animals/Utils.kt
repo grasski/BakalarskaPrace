@@ -1,5 +1,9 @@
 package zoo.animals
 
+import android.util.Log
+import zoo.animals.data.Animal
+import zoo.animals.data.AnimalData
+
 
 fun stringMapToIndexKey(map: Map<String, Any>): Map<Int, String> {
     val keys: Set<String> = (listOf(map.keys)[0])
@@ -15,4 +19,13 @@ fun String.normalize(): String {
         val index = original.indexOf(it.toString())
         if (index >= 0) normalized[index] else it
     }.joinToString("")
+}
+
+fun getAnimalByName(name: String): Animal? {
+    val mammals = AnimalData.allAnimalsInstance[0]
+    val birds = AnimalData.allAnimalsInstance[1]
+    val reptiles = AnimalData.allAnimalsInstance[2]
+    val catalogAnimals = mammals + birds + reptiles
+
+    return catalogAnimals[name]
 }

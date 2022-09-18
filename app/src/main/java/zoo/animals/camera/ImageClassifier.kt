@@ -5,15 +5,15 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Matrix
-import android.graphics.RectF
 import android.util.Log
 import androidx.camera.core.ImageProxy
-import androidx.compose.ui.unit.Dp
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 import org.tensorflow.lite.task.vision.detector.ObjectDetector.ObjectDetectorOptions
+import zoo.animals.data.Animal
+import zoo.animals.getAnimalByName
 import zoo.animals.ml.*
 
 
@@ -28,14 +28,15 @@ class ImageClassifier(private val context: Context) {
     @SuppressLint("UnsafeOptInUsageError")
     fun detect(imageProxy: ImageProxy): List<Any> {
         var text = ""
-        var location = emptyList<Float>()
+        val score: Float
+        var location = listOf(0f, 0f, 0f, 0f)
 
         val options = ObjectDetectorOptions.builder()
             .setBaseOptions(BaseOptions.builder().build())
             .setMaxResults(1)
             .build()
         val objectDetector = ObjectDetector.createFromFileAndOptions(
-            context, "zkouska.tflite", options
+            context, "ssddetect_metadata.tflite", options
         )
 
 
@@ -45,8 +46,8 @@ class ImageClassifier(private val context: Context) {
             val resizedBitmap = CameraUtils.toBitmap(mediaImage)?.let {
                 Bitmap.createScaledBitmap(
                     it,
-                    640,
-                    640,
+                    320,
+                    320,
                     false
                 )
             }
@@ -67,17 +68,22 @@ class ImageClassifier(private val context: Context) {
 
             val tfImage = TensorImage.fromBitmap(rotatedBitmap)
             val results: List<Detection> = objectDetector.detect(tfImage)
-            text = results[0].categories[0].label
 
-            val loc = results[0].boundingBox
-            location = listOf(loc.left, loc.top, loc.right, loc.bottom)
-            text += "  " + location
+            if (results[0].categories[0].score > 0.5f) {
+                text = results[0].categories[0].label
+                score = results[0].categories[0].score
+
+                val loc = results[0].boundingBox
+
+                location = listOf(loc.left, loc.top, loc.right, loc.bottom)
+                text += "  " + location + "  " + score
+            }
         }
 
         imageProxy.close()
-        Log.d("halo", "NEVIMMMMM: " + text)
         return listOf(text, location)
     }
+
 
     @SuppressLint("UnsafeOptInUsageError")
     fun classify(imageProxy: ImageProxy): List<Any?> {
@@ -252,5 +258,41 @@ class ImageClassifier(private val context: Context) {
 
 //        , listOf(location.left, location.top, location.right, location.bottom)
         return listOf(result, rotatedBitmap)
+    }
+
+
+    @SuppressLint("UnsafeOptInUsageError")
+    fun classifyPhoto(bitmap: Bitmap): Animal? {
+        var result = ""
+        val btm: Bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
+
+        val resizedBitmap =
+            Bitmap.createScaledBitmap(
+                btm,
+                280,
+                280,
+                false
+            )
+
+        val model = AutoModel18animals.newInstance(context)
+        val tfImage = TensorImage.fromBitmap(resizedBitmap)
+        val outputs = model.process(tfImage)
+        model.close()
+
+        val probability = outputs.probabilityAsCategoryList
+        var tmpScore = probability[0].score
+        var animalIndex = 0
+        for (i in 0 until probability.size){
+            if (tmpScore < probability[i].score){
+                tmpScore = probability[i].score
+                animalIndex = i
+            }
+        }
+
+        if (tmpScore > 0.45f){
+            result = probability[animalIndex].label
+        }
+
+        return getAnimalByName(result)
     }
 }

@@ -5,13 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import zoo.animals.camera.SimpleCameraPreview
 import zoo.animals.data.Animal
 import zoo.animals.screens.*
 
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun Navigation(){
     val navController = rememberNavController()
@@ -36,7 +33,7 @@ fun Navigation(){
         }
 
         composable(route = Routes.Camera.route){
-            SimpleCameraPreview(navController)
+            CameraScreen().CameraScreen(navController)
         }
     }
 }

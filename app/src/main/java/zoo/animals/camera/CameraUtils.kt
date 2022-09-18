@@ -1,8 +1,19 @@
 package zoo.animals.camera
 
+import android.content.Context
 import android.graphics.*
 import android.media.Image
+import android.net.Uri
+import android.os.Build
+import android.provider.MediaStore
 import androidx.camera.core.ImageProxy
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.unit.dp
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
 
@@ -20,6 +31,21 @@ object CameraUtils {
             source, 0, 0, source.width, source.height,
             matrix, true
         )
+    }
+
+
+    fun uriToBitmap(uri: Uri, context: Context): Bitmap {
+        if (Build.VERSION.SDK_INT < 28) {
+            return MediaStore.Images
+                .Media.getBitmap(context.contentResolver, uri)
+
+        } else {
+            val source = ImageDecoder
+                    .createSource(context.contentResolver, uri)
+
+            return ImageDecoder.decodeBitmap(source)
+        }
+
     }
 
     fun toBitmap(image: Image): Bitmap? {

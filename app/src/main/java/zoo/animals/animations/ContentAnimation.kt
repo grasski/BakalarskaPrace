@@ -51,9 +51,9 @@ class ContentAnimation {
     }
 
     @Composable
-    fun FadeInFromHorizontallySide(offsetX: Int, duration: Int, content: @Composable () -> Unit){
-        val visibleState = remember { MutableTransitionState(false) }
-        visibleState.targetState = true
+    fun FadeInFromHorizontallySide(offsetX: Int, duration: Int, targetState: Boolean=true, content: @Composable () -> Unit){
+        val visibleState = remember { MutableTransitionState(!targetState) }
+        visibleState.targetState = targetState
 
         AnimatedVisibility(
             visibleState = visibleState,
