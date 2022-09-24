@@ -25,7 +25,7 @@ class ImageWorker:
         api_secret = u'62f0041f96dbb8b7'
         flickr = flickrapi.FlickrAPI(api_key, api_secret)
 
-        for animal in ["Rhino"]:
+        for animal in ["Capybara"]:
             print("Downloading: " + animal)
 
             photos = flickr.walk(text=animal,
@@ -123,5 +123,5 @@ class ImageWorker:
 
 if __name__ == "__main__":
     worker = ImageWorker()
-    # worker.flickrdownloader()
-    worker.imageAugmentation()
+    worker.flickrdownloader()
+    # worker.imageAugmentation()

@@ -57,7 +57,7 @@ fun CategoryCard(
             .fillMaxWidth()
             .padding(all = 15.dp)
             .heightIn(100.dp, 250.dp),
-        shape = RoundedCornerShape(8.dp),
+        shape = RoundedCornerShape(12.dp),
         onClick = { navController.navigate(category.route.route) }
     ) {
         Row {

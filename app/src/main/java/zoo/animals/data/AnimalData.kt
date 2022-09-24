@@ -50,6 +50,8 @@ object AnimalData: IAnimals {
             R.array.Sheep,
             R.array.Meerkat,
             R.array.Camel,
+            R.array.Jaguar,
+            R.array.Rhino
         )
         val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.agouti_preview, R.drawable.agouti_main),
@@ -71,7 +73,6 @@ object AnimalData: IAnimals {
             listOf(R.drawable.cat_preview, R.drawable.cat_main),
             listOf(R.drawable.dog_preview, R.drawable.dog_main),
 
-
             listOf(R.drawable.chinchilla_preview, R.drawable.chinchilla_main),
             listOf(R.drawable.europeanfallowdeer_preview, R.drawable.europeanfallowdeer_main),
             listOf(R.drawable.porcupine_preview, R.drawable.porcupine_main),
@@ -84,6 +85,8 @@ object AnimalData: IAnimals {
             listOf(R.drawable.sheep_preview, R.drawable.sheep_main),
             listOf(R.drawable.meerkat_preview, R.drawable.meerkat_main),
             listOf(R.drawable.camel_preview, R.drawable.camel_main),
+            listOf(R.drawable.jaguar_preview, R.drawable.jaguar_main),
+            listOf(R.drawable.rhino_preview, R.drawable.rhino_main),
         )
 
         return animalsToList(

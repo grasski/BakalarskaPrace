@@ -2,13 +2,12 @@ package zoo.animals
 
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.annotation.RequiresApi
 import androidx.compose.animation.Crossfade
-import androidx.compose.animation.core.*
+import androidx.compose.animation.core.TweenSpec
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
@@ -34,20 +33,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import zoo.animals.animations.ContentAnimation
 import zoo.animals.data.Animal
 import zoo.animals.data.AnimalData
 import zoo.animals.data.CategoryData
+import zoo.animals.data.ZooData
 import zoo.animals.screens.CategoryAnimalsScreen
 import zoo.animals.ui.theme.ZooTheme
-import kotlin.coroutines.CoroutineContext
 
 
 class MainActivity : ComponentActivity() {
-    @SuppressLint("SourceLockedOrientationActivity")
-    @RequiresApi(Build.VERSION_CODES.M)
+    @SuppressLint("CoroutineCreationDuringComposition")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -60,6 +57,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     AnimalData.init(LocalContext.current)
+                    ZooData.init(LocalContext.current)
+                    ZooData.UpdateZoos()
                     Navigation()
                 }
             }
@@ -225,13 +224,13 @@ fun TopBar(
                     }
                 },
                 actions = {
-//                    this.apply {
-//                        scope.launch {
-//                            if (drawerState.isOpen) {
-//                                drawerState.close()
-//                            }
-//                        }
-//                    }
+                    this.also {
+                        scope.launch {
+                            if (drawerState.isOpen) {
+                                drawerState.close()
+                            }
+                        }
+                    }
 
                     searchingButton(searching, showSearch, {searching = it}, {searchedAnimals = it})
 
@@ -296,7 +295,7 @@ fun DrawerView(navController: NavController) {
         }
         item {
             Button(
-                onClick = {  },
+                onClick = { navController.navigate(Routes.Discovers.route) },
                 Modifier
                     .width(300.dp)
                     .padding(top = 15.dp),
@@ -312,7 +311,7 @@ fun DrawerView(navController: NavController) {
                     Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
 
                     Text(
-                        text = "Seznam Zoo",
+                        text = UiTexts.StringResource(R.string.discoveries).asString(),
                         fontSize = 22.sp,
                         textAlign = TextAlign.Start,
                     )
@@ -391,7 +390,7 @@ fun searchingButton(
 
 
         searchedAnimals =
-            searchedAnimals.filter { it.key
+            searchedAnimals.filter { it.value.name
                     .replace("\\s".toRegex(), "")
                     .lowercase().normalize()
 

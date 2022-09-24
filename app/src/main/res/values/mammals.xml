@@ -31,6 +31,8 @@
         <item>Sheep</item>
         <item>Meerkat</item>
         <item>Camel</item>
+        <item>Jaguar</item>
+        <item>Rhino</item>
     </string-array>
 
 
@@ -437,6 +439,36 @@
         <item>20–45 let</item>
         <item>Mongolsko – Poušť Gobi</item>
         <item>1 mládě po 13 měsících</item>
+        <item>...</item>
+    </array>
+
+    <array name="Jaguar">
+        <item>Jaguár americký</item>
+        <item>Savec</item>
+        <item>56–96 kg</item>
+
+        <item>1.12–1.85 m</item>
+        <item>63–76 cm</item>
+        <item>None</item>
+
+        <item>12–15 let</item>
+        <item>Střední a Jižní Amerika</item>
+        <item>Až 4 mláďata po 90 dnech</item>
+        <item>...</item>
+    </array>
+
+    <array name="Rhino">
+        <item>Nosorožec tuponosý</item>
+        <item>Savec</item>
+        <item>Až 2.3 t</item>
+
+        <item>3.7–4 m</item>
+        <item>1.7–1.9 m</item>
+        <item>None</item>
+
+        <item>40–50 let</item>
+        <item>Jižní Afrika</item>
+        <item>1 mládě po 16 měsících</item>
         <item>...</item>
     </array>
 

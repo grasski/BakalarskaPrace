@@ -51,17 +51,13 @@ class CategoryAnimalsScreen {
 
     @Composable
     fun MammalsScreen(navController: NavController) {
-        val mammals = remember {
-            AnimalData.allAnimalsInstance[0]
-        }
+        val mammals = AnimalData.allAnimalsInstance[0]
 
         Screen(navController, mammals, UiTexts.ArrayResource(R.array.mammalsCategory, 0).asString())
     }
 
     @Composable
     fun ReptilesScreen(navController: NavController) {
-//        val context = LocalContext.current
-//        val reptiles = remember { AnimalData.reptiles(context = context) }
         val reptiles = AnimalData.allAnimalsInstance[2]
 
         Screen(navController, reptiles, UiTexts.ArrayResource(R.array.reptilesCategory, 0).asString())
@@ -69,8 +65,6 @@ class CategoryAnimalsScreen {
 
     @Composable
     fun BirdsScreen(navController: NavController) {
-//        val context = LocalContext.current
-//        val birds = remember { AnimalData.birds(context = context) }
         val birds = AnimalData.allAnimalsInstance[1]
 
         Screen(navController, birds, UiTexts.ArrayResource(R.array.birdsCategory, 0).asString())
@@ -118,7 +112,7 @@ class CategoryAnimalsScreen {
     fun PreviewAnimalCard(animal: Animal?, navController: NavController){
         animal?.let {
             Card(
-                shape = RoundedCornerShape(15.dp),
+                shape = RoundedCornerShape(12.dp),
                 modifier = Modifier
                     .padding(top = 16.dp, start = 10.dp, end = 10.dp)
                     .height(180.dp)

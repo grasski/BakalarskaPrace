@@ -2,124 +2,154 @@
 <resources>
 
     <array name="zooInfo">
-        <item>Název</item>
+        <item>Město</item>
+        <item>Typ</item>
         <item>Datum vzniku</item>
         <item>Rozloha</item>
         <item>Počet druhů</item>
         <item>Stránky Zoo</item>
+        <item>Souřadnice</item>
     </array>
 
 
-    <array name="Zlin">
-        <item>Zoologická zahrada Zlín-Lešná</item>
+    <string-array name="Zlin">
+        <item>Zlín - Lešná</item>
+        <item>Zoologická zahrada</item>
         <item>1948</item>
         <item>52 ha</item>
         <item>216</item>
         <item>www.zoozlin.eu</item>
-    </array>
+        <item>49.27175098514202, 17.714759540592322</item>
+    </string-array>
 
-    <array name="Praha">
-        <item>Zoologická zahrada Praha</item>
+    <string-array name="Praha">
+        <item>Praha</item>
+        <item>Zoologická zahrada</item>
         <item>1931</item>
         <item>60 ha</item>
         <item>690</item>
         <item>www.zoopraha.cz</item>
-    </array>
+        <item>50.117842150669496, 14.406169111779276</item>
+    </string-array>
 
-    <array name="DvurKralove">
-        <item>Zoologická zahrada Dvůr Králové</item>
+    <string-array name="DvurKralove">
+        <item>Dvůr Králové</item>
+        <item>Safari park</item>
         <item>1946</item>
         <item>71 ha</item>
         <item>394</item>
         <item>www.zoodvurkralove.cz</item>
-    </array>
+        <item>50.43237039425975, 15.796897227128184</item>
+    </string-array>
 
-    <array name="Liberec">
-        <item>Zoologická zahrada Liberec</item>
+    <string-array name="Liberec">
+        <item>Liberec</item>
+        <item>Zoologická zahrada</item>
         <item>1919</item>
         <item>13 ha</item>
         <item>155</item>
         <item>www.zooliberec.cz</item>
-    </array>
+        <item>50.77793303084893, 15.081071640631967</item>
+    </string-array>
 
-    <array name="Ostrava">
-        <item>Zoologická zahrada a botanický park Ostrava</item>
+    <string-array name="Ostrava">
+        <item>Ostrava</item>
+        <item>Zoologická zahrada a botanický park</item>
         <item>1948</item>
         <item>100 ha</item>
         <item>437</item>
         <item>www.zoo-ostrava.cz</item>
-    </array>
+        <item>49.84661384640526, 18.323285569442422</item>
+    </string-array>
 
-    <array name="Plzen">
-        <item>Zoologická a botanická zahrada města Plzně</item>
+    <string-array name="Plzen">
+        <item>Plzeň</item>
+        <item>Zoologická a botanická zahrada</item>
         <item>1926</item>
         <item>21 ha</item>
         <item>1382</item>
         <item>www.zooplzen.cz</item>
-    </array>
+        <item>49.758421967700556, 13.356134498275265</item>
+    </string-array>
 
-    <array name="UstiNadLabem">
-        <item>Zoologická zahrada Ústí nad Labem</item>
+    <string-array name="UstiNadLabem">
+        <item>Ústí nad Labem</item>
+        <item>Zoologická zahrada</item>
         <item>1914</item>
         <item>26 ha</item>
         <item>226</item>
         <item>www.zoousti.cz</item>
-    </array>
+        <item>50.664261290769446, 14.06127149829922</item>
+    </string-array>
 
-    <array name="Olomouc">
-        <item>Zoologická zahrada Olomouc</item>
+    <string-array name="Olomouc">
+        <item>Olomouc</item>
+        <item>Zoologická zahrada</item>
         <item>1956</item>
         <item>42.5 ha</item>
         <item>349</item>
         <item>www.zoo-olomouc.cz</item>
-    </array>
+        <item>49.633529262524156, 17.343330340601735</item>
+    </string-array>
 
-    <array name="Hluboka">
-        <item>Jihočeská zoologická zahrada Hluboká nad Vltavou</item>
+    <string-array name="Hluboka">
+        <item>Hluboká nad Vltavou</item>
+        <item>Zoologická zahrada</item>
         <item>1939</item>
         <item>6 ha</item>
         <item>299</item>
         <item>www.zoohluboka.cz</item>
-    </array>
+        <item>49.042474365478064, 14.422424998256611</item>
+    </string-array>
 
-    <array name="Jihlava">
-        <item>Zoologická zahrada Jihlava</item>
+    <string-array name="Jihlava">
+        <item>Jihlava</item>
+        <item>Zoologická zahrada</item>
         <item>1957</item>
         <item>9 ha</item>
         <item>187</item>
         <item>www.zoojihlava.cz</item>
-    </array>
+        <item>49.3968081869455, 15.59945786758467</item>
+    </string-array>
 
-    <array name="Decin">
-        <item> Zoologická zahrada Děčín</item>
+    <string-array name="Decin">
+        <item>Děčín</item>
+        <item>Zoologická zahrada</item>
         <item>1948</item>
         <item>6 ha</item>
         <item>149</item>
         <item>www.zoodecin.cz</item>
-    </array>
+        <item>50.77976272500985, 14.19717522713742</item>
+    </string-array>
 
-    <array name="Brno">
-        <item>Zoologická zahrada Brno</item>
+    <string-array name="Brno">
+        <item>Brno</item>
+        <item>Zoologická zahrada</item>
         <item>1953</item>
         <item>65 ha</item>
         <item>322</item>
         <item>www.zoobrno.cz</item>
-    </array>
+        <item>49.229860709929824, 16.533042307491613</item>
+    </string-array>
 
-    <array name="Hodonin">
-        <item>Zoologická zahrada Hodonín</item>
+    <string-array name="Hodonin">
+        <item>Hodonín</item>
+        <item>Zoologická zahrada</item>
         <item>1975</item>
         <item>7.5 ha</item>
         <item>163</item>
         <item>www.zoo-hodonin.cz</item>
-    </array>
+        <item>48.86450413705914, 17.10699239825199</item>
+    </string-array>
 
-    <array name="Chleby">
-        <item>Zoologická zahrada Chleby</item>
+    <string-array name="Chleby">
+        <item>Chleby</item>
+        <item>Zoologická zahrada</item>
         <item>1997</item>
         <item>4.6 ha</item>
         <item>195</item>
         <item>www.zoochleby.cz</item>
-    </array>
+        <item>50.22253607420668, 15.091785127122664</item>
+    </string-array>
 
 </resources>

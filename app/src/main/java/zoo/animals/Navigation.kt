@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import zoo.animals.data.Animal
+import zoo.animals.data.Zoo
 import zoo.animals.screens.*
 
 
@@ -27,9 +28,20 @@ fun Navigation(){
             CategoryAnimalsScreen().ReptilesScreen(navController)
         }
 
+        composable(route = Routes.Discovers.route){
+            DiscoveryScreen(navController)
+        }
+        composable(route = Routes.Zoos.route){
+            ZoosScreen().ZoosScreen(navController)
+        }
+        composable(route = Routes.ZooInfo.route){
+            val zooObject = navController.previousBackStackEntry?.savedStateHandle?.get<Zoo>("zooData")
+            zooObject?.let { zoo -> zooScreen(navController, zoo) }
+        }
+
         composable(route = Routes.AnimalInfo.route){
             val animalObject = navController.previousBackStackEntry?.savedStateHandle?.get<Animal>("animalData")
-            animalObject?.let { it1 -> ShowAnimalInfo(navController = navController, animalData = it1, true) }
+            animalObject?.let { animal -> ShowAnimalInfo(navController = navController, animalData = animal, true) }
         }
 
         composable(route = Routes.Camera.route){
