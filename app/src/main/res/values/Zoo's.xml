@@ -9,47 +9,73 @@
         <item>Počet druhů</item>
         <item>Stránky Zoo</item>
         <item>Souřadnice</item>
+        <item>Place id</item>
     </array>
 
+    <array name="errorMessages">
+        <item>Nenalezeno připojení k internetu.</item>
+        <item>Chyba při načítání informací.</item>
+        <item>Zkusit znovu</item>
+    </array>
+
+    <array name="switchTexts">
+        <item>Informace</item>
+        <item>Mapa</item>
+    </array>
+
+    <array name="openStatus">
+        <item>PRÁVĚ OTEVŘENO</item>
+        <item>PRÁVĚ ZAVŘENO</item>
+    </array>
+
+    <array name="snackBar">
+        <item>Chcete uložit navštívení zoo do Objevů?</item>
+        <item>ANO</item>
+        <item>NE</item>
+    </array>
 
     <string-array name="Zlin">
         <item>Zlín - Lešná</item>
         <item>Zoologická zahrada</item>
         <item>1948</item>
-        <item>52 ha</item>
+        <item>74 ha</item>
         <item>216</item>
         <item>www.zoozlin.eu</item>
-        <item>49.27175098514202, 17.714759540592322</item>
+        <item>49.2718315, 17.7138261</item>
+        <item>ChIJfw1MXiJ1E0cRAJi3XrHUIlg</item>
     </string-array>
 
     <string-array name="Praha">
         <item>Praha</item>
         <item>Zoologická zahrada</item>
         <item>1931</item>
-        <item>60 ha</item>
+        <item>58 ha</item>
         <item>690</item>
         <item>www.zoopraha.cz</item>
         <item>50.117842150669496, 14.406169111779276</item>
+        <item>ChIJmwPb-dTqC0cRvbXrAjxU2ZY</item>
     </string-array>
 
     <string-array name="DvurKralove">
         <item>Dvůr Králové</item>
         <item>Safari park</item>
         <item>1946</item>
-        <item>71 ha</item>
+        <item>72 ha</item>
         <item>394</item>
         <item>www.zoodvurkralove.cz</item>
         <item>50.43237039425975, 15.796897227128184</item>
+        <item>ChIJocZQKouFDkcRoQqdLVHAj1s</item>
     </string-array>
 
     <string-array name="Liberec">
         <item>Liberec</item>
         <item>Zoologická zahrada</item>
         <item>1919</item>
-        <item>13 ha</item>
+        <item>14 ha</item>
         <item>155</item>
         <item>www.zooliberec.cz</item>
         <item>50.77793303084893, 15.081071640631967</item>
+        <item>ChIJ078IMwU0CUcRz6YAZ_JFo0o</item>
     </string-array>
 
     <string-array name="Ostrava">
@@ -60,6 +86,7 @@
         <item>437</item>
         <item>www.zoo-ostrava.cz</item>
         <item>49.84661384640526, 18.323285569442422</item>
+        <item>ChIJ1yeTAdb8E0cRtp3TL30iFuY</item>
     </string-array>
 
     <string-array name="Plzen">
@@ -70,6 +97,7 @@
         <item>1382</item>
         <item>www.zooplzen.cz</item>
         <item>49.758421967700556, 13.356134498275265</item>
+        <item>ChIJ5YOCLhnyCkcRFwdebSp0TsY</item>
     </string-array>
 
     <string-array name="UstiNadLabem">
@@ -80,6 +108,7 @@
         <item>226</item>
         <item>www.zoousti.cz</item>
         <item>50.664261290769446, 14.06127149829922</item>
+        <item>ChIJe-KoIa2cCUcRqxWSOBDauiU</item>
     </string-array>
 
     <string-array name="Olomouc">
@@ -90,6 +119,7 @@
         <item>349</item>
         <item>www.zoo-olomouc.cz</item>
         <item>49.633529262524156, 17.343330340601735</item>
+        <item>ChIJH1P2mJNLEkcRLGXHiEzo0Z8</item>
     </string-array>
 
     <string-array name="Hluboka">
@@ -100,6 +130,7 @@
         <item>299</item>
         <item>www.zoohluboka.cz</item>
         <item>49.042474365478064, 14.422424998256611</item>
+        <item>ChIJrVCOjc9Tc0cRbp66fHjyXWA</item>
     </string-array>
 
     <string-array name="Jihlava">
@@ -110,6 +141,7 @@
         <item>187</item>
         <item>www.zoojihlava.cz</item>
         <item>49.3968081869455, 15.59945786758467</item>
+        <item>ChIJ6T6RlW0aDUcR92kV8GjD6H8</item>
     </string-array>
 
     <string-array name="Decin">
@@ -120,16 +152,18 @@
         <item>149</item>
         <item>www.zoodecin.cz</item>
         <item>50.77976272500985, 14.19717522713742</item>
+        <item>ChIJu5msI8mfCUcRsEUin-LcZA4</item>
     </string-array>
 
     <string-array name="Brno">
         <item>Brno</item>
         <item>Zoologická zahrada</item>
         <item>1953</item>
-        <item>65 ha</item>
+        <item>64.6 ha</item>
         <item>322</item>
         <item>www.zoobrno.cz</item>
         <item>49.229860709929824, 16.533042307491613</item>
+        <item>ChIJ-W8AJtCWEkcRms3V8yThmIg</item>
     </string-array>
 
     <string-array name="Hodonin">
@@ -140,6 +174,7 @@
         <item>163</item>
         <item>www.zoo-hodonin.cz</item>
         <item>48.86450413705914, 17.10699239825199</item>
+        <item>ChIJpUtKMhwvE0cRKM45UkWFOcM</item>
     </string-array>
 
     <string-array name="Chleby">
@@ -150,6 +185,7 @@
         <item>195</item>
         <item>www.zoochleby.cz</item>
         <item>50.22253607420668, 15.091785127122664</item>
+        <item>ChIJ7XUATRYFDEcR_l-CH3o2Dyg</item>
     </string-array>
 
 </resources>

@@ -1,8 +1,7 @@
 package zoo.animals
 
-import android.util.Log
-import zoo.animals.data.Animal
-import zoo.animals.data.AnimalData
+import zoo.animals.feature_category.data.Animal
+import zoo.animals.feature_category.data.AnimalData
 
 
 fun stringMapToIndexKey(map: Map<String, Any>): Map<Int, String> {

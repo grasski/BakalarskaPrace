@@ -6,16 +6,13 @@ import os
  
 # Function to rename multiple files
 def main():
-   
-    folder = ".//Rhino"
+
+    folder = os.path.join("images", "Capybara")
     for count, filename in enumerate(os.listdir(folder)):
-        dst = f"{folder}_{str(count)}.jpg"
-        src =f"{folder}/{filename}"  # foldername/filename, if .py file is outside folder
-        dst =f"{folder}/{dst}"
-         
-        # rename() function will
-        # rename all the files
-        os.rename(src, dst)
+        source = os.path.join(folder, filename)
+        newName = os.path.join(folder, f"Capybara_{count}.jpg")
+
+        os.rename(source, newName)
  
 # Driver Code
 if __name__ == '__main__':

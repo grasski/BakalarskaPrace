@@ -1,29 +1,34 @@
 package zoo.animals.animations
 
-import android.transition.Transition
+
 import androidx.compose.animation.*
 import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import zoo.animals.R
 
 
 @OptIn(ExperimentalAnimationApi::class)
 class ContentAnimation {
 
     @Composable
-    fun ScaleIn(content: @Composable () -> Unit){
-        val visibleState = remember { MutableTransitionState(false) }
-        visibleState.targetState = true
+    fun ScaleIn(duration: Int, targetState: Boolean=true, content: @Composable () -> Unit){
+        val visibleState = remember { MutableTransitionState(!targetState) }
+        visibleState.targetState = targetState
 
         AnimatedVisibility(
             visibleState = visibleState,
             modifier = Modifier,
-            enter = scaleIn(animationSpec = tween(durationMillis = 450)) + expandVertically(expandFrom = Alignment.CenterVertically),
-            exit = scaleOut(animationSpec = tween(durationMillis = 450)) + shrinkVertically(shrinkTowards = Alignment.CenterVertically),
+            enter = scaleIn(animationSpec = tween(durationMillis = duration)) + expandVertically(expandFrom = Alignment.CenterVertically),
+            exit = scaleOut(animationSpec = tween(durationMillis = duration)) + shrinkVertically(shrinkTowards = Alignment.CenterVertically),
         ){
             content()
         }
@@ -31,7 +36,7 @@ class ContentAnimation {
 
     @Composable
     fun FadeInFromVerticallySide(offsetY: Int, duration: Int, targetState: Boolean=true, content: @Composable () -> Unit){
-        val visibleState = remember { MutableTransitionState(false) }
+        val visibleState = remember { MutableTransitionState(!targetState) }
         visibleState.targetState = targetState
 
         AnimatedVisibility(
@@ -67,8 +72,6 @@ class ContentAnimation {
         }
     }
 
-
-
     @Composable
     fun ShrinkInFromHorizontallySide(offsetX: Int, duration: Int, targetState: Boolean=true, content: @Composable () -> Unit){
         val visibleState = remember { MutableTransitionState(!targetState) }
@@ -83,6 +86,25 @@ class ContentAnimation {
             ) { 0 }
         ) {
             content()
+        }
+    }
+
+    @Composable
+    fun ScreensCrossFade(
+        targetState: Boolean,
+        duration: Int,
+        trueScreen: @Composable () -> Unit,
+        falseScreen: @Composable () -> Unit
+    ) {
+        Crossfade(
+            targetState = targetState,
+            animationSpec = TweenSpec(durationMillis = duration)
+        ) { isChecked ->
+            if (isChecked) {
+                trueScreen()
+            } else {
+                falseScreen()
+            }
         }
     }
 
