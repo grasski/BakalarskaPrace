@@ -19,6 +19,43 @@ object AnimalData: IAnimals {
     }
 
     override fun mammals(context: Context): MutableMap<String, Animal> {
+
+        val animalInfo: Map<Int, List<List<Float>>> = mapOf(
+            R.array.Agouti to AnimalAppearance.SOUTH_AMERICA_ARGENTINA.getCoords() + AnimalAppearance.SOUTH_AMERICA_BRAZIL.getCoords() + AnimalAppearance.SOUTH_AMERICA_BOLIVIA.getCoords(),
+            R.array.Alpaca to AnimalAppearance.SOUTH_AMERICA_BOLIVIA.getCoords() + AnimalAppearance.SOUTH_AMERICA_PERU.getCoords() + AnimalAppearance.SOUTH_AMERICA_ARGENTINA.getCoords() + AnimalAppearance.SOUTH_AMERICA_CHILE.getCoords(),
+            R.array.Bison to AnimalAppearance.NORTH_AMERICA.getCoords(),
+            R.array.Beaver to AnimalAppearance.NORTH_AMERICA.getCoords() + AnimalAppearance.EUROPE.getCoords() + AnimalAppearance.SOUTH_AMERICA_PATAGONIA.getCoords(),
+            R.array.Yak to AnimalAppearance.ASIA_TIBET_NEPAL.getCoords(),
+            R.array.Badger to AnimalAppearance.EUROPE.getCoords() + AnimalAppearance.ASIA.getCoords(),
+            R.array.Capybara to AnimalAppearance.SOUTH_AMERICA.getCoords(),
+            R.array.Kangaroo to AnimalAppearance.AUSTRALIA.getCoords(),
+            R.array.Elephant to AnimalAppearance.AFRICA_SOUTH.getCoords() + AnimalAppearance.AFRICA_CENTER.getCoords(),
+            R.array.Giraffe to AnimalAppearance.AFRICA_SOUTH.getCoords() + AnimalAppearance.AFRICA_CENTER.getCoords(),
+            R.array.Gorilla to AnimalAppearance.AFRICA_CENTER.getCoords(),
+            R.array.Lion to AnimalAppearance.AFRICA.getCoords(),
+            R.array.Tiger to AnimalAppearance.INDIA.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords(),
+            R.array.Zebra to AnimalAppearance.AFRICA_CENTER.getCoords() + AnimalAppearance.AFRICA_SOUTH.getCoords(),
+            R.array.SeaLion to AnimalAppearance.SOUTH_AMERICA_SEASIDE.getCoords(),
+            R.array.Cat to AnimalAppearance.WORLD.getCoords(),
+            R.array.Dog to AnimalAppearance.WORLD.getCoords(),
+
+            R.array.Chinchilla to AnimalAppearance.SOUTH_AMERICA_CHILE.getCoords() + AnimalAppearance.SOUTH_AMERICA_BOLIVIA.getCoords() + AnimalAppearance.SOUTH_AMERICA_PERU.getCoords(),
+            R.array.EuropeanFallowDeer to AnimalAppearance.EUROPE.getCoords(),
+            R.array.Porcupine to AnimalAppearance.AFRICA_CENTER.getCoords(),
+            R.array.Cheetah to AnimalAppearance.AFRICA.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords(),
+            R.array.Hedgehog to AnimalAppearance.AFRICA_CENTER.getCoords(),
+            R.array.Goat to AnimalAppearance.WORLD.getCoords(),
+            R.array.Lemur to AnimalAppearance.MADAGASCAR.getCoords(),
+            R.array.AsianBlackBear to AnimalAppearance.ASIA_HIMALAYAS.getCoords(),
+            R.array.Degu to AnimalAppearance.SOUTH_AMERICA_CHILE.getCoords(),
+            R.array.Sheep to AnimalAppearance.WORLD.getCoords(),
+            R.array.Meerkat to AnimalAppearance.AFRICA_SOUTH.getCoords(),
+            R.array.Camel to AnimalAppearance.ASIA_MONGOLIA.getCoords() + AnimalAppearance.ASIA_WEST.getCoords(),
+            R.array.Jaguar to AnimalAppearance.CENTRAL_AMERICA.getCoords() + AnimalAppearance.SOUTH_AMERICA.getCoords(),
+            R.array.Rhino to AnimalAppearance.AFRICA_SOUTH.getCoords()
+        )
+
+        /*
         val animalInfo: List<Int> = listOf(
             R.array.Agouti,
             R.array.Alpaca,
@@ -53,6 +90,7 @@ object AnimalData: IAnimals {
             R.array.Jaguar,
             R.array.Rhino
         )
+         */
         val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.agouti_preview, R.drawable.agouti_main),
             listOf(R.drawable.alpaka_preview, R.drawable.alpaka_main),
@@ -99,24 +137,24 @@ object AnimalData: IAnimals {
 
 
     override fun birds(context: Context): MutableMap<String, Animal> {
-        val animalInfo: List<Int> = listOf(
-            R.array.Flamingo,
-            R.array.Duck,
-            R.array.Agapornis,
-            R.array.Budgerigar,
-            R.array.Pheasant,
-            R.array.Vanellinae,
-            R.array.Emu,
-            R.array.Goose,
-            R.array.Crane,
-            R.array.Canary,
-            R.array.Raven,
-            R.array.Kookaburra,
-            R.array.SeaEagle,
-            R.array.MountainEagle,
-            R.array.GuineaFowl,
-            R.array.Peafowl,
-            R.array.SnowyOwl
+        val animalInfo: Map<Int, List<List<Float>>> = mapOf(
+            R.array.Flamingo to AnimalAppearance.AFRICA.getCoords() + AnimalAppearance.MADAGASCAR.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords() + AnimalAppearance.EUROPE_SOUTH.getCoords(),
+            R.array.Duck to AnimalAppearance.WORLD.getCoords(),
+            R.array.Agapornis to AnimalAppearance.AFRICA.getCoords(),
+            R.array.Budgerigar to AnimalAppearance.AUSTRALIA.getCoords(),
+            R.array.Pheasant to AnimalAppearance.WORLD.getCoords(),
+            R.array.Vanellinae to AnimalAppearance.AUSTRALIA.getCoords() + AnimalAppearance.ASIA_INDONESIA.getCoords(),
+            R.array.Emu to AnimalAppearance.AUSTRALIA.getCoords(),
+            R.array.Goose to AnimalAppearance.WORLD.getCoords(),
+            R.array.Crane to AnimalAppearance.ASIA_CENTER.getCoords() + AnimalAppearance.EUROPE_EAST.getCoords(),
+            R.array.Canary to AnimalAppearance.CANARY.getCoords(),
+            R.array.Raven to AnimalAppearance.NORTH_AMERICA.getCoords() + AnimalAppearance.EUROPE.getCoords() + AnimalAppearance.ASIA_NORTH.getCoords(),
+            R.array.Kookaburra to AnimalAppearance.EUROPE.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords() + AnimalAppearance.ASIA_INDONESIA.getCoords(),
+            R.array.SeaEagle to AnimalAppearance.ASIA_NORTH.getCoords() + AnimalAppearance.EUROPE_EAST.getCoords(),
+            R.array.MountainEagle to AnimalAppearance.NORTH_AMERICA.getCoords() + AnimalAppearance.EUROPE_EAST.getCoords() + AnimalAppearance.EUROPE_SOUTH.getCoords() + AnimalAppearance.ASIA_NORTH.getCoords(),
+            R.array.GuineaFowl to AnimalAppearance.WORLD.getCoords(),
+            R.array.Peafowl to AnimalAppearance.INDIA.getCoords(),
+            R.array.SnowyOwl to AnimalAppearance.CANADA.getCoords() + AnimalAppearance.GREENLAND_NORTH.getCoords() + AnimalAppearance.ASIA_NORTH2.getCoords() + AnimalAppearance.EUROPE_EAST.getCoords() + AnimalAppearance.EUROPE_NORTH.getCoords()
         )
         val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.flamingo_preview, R.drawable.flamingo_main),
@@ -148,8 +186,8 @@ object AnimalData: IAnimals {
 
 
     override fun reptiles(context: Context): MutableMap<String, Animal> {
-        val animalInfo: List<Int> = listOf(
-            R.array.Turtle,
+        val animalInfo: Map<Int, List<List<Float>>> = mapOf(
+            R.array.Turtle to AnimalAppearance.ASIA_SOUTH.getCoords(),
         )
         val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.turtle_preview, R.drawable.turtle_main),
@@ -164,6 +202,7 @@ object AnimalData: IAnimals {
     }
 
 
+    /*
     override fun animalsToList(
         context: Context,
         category: String,
@@ -206,12 +245,71 @@ object AnimalData: IAnimals {
             }
 
             animalsList[id] = Animal(
-                name,
-                category,
-                animalsInfoGlobal.zip(infos).toMap(),
-                description,
-                imagesList[0],
-                imagesList[1]
+                name = name,
+                category = category,
+                info = animalsInfoGlobal.zip(infos).toMap(),
+                description = description,
+                previewImage = imagesList[0],
+                mainImage = imagesList[1],
+                appearance = AnimalAppearance.WORLD.getCoords()
+            )
+        }
+
+        val result = animalsList.toList().sortedBy { (_, value) -> value.name}.toMap()
+        return result.toMutableMap()
+    }
+     */
+
+
+    override fun animalsToList(
+        context: Context,
+        category: String,
+        animals: Map<Int, List<List<Float>>>,
+        images: List<List<Int>>
+    ): MutableMap<String, Animal> {
+        val animalsList: MutableMap<String, Animal> = mutableMapOf()
+
+        val animalsInfoGlobal = context.resources.getStringArray(R.array.animalInfo)
+        if (category == UiTexts.ArrayResource(R.array.animalCategories, 0).asString(context)
+        ) {
+            // Mammal -> gets Délka ocasu
+            animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[0]
+        } else if (category == UiTexts.ArrayResource(R.array.animalCategories, 1).asString(context)
+        ) {
+            // Bird -> gets Rozpětí křídel
+            animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[1]
+        }
+        val originalSpecialAnimalInfo = animalsInfoGlobal[3]
+
+        animals.onEachIndexed{ i, (animalID, appearance) ->
+            val animalArray = UiTexts.ArrayResource(animalID, 0).asArray(context)
+            val id = context.resources.getResourceEntryName(animalID)
+
+            val name = animalArray[0]
+            val description = animalArray[animalArray.lastIndex]
+            val imagesList = images[i]
+
+            val infos = mutableListOf<String>()
+            for (info in animalArray.subList(2, animalArray.lastIndex)) {
+                infos.add(info)
+            }
+
+            if (":" in infos[3]) {
+                val specialInfo = infos[3].split(":")
+                animalsInfoGlobal[3] = specialInfo[0]
+                infos[3] = specialInfo[1]
+            } else {
+                animalsInfoGlobal[3] = originalSpecialAnimalInfo
+            }
+
+            animalsList[id] = Animal(
+                name = name,
+                category = category,
+                info = animalsInfoGlobal.zip(infos).toMap(),
+                description = description,
+                previewImage = imagesList[0],
+                mainImage = imagesList[1],
+                appearance = appearance
             )
         }
 

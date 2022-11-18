@@ -1,6 +1,7 @@
 package zoo.animals.navigation
 
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -11,8 +12,9 @@ import zoo.animals.feature_category.view.CategoryAnimalsScreen
 import zoo.animals.feature_category.view.CategoryScreen
 import zoo.animals.feature_category.view.ShowAnimalInfo
 import zoo.animals.feature_discovery.zoos.data.Zoo
+import zoo.animals.feature_discovery.zoos.view.AnimalsDiscoveryScreen
 import zoo.animals.feature_discovery.zoos.view.DiscoveryScreen
-import zoo.animals.feature_discovery.zoos.view.ZoosScreen
+import zoo.animals.feature_discovery.zoos.view.ZoosDiscoveryScreen
 import zoo.animals.feature_discovery.zoos.view.ZooScreen
 
 
@@ -38,11 +40,15 @@ fun Navigation(){
             DiscoveryScreen(navController)
         }
         composable(route = Routes.Zoos.route){
-            ZoosScreen().ZoosScreen(navController)
+            ZoosDiscoveryScreen().ZoosDiscoveryScreen(navController)
         }
         composable(route = Routes.ZooInfo.route){
             val zooObject = navController.previousBackStackEntry?.savedStateHandle?.get<Zoo>("zooData")
             zooObject?.let { zoo -> ZooScreen(navController, zoo) }
+        }
+        composable(route = Routes.AnimalsDiscovery.route){
+            val animalsObject = navController.previousBackStackEntry?.savedStateHandle?.get<MutableMap<String, Animal>>("animalsData")
+            animalsObject?.let { animal -> AnimalsDiscoveryScreen().AnimalsDiscoveryScreen(navController, animal) }
         }
 
         composable(route = Routes.AnimalInfo.route){

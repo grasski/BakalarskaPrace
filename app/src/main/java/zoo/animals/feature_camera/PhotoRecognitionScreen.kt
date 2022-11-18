@@ -52,7 +52,7 @@ fun PhotoRecognitionScreen(navController: NavController){
                 mutableStateOf<Bitmap?>(null)
             }
             val context = LocalContext.current
-            var animal by remember { mutableStateOf<Animal?>(Animal("","", emptyMap(), "", 0,0)) }
+            var animal by remember { mutableStateOf<Animal?>(Animal("","", emptyMap(), "", 0,0, false, emptyList())) }
             
             val launcher = rememberLauncherForActivityResult(contract =
             ActivityResultContracts.GetContent()) { uri: Uri? ->

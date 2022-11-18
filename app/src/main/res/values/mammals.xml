@@ -37,7 +37,7 @@
 
 
     <array name="Agouti">
-        <item>Aguti</item>
+        <item>Aguti Azarův</item>
         <item>Savec</item>
         <item>2.4–3.2 kg</item>
         <item>45–57 cm</item>
@@ -46,7 +46,7 @@
         <item>Kolem 15 let</item>
         <item>Travnaté a lesnaté oblasti Argentiny, Brazílii a Paraguaye</item>
         <item>1–4 mláďata po 100 dnech</item>
-        <item>Pro tento druh jsou charakteristické výrazné oči, nepatrný ocásek a krátké nohy s rozdílným počtem prstů. Na předních končetinách má prstů pět, na zadních pouze tři. Zásoby plodů a semen, kterými se živí, si ukládají do země. Některou zahrabanou potravu však nenajdou a jsou tak často příčinou vyklíčení nové rostlinky, díky čemuž si tato zvířata vysloužili přezdívku „zahradníci džungle“.  Svými silnými zuby jsou schopni rozkousnout i ty nejtvrdší ořechy.  Za původem slova aguti, které můžeme přeložit jako „pes z hor“, bychom se vydali k mexickým indiánům. Tito hlodavci jsou významnou součástí jídelníčku větších šelem, před kterými se brání útěkem do bezpečí. V běhu vynikají, a kromě toho jsou schopni vyskočit až dva metry vysoko. Jestliže se cítí být ohrožováni menším nepřítelem, snaží se ho zastrašit dupáním a vydáváním chrochtavých a pískavých zvuků.</item>
+        <item>Pro tento druh jsou charakteristické výrazné oči, nepatrný ocásek a krátké nohy s rozdílným počtem prstů. Na předních končetinách má prstů pět, na zadních pouze tři. Zásoby plodů a semen, kterými se živí, si ukládají do země. Některou zahrabanou potravu však nenajdou a jsou tak často příčinou vyklíčení nové rostlinky, díky čemuž si tato zvířata vysloužili přezdívku „zahradníci džungle“.</item>
     </array>
 
     <array name="Alpaca">
@@ -57,9 +57,9 @@
         <item>81–99 cm</item>
         <item>None</item>
         <item>15–20 let</item>
-        <item>Hornaté a lesnaté oblasti jižní Peru, severní Bolívie, převážně USA, Austrálie</item>
+        <item>Hornaté a lesnaté oblasti jižní Peru, severní Bolívie, převážně USA. Chov rozšířen do Austrálie a Evropy.</item>
         <item>1 mládě po 330 dnech</item>
-        <item>Alpaka nebo též lama alpaka je domestikovanou formou lamy, která je chována především kvůli velmi kvalitní vlně. Zpracovává se i maso, ale narozdíl od lamy krotké se alpaka téměř nedojí ani nepoužívá jako soumar. Od ostatních lam se liší především mnohem delší vlnou, která může být různých barev od bílé, přes hnědou až po černou (včetně strakatých).</item>
+        <item>Lamy společně se svými nejbližšími příbuznými velbloudy tvoří v rámci řádu sudokopytníků zvláštní podřád - velbloudi, dříve nazývaný mozolnatci. Všechny čtyři druhy lam žijí v Andách. Vikuňa a guanako divoce, alpaka a lama krotká byly asi před pěti tisíci lety domestikovány. Alpaka se chová především pro produkci vlny.</item>
     </array>
 
 
@@ -73,12 +73,12 @@
         <item>15–20 let</item>
         <item>Lesy Severní Ameriky</item>
         <item>1 mládě po 270 dnech</item>
-        <item>Bizon je největším suchozemským savcem Severní Ameriky. Žije ve stádech tvořených jedním dospělým samcem, samicemi a různě starými mláďaty. Mládě zůstává se samicí necelý rok – samice mládě intenzivně hlídá a brání před predátory. V případě potřeby dokáže běžet rychlostí až 50 km/h. Před 200 lety obývalo americké prérie asi 40 miliónů bizonů. V 19. století však přivedl člověk bizona na pokraj vyhubení. Ochranná opatření zastavila výrazné úbytky volně žijících bizonů, ale současná populace zaujímá pouze 1 % původního výskytu – divocí bizoni žijí převážně v národních parcích a rezervacích. Bizoni se chovají i jako hospodářská zvířata, komerční chovy mají značné dopady i na divoké populace. Lidé cíleným výběrem jedinců pro chov ovlivňují jejich vlastnosti.</item>
+        <item>Bizon je největším suchozemským savcem Severní Ameriky. Žije ve stádech tvořených jedním dospělým samcem, samicemi a různě starými mláďaty. Před 200 lety obývalo americké prérie asi 40 miliónů bizonů, ale v 19. století přivedl člověk bizona na pokraj vyhubení. Ochranná opatření zastavila výrazné úbytky volně žijících bizonů, ale současná populace zaujímá pouze 1 % původního výskytu – divocí bizoni žijí převážně v národních parcích a rezervacích.</item>
     </array>
 
 
     <array name="Beaver">
-        <item>Bobr</item>
+        <item>Bobr kanadský</item>
         <item>Savec</item>
         <item>16–30 kg</item>
         <item>90–120 cm</item>
@@ -87,7 +87,7 @@
         <item>9–20 let</item>
         <item>Řeky, tůně, jezera, převážně Severní Amerika a Evropa</item>
         <item>1–4 mláďata po 3 měsících</item>
-        <item>Bobr evropský je největší evropský hlodavec, dorůstající délky 0,9-1,4 m. Typický zploštělý ocas dosahuje délky 25-35 cm a celý dospělý bobr váží mezi 15-30 kg. Tělo je zavalité, pokryté hustou tmavohnědou srstí. První vrstvu tvoří hustá podsada, následují pesíky dlouhé až 5 cm. Bobr využívá pro značení teritoria a péči o srst silný sekret z párových žláz (castoreum). Velmi nápadné jsou sytě oranžové hlodáky.</item>
+        <item>Bobr kanadský je vodní hlodavec s jemnou, hustou, lesklou a pro vodu nepropustnou srstí. Má široký a plochý ocas sloužící jako kormidlo, mezi prsty plovací blány, uzavíratelné nozdry a zvukovody. Oči jsou kryté blanitou mžurku, která mu umožnuje vidět i pod vodní hladinou. Jeho dlouhé hmatové vousy mu usnadňují orientaci ve tmě.</item>
     </array>
 
 
@@ -115,7 +115,7 @@
         <item>Kolem 14 let</item>
         <item>Téměř celá Evropa a Asie, lesy, pole, louky</item>
         <item>1–6 mláďat mezi 9–12 měsíci</item>
-        <item>Jezevec lesní je největší lasicovitá šelma České republiky. Patří mezi tzv. ploskochodce - našlapuje na celou plosku nohy jako například člověk.</item>
+        <item>Jezevec žije v celé Evropě v lesnatých oblastech od nadmořské výšky 700 m. V horách ho lze potkat i ve výšce 2 000 m. Miluje listnaté nebo smíšené lesy, kde upřednostňuje okraje lesů, remízky s houštinami sousedící s pastvinami a poli. Charakteristická je černo bílá hlava jezevce. Černé pruhy jsou po obou stranách hlavy, od čenichu přes oči až za uši. Boky hlavy, vnější okraje boltců i pás od nosu středem čela na vrch hlavy až do zátylku jsou bílé. Krk, nohy a břicho má černé. Na zbytku těla je srst hnědošedá se stříbrným leskem.</item>
     </array>
 
 
@@ -129,7 +129,7 @@
         <item>4–8 let</item>
         <item>Mokřady Jižní Ameriky</item>
         <item>2–8 mláďat po 140 dnech</item>
-        <item>Kapybary jsou největší hlodavci na světě. Žijí v malých skupinkách o 30 jedincích. Skupinu obvykle tvoří dospělý samec s harémem partnerek. V nebezpečí vždy utíkají do vody. Jsou to výborní plavci, pod vodou vydrží 8-10 minut. Ve vodě probíhá i páření. Samice je březí pět a půl měsíce, jednou nebo dvakrát do roka přivádí na svět 2-8 mláďat. Jsou dokonale vyvinutá. Velmi brzy přijímají pevnou potravu, matka je kojí zhruba 4 měsíce.</item>
+        <item>Kapybara je největší hlodavec na světě. Miluje vodu a výborně plave a potápí se, pod vodou vydrží až pět minut. Když se chce ukrýt před predátory, skočí do vody. Dokáže ve vodě také spát, nos drží těsně nad vodní hladinou. Dospělá kapybara je schopná denně spořádat až 3,5 kg rostlinné potravy. Loví ji jaguár, puma i anakonda.</item>
     </array>
 
 
@@ -143,7 +143,7 @@
         <item>10–20 let</item>
         <item>Austrálie</item>
         <item>1 mládě po 30 dnech\n+ 6 měsíců ve vaku</item>
-        <item>Navzdory své velikosti a jménu není největším druhem klokana – tím je klokan rudý. Ve východní Austrálii se jedná o nejrozšířenější druh klokana a běžně bývá k zastižení i poblíž lidských obydlí – v městských parcích či na golfových hřištích. Vyskytuje se také na Tasmánii, kde vytváří samostatný poddruh (M. g. tasmaniensis) známý jako „Forester kangaroo“, tedy lesní klokan. Ten je větší než kontinentální poddruh a　zároveň je největším vačnatcem Tasmánie. Způsobem života se klokan obrovský nijak nevymyká jiným stepním druhům klokanů. Sdružuje se do volně uspořádaných „stád“ bez pevného společenského pořádku. V　době námluv se samci předhánějí v　působivém imponování, při kterém předvádějí mohutné svaly a svou velikost. V　krajním případě dochází k　soubojům, při nichž se soupeři buď snaží zasáhnout jeden druhého zadníma nohama (opřeni o ocas), nebo „boxují“ předníma. Mládě se rodí jako u všech klokanů nedokonale vyvinuté, ve vaku tráví 11 měsíců.</item>
+        <item>Navzdory své velikosti a jménu není největším druhem klokana – tím je klokan rudý. Ve východní Austrálii se jedná o nejrozšířenější druh klokana a běžně bývá k zastižení i poblíž lidských obydlí. Způsobem života se klokan obrovský nijak nevymyká jiným stepním druhům klokanů. Sdružuje se do volně uspořádaných „stád“ bez pevného společenského pořádku.</item>
     </array>
 
 
@@ -157,7 +157,7 @@
         <item>70–75 let</item>
         <item>Africké savan, polopouště</item>
         <item>1 mládě po 20 měsících</item>
-        <item>Typickými znaky největších suchozemských savců jsou kly (přeměněné horní řezáky) a pohyblivý chobot, který vznikl srůstem a prodloužením horního pysku a nosu. Velikosti těla odpovídá i množství potravy, které kolísá od 300 do 450 kg. Samec a samice se setkávají pouze v období páření. Zatímco samci vytvářejí mládenecké skupiny nebo žijí samotářsky, samice společně s mláďaty vytvářejí rodinné klany čítající 20 až 30 zvířat. Mládě přichází na svět po březosti 22 měsíců, měří na výšku 1 m a váží 100 kg. Mateřské mléko pije tlamou, chobot se naučí používat teprve ve 3 měsících.</item>
+        <item>Typickými znaky největších suchozemských savců jsou kly a pohyblivý chobot, který vznikl srůstem a prodloužením horního pysku a nosu. Velikosti těla odpovídá i množství potravy, které kolísá od 300 do 450 kg. Samec a samice se setkávají pouze v období páření. Zatímco samci vytvářejí mládenecké skupiny nebo žijí samotářsky, samice společně s mláďaty vytvářejí rodinné klany čítající 20 až 30 zvířat.</item>
     </array>
 
 
@@ -171,7 +171,7 @@
         <item>10–15 let</item>
         <item>Savany Afriky</item>
         <item>1 mládě po 14 měsících</item>
-        <item>Žirafa je nejvyšším suchozemským savcem. Na poměrně malé hlavě má krátké růžky pokryté osrstěnou kůží. Jde o výrůstky kostí temenních a kosti čelní, nosí je obě pohlaví. Žaludek je čtyřdílný a slepé střevo je vyvinuto. Žirafa je mimochodník. Žirafy žijí v menších skupinách vedených nejsilnějším samcem. Samice po březosti 14–16 měsíců rodí ve stoje 1 mládě, které váží při narození zhruba 50 kg a měří 180 cm. Mateřské mléko saje asi 10 měsíců.</item>
+        <item>Žádná zvířata nejsou tak svérázná jako žirafy. Jsou ze všech savců nejvyšší. Kromě vysokých končetin dává žirafě její výšku neobyčejně dlouhý, svalnatý krk. Pro žirafy je typická jejich chůze, jsou to tzv. mimochodníci, to znamená, že kráčí dopředu vždy oběma nohama na jedné straně zároveň. Proto mají kolébavou chůzi, která jim také dala jméno. Staré arabské slovo "zarafa" totiž znamená - "ten, kdo chodí houpavě".</item>
     </array>
 
 
@@ -225,10 +225,9 @@
         <item>120–150 cm</item>
         <item>None</item>
         <item>40 let</item>
-        <item>Východ a jih Afriky</item>
+        <item>Střed a jih Afriky</item>
         <item>1 mládě po 360 dnech</item>
-        <item>Zebry patří mezi lichokopytníky, jejich končetina prodělala vývoj, během kterého se zachoval jen třetí prst, který je silný a opatřený kopytem. Žijí většinou na savanách a travinatých pláních. Živí se různými druhy trav, takže jsou závislé na množství dešťových srážek, proto podnikají migrace za potravou v délce až 1 100 km. Drží se poblíž (25–30 km) vodního zdroje.
-            Každé zvíře má originální vzor pruhování, které směřuje od zadních nohou do středu těla. Pruhy jsou široké. Některé poddruhy zeber mají navíc hnědé proužky mezi černými. Předpokládá se, že pruhování slouží k vzájemnému rozeznávání jednotlivců a pomáhá v regulaci tělesné teploty. Střídání kontrastních barev, které rozostřuje obrys těla, také mate predátory. Hustota a výraznost pruhování možná také souvisí s výskytem mouchy tse-tse (nejvíc much se vyskytuje v oblastech, kde je pruhování nejvýraznější). Domorodci také chrání svůj dobytek před mouchami tak, že ho natírají na pruhovano. Kůže pod srstí je černá.</item>
+        <item>Zebry patří mezi lichokopytníky, jejich končetina prodělala vývoj, během kterého se zachoval jen třetí prst, který je silný a opatřený kopytem. Žijí většinou na savanách a travinatých pláních. Živí se různými druhy trav, takže jsou závislé na množství dešťových srážek, proto podnikají migrace za potravou v délce až 1 100 km. Drží se poblíž (25–30 km) vodního zdroje. Každé zvíře má originální vzor pruhování, které směřuje od zadních nohou do středu těla. Předpokládá se, že pruhování slouží k vzájemnému rozeznávání jednotlivců a pomáhá v regulaci tělesné teploty.</item>
     </array>
 
 
@@ -256,8 +255,7 @@
         <item>12–18 let</item>
         <item>Celý svět</item>
         <item>3–6 mláďat po 55 dnech</item>
-        <item> Kočka domácí má ostré smysly a výborný čich, sluch a zrak. Na rozdíl od člověka vidí ostřeji a dobře se orientuje v šeru. Svými pohyblivými ušními boltci dokáže přesně rozpoznat, odkud vychází zvuk a slyší až o dvě oktávy vyšší tóny než lidé. Její lovecký instinkt se probouzí, když spatří pohybující se kořist.
-            Čich je pro kočku nesmírně důležitý. 200 milionů čichových buněk jí pomáhá nalézt kořist, orientovat se v prostředí a komunikovat s ostatními kočkami. Kočky umí předpovědět i zemětřesení díky citlivým receptorům na tlapkách a pohyb v naprosté tmě jim usnadňují citlivé hmatové vousy na obličeji a hrudních končetinách. </item>
+        <item>Kočka domácí má ostré smysly a výborný čich, sluch a zrak. Na rozdíl od člověka vidí ostřeji a dobře se orientuje v šeru. Svými pohyblivými ušními boltci dokáže přesně rozpoznat, odkud vychází zvuk a slyší až o dvě oktávy vyšší tóny než lidé. Její lovecký instinkt se probouzí, když spatří pohybující se kořist. Čich je pro kočku nesmírně důležitý. 200 milionů čichových buněk jí pomáhá nalézt kořist, orientovat se v prostředí a komunikovat s ostatními kočkami.</item>
     </array>
 
 
@@ -271,8 +269,7 @@
         <item>10–20 let</item>
         <item>Celý svět</item>
         <item>4–10 mláďat po 60 dnech</item>
-        <item>Pes je věrným přítelem člověka už od počátku věků. Je vůbec nejstarším domestikovaným zvířetem vůbec. V mnoha kulturách psa najdeme i jako zvířecí symbol. Pro staré Egypťany byl pes strážcem podsvětí a věrným průvodcem do království na druhém břehu života. Člověku tak prokazoval tu největší službu. Za ni se mu také dostávalo náležitého ocenění. Byl spojován s bohem Anubisem, vyobrazovaným s lidským tělem a hlavou psa. Pes je uctívaný i zatracovaný. V mnoha oblastech je však pro lidi nenahraditelný.
-            Pes provází člověka od nepaměti, a to z mnoha různých důvodů. Pes je pomocníkem při lovu nebo při přehánění a hlídání stád. Hlídá jiná zvířata, ale také majetek nebo svého majitele. Může být vycvičen pro profesionální účely, aby pomáhal hasičům či policistům, stejně tak se užívá pro asistenci postižených osob.</item>
+        <item>Pes domácí je největší domestikovaná šelma a nejstarší domestikované zvíře vůbec, provázející člověka minimálně 14 tisíc let. Obecně se předpokládá, že se jedná o zdomácnělého a umělým výběrem změněného vlka obecného. Pes je všestranný a zvládá nejrůznější činnosti. Svědčí o tom i rozmanitá paleta psích plemen.Vnitřní anatomie psů je stejná, svým vzhledem se však psi mezi sebou výrazně liší. Jednotlivá psí plemena nabízejí velmi rozmanité vnější rysy, ale také charakter.</item>
     </array>
 
 
@@ -284,9 +281,9 @@
         <item>None</item>
         <item>15–20 cm</item>
         <item>10–14 let</item>
-        <item>Argentina, Bolívie, Peru</item>
+        <item>Chile, Bolívie, Peru</item>
         <item>1–6 mláďat po 100 dnech</item>
-        <item>...</item>
+        <item>Činčily patří do třídy savců. Pocházejí z nehostinných suchých horských oblastí jihoamerických And.  Díky tomu nejsou příliš náročné na potravu. Potřebují především dostatek vlákniny. Patří mezi býložravce, což znamená, že se živí výhradně rostlinnou stravou. Do té můžeme zařadit různé druhy travin, plody, listy, kůru menších keřů.  Mají velmi jemnou hustou srst, která je chrání před velkými teplotními výkyvy. Udržují ji koupáním se v písku. Činčily dokážou v případě ohrožení srst uvolnit (obrana před predátory).</item>
     </array>
 
     <array name="EuropeanFallowDeer">
@@ -299,7 +296,7 @@
         <item>15–20 let</item>
         <item>Téměř celá Evropa</item>
         <item>1 mládě po 8 měsících</item>
-        <item>...</item>
+        <item>Evropský druh jelena s lopatovitými parohy. V letním období je červenohnědý s bílými skvrnami táhnoucími se v podélných řadách, břicho, nohy a okolí řiti (zrcátko) jsou bílé. Po celé délce hřbetu se táhne černý pruh. V zimním šatu jsou daňci tmavohnědí, skvrny jsou méně výrazné nebo nejsou vůbec viditelné. V zajetí jsou běžné i bílé, černé nebo tmavohnědé formy daňků.</item>
     </array>
 
     <array name="Porcupine">
@@ -310,9 +307,9 @@
         <item>None</item>
         <item>Délka ostnu:Až 35 cm</item>
         <item>18–25 let</item>
-        <item>Celý svět</item>
+        <item>Rovníková oblast Afriky</item>
         <item>1–4 mláďata po 110 dnech</item>
-        <item>...</item>
+        <item>Dikobrazi jsou velcí hlodavci, kteří žijí jen v Evropě, Africe a Asii. Jejich ostny tedy nikdy nemohly zdobit indiánské mokasíny – v Americe žijí sice podobní, ale jen vzdáleně příbuzní urzoni. Typické dikobrazí ostny vznikly přeměnou chlupů a mohou být různě dlouhé a tvrdé. Novorozené mládě má bodlinky měkké, ale během několika dní mu rovněž ztvrdnou. Ostny jsou velice účinnou zbraní, i když je dikobrazi nevystřelují. Při ohrožení se však dovedou bleskově otočit, couvnout a naježené ostny pak snadno uvíznou v těle nepřítele, kde mohou zanechat bolestivé rány, které se lehce zanítí.</item>
     </array>
 
     <array name="Cheetah">
@@ -323,9 +320,9 @@
         <item>None</item>
         <item>60–84 cm</item>
         <item>10–12 let</item>
-        <item>Afrika</item>
+        <item>Afrika, jih Asie</item>
         <item>1–3 mláďata po 90 dnech</item>
-        <item>...</item>
+        <item>Gepard patří mezi kočkovité šelmy. Je nejrychlejším suchozemským živočichem na světě, na krátké vzdálenosti (500 m) dosahuje rychlosti 112–120 km/h. Z nuly na 100 km/h zrychlí za tři sekundy. Na rozdíl od ostatních kočkovitých šelem nemá úplně zatažitelné drápy, takže nemůže vertikálně šplhat po stromech. Může vyskočit jen na snadno dosažitelné větve. Na druhou stranu mu drápy umožňují lepší přilnavost k terénu ve vysokých rychlostech. Oproti levhartovi je mnohem drobnější a má malou hlavu.</item>
     </array>
 
     <array name="Hedgehog">
@@ -338,7 +335,7 @@
         <item>4–6 let</item>
         <item>Střední Afrika</item>
         <item>6–8 mláďat po 30 dnech</item>
-        <item>...</item>
+        <item>Ježek bělobřichý náleží k samotářským žijícím zvířatům. Ve své přirozené domovině v létě asi měsíc až měsíc a půl spí letním spánkem (estivace), kvůli nedostatku potravy. Je aktivní při teplotě 24-30 °C, když je chladněji nebo tepleji, je neaktivní a ukrývá se v noře. V případě potřeby umí lézt i po skalách a plavat. Příroda ho obdařila vynikajícím čichem a sluchem. Pohlavní dospělost ježků nastává ve 2-5 měsících, rozmnožují se ale až po prvním roce života. Samice ježků zůstávají plodné celý rok, rozmnožování probíhá nejčastěji v období dešťů, tedy kdy je hojnost potravy – obvykle jen jednou ročně.</item>
     </array>
 
     <array name="Goat">
@@ -351,7 +348,7 @@
         <item>10–14 let</item>
         <item>Celý svět</item>
         <item>1–3 mláďata po 140 dnech</item>
-        <item>...</item>
+        <item>Současná koza domácí je nenáročný a skromný přežvýkavec, kterému se nejvíce daří na pastvě. Nejvhodnějším a také nejčastěji chovaným plemenem je koza bílá krátkosrstá. Koza domácí je v současnosti domestikované zvíře a vyskytuje se po celém světě a její užitkovost může dosáhnout až 1000 kilogramů mléka ročně s obsahem tuku kolem 4%. Koza může být jednobarevná i strakatá, rohatá i bezrohá. Společným znakem, který podědila po divokých předcích, je výrazná bradka u samců a krátký ocas, který obvykle drží vztyčený kolmo vzhůru.</item>
     </array>
 
     <array name="Lemur">
@@ -364,7 +361,7 @@
         <item>15–20 let</item>
         <item>Madagaskar</item>
         <item>1–2 mláďata po 140 dnech</item>
-        <item>...</item>
+        <item>Nejnápadnější částí těla lemurů kata je jejich černobílý ocas. Můžete vidět, jak si lemuři co chvíli svůj ocas legračně protahují mezi předními končetinami. Důvod je jednoduchý. Na zápěstí mají totiž umístěny pachové žlázy a svůj ocas si takto "parfémují". Ocas pak slouží nejen jako optický ale i pachový signál. Žijí v tlupách, ve kterých je stanovena hierarchie, samice jsou vždy dominantnější než samci.</item>
     </array>
 
     <array name="AsianBlackBear">
@@ -379,7 +376,7 @@
         <item>Až 25 let</item>
         <item>Asie – Himaláje</item>
         <item>1–4 mláďata po 6 měsících</item>
-        <item>...</item>
+        <item>Jedná se o menší druh medvěda, dříve zvaný himalájský, který je od ostatních medvědů snadno rozpoznatelný podle černé barvy, bílé náprsenky ve tvaru písmene "V" někdy "Y", kulatých nepřiléhavých uší, štíhlejší tlamy a delší srsti na krku (která někdy tvoří jakoby límec nebo hřívu). Žijí samotářsky nebo v malých rodinných skupinkách. Více než polovinu času, kdy bdí, tráví na stromech, ale nejraději se vyhřívají na slunci a spí.</item>
     </array>
 
     <array name="Degu">
@@ -394,7 +391,7 @@
         <item>4–8 let</item>
         <item>Chile</item>
         <item>2–6 mláďat po 90 dnech</item>
-        <item>...</item>
+        <item>Oblíbený domácí hlodavec s většíma zadníma nohama, hnědočernou barvou těla, krémovým břichem a světlejšími skvrnami okolo očí. Má větší uši a dlouhé hmatové vousy. Žije ve velkých rodinných skupinách v norách, které mají často velmi propracovaný systém. Pohlavní dospělost nastává již okolo 3 měsíců, ale vyzrálí jsou až později, páří se většinou až ve věku okolo 9 měsíců, březost trvá okolo 90 dní.</item>
     </array>
 
     <array name="Sheep">
@@ -409,7 +406,7 @@
         <item>12–15 let</item>
         <item>Celý svět</item>
         <item>1–4 mláďata po 150 dnech</item>
-        <item>...</item>
+        <item>Ovce jsou velice otužilá a skromná zvířata. Jinak to ani nejde – přirozeným prostředím téměř všech ze zhruba 20 uznávaných druhů jsou suché svahy asijských hor, kde je život tvrdý a potravy málo. Jen dva druhy ovcí pocházejí z Ameriky, i zde však obývají otevřené horské terény. Lesům se obvykle vyhýbají, protože v nich mají špatný rozhled a jsou zranitelnější před nepřáteli.</item>
     </array>
 
     <array name="Meerkat">
@@ -424,7 +421,7 @@
         <item>6–7 let</item>
         <item>Jihovýchodní Afrika</item>
         <item>2–5 mláďat po 77 dnech</item>
-        <item>...</item>
+        <item>Surikaty si hrabou vlastní nory v písku, mnohdy také využívají soustavy nor po zemních veverkách. Typickým znakem surikat jsou silné „hrabavé“ drápy. Mají zvláštní záhyb na ušním boltci uzavírající zvukovod před nečistotami. Tvoří kolonie až o 30 členech. Kolonii vede dominantní pár, který jediný se smí rozmnožovat. O mláďata se starají všichni členové skupiny, společně také své území hlídají a brání. Surikaty hodně času tráví sluněním pohodlně natažené na vyhřátém písku či kamenech, do podzemí se uchylují jen za největšího žáru.</item>
     </array>
 
     <array name="Camel">
@@ -439,7 +436,7 @@
         <item>20–45 let</item>
         <item>Mongolsko – Poušť Gobi</item>
         <item>1 mládě po 13 měsících</item>
-        <item>...</item>
+        <item>Divoký velbloud obývá stepi a pouštní oblasti, kde teploty v zimě klesají až k –30 °C a v létě dosahují až +40 °C. Životu v nehostinných podmínkách je výborně přizpůsoben – má dva prsty s pružnými mozoly, které brání boření, má uzavíratelné nozdry a oči před pískem chrání husté řasy. Díky zásobnímu tuku v hrbech vydrží dlouhé týdny bez vody i potravy. Bez problémů překoná až 20% úbytek vody v těle.</item>
     </array>
 
     <array name="Jaguar">
@@ -454,7 +451,7 @@
         <item>12–15 let</item>
         <item>Střední a Jižní Amerika</item>
         <item>Až 4 mláďata po 90 dnech</item>
-        <item>...</item>
+        <item>Jaguár je největší kočkovitou šelmou amerického kontinentu a jako doma je nejen na pevné zemi a na stromech, ale i ve vodě. Je také velmi zdatný lovec, který dokáže ulovit třeba tapíra nebo opici. Na rozdíl od ostatních velkých koček, které svou kořist zardousí, jaguár své oběti nejčastěji prorazí lebku mohutnými tesáky, výjimečně jí rychlým prudkým kousnutím zláme vaz. Také je pro něj typické, že loví obrovské množství druhů (až 85 různých zvířat).</item>
     </array>
 
     <array name="Rhino">
@@ -469,7 +466,7 @@
         <item>40–50 let</item>
         <item>Jižní Afrika</item>
         <item>1 mládě po 16 měsících</item>
-        <item>...</item>
+        <item>Ze všech 5 druhů nosorožců je tento druh nejvíce společenský. I když samci po většinu roku žijí samotářsky, samice s mláďaty vytvářejí skupinky až o dvanácti jedincích. Zvířata jsou aktivní ve dne i v noci. Staří býci si vytvářejí teritoria o rozloze až 20 km2. Hranice teritoria si značí močí a hromadami trusu. Po březosti 16 měsíců samice porodí jediné mládě. Kojí je zhruba 1 rok.</item>
     </array>
 
 </resources>

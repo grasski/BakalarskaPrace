@@ -10,7 +10,7 @@ interface IAnimals {
     fun animalsToList(
         context: Context,
         category: String,
-        animals: List<Int>,
+        animals: Map<Int, List<List<Float>>>,
         images: List<List<Int>>
     ): MutableMap<String, Animal>
 }

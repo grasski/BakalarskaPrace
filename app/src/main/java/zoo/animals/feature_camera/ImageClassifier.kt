@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import android.util.Log
 import androidx.camera.core.ImageProxy
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.core.BaseOptions
@@ -35,7 +36,8 @@ class ImageClassifier(private val context: Context) {
             .setMaxResults(1)
             .build()
         val objectDetector = ObjectDetector.createFromFileAndOptions(
-            context, "ssddetect_metadata.tflite", options
+//            context, "lite-model_efficientdet_lite3_detection_metadata_1.tflite", options
+            context, "ssddetect_metadata_animals.tflite", options
         )
 
 
@@ -75,7 +77,7 @@ class ImageClassifier(private val context: Context) {
                 val loc = results[0].boundingBox
 
                 location = listOf(loc.left, loc.top, loc.right, loc.bottom)
-                text += "  " + location + "  " + score
+                text += " " + score
             }
         }
 
@@ -94,8 +96,8 @@ class ImageClassifier(private val context: Context) {
         val resizedBitmap = CameraUtils.toBitmap(image)?.let {
             Bitmap.createScaledBitmap(
                 it,
-                280,
-                280,
+                300,
+                300,
                 false
             )
         }
@@ -114,6 +116,7 @@ class ImageClassifier(private val context: Context) {
             )
         }
 
+        /*
 //        val model = ModelNewAnimals.newInstance(context)
         val model = AutoModel18animals.newInstance(context)
 
@@ -133,27 +136,23 @@ class ImageClassifier(private val context: Context) {
                 animalIndex = i
             }
         }
+         */
 
 
+        val model = EfficientnetLite4Int82.newInstance(context)
+        val tfImage = TensorImage.fromBitmap(rotatedBitmap)
+        val outputs = model.process(tfImage)
 
-//        val model = LiteModelEfficientdetLite0DetectionMetadata1.newInstance(context)
-//
-//// Creates inputs for reference.
-//        val tfImage = TensorImage.fromBitmap(rotatedBitmap)
-//
-//// Runs model inference and gets result.
-//        val outputs = model.process(tfImage)
-//
-//        for (i in 0..2){
-//            val detectionResult = outputs.detectionResultList[i]
-//
-//// Gets result from DetectionResult.
-//            val location = detectionResult.locationAsRectF;
-//            val category = detectionResult.categoryAsString;
-//            val score = detectionResult.scoreAsFloat;
-//
-//            result += category + "  " + score + "\n"
-//        }
+        val probability = outputs.probabilityAsCategoryList
+        var tmpScore = probability[0].score
+        var animalIndex = 0
+        for (i in 0..999){
+            if (tmpScore < probability[i].score){
+                tmpScore = probability[i].score
+                animalIndex = i
+            }
+        }
+        result = probability[animalIndex].label + " " + probability[animalIndex].score
 
 
 
@@ -251,9 +250,11 @@ class ImageClassifier(private val context: Context) {
         model.close()
         imageProxy.close()
 
+        /*
         if (tmpScore > 0.75f){
             result = probability[animalIndex].label
         }
+         */
 
 //        , listOf(location.left, location.top, location.right, location.bottom)
         return listOf(result, rotatedBitmap)
@@ -291,6 +292,41 @@ class ImageClassifier(private val context: Context) {
         if (tmpScore > 0.45f){
             result = probability[animalIndex].label
         }
+
+        return getAnimalByName(result)
+    }
+
+    @SuppressLint("UnsafeOptInUsageError")
+    fun detectPhoto(bitmap: Bitmap): Animal? {
+        var result = ""
+        val btm: Bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
+
+        val resizedBitmap =
+            Bitmap.createScaledBitmap(
+                btm,
+                320,
+                320,
+                false
+            )
+
+        val options = ObjectDetectorOptions.builder()
+            .setBaseOptions(BaseOptions.builder().build())
+            .setMaxResults(1)
+            .build()
+        val objectDetector = ObjectDetector.createFromFileAndOptions(
+//            context, "lite-model_efficientdet_lite3_detection_metadata_1.tflite", options
+            context, "ssddetect_metadata_new.tflite", options
+
+        )
+
+        val tfImage = TensorImage.fromBitmap(resizedBitmap)
+        val results: List<Detection> = objectDetector.detect(tfImage)
+
+        if (results[0].categories[0].score > 0.45f) {
+            result = results[0].categories[0].label
+        }
+
+        Log.d("NEVIM", "LALALA: " + result)
 
         return getAnimalByName(result)
     }

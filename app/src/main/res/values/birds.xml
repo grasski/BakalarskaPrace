@@ -142,7 +142,7 @@
         <item>130 cm</item>
 
         <item>20–30 let</item>
-        <item>Domácnosti</item>
+        <item>Domácnosti po celém světě</item>
         <item>Líhne 5–13 vajec po 30 dnech</item>
         <item>...</item>
     </array>
@@ -193,17 +193,17 @@
     </array>
 
     <array name="Kookaburra">
-        <item>Ledňák obecný</item>
+        <item>Ledňáček říční</item>
         <item>Pták</item>
-        <item>500 g</item>
+        <item>40–45 g</item>
 
-        <item>45 cm</item>
         <item>None</item>
-        <item>65 cm</item>
+        <item>16 cm</item>
+        <item>24–26 cm</item>
 
-        <item>20 let</item>
-        <item>Východní Austrálie</item>
-        <item>Líhne 2–3 vejce po 24 dnech</item>
+        <item>7 let</item>
+        <item>Téměř celá Evropa, Indonésie a jih Asie</item>
+        <item>Líhne 5–7 vajec po 20 dnech</item>
         <item>...</item>
     </array>
 
@@ -212,7 +212,7 @@
         <item>Pták</item>
         <item>5–10 kg</item>
 
-        <item>0.7–0.9 m</item>
+        <item>76–92 cm</item>
         <item>None</item>
         <item>2.4 m</item>
 

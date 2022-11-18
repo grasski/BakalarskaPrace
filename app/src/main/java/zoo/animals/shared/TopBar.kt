@@ -32,6 +32,7 @@ import zoo.animals.animations.ContentAnimation
 import zoo.animals.feature_category.data.Animal
 import zoo.animals.feature_category.data.AnimalData
 import zoo.animals.feature_category.data.CategoryData
+import zoo.animals.feature_category.view.CanvasMap
 import zoo.animals.feature_category.view.CategoryAnimalsScreen
 import zoo.animals.navigation.Routes
 import zoo.animals.normalize
@@ -58,11 +59,11 @@ fun TopBar(
     var searching by rememberSaveable { mutableStateOf(false) }
     var searchedAnimals by remember { mutableStateOf(mutableMapOf<String, Animal>()) }
 
-
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            SmallTopAppBar(
+            TopAppBar(
+                scrollBehavior = scrollBehavior,
                 title = {
                     ContentAnimation().ShrinkInFromHorizontallySide(-200, 100, !searching) {
                         Text(
@@ -73,7 +74,7 @@ fun TopBar(
                             modifier = Modifier.fillMaxWidth()
                         )
                     }
-                        },
+                },
                 navigationIcon = {
                     IconButton(onClick = {
                         scope.launch {
@@ -90,7 +91,7 @@ fun TopBar(
                         )
                     }
                 },
-                actions = {
+                actions ={
                     this.also {
                         scope.launch {
                             if (drawerState.isOpen) {
@@ -109,22 +110,25 @@ fun TopBar(
                         }
                     }
                 },
-                scrollBehavior = scrollBehavior
             )
         },
         content = { innerPadding ->
-            Column(
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.padding(innerPadding)
-            ) {
-                ModalNavigationDrawer(
-                    drawerState = drawerState,
-                    gesturesEnabled = gestureEnabled,
-                    scrimColor = MaterialTheme.colorScheme.background,
-                    drawerContent = {
+
+            ModalNavigationDrawer(
+                drawerState = drawerState,
+                gesturesEnabled = gestureEnabled,
+                drawerContent = {
+                    Box(modifier = Modifier.padding(innerPadding)){
                         DrawerView(navController = navController)
-                    },
-                    content = {
+                    }
+                },
+                content = {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
                         if (searchedAnimals.isEmpty()){
                             content()
                         } else{
@@ -136,21 +140,70 @@ fun TopBar(
                             )
                         }
                     }
-                )
-            }
+                }
+            )
         }
     )
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DrawerView(navController: NavController) {
     val categoryIcon = remember { Icons.Filled.Category }
     val cameraIcon = remember { Icons.Filled.CameraAlt }
+    val discoveriesIcon = remember { Icons.Filled.TravelExplore }
 
     val categoryTitleText = remember { UiTexts.StringResource(R.string.categoryTitle) }
     val cameraTileText = remember { UiTexts.StringResource(R.string.detectionByCamera) }
+    val discoveriesTitleText = remember { UiTexts.StringResource(R.string.discoveries) }
 
+    val scope = rememberCoroutineScope()
+
+    ModalDrawerSheet() {
+        Spacer(Modifier.height(12.dp))
+        NavigationDrawerItem(
+            icon = { Icon(categoryIcon, contentDescription = null) },
+            label = { Text(categoryTitleText.asString(), fontSize = 22.sp) },
+            selected = false,
+            onClick = {
+                scope.launch {
+                    navController.navigate(Routes.Categories.route)
+                }
+//                selectedItem.value = item
+            },
+            modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+        )
+
+        NavigationDrawerItem(
+            icon = { Icon(cameraIcon, contentDescription = null) },
+            label = { Text(cameraTileText.asString()) },
+            selected = true,
+            onClick = {
+                scope.launch {
+                    navController.navigate(Routes.Camera.route)
+                }
+//                selectedItem.value = item
+            },
+            modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+        )
+
+        NavigationDrawerItem(
+            icon = { Icon(discoveriesIcon, contentDescription = null) },
+            label = { Text(discoveriesTitleText.asString()) },
+            selected = false,
+            onClick = {
+                scope.launch {
+                    navController.navigate(Routes.Discovers.route)
+                }
+//                selectedItem.value = item
+            },
+            modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+        )
+    }
+
+
+    /*
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -187,6 +240,7 @@ fun DrawerView(navController: NavController) {
             }
         }
     }
+     */
 }
 
 

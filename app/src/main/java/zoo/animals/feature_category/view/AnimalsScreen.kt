@@ -96,7 +96,7 @@ class CategoryAnimalsScreen {
             Card(
                 shape = RoundedCornerShape(12.dp),
                 modifier = Modifier
-                    .padding(top = 16.dp, start = 10.dp, end = 10.dp)
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
                     .height(180.dp)
                     .widthIn(150.dp, 180.dp),
                 onClick = {

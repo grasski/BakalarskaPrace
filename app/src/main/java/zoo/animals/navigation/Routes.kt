@@ -14,4 +14,5 @@ sealed class Routes(val route: String) {
     object Discovers: Routes("discover")
     object Zoos: Routes("zoo")
     object ZooInfo: Routes("zooInfo")
+    object AnimalsDiscovery: Routes("animalsDiscovery")
 }

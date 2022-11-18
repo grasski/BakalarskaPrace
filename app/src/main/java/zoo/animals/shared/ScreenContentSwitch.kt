@@ -33,8 +33,6 @@ fun BottomContentSwitch(
 ){
     var mainScreenSelected by rememberSaveable { mutableStateOf(true) }
 
-
-
     Scaffold (
         bottomBar = {
             BottomAppBar(
