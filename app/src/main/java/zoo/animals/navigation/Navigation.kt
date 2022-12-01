@@ -1,11 +1,11 @@
 package zoo.animals.navigation
 
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import zoo.animals.feature_about.About
 import zoo.animals.feature_camera.CameraScreen
 import zoo.animals.feature_category.data.Animal
 import zoo.animals.feature_category.view.CategoryAnimalsScreen
@@ -16,6 +16,7 @@ import zoo.animals.feature_discovery.zoos.view.AnimalsDiscoveryScreen
 import zoo.animals.feature_discovery.zoos.view.DiscoveryScreen
 import zoo.animals.feature_discovery.zoos.view.ZoosDiscoveryScreen
 import zoo.animals.feature_discovery.zoos.view.ZooScreen
+import zoo.animals.feature_settings.Settigns
 
 
 @Composable
@@ -58,6 +59,13 @@ fun Navigation(){
 
         composable(route = Routes.Camera.route){
             CameraScreen().CameraScreen(navController)
+        }
+
+        composable(route = Routes.Settings.route){
+            Settigns(navController)
+        }
+        composable(route = Routes.About.route){
+            About(navController)
         }
     }
 }

@@ -16,6 +16,7 @@
     </array>
     <string name="settings">Nastavení</string>
 
+    <string name="aboutApp">O aplikaci</string>
 
     <string-array name="animalInfo">
         <item>Váha</item>

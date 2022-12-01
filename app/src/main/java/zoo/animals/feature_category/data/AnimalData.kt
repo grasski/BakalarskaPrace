@@ -54,43 +54,6 @@ object AnimalData: IAnimals {
             R.array.Jaguar to AnimalAppearance.CENTRAL_AMERICA.getCoords() + AnimalAppearance.SOUTH_AMERICA.getCoords(),
             R.array.Rhino to AnimalAppearance.AFRICA_SOUTH.getCoords()
         )
-
-        /*
-        val animalInfo: List<Int> = listOf(
-            R.array.Agouti,
-            R.array.Alpaca,
-            R.array.Bison,
-            R.array.Beaver,
-            R.array.Yak,
-            R.array.Badger,
-            R.array.Capybara,
-            R.array.Kangaroo,
-            R.array.Elephant,
-            R.array.Giraffe,
-            R.array.Gorilla,
-            R.array.Lion,
-            R.array.Tiger,
-            R.array.Zebra,
-            R.array.SeaLion,
-            R.array.Cat,
-            R.array.Dog,
-
-            R.array.Chinchilla,
-            R.array.EuropeanFallowDeer,
-            R.array.Porcupine,
-            R.array.Cheetah,
-            R.array.Hedgehog,
-            R.array.Goat,
-            R.array.Lemur,
-            R.array.AsianBlackBear,
-            R.array.Degu,
-            R.array.Sheep,
-            R.array.Meerkat,
-            R.array.Camel,
-            R.array.Jaguar,
-            R.array.Rhino
-        )
-         */
         val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.agouti_preview, R.drawable.agouti_main),
             listOf(R.drawable.alpaka_preview, R.drawable.alpaka_main),
@@ -137,6 +100,7 @@ object AnimalData: IAnimals {
 
 
     override fun birds(context: Context): MutableMap<String, Animal> {
+
         val animalInfo: Map<Int, List<List<Float>>> = mapOf(
             R.array.Flamingo to AnimalAppearance.AFRICA.getCoords() + AnimalAppearance.MADAGASCAR.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords() + AnimalAppearance.EUROPE_SOUTH.getCoords(),
             R.array.Duck to AnimalAppearance.WORLD.getCoords(),

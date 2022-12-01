@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -17,9 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -31,8 +28,6 @@ import zoo.animals.UiTexts
 import zoo.animals.animations.ContentAnimation
 import zoo.animals.feature_category.data.Animal
 import zoo.animals.feature_category.data.AnimalData
-import zoo.animals.feature_category.data.CategoryData
-import zoo.animals.feature_category.view.CanvasMap
 import zoo.animals.feature_category.view.CategoryAnimalsScreen
 import zoo.animals.navigation.Routes
 import zoo.animals.normalize
@@ -153,94 +148,91 @@ fun DrawerView(navController: NavController) {
     val categoryIcon = remember { Icons.Filled.Category }
     val cameraIcon = remember { Icons.Filled.CameraAlt }
     val discoveriesIcon = remember { Icons.Filled.TravelExplore }
+    val aboutIcon = remember { Icons.Filled.Info }
+    val settingsIcon = remember { Icons.Filled.Settings }
 
     val categoryTitleText = remember { UiTexts.StringResource(R.string.categoryTitle) }
     val cameraTileText = remember { UiTexts.StringResource(R.string.detectionByCamera) }
     val discoveriesTitleText = remember { UiTexts.StringResource(R.string.discoveries) }
+    val appAboutTitleText = remember { UiTexts.StringResource(R.string.aboutApp) }
+    val settingsTitleText = remember { UiTexts.StringResource(R.string.settings) }
 
     val scope = rememberCoroutineScope()
 
-    ModalDrawerSheet() {
+    ModalDrawerSheet {
         Spacer(Modifier.height(12.dp))
         NavigationDrawerItem(
             icon = { Icon(categoryIcon, contentDescription = null) },
-            label = { Text(categoryTitleText.asString(), fontSize = 22.sp) },
-            selected = false,
+            label = { Text(categoryTitleText.asString(),
+                fontSize = if (navController.currentDestination?.route.equals(Routes.Categories.route)) 22.sp else 18.sp) },
+            selected = navController.currentDestination?.route.equals(Routes.Categories.route),
             onClick = {
                 scope.launch {
                     navController.navigate(Routes.Categories.route)
                 }
-//                selectedItem.value = item
             },
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
         )
 
         NavigationDrawerItem(
             icon = { Icon(cameraIcon, contentDescription = null) },
-            label = { Text(cameraTileText.asString()) },
-            selected = true,
+            label = { Text(cameraTileText.asString(),
+                fontSize = if (navController.currentDestination?.route.equals(Routes.Camera.route)) 22.sp else 18.sp) },
+            selected = navController.currentDestination?.route.equals(Routes.Camera.route),
             onClick = {
                 scope.launch {
                     navController.navigate(Routes.Camera.route)
                 }
-//                selectedItem.value = item
             },
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
         )
 
         NavigationDrawerItem(
             icon = { Icon(discoveriesIcon, contentDescription = null) },
-            label = { Text(discoveriesTitleText.asString()) },
-            selected = false,
+            label = { Text(discoveriesTitleText.asString(),
+                    fontSize = if (navController.currentDestination?.route.equals(Routes.Discovers.route)) 22.sp else 18.sp) },
+            selected = navController.currentDestination?.route.equals(Routes.Discovers.route),
             onClick = {
                 scope.launch {
                     navController.navigate(Routes.Discovers.route)
                 }
-//                selectedItem.value = item
             },
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
         )
-    }
 
+        Column(
+            verticalArrangement = Arrangement.Bottom,
+            modifier = Modifier.fillMaxSize()
+        ){
+            NavigationDrawerItem(
+                icon = { Icon(settingsIcon, contentDescription = null) },
+                label = { Text(settingsTitleText.asString(),
+                    fontSize = if (navController.currentDestination?.route.equals(Routes.Settings.route)) 22.sp else 18.sp) },
+                selected = navController.currentDestination?.route.equals(Routes.Settings.route),
+                onClick = {
+                    scope.launch {
+                        navController.navigate(Routes.Settings.route)
+                    }
+                },
+                modifier = Modifier
+                    .padding(NavigationDrawerItemDefaults.ItemPadding)
+            )
 
-    /*
-    LazyColumn(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        item {
-            DrawerButton(categoryIcon, categoryTitleText.asString(), navController, Routes.Categories.route, true)
-        }
-        item {
-            DrawerButton(cameraIcon, cameraTileText.asString(), navController, Routes.Camera.route, false)
-        }
-        item {
-            Button(
-                onClick = { navController.navigate(Routes.Discovers.route) },
-                Modifier
-                    .width(300.dp)
-                    .padding(top = 15.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            ) {
-                Row(modifier = Modifier
-                    .width(IntrinsicSize.Max),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
-
-                    Text(
-                        text = UiTexts.StringResource(R.string.discoveries).asString(),
-                        fontSize = 22.sp,
-                        textAlign = TextAlign.Start,
-                    )
-                }
-            }
+            NavigationDrawerItem(
+                icon = { Icon(aboutIcon, contentDescription = null) },
+                label = { Text(appAboutTitleText.asString(),
+                    fontSize = if (navController.currentDestination?.route.equals(Routes.About.route)) 22.sp else 18.sp) },
+                selected = navController.currentDestination?.route.equals(Routes.About.route),
+                onClick = {
+                    scope.launch {
+                        navController.navigate(Routes.About.route)
+                    }
+                },
+                modifier = Modifier
+                    .padding(NavigationDrawerItemDefaults.ItemPadding)
+            )
         }
     }
-     */
 }
 
 
@@ -325,93 +317,5 @@ fun searchingButton(
 
     _searchedAnimal(searchedAnimals)
     return searchingText.length >= 2
-}
-
-
-@Composable
-fun DrawerButton(
-    icon: ImageVector,
-    title: String,
-    navController: NavController,
-    route: String,
-    expand: Boolean
-) {
-    var expanded by remember { mutableStateOf(false) }
-
-    Box{
-        Button(
-            onClick = { navController.navigate(route) },
-            Modifier
-                .width(300.dp)
-                .padding(top = 15.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                contentColor = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        ) {
-            Row(modifier = Modifier
-                .width(IntrinsicSize.Max),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
-                Icon(
-                    imageVector = icon,
-                    contentDescription = title,
-                    modifier = Modifier
-                        .size(40.dp)
-                )
-
-                Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
-
-                Text(
-                    text = title,
-                    fontSize = 22.sp,
-                    textAlign = TextAlign.Start,
-                )
-
-                if (expand) {
-                    IconButton(
-                        onClick = { expanded = !expanded },
-                    ) {
-                        Icon(
-                            Icons.Filled.ArrowDropDown,
-                            contentDescription = title,
-                            modifier = Modifier
-                                .size(40.dp)
-                        )
-                    }
-                }
-            }
-        }
-
-        Box(
-            Modifier
-                .padding(top = 50.dp)
-                .align(Alignment.BottomEnd)
-        ){
-            DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false },
-            ) {
-                CategoryData.categoriesList(LocalContext.current).forEach { item ->
-                    DropdownMenuItem(
-                        onClick = {
-                            navController.navigate(item.route.route)
-                            expanded = false
-                        },
-                        text = {
-                            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center)
-                            {
-                                Text(
-                                    text = item.categoryName,
-//                                    color = MaterialTheme.colorScheme.background,
-                                    textAlign = TextAlign.Center
-                                )
-                            } }
-                    )
-                }
-            }
-        }
-    }
 }
 

@@ -37,7 +37,8 @@ class ImageClassifier(private val context: Context) {
             .build()
         val objectDetector = ObjectDetector.createFromFileAndOptions(
 //            context, "lite-model_efficientdet_lite3_detection_metadata_1.tflite", options
-            context, "ssddetect_metadata_animals.tflite", options
+//            context, "ssddetect_metadata_animals.tflite", options
+            context, "model_maker_detection.tflite", options
         )
 
 
@@ -47,8 +48,8 @@ class ImageClassifier(private val context: Context) {
             val resizedBitmap = CameraUtils.toBitmap(mediaImage)?.let {
                 Bitmap.createScaledBitmap(
                     it,
-                    320,
-                    320,
+                    512,
+                    512,
                     false
                 )
             }
@@ -96,8 +97,8 @@ class ImageClassifier(private val context: Context) {
         val resizedBitmap = CameraUtils.toBitmap(image)?.let {
             Bitmap.createScaledBitmap(
                 it,
-                300,
-                300,
+                280,
+                280,
                 false
             )
         }
@@ -116,7 +117,7 @@ class ImageClassifier(private val context: Context) {
             )
         }
 
-        /*
+
 //        val model = ModelNewAnimals.newInstance(context)
         val model = AutoModel18animals.newInstance(context)
 
@@ -136,9 +137,10 @@ class ImageClassifier(private val context: Context) {
                 animalIndex = i
             }
         }
-         */
 
 
+
+        /*
         val model = EfficientnetLite4Int82.newInstance(context)
         val tfImage = TensorImage.fromBitmap(rotatedBitmap)
         val outputs = model.process(tfImage)
@@ -153,6 +155,8 @@ class ImageClassifier(private val context: Context) {
             }
         }
         result = probability[animalIndex].label + " " + probability[animalIndex].score
+
+         */
 
 
 
@@ -250,11 +254,11 @@ class ImageClassifier(private val context: Context) {
         model.close()
         imageProxy.close()
 
-        /*
+
         if (tmpScore > 0.75f){
             result = probability[animalIndex].label
         }
-         */
+
 
 //        , listOf(location.left, location.top, location.right, location.bottom)
         return listOf(result, rotatedBitmap)

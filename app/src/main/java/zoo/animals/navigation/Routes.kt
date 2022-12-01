@@ -11,6 +11,9 @@ sealed class Routes(val route: String) {
 
     object Camera: Routes("camera")
 
+    object About: Routes("about")
+    object Settings: Routes("settings")
+
     object Discovers: Routes("discover")
     object Zoos: Routes("zoo")
     object ZooInfo: Routes("zooInfo")

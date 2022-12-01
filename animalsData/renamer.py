@@ -1,36 +1,39 @@
 # Python 3 code to rename multiple
 # files in a directory or folder
- 
+
 # importing os module
 import os
- 
+
+
 # Function to rename multiple files
 def main():
-
-    # folder = os.path.join("data", "archive", "zebra", "images")
+    # folder = os.path.join("data", "labeled", "downloads", "kangaroo", "3", "images")
     # for count, filename in enumerate(os.listdir(folder)):
     #     source = os.path.join(folder, filename)
-    #     newName = os.path.join(folder, f"Zebra_Dow_{count}.jpg")
-    #     print(source + "   " + newName)
+    #     if (".xml" in source):
+    #         break
+    #
+    #     newName = os.path.join(source.replace("temmp", "temp"))
     #     os.rename(source, newName)
 
-    folder = os.path.join("bird_dataset", "train")
+    folder = os.path.join("data", "labeled", "downloads", "capybara", "1", "images")
+    # folder = os.path.join("data", "labeled", "buffalo")
     l = os.listdir(folder)
-
+    fileName = "Capybara_Download_1"
     i = 0
     for name in list(l[0::2]):
-        jpgSource = os.path.join(folder, name)
-        jsonSource = os.path.join(folder, name[:-3] + "json")
-        newJpgName = os.path.join(folder, f"Bird_{i}.jpg")
-        newJsonName = os.path.join(folder, f"Bird_{i}.json")
-        print(jpgSource + "   " + newJpgName)
-        print(jsonSource + "   " + newJsonName)
+        imgSource = os.path.join(folder, name)
+        labelSource = os.path.join(folder, name[:-3] + "xml")
+        newImgName = os.path.join(folder, f"{fileName}_{i}.jpg")
+        newLabelName = os.path.join(folder, f"{fileName}_{i}.xml")
+        # print(imgSource + "   " + newImgName)
+        # print(labelSource + "   " + newLabelName)
         i += 1
 
-        os.rename(jpgSource, newJpgName)
-        os.rename(jsonSource, newJsonName)
-        
- 
+        os.rename(imgSource, newImgName)
+        os.rename(labelSource, newLabelName)
+
+
 # Driver Code
 if __name__ == '__main__':
     main()

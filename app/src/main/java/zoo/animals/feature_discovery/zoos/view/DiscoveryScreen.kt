@@ -20,7 +20,6 @@ import zoo.animals.R
 import zoo.animals.navigation.Routes
 import zoo.animals.UiTexts
 import zoo.animals.feature_category.data.AnimalData
-import zoo.animals.feature_category.data.Category
 import zoo.animals.feature_discovery.zoos.data.ZooData
 import zoo.animals.shared.TopBar
 
