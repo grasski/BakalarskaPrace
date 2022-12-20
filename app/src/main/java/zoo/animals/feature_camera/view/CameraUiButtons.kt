@@ -1,4 +1,4 @@
-package zoo.animals.feature_camera
+package zoo.animals.feature_camera.view
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.TweenSpec
@@ -17,18 +17,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import zoo.animals.R
+import zoo.animals.feature_camera.model.CameraViewModel
+import zoo.animals.feature_camera.model.CaptureViewModel
 import zoo.animals.navigation.Routes
 
 
 @Composable
-fun btnRecognitionToggle(): Boolean{
-    var running by remember { mutableStateOf(RecognitionRunning.status) }
-
+fun BtnRecognitionToggle(
+    viewModel: CameraViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+){
     val interactionSource = MutableInteractionSource()
     Box(
         modifier = Modifier
@@ -39,11 +42,11 @@ fun btnRecognitionToggle(): Boolean{
                 interactionSource = interactionSource,
                 indication = null
             ) {
-                running = !running
+                viewModel.state.classificationRunning.value = !viewModel.state.classificationRunning.value
             }
     ) {
         Crossfade(
-            targetState = running,
+            targetState = viewModel.state.classificationRunning.value,
             animationSpec = TweenSpec(durationMillis = 500)
         ) { isChecked ->
             if (isChecked) {
@@ -63,19 +66,19 @@ fun btnRecognitionToggle(): Boolean{
             }
         }
     }
-    return running
 }
 
 
 @Composable
 fun BtnCapture(
-    takePhoto: () -> Unit,
-    clicked: (Boolean) -> Unit
+    cameraViewModel: CameraViewModel,
+    captureViewModel: CaptureViewModel
 ){
+    val context = LocalContext.current
+
     OutlinedButton(
         onClick = {
-            takePhoto()
-            clicked(true)
+            captureViewModel.takePhoto(cameraViewModel, context)
         },
         modifier= Modifier.size(70.dp),
         shape = CircleShape,

@@ -1,50 +1,30 @@
-package zoo.animals.feature_camera
+package zoo.animals.feature_camera.view
 
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
-import android.net.Uri
 import android.view.ScaleGestureDetector
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageAnalysis.OUTPUT_IMAGE_FORMAT_YUV_420_888
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY
 import androidx.camera.core.Preview
-import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.NavController
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
-import org.tensorflow.lite.support.common.FileUtil
-import zoo.animals.R
-import zoo.animals.UiTexts
-import zoo.animals.feature_category.data.AnimalData
-import java.util.concurrent.Executors
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
+import zoo.animals.feature_camera.model.CameraViewModel
 
 
 /*
@@ -380,6 +360,7 @@ fun SimpleCameraPreview(navController: NavController) {
 */
 
 
+/*
 @SuppressLint("ClickableViewAccessibility")
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -598,12 +579,102 @@ fun CameraPreviewScreen(navController: NavController) {
         }
     }
 }
+*/
 
 
-private suspend fun Context.getCameraProvider(): ProcessCameraProvider = suspendCoroutine { continuation ->
-    ProcessCameraProvider.getInstance(this).also { cameraProvider ->
-        cameraProvider.addListener({
-            continuation.resume(cameraProvider.get())
-        }, ContextCompat.getMainExecutor(this))
+@SuppressLint("ClickableViewAccessibility")
+@OptIn(ExperimentalPermissionsApi::class)
+@Composable
+fun CameraPreviewScreen(
+    navController: NavController,
+    viewModel: CameraViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+) {
+    val permissions = rememberMultiplePermissionsState(permissions = listOf(
+        Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+    ))
+    val context = LocalContext.current
+
+    var zoomDelta by remember { mutableStateOf(0f) }
+
+    var result by remember { mutableStateOf("") }
+    Box{
+        Column {
+            // Secure checking for camera permission if the app has been minimized and changed permissions manually in settings.
+            val lifecycleOwner = LocalLifecycleOwner.current
+
+            DisposableEffect(
+                key1 = lifecycleOwner,
+                effect = {
+                    val observer = LifecycleEventObserver { _, event ->
+                        if (event == Lifecycle.Event.ON_START) {
+                            permissions.launchMultiplePermissionRequest()
+                        }
+                    }
+                    lifecycleOwner.lifecycle.addObserver(observer)
+
+                    onDispose {
+                        lifecycleOwner.lifecycle.removeObserver(observer)
+                    }
+                }
+            )
+
+            if (permissions.permissions[0].status.isGranted) {
+                val preview: Preview = Preview.Builder().build()
+                val previewView = remember { PreviewView(context) }
+
+                LaunchedEffect(viewModel.state.lensFacing) {
+                    viewModel.setupCamera(context, lifecycleOwner, preview)
+
+                    // Listen to pinch gestures
+                    val listener =
+                        object : ScaleGestureDetector.SimpleOnScaleGestureListener() {
+                            override fun onScale(detector: ScaleGestureDetector): Boolean {
+                                viewModel.state.currentZoom.value = viewModel.state.camera.value?.cameraInfo?.zoomState?.value?.zoomRatio ?: 0F
+                                zoomDelta = detector.scaleFactor
+                                viewModel.state.camera.value?.cameraControl?.setZoomRatio(viewModel.state.currentZoom.value * zoomDelta)
+
+                                return true
+                            }
+                        }
+                    val scaleGestureDetector = ScaleGestureDetector(context, listener)
+                    previewView.setOnTouchListener { _, event ->
+                        scaleGestureDetector.onTouchEvent(event)
+                        return@setOnTouchListener true
+                    }
+
+                    preview.setSurfaceProvider(previewView.surfaceProvider)
+                }
+
+//                viewModel.state.imageAnalysis.setAnalyzer(viewModel.state.cameraExecutor) { imageProxy ->
+//                    val classified = ImageClassifier(context).classify(imageProxy)
+//                    result = classified[0] as String
+//                }
+
+                Box(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    previewView.let { la ->
+                        AndroidView(
+                            { la },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .fillMaxHeight(0.932f)
+                                .background(MaterialTheme.colorScheme.background)
+                                .clip(RoundedCornerShape(bottomEnd = 20.dp, bottomStart = 20.dp))
+                        )
+                    }
+                    Text(text = "LLLA " + zoomDelta +  ", " + viewModel.state.currentZoom.value)
+
+                    CameraUi(navController)
+                }
+            } else {
+                NoCameraPermissionUi(
+                    navController,
+                    permissions.permissions[0].status.isGranted,
+                    permissions.permissions[1].status.isGranted,
+                )
+            }
+        }
     }
 }

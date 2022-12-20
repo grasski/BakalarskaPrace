@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="introduction">Aplikace byla vytvořena za účelem bakalářské práce na Fakultě aplikované informatiky na univerzitě Tomáše Bati ve Zlíně.</string>
+    <string name="aboutImages">Hlavním zdrojem obrázků pro vytvoření modelu pro rozpoznávání zvířat byla webová stránka</string>
+
+    <string name="resources">ZDROJE DAT</string>
+    <string name="anotherSources">Další důležité zdroje:</string>
+    <string-array name="labeledSources">
+        <item>https://github.com/freds0/capybara_dataset</item>
+        <item>https://universe.roboflow.com/miguel-narbot-usp-br/capybara-and-animals/dataset/1</item>
+        <item>https://www.kaggle.com/datasets/hugozanini1/kangaroodataset?resource=download</item>
+        <item>https://github.com/experiencor/kangaroo</item>
+        <item>https://universe.roboflow.com/z-jeans-pig/kangaroo-epscj/dataset/1</item>
+        <item>https://cvwc2019.github.io/challenge.html#</item>
+        <item>https://www.kaggle.com/datasets/biancaferreira/african-wildlife</item>
+        <item>https://universe.roboflow.com/new-workspace-5kofa/elephant-dataset/dataset/6</item>
+        <item>https://universe.roboflow.com/nathanael-hutama-harsono/large-cat/dataset/1/images/?split=train</item>
+        <item>https://universe.roboflow.com/karim-siala/giraffe-dataset/dataset/2</item>
+        <item>https://universe.roboflow.com/turtledetector/turtledetector/dataset/2</item>
+        <item>https://www.kaggle.com/datasets/smaranjitghose/sea-turtle-face-detection</item>
+        <item>https://universe.roboflow.com/fadilyounes-me-gmail-com/zebra---savanna/dataset/1</item>
+        <item>https://universe.roboflow.com/test-qeryf/yolov5-9snhq</item>
+        <item>https://universe.roboflow.com/or-the-king/two-zebras</item>
+        <item>https://universe.roboflow.com/wild-animals-datasets/zebra-images/dataset/2</item>
+        <item>https://universe.roboflow.com/zebras/zebras/dataset/2</item>
+        <item>https://universe.roboflow.com/v2-rabotaem-xkxra/zebras_v2/dataset/5</item>
+        <item>https://universe.roboflow.com/giraffs-and-cows/giraffes-and-cows/dataset/1</item>
+        <item>https://universe.roboflow.com/vijay-vikas-mangena/animal_od_test1/dataset/1</item>
+        <item>https://universe.roboflow.com/bdoma13-gmail-com/rhino_horn/dataset/7</item>
+    </string-array>
+
+    <string name="version">Verze: 1.0</string>
+    <string name="author"><>Autor</color>: Daberger Jiří</string>
+    <string name="creationDate">Datum vytvoření: 30.5.2023</string>
+
+</resources>

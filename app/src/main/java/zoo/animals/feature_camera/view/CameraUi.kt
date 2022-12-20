@@ -1,4 +1,4 @@
-package zoo.animals.feature_camera
+package zoo.animals.feature_camera.view
 
 import android.content.Intent
 import android.net.Uri
@@ -28,23 +28,19 @@ import kotlinx.coroutines.delay
 import zoo.animals.R
 import zoo.animals.UiTexts
 import zoo.animals.animations.ContentAnimation
+import zoo.animals.feature_camera.CameraExtensions
+import zoo.animals.feature_camera.model.CameraViewModel
+import zoo.animals.feature_camera.model.CaptureViewModel
 import zoo.animals.shared.TopBar
 import kotlin.time.Duration.Companion.seconds
 
 
-object RecognitionRunning{
-    var status = true
-}
-
-
 @Composable
-fun cameraUi(
+fun CameraUi(
     navController: NavController,
-    takePhoto: () -> Unit,
-    uri: Uri?
-): Boolean{
-    var running by remember { mutableStateOf(RecognitionRunning.status) }
-    var imageCaptured by remember { mutableStateOf(false) }
+    cameraViewModel: CameraViewModel = androidx.lifecycle.viewmodel.compose.viewModel(),
+    captureViewModel: CaptureViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+){
     var imageWasDeleted by remember { mutableStateOf(false) }
 
     Box(modifier = Modifier.fillMaxSize()){
@@ -55,11 +51,12 @@ fun cameraUi(
             ) {
                 BtnClose(navController)
 
-                ShowCapturedImage(uri, imageCaptured) { imageWasDeleted = it }
-                LaunchedEffect(uri, imageWasDeleted) {
+                ShowCapturedImage(captureViewModel.state.imageUri.value) { imageWasDeleted = it }
+                LaunchedEffect(captureViewModel.state.imageUri.value, imageWasDeleted) {
                     if (!imageWasDeleted)
                         delay(3.seconds)
-                    imageCaptured = false
+
+                    captureViewModel.state.imageUri.value = null
                     imageWasDeleted = false
                 }
             }
@@ -74,24 +71,21 @@ fun cameraUi(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                DetectionNotice(running)
+                DetectionNotice(cameraViewModel.state.classificationRunning.value)
 
                 Row{
                     Box(contentAlignment = Alignment.Center) {
                         Box{
-                            BtnCapture(takePhoto) { imageCaptured = it }
+                            BtnCapture(cameraViewModel, captureViewModel)
                         }
                         Box(Modifier.offset(x = 80.dp)){
-                            running = btnRecognitionToggle()
+                            BtnRecognitionToggle()
                         }
                     }
                 }
             }
         }
     }
-
-    RecognitionRunning.status = running
-    return running
 }
 
 
@@ -235,11 +229,9 @@ fun DetectionNotice(running: Boolean){
 @Composable
 fun ShowCapturedImage(
     uri: Uri?,
-    imageCaptured: Boolean,
     imageWasDeleted: (Boolean) -> Unit
 ){
-
-    ContentAnimation().FadeInFromVerticallySide(offsetY = -500, duration = 400, imageCaptured){
+    ContentAnimation().FadeInFromVerticallySide(offsetY = -500, duration = 400, (uri != null)){
         Box(
             modifier = Modifier
                 .fillMaxSize()

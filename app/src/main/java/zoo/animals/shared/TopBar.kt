@@ -165,7 +165,11 @@ fun DrawerView(navController: NavController) {
             icon = { Icon(categoryIcon, contentDescription = null) },
             label = { Text(categoryTitleText.asString(),
                 fontSize = if (navController.currentDestination?.route.equals(Routes.Categories.route)) 22.sp else 18.sp) },
-            selected = navController.currentDestination?.route.equals(Routes.Categories.route),
+            selected = navController.currentDestination?.route.equals(Routes.Categories.route) ||
+                        navController.currentDestination?.route.equals(Routes.Mammals.route) ||
+                        navController.currentDestination?.route.equals(Routes.Birds.route) ||
+                        navController.currentDestination?.route.equals(Routes.Reptiles.route) ||
+                        navController.currentDestination?.route.equals(Routes.AnimalInfo.route),
             onClick = {
                 scope.launch {
                     navController.navigate(Routes.Categories.route)
@@ -191,7 +195,10 @@ fun DrawerView(navController: NavController) {
             icon = { Icon(discoveriesIcon, contentDescription = null) },
             label = { Text(discoveriesTitleText.asString(),
                     fontSize = if (navController.currentDestination?.route.equals(Routes.Discovers.route)) 22.sp else 18.sp) },
-            selected = navController.currentDestination?.route.equals(Routes.Discovers.route),
+            selected = navController.currentDestination?.route.equals(Routes.Discovers.route) ||
+                        navController.currentDestination?.route.equals(Routes.AnimalsDiscovery.route) ||
+                        navController.currentDestination?.route.equals(Routes.Zoos.route) ||
+                        navController.currentDestination?.route.equals(Routes.ZooInfo.route),
             onClick = {
                 scope.launch {
                     navController.navigate(Routes.Discovers.route)

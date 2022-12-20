@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -14,6 +15,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -25,6 +28,7 @@ import zoo.animals.feature_category.data.Animal
 import zoo.animals.navigation.Routes
 import zoo.animals.shared.TopBar
 import zoo.animals.stringMapToIndexKey
+import zoo.animals.ui.theme.Shapes
 
 class AnimalsDiscoveryScreen {
 
@@ -82,7 +86,10 @@ class AnimalsDiscoveryScreen {
                             Image(
                                 painter = painterResource(id = animal.previewImage),
                                 contentDescription = animal.name + "_photo",
-                                modifier = Modifier.fillMaxSize(0.9f)
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier
+                                    .fillMaxSize(0.9f)
+                                    .clip(CircleShape)
                             )
                         }
 

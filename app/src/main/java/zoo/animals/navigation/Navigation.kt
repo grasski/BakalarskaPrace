@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import zoo.animals.feature_about.About
-import zoo.animals.feature_camera.CameraScreen
+import zoo.animals.feature_camera.view.CameraScreen
 import zoo.animals.feature_category.data.Animal
 import zoo.animals.feature_category.view.CategoryAnimalsScreen
 import zoo.animals.feature_category.view.CategoryScreen
