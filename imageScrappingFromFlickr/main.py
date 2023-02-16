@@ -11,12 +11,6 @@ import hashlib
 import imgaug.augmenters as iaa
 import imageio
 
-# open the .txt list of bird species and read them in as a list
-# with open("..\\animalsData\\animals.txt") as birds_file:
-#     animals = [line.strip() for line in birds_file]
-
-# get an api key and secret from flickr
-
 
 class ImageWorker:
 

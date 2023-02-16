@@ -1,6 +1,6 @@
 package zoo.animals.shared
 
-import android.annotation.SuppressLint
+
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateFloatAsState
@@ -19,19 +19,20 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import zoo.animals.R
-import zoo.animals.UiTexts
 import zoo.animals.animations.ContentAnimation
 
 
 @OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun BottomContentSwitch(
+    mainText: String,
+    secondText: String,
+    thirdText: String?,
     mainPreview: @Composable () -> Unit,
-    secondPreview: @Composable () -> Unit
+    secondPreview: @Composable () -> Unit,
+    thirdPreview: (@Composable () -> Unit)?
 ){
-    var mainScreenSelected by rememberSaveable { mutableStateOf(true) }
+    var screenSelected by rememberSaveable { mutableStateOf(0) }
 
     Scaffold (
         bottomBar = {
@@ -41,23 +42,36 @@ fun BottomContentSwitch(
                 tonalElevation = 0.dp,
             ){
                 ScreenContentSwitch(
-                    UiTexts.StringResource(R.string.liveCamera).asString(),
-                    UiTexts.StringResource(R.string.photoSelect).asString()
-                ){mainScreenSelected = it}
+                    mainText,
+                    secondText,
+                    thirdText
+                ){screenSelected = it}
             }
         }
     ){
-        Crossfade(
-            targetState = mainScreenSelected,
-            animationSpec = TweenSpec(durationMillis = 500)
-        ) { isMain ->
-            if (isMain) {
-                ContentAnimation().FadeInFromHorizontallySide(offsetX = -5000, duration = 250) {
-                    mainPreview()
-                }
-            } else {
-                ContentAnimation().FadeInFromHorizontallySide(offsetX = 5000, duration = 250) {
-                    secondPreview()
+        Box(Modifier.padding(it)){
+            Crossfade(
+                targetState = screenSelected,
+                animationSpec = TweenSpec(durationMillis = 500)
+            ) { screenNumber ->
+                when(screenNumber){
+                    0 -> {
+                        ContentAnimation().FadeInFromHorizontallySide(offsetX = -5000, duration = 250) {
+                            mainPreview()
+                        }
+                    }
+
+                    1 -> {
+                        ContentAnimation().FadeInFromHorizontallySide(offsetX = 5000, duration = 250) {
+                            secondPreview()
+                        }
+                    }
+
+                    2 -> {
+                        if (thirdPreview != null) {
+                            thirdPreview()
+                        }
+                    }
                 }
             }
         }
@@ -66,11 +80,12 @@ fun BottomContentSwitch(
 
 
 @Composable
-fun ScreenContentSwitch(textMain: String, textSecond: String, selected: (Boolean) -> Unit) {
-    var mainScreenSelected by rememberSaveable { mutableStateOf(true) }
+fun ScreenContentSwitch(textMain: String, textSecond: String, textThird: String?, selected: (Int) -> Unit) {
+    var screenSelected by rememberSaveable { mutableStateOf(0) }
 
-    val mainWidth: Float by animateFloatAsState(if (mainScreenSelected) 1f else 0f)
-    val secondWidth: Float by animateFloatAsState(if (!mainScreenSelected) 1f else 0f)
+    val mainWidth: Float by animateFloatAsState(if (screenSelected == 0) 1f else 0f)
+    val secondWidth: Float by animateFloatAsState(if (screenSelected == 1) 1f else 0f)
+    val thirdWidth: Float by animateFloatAsState(if (screenSelected == 2) 1f else 0f)
     val interactionSource = MutableInteractionSource()
 
     Row(
@@ -82,11 +97,11 @@ fun ScreenContentSwitch(textMain: String, textSecond: String, selected: (Boolean
         horizontalArrangement = Arrangement.SpaceAround
     ) {
         Box(modifier = Modifier
-            .fillMaxWidth(0.5f)
+            .weight(1f)
             .fillMaxHeight()
             .align(Alignment.CenterVertically)
             .clickable(
-                onClick = { mainScreenSelected = true },
+                onClick = { screenSelected = 0 },
                 interactionSource = interactionSource,
                 indication = null
             )
@@ -116,10 +131,11 @@ fun ScreenContentSwitch(textMain: String, textSecond: String, selected: (Boolean
         Spacer(modifier = Modifier.width(10.dp))
 
         Box(modifier = Modifier
-            .fillMaxSize()
+            .weight(1f)
+            .fillMaxHeight()
             .align(Alignment.CenterVertically)
             .clickable(
-                onClick = { mainScreenSelected = false },
+                onClick = { screenSelected = 1 },
                 interactionSource = interactionSource,
                 indication = null
             )
@@ -145,7 +161,43 @@ fun ScreenContentSwitch(textMain: String, textSecond: String, selected: (Boolean
         ){
             Text(textSecond)
         }
+
+        if (textThird != null){
+            Spacer(modifier = Modifier.width(10.dp))
+
+            Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .align(Alignment.CenterVertically)
+                .clickable(
+                    onClick = { screenSelected = 2 },
+                    interactionSource = interactionSource,
+                    indication = null
+                )
+                .drawBehind {
+                    val lineOffset = 50f
+                    val lineWidth = size.width - lineOffset * 2
+                    val linePivot = size.width / 2
+
+                    drawLine(
+                        Color.Green,
+                        start = Offset(
+                            x = linePivot - (lineWidth / 2 * thirdWidth),
+                            y = size.height
+                        ),
+                        end = Offset(
+                            x = linePivot + (lineWidth / 2 * thirdWidth),
+                            y = size.height
+                        ),
+                        strokeWidth = 3f
+                    )
+                },
+                contentAlignment = Alignment.Center
+            ){
+                Text(textThird)
+            }
+        }
     }
 
-    selected(mainScreenSelected)
+    selected(screenSelected)
 }

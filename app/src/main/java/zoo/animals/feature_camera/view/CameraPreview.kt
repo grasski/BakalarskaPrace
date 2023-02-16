@@ -9,11 +9,11 @@ import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
@@ -24,8 +24,8 @@ import androidx.navigation.NavController
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
+import kotlinx.coroutines.delay
 import zoo.animals.feature_camera.model.CameraViewModel
-
 
 /*
 @OptIn(ExperimentalMaterialApi::class)
@@ -594,10 +594,8 @@ fun CameraPreviewScreen(
         Manifest.permission.WRITE_EXTERNAL_STORAGE
     ))
     val context = LocalContext.current
+    var zoomDelta by remember { mutableStateOf(1f) }
 
-    var zoomDelta by remember { mutableStateOf(0f) }
-
-    var result by remember { mutableStateOf("") }
     Box{
         Column {
             // Secure checking for camera permission if the app has been minimized and changed permissions manually in settings.
@@ -646,25 +644,71 @@ fun CameraPreviewScreen(
                     preview.setSurfaceProvider(previewView.surfaceProvider)
                 }
 
-//                viewModel.state.imageAnalysis.setAnalyzer(viewModel.state.cameraExecutor) { imageProxy ->
-//                    val classified = ImageClassifier(context).classify(imageProxy)
-//                    result = classified[0] as String
-//                }
+                LaunchedEffect(viewModel.state.classificationRunning.value){
+                    viewModel.analyze(viewModel.state.imageAnalysis, viewModel.state.cameraExecutor, context)
+                }
+
+                var delayState by remember { mutableStateOf(true) }
+                var animalText by remember { mutableStateOf("")}
+                LaunchedEffect(delayState){
+                    val animal = viewModel.state.classifiedAnimal.value
+                    delay(800)
+                    if (viewModel.state.classifiedAnimal.value == animal){
+                        animalText = animal?.name.toString()
+                    } else{
+                        animalText = ""
+                    }
+
+                    delayState = !delayState
+                }
 
                 Box(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    previewView.let { la ->
+                    previewView.let { view ->
                         AndroidView(
-                            { la },
+                            { view },
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .fillMaxHeight(0.932f)
+                                .fillMaxSize()
                                 .background(MaterialTheme.colorScheme.background)
-                                .clip(RoundedCornerShape(bottomEnd = 20.dp, bottomStart = 20.dp))
+                                .clip(
+                                    RoundedCornerShape(
+                                        bottomEnd = 20.dp,
+                                        bottomStart = 20.dp
+                                    )
+                                )
                         )
                     }
-                    Text(text = "LLLA " + zoomDelta +  ", " + viewModel.state.currentZoom.value)
+
+                    Column {
+                        Text("DELAY ZVIRE: " + animalText)
+                        Text(text = "ZVIRE: " + viewModel.state.classifiedAnimal.value?.name + " HW: " + previewView.isHardwareAccelerated)
+                        Text(text = "DETECT: " + viewModel.state.testingText.value + " active: " + viewModel.state.classificationRunning.value)
+                    }
+
+                    // BOXES
+                    /*
+                    val rect by remember{ mutableStateOf(viewModel.state.detectionBox) }
+                    val scaleFactorWidth = getScreenSize().width / 640
+                    val scaleFactorHeight = getScreenSize().height / 480
+                    Canvas(modifier = Modifier
+                        .fillMaxSize()
+                    ) {
+                        drawRect(
+                            color = Color.Red,
+                            topLeft = Offset(rect.value.left * scaleFactorWidth, rect.value.top * scaleFactorHeight),
+                            size = Size(rect.value.width() * scaleFactorWidth, rect.value.height() * scaleFactorHeight),
+                            style = Stroke(width = 3.dp.toPx())
+                        )
+
+                        drawCircle(
+                            color = Color.Blue,
+                            radius = 20f,
+                            center = Offset(rect.value.centerX() * scaleFactorWidth, rect.value.centerY() * scaleFactorHeight)
+                        )
+                    }
+                     */
+
 
                     CameraUi(navController)
                 }
@@ -677,4 +721,14 @@ fun CameraPreviewScreen(
             }
         }
     }
+}
+
+
+@Composable
+fun getScreenSize(): Size {
+
+    val displayMetrics = LocalContext.current.resources.displayMetrics
+    val width = displayMetrics.widthPixels
+    val height = displayMetrics.heightPixels
+    return Size(width.toFloat(), height.toFloat())
 }

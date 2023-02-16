@@ -17,13 +17,20 @@ import zoo.animals.feature_discovery.zoos.view.DiscoveryScreen
 import zoo.animals.feature_discovery.zoos.view.ZoosDiscoveryScreen
 import zoo.animals.feature_discovery.zoos.view.ZooScreen
 import zoo.animals.feature_settings.Settigns
+import zoo.animals.feature_welcome.view.WelcomeScreen
 
 
 @Composable
-fun Navigation(){
+fun Navigation(
+    startDestination: String = Routes.Welcome.route
+){
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Routes.Categories.route){
+    NavHost(navController = navController, startDestination = startDestination){
+        composable(route = Routes.Welcome.route){
+            WelcomeScreen(navController = navController)
+        }
+
         composable(route = Routes.Categories.route){
             CategoryScreen(navController)
         }
@@ -54,7 +61,9 @@ fun Navigation(){
 
         composable(route = Routes.AnimalInfo.route){
             val animalObject = navController.previousBackStackEntry?.savedStateHandle?.get<Animal>("animalData")
-            animalObject?.let { animal -> ShowAnimalInfo(navController = navController, animalData = animal, true) }
+            animalObject?.let { animal ->
+                ShowAnimalInfo(navController = navController, animalData = animal, true)
+            }
         }
 
         composable(route = Routes.Camera.route){

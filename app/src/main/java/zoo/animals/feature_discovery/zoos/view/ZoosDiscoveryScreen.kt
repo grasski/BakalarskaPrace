@@ -1,25 +1,26 @@
 package zoo.animals.feature_discovery.zoos.view
 
 import android.annotation.SuppressLint
-import androidx.compose.animation.graphics.ExperimentalAnimationGraphicsApi
-import androidx.compose.foundation.Image
+import android.util.Log
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material.Scaffold
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import kotlinx.coroutines.launch
 import zoo.animals.R
 import zoo.animals.UiTexts
 import zoo.animals.feature_discovery.zoos.data.Zoo
@@ -27,33 +28,32 @@ import zoo.animals.feature_discovery.zoos.data.ZooData
 import zoo.animals.navigation.Routes
 import zoo.animals.shared.TopBar
 
-
 class ZoosDiscoveryScreen {
 
-    @SuppressLint("NotConstructor", "CoroutineCreationDuringComposition")
+    @SuppressLint("NotConstructor")
     @Composable
     fun ZoosDiscoveryScreen(navController: NavController){
         TopBar(
             title = UiTexts.StringResource(R.string.zoos).asString(),
             navController = navController,
-        ){
+        ) {
             val zoos = ZooData.allZoosInstance
 
             LazyColumn(
                 content = {
-                    items(zoos.size){ i ->
+                    items(zoos.size) { i ->
                         ZooCard(zoos[i], navController)
                     }
                 }
             )
         }
     }
-    
-    
-    @OptIn(ExperimentalMaterial3Api::class)
+
+    @OptIn(ExperimentalFoundationApi::class)
     @Composable
     fun ZooCard(zoo: Zoo, navController: NavController){
-        val visited by remember(zoo) { mutableStateOf(zoo.visited) }
+        var visited by remember(zoo) { mutableStateOf(zoo.visited) }
+        var longClick by remember { mutableStateOf(false) }
 
         Box(
             modifier = Modifier
@@ -64,12 +64,18 @@ class ZoosDiscoveryScreen {
                 modifier = Modifier
                     .height(150.dp)
                     .fillMaxWidth()
-                    .align(Alignment.Center),
+                    .align(Alignment.Center)
+                    .combinedClickable(
+                        onLongClick = {
+                            longClick = true
+                        },
+                        onClick = {
+                            longClick = false
+                            navController.currentBackStackEntry?.savedStateHandle?.set("zooData", zoo)
+                            navController.navigate(Routes.ZooInfo.route)
+                        }
+                    ),
                 shape = RoundedCornerShape(12.dp),
-                onClick = {
-                    navController.currentBackStackEntry?.savedStateHandle?.set("zooData", zoo)
-                    navController.navigate(Routes.ZooInfo.route)
-                }
             ){
                 Box(Modifier.fillMaxSize()){
                     Row(
@@ -133,6 +139,70 @@ class ZoosDiscoveryScreen {
                         }
                     }
                 }
+            }
+        }
+
+        if (visited){
+            val context = LocalContext.current
+            val scope = rememberCoroutineScope()
+            val removeZoo = remember { UiTexts.StringResource(R.string.removeZoo).asString(context) }
+            val removeText = remember { UiTexts.StringResource(R.string.removeFromDiscovery, removeZoo, zoo.city).asString(context) }
+
+            if (longClick) {
+                AlertDialog(
+                    onDismissRequest = {
+                        longClick = false
+                    },
+                    confirmButton = {
+                        Surface(
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .wrapContentHeight(),
+                            shape = MaterialTheme.shapes.large
+                        ) {
+                            Column(modifier = Modifier.padding(16.dp)) {
+                                Text(
+                                    text = removeText,
+                                    fontSize = 19.sp,
+                                )
+                                Spacer(modifier = Modifier.height(24.dp))
+
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    verticalAlignment = Alignment.Bottom,
+                                    horizontalArrangement = Arrangement.End
+                                ) {
+                                    TextButton(
+                                        onClick = {
+                                            scope.launch {
+                                                ZooData.removeFromVisitedZoo(zoo.city, context)
+                                            }
+                                            visited = false
+                                            longClick = false
+                                        },
+                                    ) {
+                                        Text(
+                                            UiTexts.StringResource(R.string.yes).asString(),
+                                            fontSize = 20.sp
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.width(24.dp))
+
+                                    TextButton(
+                                        onClick = {
+                                            longClick = false
+                                        },
+                                    ) {
+                                        Text(
+                                            UiTexts.StringResource(R.string.no).asString(),
+                                            fontSize = 20.sp
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                )
             }
         }
     }

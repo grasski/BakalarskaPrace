@@ -142,7 +142,6 @@ fun TopBar(
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DrawerView(navController: NavController) {
     val categoryIcon = remember { Icons.Filled.Category }

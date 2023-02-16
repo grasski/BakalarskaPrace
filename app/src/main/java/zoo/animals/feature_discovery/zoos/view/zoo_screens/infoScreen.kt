@@ -33,9 +33,9 @@ fun InfoScreen(zoo: Zoo, viewModel: InfoScreenModel = androidx.lifecycle.viewmod
     val context = LocalContext.current
 
     // TODO: Uncomment this once going to 'production'
-//    LaunchedEffect(Unit) {
-//        viewModel.fetchPlace(zoo)
-//    }
+    LaunchedEffect(Unit) {
+        viewModel.fetchPlace(zoo)
+    }
 
     val place = viewModel.state.place.value
     val loading = viewModel.state.loading.value
@@ -64,7 +64,7 @@ fun InfoScreen(zoo: Zoo, viewModel: InfoScreenModel = androidx.lifecycle.viewmod
                     UiTexts.ArrayResource(R.array.zooInfo, 2).asString() + ": ",
                     fontSize = 20.sp
                 )
-                Text(text = zoo.creationData.toString(), fontSize = 20.sp)
+                Text(text = zoo.creationDate.toString(), fontSize = 20.sp)
             }
             Row {
                 Text(

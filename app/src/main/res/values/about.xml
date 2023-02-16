@@ -2,9 +2,12 @@
 <resources>
 
     <string name="introduction">Aplikace byla vytvořena za účelem bakalářské práce na Fakultě aplikované informatiky na univerzitě Tomáše Bati ve Zlíně.</string>
-    <string name="aboutImages">Hlavním zdrojem obrázků pro vytvoření modelu pro rozpoznávání zvířat byla webová stránka</string>
 
     <string name="resources">ZDROJE DAT</string>
+    <string name="aboutImages">Hlavním zdrojem obrázků pro vytvoření modelu pro rozpoznávání zvířat byla webová stránka Flickr.</string>
+    <string name="iconsSource">Většina ikon je dostupných skrze <b>Material Design</b>, další byly vygenerovány nástrojem <b>Midjourney</b> nebo staženy z </string>
+    <string name="lottie">https://lottiefiles.com</string>
+
     <string name="anotherSources">Další důležité zdroje:</string>
     <string-array name="labeledSources">
         <item>https://github.com/freds0/capybara_dataset</item>
@@ -31,7 +34,7 @@
     </string-array>
 
     <string name="version">Verze: 1.0</string>
-    <string name="author"><>Autor</color>: Daberger Jiří</string>
-    <string name="creationDate">Datum vytvoření: 30.5.2023</string>
+    <string name="author">Autor: Daberger Jiří</string>
+    <string name="creationDate">Datum vytvoření: 29.5.2023</string>
 
 </resources>

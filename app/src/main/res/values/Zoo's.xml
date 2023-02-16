@@ -30,6 +30,7 @@
 
     <array name="snackBar">
         <item>Chcete uložit navštívení zoo do Objevů?</item>
+        <item>Chcete uložit zvíře do Objevů?</item>
         <item>ANO</item>
         <item>NE</item>
     </array>

@@ -10,7 +10,7 @@ object CategoryData: ICategories {
         return Category(
             UiTexts.ArrayResource(R.array.mammalsCategory, 0).asString(context),
             UiTexts.ArrayResource(R.array.mammalsCategory, 1).asString(context),
-            R.drawable.mammals,
+            R.drawable.mammals_mid,
             Routes.Mammals
         )
     }
@@ -19,7 +19,7 @@ object CategoryData: ICategories {
         return Category(
             UiTexts.ArrayResource(R.array.birdsCategory, 0).asString(context),
             UiTexts.ArrayResource(R.array.birdsCategory, 1).asString(context),
-            R.drawable.birds2,
+            R.drawable.birds_mid,
             Routes.Birds
         )
     }
@@ -28,7 +28,7 @@ object CategoryData: ICategories {
         return Category(
             UiTexts.ArrayResource(R.array.reptilesCategory, 0).asString(context),
             UiTexts.ArrayResource(R.array.reptilesCategory, 1).asString(context),
-            R.drawable.reptiles2,
+            R.drawable.reptiles_mid,
             Routes.Reptiles
         )
     }

@@ -1,15 +1,13 @@
+Elephant
+Giraffe
+Zebra
+Kangaroo
+Tiger
+Jaguar
+Rhino
+Turtle
 Cat
 Dog
-Duck
-Elephant
-Flamingo
-Giraffe
-Gorilla
-Kangaroo
-Lion
 Parrot
 Penguin
-Sea lion
-Tiger
-Turtle
-Zebra
+Capybara

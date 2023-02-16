@@ -282,4 +282,34 @@
         <item>...</item>
     </array>
 
+    <array name="Penguin">
+        <item>Tučňák</item>
+        <item>Pták</item>
+        <item>Až 40 kg</item>
+
+        <item>None</item>
+        <item>Až 120 cm</item>
+        <item>Délka zobáku: až 13 cm</item>
+
+        <item>10 let</item>
+        <item>Pouze na Jižní polokouly v okrajích Antraktidy a další chladných oblastech</item>
+        <item>Líhne 1–2 vejce po 40 dnech</item>
+        <item>...</item>
+    </array>
+
+    <array name="Parrot">
+        <item>Papoušek</item>
+        <item>Pták</item>
+        <item>20 g – 1.7 kg</item>
+
+        <item>Až 90 cm</item>
+        <item>None</item>
+        <item>Až 100 cm</item>
+
+        <item>40 – 60 let</item>
+        <item>Tropické oblasti, Jižní Amerika, Austrálie, Afrika</item>
+        <item>Líhne 2–5 vajec po 40 dnech</item>
+        <item>...</item>
+    </array>
+
 </resources>

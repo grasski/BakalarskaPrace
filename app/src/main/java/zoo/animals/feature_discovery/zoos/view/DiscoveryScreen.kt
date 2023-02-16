@@ -49,11 +49,13 @@ fun DiscoveryScreen(navController: NavController){
                 LineTextDivider(UiTexts.StringResource(R.string.animals).asString())
 
                 val mammalsCount by remember { mutableStateOf(AnimalData.allAnimalsInstance[0].size.toFloat()) }
-                val mammalsSeen = remember { mutableStateOf(0f) }
+                val mammalsSeen = remember { mutableStateOf(AnimalData.allAnimalsInstance[0].count { it.value.seen }.toFloat() ) }
+
                 val birdsCount by remember { mutableStateOf(AnimalData.allAnimalsInstance[1].size.toFloat()) }
-                val birdsSeen = remember { mutableStateOf(0f) }
+                val birdsSeen = remember { mutableStateOf(AnimalData.allAnimalsInstance[1].count { it.value.seen }.toFloat() ) }
+
                 val reptilesCount by remember { mutableStateOf(AnimalData.allAnimalsInstance[2].size.toFloat()) }
-                val reptilesSeen = remember { mutableStateOf(0f) }
+                val reptilesSeen = remember { mutableStateOf(AnimalData.allAnimalsInstance[2].count { it.value.seen }.toFloat() ) }
 
                 DiscoveryCard(
                     navController = navController,
@@ -174,7 +176,7 @@ fun DiscoveryCard(
                                 disabledActiveTrackColor = MaterialTheme.colorScheme.onTertiaryContainer,
                                 disabledInactiveTrackColor = MaterialTheme.colorScheme.tertiaryContainer,
                                 disabledActiveTickColor = MaterialTheme.colorScheme.onError,
-                                disabledInactiveTickColor = MaterialTheme.colorScheme.surfaceTint
+                                disabledInactiveTickColor = MaterialTheme.colorScheme.surfaceTint,
                             ),
                             modifier = Modifier
                                 .fillMaxWidth(0.8f)

@@ -33,6 +33,7 @@ class InfoScreenModel: ViewModel() {
                 state.error.value = null
                 Log.d(this.javaClass.name, "RESPONSE")
             }.addOnFailureListener { exception: Exception ->
+                Log.d(this.javaClass.name, exception.message.toString())
                 if (exception is ApiException) {
                     state.loading.value = false
                     state.error.value = exception

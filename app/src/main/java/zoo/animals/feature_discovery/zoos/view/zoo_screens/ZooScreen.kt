@@ -27,7 +27,7 @@ import zoo.animals.shared.TopBar
 
 @Composable
 fun ZooScreen(navController: NavController, zoo: Zoo) {
-    var infoSelected by remember { mutableStateOf(true) }
+    var infoSelected by remember { mutableStateOf(0) }
     val context = LocalContext.current
 
     val switchTexts = remember {
@@ -51,7 +51,7 @@ fun ZooScreen(navController: NavController, zoo: Zoo) {
                     verticalArrangement = Arrangement.Top
                 ) {
                     ContentAnimation().ScaleIn(
-                        targetState = infoSelected,
+                        targetState = infoSelected == 0,
                         duration = 500)
                     {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -71,7 +71,8 @@ fun ZooScreen(navController: NavController, zoo: Zoo) {
 
                     ScreenContentSwitch(
                         switchTexts[0],
-                        switchTexts[1]
+                        switchTexts[1],
+                        null
                     ) { infoSelected = it }
 
                     Divider(
@@ -82,7 +83,7 @@ fun ZooScreen(navController: NavController, zoo: Zoo) {
                 }
 
                 ContentAnimation().ScreensCrossFade(
-                    targetState = infoSelected,
+                    targetState = infoSelected == 0,
                     duration = 500,
                     trueScreen = { InfoScreen(zoo = zoo) },
                     falseScreen = { MapScreen(zoo) }
@@ -120,7 +121,7 @@ fun SnackbarContent(zoo: Zoo, content: @Composable () -> Unit) {
                                 data.performAction()
                                       },
                         ) { Text(
-                            snackBarTexts[1],
+                            snackBarTexts[2],
                             fontWeight = FontWeight.Bold
                         ) }
                     },
@@ -128,7 +129,7 @@ fun SnackbarContent(zoo: Zoo, content: @Composable () -> Unit) {
                         TextButton(
                             onClick = { data.dismiss() },
                         ) { Text(
-                            snackBarTexts[2],
+                            snackBarTexts[3],
                             fontStyle = FontStyle.Italic,
                         ) }
                     }

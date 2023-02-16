@@ -2,11 +2,82 @@ package zoo.animals.feature_category.data
 
 
 import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.preferencesDataStore
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import org.tensorflow.lite.support.common.FileUtil
 import zoo.animals.R
 import zoo.animals.UiTexts
+import java.util.*
 
 
 object AnimalData: IAnimals {
+    private val Context.dataStore by preferencesDataStore("animalsSeen")
+    suspend fun saveSeenAnimal(animalName: String, context: Context) {
+        val key = booleanPreferencesKey(animalName)
+
+        val seenInfo = AnimalSeenInfo(
+            "",
+            Date()
+        )
+
+        (allAnimalsInstance[0] + allAnimalsInstance[1] + allAnimalsInstance[2]).map { animal ->
+            if (animal.value.name == animalName){
+                animal.value.seen = true
+                if (animal.value.seenInfo == null){
+                    animal.value.seenInfo = mutableListOf(seenInfo)
+                } else{
+                    animal.value.seenInfo?.add(seenInfo)
+                }
+            }
+        }
+        context.dataStore.edit { animalsSeen ->
+            animalsSeen[key] = true
+        }
+    }
+    suspend fun removeFromSeenAnimal(animalName: String, context: Context) {
+        val key = booleanPreferencesKey(animalName)
+        (allAnimalsInstance[0] + allAnimalsInstance[1] + allAnimalsInstance[2]).map { animal ->
+            if (animal.value.name == animalName){
+                animal.value.seen = false
+                animal.value.seenInfo = null
+            }
+        }
+        context.dataStore.edit { animalsSeen ->
+            animalsSeen[key] = false
+        }
+    }
+    private suspend fun wasAnimalSeen(animalName: String, context: Context): Boolean? {
+        val key = booleanPreferencesKey(animalName)
+        val preferences = context.dataStore.data.first()
+
+        return preferences[key]
+    }
+
+    @Composable
+    fun UpdateAnimals() {
+        val scope = rememberCoroutineScope()
+        val context = LocalContext.current
+
+        LaunchedEffect(scope) {
+            scope.launch {
+                (allAnimalsInstance[0] + allAnimalsInstance[1] + allAnimalsInstance[2]).forEach { animal ->
+                    val seen = wasAnimalSeen(
+                        animal.value.name,
+                        context
+                    ) ?: false
+                    animal.value.seen = seen
+                }
+            }
+        }
+    }
+
 
     var allAnimalsInstance = mutableListOf<MutableMap<String, Animal>>()
     fun init(context: Context): MutableList<MutableMap<String, Animal>> {
@@ -118,7 +189,9 @@ object AnimalData: IAnimals {
             R.array.MountainEagle to AnimalAppearance.NORTH_AMERICA.getCoords() + AnimalAppearance.EUROPE_EAST.getCoords() + AnimalAppearance.EUROPE_SOUTH.getCoords() + AnimalAppearance.ASIA_NORTH.getCoords(),
             R.array.GuineaFowl to AnimalAppearance.WORLD.getCoords(),
             R.array.Peafowl to AnimalAppearance.INDIA.getCoords(),
-            R.array.SnowyOwl to AnimalAppearance.CANADA.getCoords() + AnimalAppearance.GREENLAND_NORTH.getCoords() + AnimalAppearance.ASIA_NORTH2.getCoords() + AnimalAppearance.EUROPE_EAST.getCoords() + AnimalAppearance.EUROPE_NORTH.getCoords()
+            R.array.SnowyOwl to AnimalAppearance.CANADA.getCoords() + AnimalAppearance.GREENLAND_NORTH.getCoords() + AnimalAppearance.ASIA_NORTH2.getCoords() + AnimalAppearance.EUROPE_EAST.getCoords() + AnimalAppearance.EUROPE_NORTH.getCoords(),
+            R.array.Penguin to AnimalAppearance.PENGUIN.getCoords(),
+            R.array.Parrot to AnimalAppearance.SOUTH_AMERICA.getCoords() + AnimalAppearance.CENTRAL_AMERICA.getCoords() + AnimalAppearance.AUSTRALIA.getCoords() + AnimalAppearance.AFRICA_SOUTH.getCoords() + AnimalAppearance.AFRICA_CENTER.getCoords() + AnimalAppearance.MADAGASCAR.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords() + AnimalAppearance.ASIA_INDONESIA.getCoords(),
         )
         val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.flamingo_preview, R.drawable.flamingo_main),
@@ -138,6 +211,8 @@ object AnimalData: IAnimals {
             listOf(R.drawable.guineafowl_preview, R.drawable.guineafowl_main),
             listOf(R.drawable.peafowl_preview, R.drawable.peafowl_main),
             listOf(R.drawable.snowyowl_preview, R.drawable.snowyowl_main),
+            listOf(R.drawable.penguin_preview, R.drawable.penguin_main),
+            listOf(R.drawable.parrot_preview, R.drawable.parrot_main),
         )
 
         return animalsToList(
@@ -151,7 +226,7 @@ object AnimalData: IAnimals {
 
     override fun reptiles(context: Context): MutableMap<String, Animal> {
         val animalInfo: Map<Int, List<List<Float>>> = mapOf(
-            R.array.Turtle to AnimalAppearance.ASIA_SOUTH.getCoords(),
+            R.array.Turtle to AnimalAppearance.WORLD.getCoords(),
         )
         val animalImages: List<List<Int>> = listOf(
             listOf(R.drawable.turtle_preview, R.drawable.turtle_main),
@@ -166,65 +241,6 @@ object AnimalData: IAnimals {
     }
 
 
-    /*
-    override fun animalsToList(
-        context: Context,
-        category: String,
-        animals: List<Int>,
-        images: List<List<Int>>
-    ): MutableMap<String, Animal> {
-        val animalsList: MutableMap<String, Animal> = mutableMapOf()
-
-        val animalsInfoGlobal = context.resources.getStringArray(R.array.animalInfo)
-        if (category == UiTexts.ArrayResource(R.array.animalCategories, 0).asString(context)
-        ) {
-            // Mammal -> gets Délka ocasu
-            animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[0]
-        } else if (category == UiTexts.ArrayResource(R.array.animalCategories, 1).asString(context)
-        ) {
-            // Bird -> gets Rozpětí křídel
-            animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[1]
-        }
-        val originalSpecialAnimalInfo = animalsInfoGlobal[3]
-
-        for ((i, animalID) in animals.withIndex()) {
-            val animalArray = UiTexts.ArrayResource(animalID, 0).asArray(context)
-            val id = context.resources.getResourceEntryName(animalID)
-
-            val name = animalArray[0]
-            val description = animalArray[animalArray.lastIndex]
-            val imagesList = images[i]
-
-            val infos = mutableListOf<String>()
-            for (info in animalArray.subList(2, animalArray.lastIndex)) {
-                infos.add(info)
-            }
-
-            if (":" in infos[3]) {
-                val specialInfo = infos[3].split(":")
-                animalsInfoGlobal[3] = specialInfo[0]
-                infos[3] = specialInfo[1]
-            } else {
-                animalsInfoGlobal[3] = originalSpecialAnimalInfo
-            }
-
-            animalsList[id] = Animal(
-                name = name,
-                category = category,
-                info = animalsInfoGlobal.zip(infos).toMap(),
-                description = description,
-                previewImage = imagesList[0],
-                mainImage = imagesList[1],
-                appearance = AnimalAppearance.WORLD.getCoords()
-            )
-        }
-
-        val result = animalsList.toList().sortedBy { (_, value) -> value.name}.toMap()
-        return result.toMutableMap()
-    }
-     */
-
-
     override fun animalsToList(
         context: Context,
         category: String,
@@ -232,6 +248,8 @@ object AnimalData: IAnimals {
         images: List<List<Int>>
     ): MutableMap<String, Animal> {
         val animalsList: MutableMap<String, Animal> = mutableMapOf()
+
+        val animalLabels = FileUtil.loadLabels(context, "labels.txt")
 
         val animalsInfoGlobal = context.resources.getStringArray(R.array.animalInfo)
         if (category == UiTexts.ArrayResource(R.array.animalCategories, 0).asString(context)
@@ -258,6 +276,11 @@ object AnimalData: IAnimals {
                 infos.add(info)
             }
 
+            var canDetect = false
+            if (id in animalLabels){
+                canDetect = true
+            }
+
             if (":" in infos[3]) {
                 val specialInfo = infos[3].split(":")
                 animalsInfoGlobal[3] = specialInfo[0]
@@ -273,7 +296,8 @@ object AnimalData: IAnimals {
                 description = description,
                 previewImage = imagesList[0],
                 mainImage = imagesList[1],
-                appearance = appearance
+                appearance = appearance,
+                canDetect = canDetect
             )
         }
 

@@ -28,6 +28,17 @@ object ZooData {
             zoosVisited[key] = true
         }
     }
+    suspend fun removeFromVisitedZoo(zooCity: String, context: Context) {
+        val key = booleanPreferencesKey(zooCity)
+        allZoosInstance.map { zoo ->
+            if (zoo.city == zooCity){
+                zoo.visited = false
+            }
+        }
+        context.dataStore.edit { zoosVisited ->
+            zoosVisited[key] = false
+        }
+    }
     private suspend fun wasZooVisited(zooName: String, context: Context): Boolean? {
         val key = booleanPreferencesKey(zooName)
         val preferences = context.dataStore.data.first()

@@ -11,8 +11,10 @@ data class Animal(
     val description: String,
     val previewImage: Int,
     val mainImage: Int,
-    val seen: Boolean = false,
-    val appearance: List<List<Float>>
+    var seen: Boolean = false,
+    val appearance: List<List<Float>>,
+    var canDetect: Boolean = false,
+    var seenInfo: MutableList<AnimalSeenInfo>? = null
 ): Parcelable
 
 
@@ -285,6 +287,17 @@ enum class AnimalAppearance(){
             ) + CENTRAL_AMERICA.getCoords() + SOUTH_AMERICA.getCoords() + NORTH_AMERICA.getCoords() +
                     EUROPE.getCoords() + AFRICA.getCoords() + MADAGASCAR.getCoords() +
                     AUSTRALIA.getCoords()
+        }
+    },
+    PENGUIN {
+        override fun getCoords(): List<List<Float>> {
+            return listOf(
+                listOf(880f, 1500f, 2.2f),
+                listOf(1200f, 1500f, 2.3f),
+                listOf(1520f, 1500f, 2.3f),
+                listOf(1840f, 1500f, 2f),
+                listOf(2160f, 1500f, 2f)
+            ) + SOUTH_AMERICA_SEASIDE.getCoords()
         }
     };
 

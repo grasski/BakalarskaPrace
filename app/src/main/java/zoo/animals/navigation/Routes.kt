@@ -3,6 +3,7 @@ package zoo.animals.navigation
 
 sealed class Routes(val route: String) {
     object Categories : Routes("category")
+    object Welcome : Routes("welcome")
 
     object Mammals : Routes("mammals")
     object Birds : Routes("birds")

@@ -1,11 +1,10 @@
-package zoo.animals.feature_camera
+package zoo.animals.feature_camera.view
 
 import android.graphics.Bitmap
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
@@ -29,6 +28,7 @@ import zoo.animals.R
 import zoo.animals.navigation.Routes
 import zoo.animals.UiTexts
 import zoo.animals.feature_camera.CameraUtils.uriToBitmap
+import zoo.animals.feature_camera.ImageClassifier
 import zoo.animals.feature_category.data.Animal
 import zoo.animals.shared.TopBar
 
@@ -42,8 +42,7 @@ fun PhotoRecognitionScreen(navController: NavController){
     ) {
         Box(
             Modifier
-                .fillMaxHeight(0.932f)
-                .fillMaxWidth()
+                .fillMaxSize()
         ){
             var imageUri by remember {
                 mutableStateOf<Uri?>(null)
@@ -53,7 +52,7 @@ fun PhotoRecognitionScreen(navController: NavController){
             }
             val context = LocalContext.current
             var animal by remember { mutableStateOf<Animal?>(Animal("","", emptyMap(), "", 0,0, false, emptyList())) }
-            
+
             val launcher = rememberLauncherForActivityResult(contract =
             ActivityResultContracts.GetContent()) { uri: Uri? ->
                 if (uri != null) {
@@ -87,6 +86,7 @@ fun PhotoRecognitionScreen(navController: NavController){
                     counter++
                     bitmap = imageUri?.let { uriToBitmap(it, context) }
                     animal = bitmap?.let { ImageClassifier(context).classifyPhoto(it) }
+//                    animal = bitmap?.let { ImageClassifier(context).detectPhoto(it) }
                 }
 
                 Column(

@@ -18,6 +18,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -32,6 +33,7 @@ import zoo.animals.feature_camera.CameraExtensions
 import zoo.animals.feature_camera.model.CameraViewModel
 import zoo.animals.feature_camera.model.CaptureViewModel
 import zoo.animals.shared.TopBar
+import java.math.RoundingMode
 import kotlin.time.Duration.Companion.seconds
 
 
@@ -44,6 +46,8 @@ fun CameraUi(
     var imageWasDeleted by remember { mutableStateOf(false) }
 
     Box(modifier = Modifier.fillMaxSize()){
+
+        // TOP UI - Home button and captured image
         Box(Modifier.fillMaxSize()){
             Row(
                 Modifier
@@ -62,6 +66,7 @@ fun CameraUi(
             }
         }
 
+        // BOTTOM UI - Image capture button and classification running toggle button and its notice
         Box{
             Column(
                 Modifier
@@ -80,6 +85,46 @@ fun CameraUi(
                         }
                         Box(Modifier.offset(x = 80.dp)){
                             BtnRecognitionToggle()
+                        }
+                    }
+                }
+
+                Box(modifier = Modifier
+                    .fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ){
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                    ){
+                        Slider(
+                            value = cameraViewModel.state.currentZoom.value,
+                            valueRange = 1f..10f,
+                            onValueChange = {
+                                cameraViewModel.state.camera.value?.cameraControl?.setZoomRatio(it)
+                                cameraViewModel.state.currentZoom.value = it
+                            },
+                            steps = 9,
+                            enabled = true,
+                            colors = SliderDefaults.colors(
+                                thumbColor = MaterialTheme.colorScheme.primary,
+                                activeTrackColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                                inactiveTrackColor = MaterialTheme.colorScheme.tertiaryContainer,
+                                activeTickColor = MaterialTheme.colorScheme.onError,
+                                inactiveTickColor = MaterialTheme.colorScheme.surfaceTint
+                            ),
+                            modifier = Modifier
+                                .fillMaxWidth(0.8f)
+                        )
+                        Box(
+//                            Modifier.fillMaxWidth(),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Text(
+                                "x${cameraViewModel.state.currentZoom.value.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN)}",
+                                fontSize = 20.sp,
+                                textAlign = TextAlign.Center
+                            )
                         }
                     }
                 }

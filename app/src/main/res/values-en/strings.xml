@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Zoo paws</string>
-    <string name="categoryTitle">Categories</string>
-    <string name="detectionByCamera">Detect by camera</string>
+<!--    <string name="app_name">Zoo paws</string>-->
+<!--    <string name="categoryTitle">Categories</string>-->
+<!--    <string name="detectionByCamera">Detect by camera</string>-->
 
 <!--    <string-array name="categories">-->
 <!--        <item>Mammals</item>-->

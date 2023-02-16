@@ -4,9 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.graphics.RectF
 import android.util.Log
 import androidx.camera.core.ImageProxy
+import androidx.compose.ui.graphics.Canvas
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.asImageBitmap
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.vision.detector.Detection
@@ -29,7 +34,9 @@ class ImageClassifier(private val context: Context) {
     fun detect(imageProxy: ImageProxy): List<Any> {
         var text = ""
         val score: Float
-        var location = listOf(0f, 0f, 0f, 0f)
+        var info = ""
+
+        var location = RectF()
 
         val options = ObjectDetectorOptions.builder()
             .setBaseOptions(BaseOptions.builder().build())
@@ -38,18 +45,19 @@ class ImageClassifier(private val context: Context) {
         val objectDetector = ObjectDetector.createFromFileAndOptions(
 //            context, "lite-model_efficientdet_lite3_detection_metadata_1.tflite", options
 //            context, "ssddetect_metadata_animals.tflite", options
-            context, "model_maker_detection.tflite", options
+//            context, "ssddetect_OPS_metadata_ctvrte.tflite", options
+//            context, "ssddetect_OPS_480_background_metadata10.tflite", options
+//            context, "ssd_640_qua_metadata_13.tflite", options
+            context, "ssd_640_background_removed_metadata_18.tflite", options
         )
-
 
         val mediaImage = imageProxy.image
         if (mediaImage != null) {
-
             val resizedBitmap = CameraUtils.toBitmap(mediaImage)?.let {
                 Bitmap.createScaledBitmap(
                     it,
-                    512,
-                    512,
+                    640,
+                    640,
                     false
                 )
             }
@@ -71,19 +79,18 @@ class ImageClassifier(private val context: Context) {
             val tfImage = TensorImage.fromBitmap(rotatedBitmap)
             val results: List<Detection> = objectDetector.detect(tfImage)
 
-            if (results[0].categories[0].score > 0.5f) {
-                text = results[0].categories[0].label
-                score = results[0].categories[0].score
-
-                val loc = results[0].boundingBox
-
-                location = listOf(loc.left, loc.top, loc.right, loc.bottom)
-                text += " " + score
+            if (results.isNotEmpty()){
+                if (results[0].categories[0].score > 0.5f) {
+                    text = results[0].categories[0].label
+                    score = results[0].categories[0].score
+                    info = text + " " + score
+                    location = results[0].boundingBox
+                }
             }
         }
 
         imageProxy.close()
-        return listOf(text, location)
+        return listOf(text, location, info)
     }
 
 
@@ -308,8 +315,8 @@ class ImageClassifier(private val context: Context) {
         val resizedBitmap =
             Bitmap.createScaledBitmap(
                 btm,
-                320,
-                320,
+                480,
+                480,
                 false
             )
 
@@ -319,16 +326,18 @@ class ImageClassifier(private val context: Context) {
             .build()
         val objectDetector = ObjectDetector.createFromFileAndOptions(
 //            context, "lite-model_efficientdet_lite3_detection_metadata_1.tflite", options
-            context, "ssddetect_metadata_new.tflite", options
-
+            context,  "ssddetect_OPS_metadata_6.tflite", options
         )
 
         val tfImage = TensorImage.fromBitmap(resizedBitmap)
         val results: List<Detection> = objectDetector.detect(tfImage)
 
-        if (results[0].categories[0].score > 0.45f) {
-            result = results[0].categories[0].label
+        if (results.isNotEmpty()){
+            if (results[0].categories[0].score > 0.45f) {
+                result = results[0].categories[0].label
+            }
         }
+
 
         Log.d("NEVIM", "LALALA: " + result)
 

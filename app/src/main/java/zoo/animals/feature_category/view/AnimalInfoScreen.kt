@@ -5,17 +5,12 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Divider
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -26,9 +21,16 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,6 +41,11 @@ import zoo.animals.R
 import zoo.animals.UiTexts
 import zoo.animals.animations.ContentAnimation
 import zoo.animals.feature_category.data.Animal
+import zoo.animals.feature_category.data.AnimalData
+import zoo.animals.feature_discovery.zoos.data.Zoo
+import zoo.animals.feature_discovery.zoos.data.ZooData
+import zoo.animals.shared.BottomContentSwitch
+import zoo.animals.shared.ScreenContentSwitch
 import zoo.animals.shared.TopBar
 import zoo.animals.stringMapToIndexKey
 
@@ -47,36 +54,108 @@ import zoo.animals.stringMapToIndexKey
 fun ShowAnimalInfo(navController: NavController, animalData: Animal?, showTopBar: Boolean){
     val animations = ContentAnimation()
 
-    Box(modifier = Modifier.fillMaxSize()){
-        if (showTopBar){
-            TopBar(
-                title = UiTexts.StringResource(R.string.empty).asString(),
-                navController = navController,
-                showSearch = false,
-                showBackBtn = true,
-            ) {
-                animations.ScaleIn(duration = 450) {
-                    if (animalData != null) {
-                        ContentScreen(animalData)
+    animalData?.let {
+        SnackbarContent(it){
+            Box(modifier = Modifier.fillMaxSize()){
+                if (showTopBar){
+                    TopBar(
+                        title = UiTexts.StringResource(R.string.empty).asString(),
+                        navController = navController,
+                        showSearch = false,
+                        showBackBtn = true,
+                    ) {
+                        animations.ScaleIn(duration = 450) {
+                            BottomContentSwitch(
+                                mainText = "Informace",
+                                secondText = "V zoo",
+                                thirdText = "Fotogalerie",
+                                mainPreview = { MainContentScreen(it) },
+                                secondPreview = { /*TODO*/ },
+                                thirdPreview = { }
+                            )
+                        }
                     }
+                } else{
+                    MainContentScreen(it)
                 }
-            }
-        } else{
-            if (animalData != null) {
-                ContentScreen(animalData)
             }
         }
     }
 }
 
 
-@SuppressLint("RememberReturnType")
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ContentScreen(animalData: Animal){
+fun SnackbarContent(animal: Animal, content: @Composable () -> Unit) {
+    val context = LocalContext.current
+    val snackBarTexts = remember {
+        UiTexts.ArrayResource(R.array.snackBar,0).asArray(context)
+    }
+
+    val snackbarHostState = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+
+    Scaffold(
+        snackbarHost = {
+            SnackbarHost(snackbarHostState) { data ->
+                Snackbar(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    contentColor = MaterialTheme.colorScheme.secondary,
+                    action = {
+                        TextButton(
+                            onClick = {
+                                scope.launch {
+                                    AnimalData.saveSeenAnimal(animal.name, context)
+                                }
+                                data.performAction()
+                            },
+                        ) { Text(
+                            snackBarTexts[2],
+                            fontWeight = FontWeight.Bold
+                        ) }
+                    },
+                    dismissAction = {
+                        TextButton(
+                            onClick = { data.dismiss() },
+                        ) { Text(
+                            snackBarTexts[3],
+                            fontStyle = FontStyle.Italic,
+                        ) }
+                    }
+                ) {
+                    Text(snackBarTexts[1])
+                }
+            }
+        },
+        floatingActionButton = {
+            if (!animal.seen){
+                LaunchedEffect(Unit){
+                    scope.launch {
+                        snackbarHostState.showSnackbar(
+                            "",
+                            withDismissAction = true,
+                            duration = SnackbarDuration.Indefinite
+                        )
+                    }
+                }
+            }
+        },
+    ){
+        content()
+    }
+}
+
+
+
+@Composable
+fun MainContentScreen(animalData: Animal){
     val infoKeys = remember { stringMapToIndexKey(animalData.info) }
     val animations = ContentAnimation()
+    val uriHandler = LocalUriHandler.current
+    val context = LocalContext.current
 
-    Column(){
+    Column{
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -109,13 +188,35 @@ fun ContentScreen(animalData: Animal){
                         .align(Alignment.BottomStart)
                         .padding(bottom = 90.dp, start = 16.dp, end = 16.dp)
                     ) {
-                        animations.FadeInFromVerticallySide(offsetY = -500, duration = 800) {
-                            Text(
-                                animalData.name,
-                                fontSize = 50.sp,
-                                lineHeight = 50.sp,
-                                fontWeight = FontWeight.ExtraBold,
-                            )
+                        Row(
+                            Modifier.fillMaxSize()
+                        ) {
+                            Box(Modifier.weight(1f)){
+                                animations.FadeInFromVerticallySide(offsetY = -500, duration = 800) {
+                                    Text(
+                                        animalData.name,
+                                        fontSize = 50.sp,
+                                        lineHeight = 50.sp,
+                                        fontWeight = FontWeight.ExtraBold,
+                                    )
+                                }
+                            }
+
+                            if (animalData.canDetect){
+                                Spacer(modifier = Modifier.width(10.dp))
+                                Box(
+                                    Modifier
+                                        .weight(0.15f)
+                                        .align(Alignment.Bottom)
+                                ){
+                                    animations.ScaleIn(800) {
+                                        Image(
+                                            painter = painterResource(R.drawable.icon_possible_to_see),
+                                            contentDescription = "",
+                                        )
+                                    }
+                                }
+                            }
                         }
                     }
 
@@ -174,8 +275,50 @@ fun ContentScreen(animalData: Animal){
                 )
             }
 
-            item {
+            item{
+                val text = remember {
+                    buildAnnotatedString {
+                        val text = UiTexts.StringResource(R.string.searchOnTheInternet).asString(context)
+                        append(text)
 
+                        addStyle(
+                            style = SpanStyle(
+                                color = Color(0xff64B5F6),
+                                fontSize = 18.sp,
+                                textDecoration = TextDecoration.Underline,
+                            ), start = 0, end = text.length
+                        )
+                        addStringAnnotation(
+                            tag = "URL",
+                            annotation = "https://www.google.com/search?q=${animalData.name}",
+                            start = 0, end = text.length
+                        )
+                    }
+                }
+                Box(
+                    Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ){
+                    Text(
+                        text = text,
+                        maxLines = 1,
+                        modifier = Modifier
+                            .clickable(
+                                onClick = {
+                                    text
+                                        .getStringAnnotations("URL", 0, text.length)
+                                        .firstOrNull()
+                                        ?.let { stringAnnotation ->
+                                            uriHandler.openUri(stringAnnotation.item)
+                                        }
+                                })
+                            .padding(horizontal = 16.dp, vertical = 6.dp)
+                    )
+                }
+
+            }
+
+            item {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -183,9 +326,16 @@ fun ContentScreen(animalData: Animal){
                     CanvasMap(animalData.appearance)
                 }
             }
+            
+            item { 
+                Box(
+                    Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background)) {
+                }
+            }
         }
     }
-
 }
 
 
@@ -294,6 +444,8 @@ fun RowDetailsContent(animalData: Animal, infoKey: List<String>){
         }
     }
 }
+
+
 
 
 @Composable

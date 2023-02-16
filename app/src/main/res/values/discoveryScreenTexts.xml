@@ -6,5 +6,10 @@
     <string name="animals">Zvířata</string>
     <string name="discover">Objevit</string>
 
+    <string name="removeZoo">zoologickou zahradu</string>
+    <string name="removeAnimal">zvíře</string>
+    <string name="removeFromDiscovery">Opravdu si přejete odstranit %1$s %2$s z Objevů?</string>
+    <string name="yes">ANO</string>
+    <string name="no">NE</string>
 
 </resources>

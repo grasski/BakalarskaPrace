@@ -7,14 +7,18 @@
 
 
     <array name="Turtle">
-        <item>Želva mohutná</item>
+        <item>Želva</item>
         <item>Plaz</item>
-        <item>Až 20 kg.</item>
-        <item>Délka těla až 50 cm.</item>
-        <item>Kolem 15 let.</item>
-        <item>Děstné pralesy Asie, Thajska.</item>
-        <item>Obvykle do hnízda klade 35 až 50 bílých vajec.</item>
-        <item>Želva mohutná je největší žijící suchozemskou želvou v Thajsku. Je celá zbarvená do hnědé barvy. Má hlavu úměrnou její délce, šupinatá stehna a klenutý krunýř. Čelisti jsou slabě ozubené. Tato želva je jediným druhem želvy, který klade až 50 vajec nad zemí v hnízdě. Samice používá obě přední i zadní nohy k shromažďování materiálu pro hnízdo, což zahrnuje různé větvičky a listí. Dále se potom pohybuje v okolí hnízda, aby uhlídala vejce od možných predátorů.</item>
+        <item>140 g – 900 kg</item>
+
+        <item>8 cm – 2m</item>
+        <item>None</item>
+        <item>Rychlost na souši: 0.5 km/h</item>
+
+        <item>Až 160 let.</item>
+        <item>Celý svět.</item>
+        <item>Klade 20 až 100 vajec.</item>
+        <item></item>
     </array>
 
 </resources>

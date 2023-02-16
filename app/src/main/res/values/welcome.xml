@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="finishButton">Dokončit</string>
+
+    <string-array name="page_one">
+        <item>Identifikace</item>
+        <item>Identifikuj zvíře pouhým namířením kamery nebo nahráním fotografie!</item>
+    </string-array>
+
+    <string-array name="page_two">
+        <item></item>
+        <item>Hledej danou ikonku u zvířat. Indikuje jeho možné nalezení kamerou!</item>
+    </string-array>
+
+    <string-array name="page_three">
+        <item>Objevy</item>
+        <item>Objevuj zvířata a zoologické zahrady!</item>
+    </string-array>
+
+</resources>

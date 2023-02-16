@@ -18,6 +18,8 @@
 
     <string name="aboutApp">O aplikaci</string>
 
+    <string name="searchOnTheInternet">Vyhledat na internetu</string>
+
     <string-array name="animalInfo">
         <item>Váha</item>
 
