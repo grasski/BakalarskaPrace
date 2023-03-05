@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="ZlinJaguar">
+        <item>Druhy: Jaguár americký, Jaguár černý</item>
+        <item>Oblast: AMERIKA</item>
+    </array>
+
+    <array name="ZlinCapybara">
+        <item>Druh: Kapybara</item>
+        <item>Oblast: AMERIKA</item>
+    </array>
+
+    <array name="ZlinKangaroo">
+        <item>Druhy: Klokan rudokrký, Klokan bílý</item>
+        <item>Oblast: AUSTRÁLIE</item>
+    </array>
+
+    <array name="ZlinRhino">
+        <item>Druh: Nosorožec tuponosý jižní</item>
+        <item>Oblast: AFRIKA</item>
+    </array>
+
+    <array name="ZlinElephant">
+        <item>Druh: Slon africký</item>
+        <item>Oblast: AFRIKA</item>
+    </array>
+
+    <array name="ZlinTiger">
+        <item>Druh: Tygr ussurijský</item>
+        <item>Oblast: ASIE</item>
+    </array>
+
+    <array name="ZlinPenguin">
+        <item>Druh: Tučňák humboldtův</item>
+        <item>Oblast: OKOLÍ ZÁMKU</item>
+    </array>
+
+    <array name="ZlinTurtle">
+        <item>Druhy:
+            Želva mohutná,
+            Želva ostruhatá,
+            Želva pardálí,
+            Želva podlouhá,
+            Želva pralesní,
+            Matamata třásnitá,
+            Tereka jednovousá,
+            Vousivka ploskohlavá
+        </item>
+        <item>Oblast: OKOLÍ ZÁMKU</item>
+    </array>
+
+    <array name="ZlinGiraffe">
+        <item>Druh: Žirafa rothschildova</item>
+        <item>Oblast: AFRIKA</item>
+    </array>
+
+    <array name="ZlinZebra">
+        <item>Druh: Zebra bezhřívá</item>
+        <item>Oblast: AFRIKA</item>
+    </array>
+
+    <array name="ZlinParrot">
+        <item>Druhy:
+            Ara arakanga,
+            Ara hyacintový,
+            Ara malý,
+            Ara rudobřichý,
+            Ara vojenský,
+            Amazoňan oranžovokřídlý,
+            Amazoňan pomoučený,
+            Papoušek šedohlavý
+        </item>
+        <item>Oblast: AMERIKA</item>
+    </array>
+
+</resources>
