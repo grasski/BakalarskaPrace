@@ -22,265 +22,272 @@
     </string-array>
 
 
-    <array name="Flamingo">
-        <item>Plameňák růžový</item>
-        <item>Pták</item>
-        <item>2.1–4.1 kg</item>
+<!--    <array name="Flamingo">-->
+<!--        <item>Plameňák růžový</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>2.1–4.1 kg</item>-->
 
-        <item>None</item>
-        <item>120–145 cm</item>
-        <item>140–170 cm</item>
+<!--        <item>None</item>-->
+<!--        <item>120–145 cm</item>-->
+<!--        <item>140–170 cm</item>-->
 
-        <item>Kolem 15 let</item>
-        <item>Mělké slané laguny Afriky, Madagaskaru, Asie, Evropa.</item>
-        <item>Líhne 1 vejce po 27 dnech</item>
-        <item>Plameňáci jsou velcí ptáci s neobyčejně dlouhým krkem a nohama vzhledem k celkem malému, oválnému tělu. Krk tvoří 17 obratlů. Nejnápadnějším znakem je silný a lomený zobák, po vnitřních okrajích čelistí lamelovaný. Jsou to společenští ptáci, hnízdí v koloniích čítajících i tisíc jedinců. Probíhá u nich hromadný tok, samičky pak kladou vejce takřka ve stejnou dobu. Hnízdo ve tvaru kužele si pár staví z bláta, na snůšce sedí 31 dnů oba dva rodiče.</item>
+<!--        <item>Kolem 15 let</item>-->
+<!--        <item>Mělké slané laguny Afriky, Madagaskaru, Asie, Evropa.</item>-->
+<!--        <item>Líhne 1 vejce po 27 dnech</item>-->
+<!--        <item>Plameňáci jsou velcí ptáci s neobyčejně dlouhým krkem a nohama vzhledem k celkem malému, oválnému tělu. Krk tvoří 17 obratlů. Nejnápadnějším znakem je silný a lomený zobák, po vnitřních okrajích čelistí lamelovaný. Jsou to společenští ptáci, hnízdí v koloniích čítajících i tisíc jedinců. Probíhá u nich hromadný tok, samičky pak kladou vejce takřka ve stejnou dobu. Hnízdo ve tvaru kužele si pár staví z bláta, na snůšce sedí 31 dnů oba dva rodiče.</item>-->
+<!--    </array>-->
+
+
+<!--    <array name="Duck">-->
+<!--        <item>Kachna divoká</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>0.7–1.3 kg</item>-->
+
+<!--        <item>50–60 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>81–95 cm</item>-->
+
+<!--        <item>5–10 let</item>-->
+<!--        <item>Celý svět</item>-->
+<!--        <item>Líhne 8–16 mláďat po 25 dnech</item>-->
+<!--        <item>Kachna divoká je vodní pták, k životu potřebuje stojaté vody rybníků a jezer nebo pomalu tekoucí řeky s bujnou vegetací. Často je k vidění i ve městech.-->
+<!--            Je všežravec, na jaře tvoří její jídelníček především hmyz, slimáci i drobné rybky či žabky, v létě a na podzim zase nejrůznější semena, vodní rostliny, trávy a řasy.-->
+<!--            Kachna má husté mastné peří, které se nenamočí, a vrstvu tuku, která ji chrání před chladem. Pro život ve vodě jsou uzpůsobeny i její nohy s plovacími blánami mezi prsty, jimiž pod vodou vesluje. Umí ale i skvěle létat.-->
+<!--        </item>-->
+<!--    </array>-->
+
+
+<!--    <array name="Agapornis">-->
+<!--        <item>Agapornis Fischerův</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>42–58 g</item>-->
+
+<!--        <item>15 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>23 cm</item>-->
+
+<!--        <item>15–25 let</item>-->
+<!--        <item>Afrika</item>-->
+<!--        <item>Líhne 4–6 vajec po 23 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Budgerigar">-->
+<!--        <item>Andulka</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>25–50 g</item>-->
+
+<!--        <item>18 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>21–23 cm</item>-->
+
+<!--        <item>5–10 let</item>-->
+<!--        <item>Austrálie</item>-->
+<!--        <item>Líhne 4–7 vajec po 18 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Pheasant">-->
+<!--        <item>Bažant diamantový</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>0.6–0.9 kg</item>-->
+
+<!--        <item>40–70 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>Délka ocasu:100 cm</item>-->
+
+<!--        <item>5 let</item>-->
+<!--        <item>Čína, chován po celém světě</item>-->
+<!--        <item>Líhne 6–12 vajec po 24 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Vanellinae">-->
+<!--        <item>Čejka australská</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>400 g</item>-->
+
+<!--        <item>30–35 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>75–85 cm</item>-->
+
+<!--        <item>16 let</item>-->
+<!--        <item>Austrálie a Indonésie</item>-->
+<!--        <item>Líhne 4–5 vajec po 28 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Emu">-->
+<!--        <item>Emu hnědý</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>20–55 kg</item>-->
+
+<!--        <item>1.5–1.9 m</item>-->
+<!--        <item>None</item>-->
+<!--        <item>Rychlost běhu:Až 50 km/h</item>-->
+
+<!--        <item>10 let</item>-->
+<!--        <item>Austrálie</item>-->
+<!--        <item>Líhne 5–15 vajec po 50 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Goose">-->
+<!--        <item>Husa domácí</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>15–15 kg</item>-->
+
+<!--        <item>100 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>130 cm</item>-->
+
+<!--        <item>20–30 let</item>-->
+<!--        <item>Domácnosti po celém světě</item>-->
+<!--        <item>Líhne 5–13 vajec po 30 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Crane">-->
+<!--        <item>Jeřáb panenský</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>2–3 kg</item>-->
+
+<!--        <item>1 m</item>-->
+<!--        <item>None</item>-->
+<!--        <item>150–170 cm</item>-->
+
+<!--        <item>20 let</item>-->
+<!--        <item>Východní Evropa, střední Asie</item>-->
+<!--        <item>Líhne 2–3 vejce po 30 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Canary">-->
+<!--        <item>Kanár obecný</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>15–20 g</item>-->
+
+<!--        <item>13 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>15 cm</item>-->
+
+<!--        <item>10 let</item>-->
+<!--        <item>Kanárské ostrovy, domácnosti</item>-->
+<!--        <item>Líhne 3–6 vejce po 12 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Raven">-->
+<!--        <item>Krkavec velký</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>0.7–2 kg</item>-->
+
+<!--        <item>56–78 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>1–1.5 m</item>-->
+
+<!--        <item>10–15 let</item>-->
+<!--        <item>Téměř celá severní polokoule</item>-->
+<!--        <item>Líhne 5–6 vejce po 20 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Kookaburra">-->
+<!--        <item>Ledňáček říční</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>40–45 g</item>-->
+
+<!--        <item>None</item>-->
+<!--        <item>16 cm</item>-->
+<!--        <item>24–26 cm</item>-->
+
+<!--        <item>7 let</item>-->
+<!--        <item>Téměř celá Evropa, Indonésie a jih Asie</item>-->
+<!--        <item>Líhne 5–7 vajec po 20 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="SeaEagle">-->
+<!--        <item>Orel mořský</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>5–10 kg</item>-->
+
+<!--        <item>76–92 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>2.4 m</item>-->
+
+<!--        <item>20–25 let</item>-->
+<!--        <item>Východní Evropa, severní Asie</item>-->
+<!--        <item>Líhne 1–2 vejce po 40 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="MountainEagle">-->
+<!--        <item>Orel sklaní</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>3–4.5 kg</item>-->
+
+<!--        <item>80–90 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>1.9–2.2 m</item>-->
+
+<!--        <item>15–25 let</item>-->
+<!--        <item>Eurasie, Severní Amerika a Afrika</item>-->
+<!--        <item>Líhne 2–4 vejce po 44 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="GuineaFowl">-->
+<!--        <item>Perlička kropenatá</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>1.3 kg</item>-->
+
+<!--        <item>53–63 cm</item>-->
+<!--        <item>None</item>-->
+<!--        <item>None</item>-->
+
+<!--        <item>12 let</item>-->
+<!--        <item>Téměř celý svět</item>-->
+<!--        <item>Líhne 6–12 vejce po 25 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="Peafowl">-->
+<!--        <item>Páv korunkatý</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>3–4.5 kg</item>-->
+
+<!--        <item>2.2 m</item>-->
+<!--        <item>None</item>-->
+<!--        <item>80–130 cm</item>-->
+
+<!--        <item>13–17 let</item>-->
+<!--        <item>Indie. Pro okrasu téměř na celém světě</item>-->
+<!--        <item>Líhne 4–8 vejce po 28 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+<!--    <array name="SnowyOwl">-->
+<!--        <item>Sovice sněžní</item>-->
+<!--        <item>Pták</item>-->
+<!--        <item>1.3–2.6 kg</item>-->
+
+<!--        <item>None</item>-->
+<!--        <item>60 cm</item>-->
+<!--        <item>160 cm</item>-->
+
+<!--        <item>10 let</item>-->
+<!--        <item>Severní Evropa, Asie, Grónsko, Kanada i USA</item>-->
+<!--        <item>Líhne 5–14 vejce po 70 dnech</item>-->
+<!--        <item>...</item>-->
+<!--    </array>-->
+
+    <array name="birdsTaxonomy">
+        <item>Živočichové</item>
+        <item>Strunatci</item>
+        <item>Ptáci</item>
     </array>
 
-
-    <array name="Duck">
-        <item>Kachna divoká</item>
-        <item>Pták</item>
-        <item>0.7–1.3 kg</item>
-
-        <item>50–60 cm</item>
-        <item>None</item>
-        <item>81–95 cm</item>
-
-        <item>5–10 let</item>
-        <item>Celý svět</item>
-        <item>Líhne 8–16 mláďat po 25 dnech</item>
-        <item>Kachna divoká je vodní pták, k životu potřebuje stojaté vody rybníků a jezer nebo pomalu tekoucí řeky s bujnou vegetací. Často je k vidění i ve městech.
-            Je všežravec, na jaře tvoří její jídelníček především hmyz, slimáci i drobné rybky či žabky, v létě a na podzim zase nejrůznější semena, vodní rostliny, trávy a řasy.
-            Kachna má husté mastné peří, které se nenamočí, a vrstvu tuku, která ji chrání před chladem. Pro život ve vodě jsou uzpůsobeny i její nohy s plovacími blánami mezi prsty, jimiž pod vodou vesluje. Umí ale i skvěle létat.
-        </item>
-    </array>
-
-
-    <array name="Agapornis">
-        <item>Agapornis Fischerův</item>
-        <item>Pták</item>
-        <item>42–58 g</item>
-
-        <item>15 cm</item>
-        <item>None</item>
-        <item>23 cm</item>
-
-        <item>15–25 let</item>
-        <item>Afrika</item>
-        <item>Líhne 4–6 vajec po 23 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Budgerigar">
-        <item>Andulka</item>
-        <item>Pták</item>
-        <item>25–50 g</item>
-
-        <item>18 cm</item>
-        <item>None</item>
-        <item>21–23 cm</item>
-
-        <item>5–10 let</item>
-        <item>Austrálie</item>
-        <item>Líhne 4–7 vajec po 18 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Pheasant">
-        <item>Bažant diamantový</item>
-        <item>Pták</item>
-        <item>0.6–0.9 kg</item>
-
-        <item>40–70 cm</item>
-        <item>None</item>
-        <item>Délka ocasu:100 cm</item>
-
-        <item>5 let</item>
-        <item>Čína, chován po celém světě</item>
-        <item>Líhne 6–12 vajec po 24 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Vanellinae">
-        <item>Čejka australská</item>
-        <item>Pták</item>
-        <item>400 g</item>
-
-        <item>30–35 cm</item>
-        <item>None</item>
-        <item>75–85 cm</item>
-
-        <item>16 let</item>
-        <item>Austrálie a Indonésie</item>
-        <item>Líhne 4–5 vajec po 28 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Emu">
-        <item>Emu hnědý</item>
-        <item>Pták</item>
-        <item>20–55 kg</item>
-
-        <item>1.5–1.9 m</item>
-        <item>None</item>
-        <item>Rychlost běhu:Až 50 km/h</item>
-
-        <item>10 let</item>
-        <item>Austrálie</item>
-        <item>Líhne 5–15 vajec po 50 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Goose">
-        <item>Husa domácí</item>
-        <item>Pták</item>
-        <item>15–15 kg</item>
-
-        <item>100 cm</item>
-        <item>None</item>
-        <item>130 cm</item>
-
-        <item>20–30 let</item>
-        <item>Domácnosti po celém světě</item>
-        <item>Líhne 5–13 vajec po 30 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Crane">
-        <item>Jeřáb panenský</item>
-        <item>Pták</item>
-        <item>2–3 kg</item>
-
-        <item>1 m</item>
-        <item>None</item>
-        <item>150–170 cm</item>
-
-        <item>20 let</item>
-        <item>Východní Evropa, střední Asie</item>
-        <item>Líhne 2–3 vejce po 30 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Canary">
-        <item>Kanár obecný</item>
-        <item>Pták</item>
-        <item>15–20 g</item>
-
-        <item>13 cm</item>
-        <item>None</item>
-        <item>15 cm</item>
-
-        <item>10 let</item>
-        <item>Kanárské ostrovy, domácnosti</item>
-        <item>Líhne 3–6 vejce po 12 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Raven">
-        <item>Krkavec velký</item>
-        <item>Pták</item>
-        <item>0.7–2 kg</item>
-
-        <item>56–78 cm</item>
-        <item>None</item>
-        <item>1–1.5 m</item>
-
-        <item>10–15 let</item>
-        <item>Téměř celá severní polokoule</item>
-        <item>Líhne 5–6 vejce po 20 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Kookaburra">
-        <item>Ledňáček říční</item>
-        <item>Pták</item>
-        <item>40–45 g</item>
-
-        <item>None</item>
-        <item>16 cm</item>
-        <item>24–26 cm</item>
-
-        <item>7 let</item>
-        <item>Téměř celá Evropa, Indonésie a jih Asie</item>
-        <item>Líhne 5–7 vajec po 20 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="SeaEagle">
-        <item>Orel mořský</item>
-        <item>Pták</item>
-        <item>5–10 kg</item>
-
-        <item>76–92 cm</item>
-        <item>None</item>
-        <item>2.4 m</item>
-
-        <item>20–25 let</item>
-        <item>Východní Evropa, severní Asie</item>
-        <item>Líhne 1–2 vejce po 40 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="MountainEagle">
-        <item>Orel sklaní</item>
-        <item>Pták</item>
-        <item>3–4.5 kg</item>
-
-        <item>80–90 cm</item>
-        <item>None</item>
-        <item>1.9–2.2 m</item>
-
-        <item>15–25 let</item>
-        <item>Eurasie, Severní Amerika a Afrika</item>
-        <item>Líhne 2–4 vejce po 44 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="GuineaFowl">
-        <item>Perlička kropenatá</item>
-        <item>Pták</item>
-        <item>1.3 kg</item>
-
-        <item>53–63 cm</item>
-        <item>None</item>
-        <item>None</item>
-
-        <item>12 let</item>
-        <item>Téměř celý svět</item>
-        <item>Líhne 6–12 vejce po 25 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="Peafowl">
-        <item>Páv korunkatý</item>
-        <item>Pták</item>
-        <item>3–4.5 kg</item>
-
-        <item>2.2 m</item>
-        <item>None</item>
-        <item>80–130 cm</item>
-
-        <item>13–17 let</item>
-        <item>Indie. Pro okrasu téměř na celém světě</item>
-        <item>Líhne 4–8 vejce po 28 dnech</item>
-        <item>...</item>
-    </array>
-
-    <array name="SnowyOwl">
-        <item>Sovice sněžní</item>
-        <item>Pták</item>
-        <item>1.3–2.6 kg</item>
-
-        <item>None</item>
-        <item>60 cm</item>
-        <item>160 cm</item>
-
-        <item>10 let</item>
-        <item>Severní Evropa, Asie, Grónsko, Kanada i USA</item>
-        <item>Líhne 5–14 vejce po 70 dnech</item>
-        <item>...</item>
-    </array>
 
     <array name="Penguin">
         <item>Tučňák</item>
@@ -294,8 +301,26 @@
         <item>10 let</item>
         <item>Pouze na Jižní polokouly v okrajích Antraktidy a další chladných oblastech</item>
         <item>Líhne 1–2 vejce po 40 dnech</item>
-        <item>...</item>
+        <item>
+            Tučňáci jsou skupinou nelétavých ptáků, kteří se vyskytují především v Antarktidě a na okolních ostrovech, ale některé druhy žijí i v jiných částech světa, včetně jižní Afriky, Jižní Ameriky a Austrálie.
+            \n\nTučňáci jsou charakterističtí svým černobílým zbarvením, krátkými nohama a křídly, která se přeměnila na plovací ploutve. Některé druhy dosahují výšky až 1 metr a váží více než 40 kilogramů.
+            \n\nTučňáci jsou společenská zvířata a žijí v koloniích, kde se sdružují kvůli lepšímu udržení tepla a ochraně před dravci. Mnoho druhů tučňáků hnízdí v období antarktického léta, kdy se teploty mírně zvyšují. Samice kladou obvykle dvě vejce, která jsou inkubována oběma rodiči.
+            \n\nTučňáci jsou všežravci a jejich potrava se skládá z ryb, krilu, korýšů a dalšího mořského života.
+        </item>
     </array>
+    <array name="taxonomyPenguin">
+        <item>Tučňáci</item>
+        <item>Tučnákovití</item>
+        <item>
+            Aptenodytes,
+            Eudyptes,
+            Eudyptula,
+            Megadyptes,
+            Pygoscelis,
+            Spheniscus,
+        </item>
+    </array>
+
 
     <array name="Parrot">
         <item>Papoušek</item>
@@ -309,7 +334,18 @@
         <item>40 – 60 let</item>
         <item>Tropické oblasti, Jižní Amerika, Austrálie, Afrika</item>
         <item>Líhne 2–5 vajec po 40 dnech</item>
-        <item>...</item>
+        <item>
+            Řád Papoušci (Psittaciformes) zahrnuje více než 400 druhů papoušků, kteří jsou rozšířeni po celém světě, včetně tropických a subtropických oblastí Ameriky, Afriky, Asie a Austrálie. Papoušci jsou obvykle středně velcí až velcí ptáci s barevnými peříčky a silnými zobáky.
+            \n\nVětšina druhů papoušků jsou býložravci a jejich potrava se skládá z ovoce, semen, květů a nektaru. Některé druhy papoušků také konzumují hmyz, plody stromů a dokonce i maso.
+            \n\nPapoušci jsou obvykle společenští a často žijí v párech nebo malých skupinách. Některé druhy papoušků se dokonce vyznačují vysokou inteligencí a schopností učit se, což je důvod, proč jsou často chováni jako domácí mazlíčci nebo v zoologických zahradách.
+            \n\nMezi nejznámější druhy papoušků patří například kakadu žlutočelý, ara ararauna, papoušek žlutohlavý nebo papoušek zlatohlavý.
+            \n\nMnoho druhů papoušků je ohroženo kvůli ztrátě přirozeného prostředí, odlesňování, nelegálnímu obchodu a znečištění. Na ochranu papoušků jsou přijímána opatření jako ochrana přírodních stanovišť, programy na ochranu druhů a regulace obchodu s exotickými zvířaty.
+        </item>
+    </array>
+    <array name="taxonomyParrot">
+        <item>Papoušci</item>
+        <item>Papouškovití, Kakaduovití</item>
+        <item>MNOHO</item>
     </array>
 
 </resources>

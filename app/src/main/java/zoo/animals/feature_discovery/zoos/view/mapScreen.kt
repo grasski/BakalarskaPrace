@@ -1,4 +1,4 @@
-package zoo.animals.feature_discovery.zoos.view.zoo_screens
+package zoo.animals.feature_discovery.zoos.view.view
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

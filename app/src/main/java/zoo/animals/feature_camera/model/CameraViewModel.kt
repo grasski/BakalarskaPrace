@@ -12,6 +12,8 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.key
 import androidx.compose.runtime.*
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.platform.LocalDensity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
@@ -32,7 +34,7 @@ class CameraViewModel: ViewModel() {
     val state by mutableStateOf(CameraState())
 
     fun analyze(analyzer: ImageAnalysis, cameraExecutor: ExecutorService, context: Context){
-        if (!state.classificationRunning.value){
+        if ((!state.classificationRunning.value) || state.bottomSheetActive.value){
             state.classifiedAnimal.value = null
             analyzer.clearAnalyzer()
         } else{
@@ -45,10 +47,10 @@ class CameraViewModel: ViewModel() {
                 val detected = ImageClassifier(context).detect(imageProxy)
                 val animalName = detected[0] as String
 
-                state.classifiedAnimal.value = (AnimalData.allAnimalsInstance[0] + AnimalData.allAnimalsInstance[1] + AnimalData.allAnimalsInstance[2])[animalName.trim()]
+                val loc = detected[1] as RectF
+                state.animalCenter.value = Offset(loc.left + (loc.width()/2), loc.top + (loc.height()/2))
 
-                state.detectionBox.value = detected[1] as RectF
-                state.testingText.value = detected[2].toString() + " " + detected[1]
+                state.classifiedAnimal.value = (AnimalData.allAnimalsInstance[0] + AnimalData.allAnimalsInstance[1] + AnimalData.allAnimalsInstance[2])[animalName.trim()]
             }
         }
     }

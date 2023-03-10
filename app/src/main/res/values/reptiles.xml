@@ -6,6 +6,13 @@
     </string-array>
 
 
+    <array name="reptilesTaxonomy">
+        <item>Živočichové</item>
+        <item>Strunatci</item>
+        <item>Plazi</item>
+    </array>
+
+
     <array name="Turtle">
         <item>Želva</item>
         <item>Plaz</item>
@@ -18,7 +25,16 @@
         <item>Až 160 let.</item>
         <item>Celý svět.</item>
         <item>Klade 20 až 100 vajec.</item>
-        <item></item>
+        <item>
+            Želvy (Testudines) zahrnují skupinu plazů, kteří se vyznačují tvrdým krunýřem a často pomalým pohybem. Některé druhy jsou schopny žít na souši, zatímco jiné tráví většinu svého života ve vodě. Mezi nejznámější druhy patří například korytnačky, želvy mořské, sloní a dračí želvy.
+            \n\nŽelvy mají velmi dlouhou evoluční historii a první druhy se objevily před asi 220 miliony lety, v období pozdního triasu. Některé druhy se od té doby téměř vůbec nezměnily, zatímco jiné prošly významnými evolučními změnami.
+            \n\nŽelvy se vyskytují po celém světě, s výjimkou Antarktidy. Některé druhy jsou ohrožené a na seznamu kriticky ohrožených druhů se nachází například želva bahenní, želva středozemní a želva madagaskarská.
+        </item>
+    </array>
+    <array name="taxonomyTurtle">
+        <item>Želvy</item>
+        <item>Skrytohrdlí, Skrytohlaví</item>
+        <item>MNOHO</item>
     </array>
 
 </resources>

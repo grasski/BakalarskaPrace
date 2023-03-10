@@ -116,10 +116,9 @@ fun BtnCapture(
 
 
 @Composable
-fun BtnClose(navController: NavController){
+fun BtnClose(navController: NavController, modifier: Modifier){
     Box(
-        Modifier
-            .padding(start = 20.dp)
+        modifier = modifier
     ){
         IconButton(
             onClick = {

@@ -12,4 +12,14 @@
     <string name="yes">ANO</string>
     <string name="no">NE</string>
 
+    <array name="showDiscovered">
+        <item>Objevené</item>
+        <item>Viděné</item>
+    </array>
+    <array name="showNotDiscovered">
+        <item>Neobjevené</item>
+        <item>Neviděné</item>
+    </array>
+    <string name="showAll">Vše</string>
+
 </resources>

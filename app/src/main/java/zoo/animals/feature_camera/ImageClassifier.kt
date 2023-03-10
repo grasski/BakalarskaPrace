@@ -48,7 +48,7 @@ class ImageClassifier(private val context: Context) {
 //            context, "ssddetect_OPS_metadata_ctvrte.tflite", options
 //            context, "ssddetect_OPS_480_background_metadata10.tflite", options
 //            context, "ssd_640_qua_metadata_13.tflite", options
-            context, "ssd_640_background_removed_metadata_18.tflite", options
+            context, "ssd_640_qua_metadata_19.tflite", options
         )
 
         val mediaImage = imageProxy.image
@@ -88,6 +88,7 @@ class ImageClassifier(private val context: Context) {
                 }
             }
         }
+
 
         imageProxy.close()
         return listOf(text, location, info)
@@ -272,7 +273,6 @@ class ImageClassifier(private val context: Context) {
     }
 
 
-    @SuppressLint("UnsafeOptInUsageError")
     fun classifyPhoto(bitmap: Bitmap): Animal? {
         var result = ""
         val btm: Bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
@@ -280,17 +280,19 @@ class ImageClassifier(private val context: Context) {
         val resizedBitmap =
             Bitmap.createScaledBitmap(
                 btm,
-                280,
-                280,
+                260,
+                260,
                 false
             )
 
         val model = AutoModel18animals.newInstance(context)
+//        val model = ModelInt8.newInstance(context)
         val tfImage = TensorImage.fromBitmap(resizedBitmap)
         val outputs = model.process(tfImage)
         model.close()
 
         val probability = outputs.probabilityAsCategoryList
+//        val probability = outputs.scoreAsCategoryList
         var tmpScore = probability[0].score
         var animalIndex = 0
         for (i in 0 until probability.size){
@@ -303,11 +305,12 @@ class ImageClassifier(private val context: Context) {
         if (tmpScore > 0.45f){
             result = probability[animalIndex].label
         }
+        Log.e("", "LALLA: " + result + " " + tmpScore)
 
-        return getAnimalByName(result)
+        return getAnimalByName(result.trim())
     }
 
-    @SuppressLint("UnsafeOptInUsageError")
+
     fun detectPhoto(bitmap: Bitmap): Animal? {
         var result = ""
         val btm: Bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
@@ -315,8 +318,8 @@ class ImageClassifier(private val context: Context) {
         val resizedBitmap =
             Bitmap.createScaledBitmap(
                 btm,
-                480,
-                480,
+                640,
+                640,
                 false
             )
 
@@ -326,7 +329,7 @@ class ImageClassifier(private val context: Context) {
             .build()
         val objectDetector = ObjectDetector.createFromFileAndOptions(
 //            context, "lite-model_efficientdet_lite3_detection_metadata_1.tflite", options
-            context,  "ssddetect_OPS_metadata_6.tflite", options
+            context,  "ssd_640_qua_metadata_19.tflite", options
         )
 
         val tfImage = TensorImage.fromBitmap(resizedBitmap)
@@ -338,9 +341,6 @@ class ImageClassifier(private val context: Context) {
             }
         }
 
-
-        Log.d("NEVIM", "LALALA: " + result)
-
-        return getAnimalByName(result)
+        return getAnimalByName(result.trim())
     }
 }

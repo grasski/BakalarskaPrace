@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import zoo.animals.animations.ContentAnimation
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BottomContentSwitch(
     mainText: String,

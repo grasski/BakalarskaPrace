@@ -297,8 +297,8 @@
         <item>1 mládě po 360 dnech</item>
         <item>
             Zebra je druh afrického kopytníka, který patří do čeledi koňovití (Equidae). Zebry jsou charakteristické svou pruhovanou srstí. Tyto pruhy jsou u každé zebry unikátní, což umožňuje jednotlivce odlišit od ostatních. Vyskytují se v savanách a křovinatých oblastech subsaharské Afriky.
-            Existuje několik druhů zeber, včetně stepní, hřívnaté a horské zebry. Většina z nich jsou býložravci a živí se především trávou, ale mohou také jíst listy, větve a kůru stromů. Zebry jsou stádní zvířata a žijí ve skupinách. Tyto skupiny jsou vedeny dominantním samcem nebo samicí.
-            Zebry jsou ohroženým druhem, především kvůli ztrátě přirozeného prostředí a lovu pro maso, kůži a další tyto části. Na ochranu zeber byly založeny některé organizace a projekty, které se snaží chránit přirozené prostředí a snižovat pytláctví.
+            \n\nExistuje několik druhů zeber, včetně stepní, hřívnaté a horské zebry. Většina z nich jsou býložravci a živí se především trávou, ale mohou také jíst listy, větve a kůru stromů. Zebry jsou stádní zvířata a žijí ve skupinách. Tyto skupiny jsou vedeny dominantním samcem nebo samicí.
+            \n\nZebry jsou ohroženým druhem, především kvůli ztrátě přirozeného prostředí a lovu pro maso, kůži a další tyto části. Na ochranu zeber byly založeny některé organizace a projekty, které se snaží chránit přirozené prostředí a snižovat pytláctví.
         </item>
     </array>
     <array name="taxonomyZebra">
@@ -332,7 +332,11 @@
         <item>12–18 let</item>
         <item>Celý svět</item>
         <item>3–6 mláďat po 55 dnech</item>
-        <item>Kočka domácí má ostré smysly a výborný čich, sluch a zrak. Na rozdíl od člověka vidí ostřeji a dobře se orientuje v šeru. Svými pohyblivými ušními boltci dokáže přesně rozpoznat, odkud vychází zvuk a slyší až o dvě oktávy vyšší tóny než lidé. Její lovecký instinkt se probouzí, když spatří pohybující se kořist. Čich je pro kočku nesmírně důležitý. 200 milionů čichových buněk jí pomáhá nalézt kořist, orientovat se v prostředí a komunikovat s ostatními kočkami.</item>
+        <item>
+            Kočka domácí (Felis catus) je malý masožravý savec, který je velmi oblíbený jako domácí mazlíček po celém světě. Kočky jsou domácí zvířata, která se velmi rychle stávají součástí rodiny, protože jsou velmi inteligentní a mají přátelskou a hravou povahu.
+            \n\nKočky mají měkkou srst a rychlé reflexy. Vyskytují se v různých barvách a vzorech srsti a mají charakteristické uši, které se mohou pohybovat nezávisle na sobě. Kočky jsou aktivní hlavně v noci a mají velmi dobře vyvinutý noční zrak.
+            \n\nDivokým předkem domácích koček byla zřejmě kočka divoká, přesněji její africký (pod)druh kočka plavá, dále snad i kočka divoká evropská a asijská kočka stepní. První kočky se do blízkosti lidí dostaly před 10–12 tisíci lety, v době, kdy začala vznikat první trvalá lidská sídla.
+        </item>
     </array>
     <array name="taxonomyCat">
         <item>Šelmy</item>
@@ -351,7 +355,12 @@
         <item>10–20 let</item>
         <item>Celý svět</item>
         <item>4–10 mláďat po 60 dnech</item>
-        <item>Pes domácí je největší domestikovaná šelma a nejstarší domestikované zvíře vůbec, provázející člověka minimálně 14 tisíc let. Obecně se předpokládá, že se jedná o zdomácnělého a umělým výběrem změněného vlka obecného. Pes je všestranný a zvládá nejrůznější činnosti. Svědčí o tom i rozmanitá paleta psích plemen.Vnitřní anatomie psů je stejná, svým vzhledem se však psi mezi sebou výrazně liší. Jednotlivá psí plemena nabízejí velmi rozmanité vnější rysy, ale také charakter.</item>
+        <item>
+            Pes domácí (Canis lupus familiaris) je domestikovaný druh šelmy a jeden z nejběžnějších domácích mazlíčků na celém světě. Psi jsou společenská zvířata, která se snadno učí a jsou oddaní svým majitelům.
+            \n\nPsi jsou různých velikostí a plemen, a každé plemeno má své vlastní charakteristické rysy. Psi mají srst různých barev a textur, od krátké a lesklé po dlouhou a měkkou. Psi mají vynikající čich a sluch a jsou velmi rychlí a obratní.
+            \n\nPsi jsou býložravci nebo masožravci, v závislosti na plemeni a výživě. Psi jsou zvyklí na potraviny, které jim poskytují jejich majitelé, ale je důležité zajistit, aby jejich strava obsahovala potřebné živiny a vitamíny. Psi potřebují také pravidelný pohyb a cvičení, aby zůstali zdraví a šťastní.
+            \n\nNejbližší příbuzný domácího psa je vlk obecný – od psa se liší v nanejvýš 0,2 % sekvence mtDNA. Od vlka se ale pes liší morfologicky – psi mají kratší a širší čenich, celkově širší lebku, více dopředu postavené oči, méně robustní zuby a menší a plošší bubínkové výdutě (bullae tympanicae) na lebce.
+        </item>
     </array>
     <array name="taxonomyDog">
         <item>Šelmy</item>
@@ -527,7 +536,7 @@
 <!--    </array>-->
 
     <array name="Jaguar">
-        <item>Jaguár</item>
+        <item>Jaguár americký</item>
         <item>Savec</item>
         <item>56–96 kg</item>
 
@@ -538,12 +547,17 @@
         <item>12–15 let</item>
         <item>Střední a Jižní Amerika</item>
         <item>Až 4 mláďata po 90 dnech</item>
-        <item>Jaguár je největší kočkovitou šelmou amerického kontinentu a jako doma je nejen na pevné zemi a na stromech, ale i ve vodě. Je také velmi zdatný lovec, který dokáže ulovit třeba tapíra nebo opici. Na rozdíl od ostatních velkých koček, které svou kořist zardousí, jaguár své oběti nejčastěji prorazí lebku mohutnými tesáky, výjimečně jí rychlým prudkým kousnutím zláme vaz. Také je pro něj typické, že loví obrovské množství druhů (až 85 různých zvířat).</item>
+        <item>
+            Jaguár (Panthera onca) je velká kočkovitá šelma, která obývá zejména deštné pralesy a savany v Jižní a Střední Americe. Jedná se o třetí největší kočkovitou šelmu na světě, hned po lvu a tygrovi.
+            \n\nJaguáři mají krátkou a hustou srst, která je obvykle žlutá nebo oranžová s černými skvrnami. Tyto skvrny se mohou různě tvarovat, někdy se spojují do proužků či kruhů. Jaguár má také silnou tělesnou stavbu, svalnaté tělo a velmi silné čelisti, které mu umožňují drtit kosti a zuby.
+            \n\nJaguár je velmi rychlý a silný lovec, který dokáže své kořisti napadnout rychlostí až 80 km/h. Jeho potrava se skládá z různých druhů zvířat, jako jsou jeleni, tapíři, opice, pštrosi a ryby.
+            \n\nJaguár je také významným symbolem pro mnoho původních obyvatel Jižní a Střední Ameriky a má důležitou roli v mnoha mýtech a legendách. V moderní době se jaguár stal také symbolem ochrany přírody a boje proti klimatickým změnám.
+        </item>
     </array>
     <array name="taxonomyJaguar">
         <item>Šelmy</item>
         <item>Kočkovití</item>
-        <item>Panthera</item>
+        <item>Panthera onca</item>
     </array>
 
     <array name="Rhino">
@@ -558,7 +572,11 @@
         <item>40–50 let</item>
         <item>Jižní Afrika</item>
         <item>1 mládě po 16 měsících</item>
-        <item>Ze všech 5 druhů nosorožců je tento druh nejvíce společenský. I když samci po většinu roku žijí samotářsky, samice s mláďaty vytvářejí skupinky až o dvanácti jedincích. Zvířata jsou aktivní ve dne i v noci. Staří býci si vytvářejí teritoria o rozloze až 20 km2. Hranice teritoria si značí močí a hromadami trusu. Po březosti 16 měsíců samice porodí jediné mládě. Kojí je zhruba 1 rok.</item>
+        <item>
+            Nosorožcovití jsou skupinou tlustokožců z řádu lichokopytníků, kteří se vyznačují velkou tělesnou hmotností a velkým rohovitým útvarem na nose. Tento útvar se nazývá roh a je tvořen srůstem keratinových vláken.
+            \n\nNosorožci jsou přirozeně rozšířeni v Africe a Asii, kde obývají různá prostředí, včetně savan, lesů a močálů. Nosorožci jsou významní savci a mají důležitou roli v ekosystémech, kde žijí. Pomáhají udržovat rovnováhu v populacích rostlin a živočichů a jsou také důležití jako turistická atrakce v národních parcích a rezervacích.
+            \n\nBohužel jsou však nosorožci ohroženi nelegálním lovem a ztrátou přirozeného prostředí. Kvůli rohům jsou lovci ochotni je zabít a prodávat je na černém trhu, kde jsou vysoko ceněny jako surovina pro tradiční medicínu a ozdoby. V důsledku toho se počty nosorožců v přírodě rychle snižují a některé druhy jsou dokonce na pokraji vyhynutí.
+        </item>
     </array>
     <array name="taxonomyRhino">
         <item>Lichokopytníci</item>

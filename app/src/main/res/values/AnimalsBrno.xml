@@ -1,2 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <array name="BrnoCapybara">
+        <item>Druh: Kapybara</item>
+        <item>Expozice: Jihoamerická expozice</item>
+    </array>
+
+    <array name="BrnoKangaroo">
+        <item>Druhy:
+            Klokan bažinný;
+            Klokan žlutonohý;
+            Klokánek králikovitý;
+            Klokánek krysí
+        </item>
+    </array>
+
+    <array name="BrnoTiger">
+        <item>Druh: Tygr sumaterský</item>
+        <item>Expozice: Tygří skály</item>
+    </array>
+
+    <array name="BrnoZebra">
+        <item>Druh: Zebra Chapmanova</item>
+        <item>Expozice: Africká vesnice</item>
+    </array>
+
+    <array name="BrnoGiraffe">
+        <item>Druh: Žirafa síťovaná</item>
+        <item>Expozice: Africká vesnice</item>
+    </array>
+
+    <array name="BrnoParrot">
+        <item>Druhy:
+            Agapornis Fischerův;
+            Andulka (papoušek vlkovaný);
+            Eklektus různobarvý pestrý;
+            Kakadu palmový;
+            Kakadu růžový;
+            Lori horský;
+            Lori tříbarvý;
+            Papoušek patagonský;
+            Papoušek vlaštovčí
+        </item>
+        <item>Expozice:
+            Africká vesnice;
+            Exotárium
+        </item>
+    </array>
+
+    <array name="BrnoTurtle">
+        <item>Druhy:
+            Karetka novoguinejská;
+            Orlície bornejská;
+            vousivka pestrá;
+            Želva paprsčitá;
+            Želva pardálí;
+            Želva pavoukovitá;
+            Želva uhlířská;
+            Želva zelenavá
+        </item>
+        <item>Expozice: Tropické království</item>
+    </array>
+
+</resources>

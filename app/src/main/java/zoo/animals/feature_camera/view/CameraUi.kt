@@ -5,6 +5,7 @@ import android.net.Uri
 import android.provider.Settings
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -45,91 +46,102 @@ fun CameraUi(
 ){
     var imageWasDeleted by remember { mutableStateOf(false) }
 
-    Box(modifier = Modifier.fillMaxSize()){
+    Column(modifier = Modifier.fillMaxSize().padding(16.dp)){
 
         // TOP UI - Home button and captured image
-        Box(Modifier.fillMaxSize()){
-            Row(
-                Modifier
-                    .padding(top = 100.dp, start = 20.dp, end = 20.dp)
-            ) {
-                BtnClose(navController)
+        Row(
+            Modifier
+                .weight(1.1f)
+                .fillMaxSize(),
+            verticalAlignment = Alignment.Top
+        ) {
+            BtnClose(navController, Modifier.padding(30.dp))
 
-                ShowCapturedImage(captureViewModel.state.imageUri.value) { imageWasDeleted = it }
-                LaunchedEffect(captureViewModel.state.imageUri.value, imageWasDeleted) {
-                    if (!imageWasDeleted)
-                        delay(3.seconds)
+            Box(
+                Modifier.fillMaxSize(),
+                contentAlignment = Alignment.TopEnd
+            ){ ShowCapturedImage(captureViewModel.state.imageUri.value) { imageWasDeleted = it } }
 
-                    captureViewModel.state.imageUri.value = null
-                    imageWasDeleted = false
-                }
+            LaunchedEffect(captureViewModel.state.imageUri.value, imageWasDeleted) {
+                if (!imageWasDeleted)
+                    delay(3.seconds)
+
+                captureViewModel.state.imageUri.value = null
+                imageWasDeleted = false
             }
         }
+
+//        Box(Modifier
+//            .fillMaxSize()
+//            .weight(1.6f)
+//            .clickable(
+//                onClick = {  }
+//            )
+//        ){}
 
         // BOTTOM UI - Image capture button and classification running toggle button and its notice
-        Box{
-            Column(
-                Modifier
-                    .fillMaxSize()
-                    .padding(bottom = 100.dp),
-                verticalArrangement = Arrangement.Bottom,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .weight(1.1f)
+                .padding(bottom = 20.dp),
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            DetectionNotice(cameraViewModel.state.classificationRunning.value)
 
-                DetectionNotice(cameraViewModel.state.classificationRunning.value)
-
-                Row{
-                    Box(contentAlignment = Alignment.Center) {
-                        Box{
-                            BtnCapture(cameraViewModel, captureViewModel)
-                        }
-                        Box(Modifier.offset(x = 80.dp)){
-                            BtnRecognitionToggle()
-                        }
+            Row{
+                Box(contentAlignment = Alignment.Center) {
+                    Box{
+                        BtnCapture(cameraViewModel, captureViewModel)
+                    }
+                    Box(Modifier.offset(x = 80.dp)){
+                        BtnRecognitionToggle()
                     }
                 }
+            }
 
-                Box(modifier = Modifier
-                    .fillMaxWidth(),
-                    contentAlignment = Alignment.Center
+            Box(modifier = Modifier
+                .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceEvenly,
                 ){
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceEvenly,
+                    Slider(
+                        value = cameraViewModel.state.currentZoom.value,
+                        valueRange = 1f..10f,
+                        onValueChange = {
+                            cameraViewModel.state.camera.value?.cameraControl?.setZoomRatio(it)
+                            cameraViewModel.state.currentZoom.value = it
+                        },
+                        steps = 9,
+                        enabled = true,
+                        colors = SliderDefaults.colors(
+                            thumbColor = MaterialTheme.colorScheme.primary,
+                            activeTrackColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                            inactiveTrackColor = MaterialTheme.colorScheme.tertiaryContainer,
+                            activeTickColor = MaterialTheme.colorScheme.onError,
+                            inactiveTickColor = MaterialTheme.colorScheme.surfaceTint
+                        ),
+                        modifier = Modifier
+                            .fillMaxWidth(0.75f)
+                    )
+                    Box(
+//                        Modifier.fillMaxWidth(),
+                        contentAlignment = Alignment.Center
                     ){
-                        Slider(
-                            value = cameraViewModel.state.currentZoom.value,
-                            valueRange = 1f..10f,
-                            onValueChange = {
-                                cameraViewModel.state.camera.value?.cameraControl?.setZoomRatio(it)
-                                cameraViewModel.state.currentZoom.value = it
-                            },
-                            steps = 9,
-                            enabled = true,
-                            colors = SliderDefaults.colors(
-                                thumbColor = MaterialTheme.colorScheme.primary,
-                                activeTrackColor = MaterialTheme.colorScheme.onTertiaryContainer,
-                                inactiveTrackColor = MaterialTheme.colorScheme.tertiaryContainer,
-                                activeTickColor = MaterialTheme.colorScheme.onError,
-                                inactiveTickColor = MaterialTheme.colorScheme.surfaceTint
-                            ),
-                            modifier = Modifier
-                                .fillMaxWidth(0.8f)
+                        Text(
+                            "x${cameraViewModel.state.currentZoom.value.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN)}",
+                            fontSize = 20.sp,
+                            textAlign = TextAlign.Center
                         )
-                        Box(
-//                            Modifier.fillMaxWidth(),
-                            contentAlignment = Alignment.Center
-                        ){
-                            Text(
-                                "x${cameraViewModel.state.currentZoom.value.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN)}",
-                                fontSize = 20.sp,
-                                textAlign = TextAlign.Center
-                            )
-                        }
                     }
                 }
             }
         }
+
     }
 }
 
@@ -276,47 +288,44 @@ fun ShowCapturedImage(
     uri: Uri?,
     imageWasDeleted: (Boolean) -> Unit
 ){
+    val context = LocalContext.current
+
     ContentAnimation().FadeInFromVerticallySide(offsetY = -500, duration = 400, (uri != null)){
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .offset(x = 0.dp, y = (-50).dp),
-            contentAlignment = Alignment.TopEnd
+            Modifier
+                .width(100.dp)
+                .height(140.dp)
         ){
-            Box(
-                Modifier
-                    .width(100.dp)
-                    .height(180.dp)
+            Box(modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
             ){
-                Box{
-                    Image(
-                        painter = rememberAsyncImagePainter(uri),
-                        "",
-                        modifier = Modifier.clip(RoundedCornerShape(10.dp))
-                    )
-                }
+                Image(
+                    painter = rememberAsyncImagePainter(uri),
+                    "",
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(10.dp))
+                )
+            }
 
-                Box(modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.BottomEnd
-                ){
-                    val context = LocalContext.current
-                    IconButton(
-                        onClick = {
-                            if (uri != null) {
-                                CameraExtensions().deleteImage(context, uri) { imageWasDeleted(it) }
-                            }
-                        },
-                        modifier = Modifier.offset(x = 0.dp, y = (-50).dp)
-                    ) {
-                        Icon(
-                            Icons.Filled.Delete,
-                            contentDescription = "",
-                            modifier = Modifier
-                                .size(40.dp)
-                                .padding(1.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
+            Box(modifier = Modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.BottomEnd
+            ){
+                IconButton(
+                    onClick = {
+                        if (uri != null) {
+                            CameraExtensions().deleteImage(context, uri) { imageWasDeleted(it) }
+                        }
                     }
+                ) {
+                    Icon(
+                        Icons.Filled.Delete,
+                        contentDescription = "",
+                        modifier = Modifier
+                            .size(40.dp)
+                            .padding(1.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 }
             }
         }

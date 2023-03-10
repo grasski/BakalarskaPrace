@@ -20,6 +20,8 @@
 
     <string name="searchOnTheInternet">Vyhledat na internetu</string>
 
+
+    <string name="appearance">Oblasti výskytu</string>
     <string-array name="animalInfo">
         <item>Váha</item>
 
@@ -32,5 +34,15 @@
         <item>Březost samic</item>
     </string-array>
 
+
+    <string name="taxonomy">Taxonomie</string>
+    <string-array name="taxonomy">
+        <item>Říše</item>
+        <item>Kmen</item>
+        <item>Třída</item>
+        <item>Řád</item>
+        <item>Čeleď</item>
+        <item>Rod</item>
+    </string-array>
 
 </resources>

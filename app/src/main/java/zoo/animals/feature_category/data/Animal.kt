@@ -8,13 +8,18 @@ data class Animal(
     val name: String,
     val category: String,
     val info: Map<String, String>,
+
+    val taxonomyMain: Map<String, String>,
+    val taxonomyOrder: Map<String, String>,
+    val taxonomyFamily: Map<String, String>,
+    val taxonomyGenus: Map<String, List<String>>,
+
     val description: String,
     val previewImage: Int,
     val mainImage: Int,
     var seen: Boolean = false,
     val appearance: List<List<Float>>,
     var canDetect: Boolean = false,
-    var seenInfo: MutableList<AnimalSeenInfo>? = null
 ): Parcelable
 
 

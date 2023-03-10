@@ -1,21 +1,26 @@
-package zoo.animals.feature_discovery.zoos.view
+package zoo.animals.feature_discovery
 
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.RemoveDone
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import me.saket.swipe.SwipeAction
+import zoo.animals.LineTextDivider
 import zoo.animals.R
 import zoo.animals.navigation.Routes
 import zoo.animals.UiTexts
@@ -31,10 +36,10 @@ fun DiscoveryScreen(navController: NavController){
     {
         LazyColumn(){
             item{
-                LineTextDivider(UiTexts.StringResource(R.string.zoos).asString())
+                LineTextDivider(UiTexts.StringResource(R.string.zoos).asString(), Alignment.Center, Offset(0f, 0f))
 
                 val zoosCount by remember { mutableStateOf(ZooData.allZoosInstance.size.toFloat()) }
-                val zoosVisited = remember { mutableStateOf(ZooData.allZoosInstance.count { it.visited }.toFloat()) }
+                val zoosVisited = remember { mutableStateOf(ZooData.allZoosInstance.count { it.value.visited }.toFloat()) }
                 DiscoveryCard(
                     navController = navController,
                     header = UiTexts.StringResource(R.string.zoos).asString(),
@@ -45,7 +50,7 @@ fun DiscoveryScreen(navController: NavController){
             }
 
             item{
-                LineTextDivider(UiTexts.StringResource(R.string.animals).asString())
+                LineTextDivider(UiTexts.StringResource(R.string.animals).asString(), Alignment.Center, Offset(0f, 0f))
 
                 val mammalsCount by remember { mutableStateOf(AnimalData.allAnimalsInstance[0].size.toFloat()) }
                 val mammalsSeen = remember { mutableStateOf(AnimalData.allAnimalsInstance[0].count { it.value.seen }.toFloat() ) }
@@ -79,25 +84,6 @@ fun DiscoveryScreen(navController: NavController){
                 )
             }
         }
-    }
-}
-
-
-@Composable
-fun LineTextDivider(text: String) {
-    Box(
-        Modifier.fillMaxSize()
-            .padding(start = 16.dp, end = 16.dp),
-        contentAlignment = Alignment.Center
-    ){
-        Divider()
-        Text(
-            text = text,
-            fontSize = 18.sp,
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.background)
-                .padding(start = 5.dp, end = 5.dp)
-        )
     }
 }
 
@@ -185,4 +171,45 @@ fun DiscoveryCard(
             }
         }
     }
+
+}
+
+
+@Composable
+fun swipeActionStart(onSwipe: () -> Unit): SwipeAction{
+    return SwipeAction(
+        onSwipe = {
+            onSwipe()
+        },
+        icon = {
+            Icon(
+                Icons.Default.Check,
+                "",
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .fillMaxWidth(0.3f)
+                    .padding(16.dp)
+            )
+        },
+        background = MaterialTheme.colorScheme.surfaceTint
+    )
+}
+@Composable
+fun swipeActionEnd(onSwipe: () -> Unit): SwipeAction{
+    return SwipeAction(
+        onSwipe = {
+            onSwipe()
+        },
+        icon = {
+            Icon(
+                Icons.Default.RemoveDone,
+                "",
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .fillMaxWidth(0.3f)
+                    .padding(16.dp)
+            )
+        },
+        background = MaterialTheme.colorScheme.errorContainer
+    )
 }

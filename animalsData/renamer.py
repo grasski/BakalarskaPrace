@@ -2,10 +2,10 @@ import os
 
 
 def main():
-    folder = os.path.join("data", "labeled", "downloads", "sheep", "train")
+    folder = os.path.join("data", "labeled", "downloads", "dog", "2", "images")
     # folder = os.path.join("data", "labeled", "buffalo")
     l = os.listdir(folder)
-    fileName = "Sheep_Download_train"
+    fileName = "Dog_Download_2"
     i = 0
     for name in list(l[0::2]):
         imgSource = os.path.join(folder, name)

@@ -3,16 +3,21 @@ package zoo.animals.feature_camera.view
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.ScaleGestureDetector
 import androidx.camera.core.Preview
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -21,11 +26,17 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.NavController
+import com.airbnb.lottie.compose.*
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import zoo.animals.R
 import zoo.animals.feature_camera.model.CameraViewModel
+import zoo.animals.feature_category.data.Animal
+import zoo.animals.feature_category.view.CameraSheetInfo
+import kotlin.math.min
 
 /*
 @OptIn(ExperimentalMaterialApi::class)
@@ -583,7 +594,7 @@ fun CameraPreviewScreen(navController: NavController) {
 
 
 @SuppressLint("ClickableViewAccessibility")
-@OptIn(ExperimentalPermissionsApi::class)
+@OptIn(ExperimentalPermissionsApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun CameraPreviewScreen(
     navController: NavController,
@@ -596,11 +607,13 @@ fun CameraPreviewScreen(
     val context = LocalContext.current
     var zoomDelta by remember { mutableStateOf(1f) }
 
-    Box{
-        Column {
-            // Secure checking for camera permission if the app has been minimized and changed permissions manually in settings.
-            val lifecycleOwner = LocalLifecycleOwner.current
+    var delayState by remember { mutableStateOf(true) }
+    var delayedAnimal by remember { mutableStateOf<Animal?>(null)}
 
+
+    Box(Modifier.fillMaxSize()){
+        Column {
+            val lifecycleOwner = LocalLifecycleOwner.current
             DisposableEffect(
                 key1 = lifecycleOwner,
                 effect = {
@@ -644,23 +657,36 @@ fun CameraPreviewScreen(
                     preview.setSurfaceProvider(previewView.surfaceProvider)
                 }
 
-                LaunchedEffect(viewModel.state.classificationRunning.value){
+                LaunchedEffect(viewModel.state.classificationRunning.value, viewModel.state.bottomSheetActive.value){
+                    viewModel.state.classifiedAnimal.value = null
+                    delayedAnimal = null
                     viewModel.analyze(viewModel.state.imageAnalysis, viewModel.state.cameraExecutor, context)
                 }
 
-                var delayState by remember { mutableStateOf(true) }
-                var animalText by remember { mutableStateOf("")}
                 LaunchedEffect(delayState){
                     val animal = viewModel.state.classifiedAnimal.value
                     delay(800)
-                    if (viewModel.state.classifiedAnimal.value == animal){
-                        animalText = animal?.name.toString()
+
+                    delayedAnimal = if (viewModel.state.classificationRunning.value){
+                        if (viewModel.state.classifiedAnimal.value == animal) { animal } else { null }
                     } else{
-                        animalText = ""
+                        null
                     }
 
                     delayState = !delayState
                 }
+                
+//                if (animalText != null){
+//                    viewModel.state.bottomSheetActive.value = true
+//                    openBottomSheet = true
+//
+//
+//                    LaunchedEffect(key1 = true){
+//                        scope.launch {
+//                            bottomSheetState.show()
+//                        }
+//                    }
+//                }
 
                 Box(
                     modifier = Modifier.fillMaxSize()
@@ -680,37 +706,45 @@ fun CameraPreviewScreen(
                         )
                     }
 
+                    val scaleFactor =  min(getScreenSize().width * 1f / 640, getScreenSize().height * 1f / 640)
+
                     Column {
-                        Text("DELAY ZVIRE: " + animalText)
-                        Text(text = "ZVIRE: " + viewModel.state.classifiedAnimal.value?.name + " HW: " + previewView.isHardwareAccelerated)
-                        Text(text = "DETECT: " + viewModel.state.testingText.value + " active: " + viewModel.state.classificationRunning.value)
+                        Text("DELAY ZVIRE: " + delayedAnimal?.name + " " + viewModel.state.bottomSheetActive.value + " " + getScreenSize())
+                        Text(text = "ZVIRE: " + viewModel.state.classifiedAnimal.value?.name + " " + viewModel.state.animalCenter.value)
                     }
-
-                    // BOXES
-                    /*
-                    val rect by remember{ mutableStateOf(viewModel.state.detectionBox) }
-                    val scaleFactorWidth = getScreenSize().width / 640
-                    val scaleFactorHeight = getScreenSize().height / 480
-                    Canvas(modifier = Modifier
-                        .fillMaxSize()
-                    ) {
-                        drawRect(
-                            color = Color.Red,
-                            topLeft = Offset(rect.value.left * scaleFactorWidth, rect.value.top * scaleFactorHeight),
-                            size = Size(rect.value.width() * scaleFactorWidth, rect.value.height() * scaleFactorHeight),
-                            style = Stroke(width = 3.dp.toPx())
-                        )
-
-                        drawCircle(
-                            color = Color.Blue,
-                            radius = 20f,
-                            center = Offset(rect.value.centerX() * scaleFactorWidth, rect.value.centerY() * scaleFactorHeight)
-                        )
-                    }
-                     */
-
 
                     CameraUi(navController)
+
+                    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.paw_animation))
+                    val progress by animateLottieCompositionAsState(
+                        composition,
+                        iterations = LottieConstants.IterateForever
+                    )
+                    if (viewModel.state.animalCenter.value.isNotNull() && delayedAnimal != null){
+                        Box(
+                            Modifier
+                                .fillMaxWidth()
+                                .fillMaxHeight(0.6f)
+                                .align(Alignment.Center)
+                                .clickable(
+                                    onClick = {
+                                        Log.e("", "CLICK")
+                                    },
+                                    interactionSource = remember { MutableInteractionSource() },
+                                    indication = null
+                                )
+                        ){}
+
+                        LottieAnimation(
+                            composition = composition,
+                            progress = { progress },
+                            modifier = Modifier
+                                .offset(
+                                    viewModel.state.animalCenter.value.x.dp / scaleFactor,
+                                    viewModel.state.animalCenter.value.y.dp
+                                )
+                        )
+                    }
                 }
             } else {
                 NoCameraPermissionUi(
@@ -724,10 +758,13 @@ fun CameraPreviewScreen(
 }
 
 
+fun Offset.isNotNull(): Boolean{
+    return x != 0f && y != 0f
+}
 @Composable
 fun getScreenSize(): Size {
-
     val displayMetrics = LocalContext.current.resources.displayMetrics
+
     val width = displayMetrics.widthPixels
     val height = displayMetrics.heightPixels
     return Size(width.toFloat(), height.toFloat())

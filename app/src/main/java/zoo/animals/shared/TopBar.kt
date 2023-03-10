@@ -195,7 +195,9 @@ fun DrawerView(navController: NavController) {
             label = { Text(discoveriesTitleText.asString(),
                     fontSize = if (navController.currentDestination?.route.equals(Routes.Discovers.route)) 22.sp else 18.sp) },
             selected = navController.currentDestination?.route.equals(Routes.Discovers.route) ||
-                        navController.currentDestination?.route.equals(Routes.AnimalsDiscovery.route) ||
+                        navController.currentDestination?.route.equals(Routes.MammalsDiscovery.route) ||
+                        navController.currentDestination?.route.equals(Routes.BirdsDiscovery.route) ||
+                        navController.currentDestination?.route.equals(Routes.ReptilesDiscovery.route) ||
                         navController.currentDestination?.route.equals(Routes.Zoos.route) ||
                         navController.currentDestination?.route.equals(Routes.ZooInfo.route),
             onClick = {

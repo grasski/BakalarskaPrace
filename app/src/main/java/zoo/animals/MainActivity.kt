@@ -4,23 +4,17 @@ package zoo.animals
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.lifecycle.ViewModel
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.net.PlacesClient
 import io.ktor.util.*
-import kotlinx.coroutines.delay
 import zoo.animals.BuildConfig.MAPS_API_KEY
-import zoo.animals.feature_category.data.AnimalData
-import zoo.animals.feature_discovery.zoos.data.ZooData
 import zoo.animals.feature_welcome.data.WelcomeScreenViewModel
 import zoo.animals.navigation.Navigation
 import zoo.animals.navigation.Routes
@@ -34,6 +28,7 @@ class MainActivity : ComponentActivity() {
 
         val context = this.baseContext
         val welcomeScreenViewModel = WelcomeScreenViewModel()
+        PACKAGE_NAME = context.packageName
 
         installSplashScreen().setKeepOnScreenCondition{
             welcomeScreenViewModel.appIsLoading.value
@@ -57,6 +52,10 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        var PACKAGE_NAME: String? = null
     }
 }
 

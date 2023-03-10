@@ -1,4 +1,4 @@
-package zoo.animals.feature_discovery.zoos.view.zoo_screens
+package zoo.animals.feature_discovery.zoos.view.view
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
@@ -32,7 +32,8 @@ fun ZooScreen(navController: NavController, zoo: Zoo) {
         UiTexts.ArrayResource(R.array.switchTexts,0).asArray(context)
     }
 
-    SnackbarContent(zoo){
+    val zooKey = ZooData.allZoosInstance.filterValues { it == zoo }.keys.firstOrNull()
+    SnackbarContent(zoo, zooKey){
         TopBar(
             title = zoo.type,
             navController = navController,
@@ -95,7 +96,7 @@ fun ZooScreen(navController: NavController, zoo: Zoo) {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SnackbarContent(zoo: Zoo, content: @Composable () -> Unit) {
+fun SnackbarContent(zoo: Zoo, zooKey: String?, content: @Composable () -> Unit) {
     val context = LocalContext.current
     val snackBarTexts = remember {
         UiTexts.ArrayResource(R.array.snackBar,0).asArray(context)
@@ -114,10 +115,10 @@ fun SnackbarContent(zoo: Zoo, content: @Composable () -> Unit) {
                         TextButton(
                             onClick = {
                                 scope.launch {
-                                    ZooData.saveVisitedZoo(zoo.city, context)
+                                    zooKey?.let { ZooData.saveVisitedZoo(it, context) }
                                 }
                                 data.performAction()
-                                      },
+                              }
                         ) { Text(
                             snackBarTexts[2],
                             fontWeight = FontWeight.Bold

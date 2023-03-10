@@ -1,2 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <array name="LiberecElephant">
+        <item>Druh: Slon indický</item>
+        <item>Informace: Chov slonů v Zoo Liberec započal v roce 1958. Zoo Liberec v současné době má v lidské péči slonici Balu (*1984).</item>
+        <item>Zajímavost: Denně spořádají v přírodě přibližně 150 kg potravy a nejméně 70–90 litrů vody.</item>
+    </array>
+
+    <array name="LiberecTiger">
+        <item>Druh: Tygr indický - bílá forma</item>
+        <item>Informace: Zoo Liberec získala první bílé tygry v roce 1994, kdy ze Zoo Eskilstuna (Švédsko) dovezla tehdy dvouleté sourozence Isabellu a Columba. O pár let později zoo získala samce Sitara ze Zoo Madrid (Španělsko), kam na oplátku putoval Columbus. Po dalších třech letech se 10. května 2002 podařilo odchovat první mláďata. Jednalo se o trojčata.</item>
+        <item>Zajímavost: Bílá forma tygra indického se vyskytuje pouze v chovech v lidské péči, nikoliv ve volné přírodě.</item>
+    </array>
+
+    <array name="LiberecZebra">
+        <item>Druhy:
+            Zebra bezhřívá;
+            Zebra chapmanova
+        </item>
+        <item>Informace:
+            Zoologická zahrada Liberec chová zebry bezhřívé od roku 2006.;
+            Zoologická zahrada Liberec chová zebry Chapmanovy od roku 1970.
+        </item>
+        <item>Zajímavost:
+            Druhové jméno zebra získala díky redukované hřívě, kterou zvíře téměř ztrácí ve dvou až třech letech stáří.;
+            Zebry dokáží před nebezpečím utéct a běžet na krátké vzdálenosti až 50 km/hod.
+        </item>
+    </array>
+
+    <array name="LiberecGiraffe">
+        <item>Druh: Žirafa Rothschildova</item>
+        <item>Informace: Žirafa Rothschildova je v Zoo Liberec chována od roku 1985, kdy do zahrady přicestovaly první dvě samice Mahulena a Jesika. Za dobu chovu prošlo zoologickou zahradou více než 50 žiraf.</item>
+        <item>Zajímavost: Ze všech savců mají nejvyšší, ale ve srovnání s výškou zároveň nejkratší tělo.</item>
+    </array>
+
+    <array name="LiberecParrot">
+        <item>Druhy:
+            Ara hyacintový
+        </item>
+        <item>Informace:
+            Zoo Liberec chová pár ar hyacintových od roku 2001. K vidění jsou v Pavilonu tropů.
+        </item>
+        <item>Zajímavost:
+            Ara hyacintový je považován za největšího papouška světa.
+        </item>
+    </array>
+
+    <array name="LiberecPenguin">
+        <item>Druhy:
+            Tučňák Humboldtův
+        </item>
+        <item>Informace:
+            Zoologická zahrada Liberec začala chovat tučňáky Humboldtovi v roce 1982. V současné době je k vidění skupina čítající 7 jedinců. Dalo by se říci, že tučňák Humboldtův patří k teplomilným druhům. Vyskytuje se sice na jižní polokouli, ale svým areálem zasahuje až k rovníku. Z tohoto důvodu jsou v zimním období naši tučňáci umístěni v zázemí zoologické zahrady.
+        </item>
+        <item>Zajímavost:
+            Tučňáci Humboldtovi se dožívají až 20 let.
+        </item>
+    </array>
+
+    <array name="LiberecTurtle">
+        <item>Druhy:
+            Želva korunkatá;
+            Želva nádherná;
+            Želva ostruhatá
+        </item>
+        <item>Informace:
+            Želva korunkatá je k vidění v Pavilonu tropů ve společném výběhu s varany modrými.;
+            Zoologická zahrada Liberec chová želvy nádherné od roku 1995. Přes zimní období jsou k vidění v Pavilonu slonů, přes teplé měsíce je naleznete ve společném výběhu se želvou ostruhatou vedle surikat.;
+            Zoologická zahrada Liberec chová samce želvy ostruhaté od roku 2000.
+        </item>
+        <item>Zajímavost:
+            Želva korunkatá je výjimečná svým rozmnožováním, kdy samice klade vajíčka pod vodou a jejich zárodečný vývoj je závislý na změnách vodní hladiny, která se mění v průběhu ročních období.;
+            Ve volné přírodě v Evropě se vyskytuje jen kvůli nezodpovědným lidem, kteří želvy vypouštějí. Dochází tak k ničení původní fauny a flóry, a proto je obchod s želvami nádhernými v mnohých zemích řízen zákonem. V České republice je tento druh želvy považován za invazivní.;
+            Želva je nejvíce ohrožena pasoucím se dobytkem, který jí spása veškerou vegetaci.
+        </item>
+    </array>
+
+</resources>

@@ -2,9 +2,8 @@ package zoo.animals.feature_discovery.zoos.data
 
 import android.content.Context
 import android.util.Log
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
+import androidx.compose.runtime.snapshots.SnapshotStateMap
 import androidx.compose.ui.platform.LocalContext
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
@@ -17,45 +16,39 @@ import zoo.animals.UiTexts
 
 object ZooData {
     private val Context.dataStore by preferencesDataStore("zoosVisited")
-    suspend fun saveVisitedZoo(zooCity: String, context: Context) {
-        val key = booleanPreferencesKey(zooCity)
-        allZoosInstance.map { zoo ->
-            if (zoo.city == zooCity){
-                zoo.visited = true
-            }
-        }
+    suspend fun saveVisitedZoo(zooKey: String, context: Context) {
+        val key = booleanPreferencesKey(zooKey)
+
+        allZoosInstance[zooKey]?.visited = true
         context.dataStore.edit { zoosVisited ->
             zoosVisited[key] = true
         }
     }
-    suspend fun removeFromVisitedZoo(zooCity: String, context: Context) {
-        val key = booleanPreferencesKey(zooCity)
-        allZoosInstance.map { zoo ->
-            if (zoo.city == zooCity){
-                zoo.visited = false
-            }
-        }
+    suspend fun removeFromVisitedZoo(zooKey: String, context: Context) {
+        val key = booleanPreferencesKey(zooKey)
+
+        allZoosInstance[zooKey]?.visited = false
         context.dataStore.edit { zoosVisited ->
             zoosVisited[key] = false
         }
     }
-    private suspend fun wasZooVisited(zooName: String, context: Context): Boolean? {
-        val key = booleanPreferencesKey(zooName)
+    private suspend fun wasZooVisited(zooKey: String, context: Context): Boolean? {
+        val key = booleanPreferencesKey(zooKey)
         val preferences = context.dataStore.data.first()
 
         return preferences[key]
     }
 
-    var allZoosInstance = mutableListOf<Zoo>()
-    fun init(context: Context): MutableList<Zoo> {
+    var allZoosInstance = mutableStateMapOf<String, Zoo>()
+    fun init(context: Context): SnapshotStateMap<String, Zoo> {
         if(allZoosInstance.isEmpty()){
             allZoosInstance = getZoos(context)
         }
         return allZoosInstance
     }
 
-    private fun getZoos(context: Context): MutableList<Zoo> {
-        val zooId = listOf(
+    private fun getZoos(context: Context): SnapshotStateMap<String, Zoo> {
+        var zooId = listOf(
             R.array.Praha,
             R.array.DvurKralove,
             R.array.Liberec,
@@ -89,34 +82,30 @@ object ZooData {
             R.drawable.zlin_logo
         )
 
-        val zoos = mutableListOf<Zoo>()
-        zooId.forEachIndexed{i, id ->
-            try {
-                val pos = UiTexts.ArrayResource(id, 6).asString(context).split(", ")
-                val latitude = pos[0].toDouble()
-                val longitude = pos[1].toDouble()
-                val position = listOf(latitude, longitude)
+        val zoos = mutableStateMapOf<String, Zoo>()
 
-                zoos.add(
-                    Zoo(
-                    UiTexts.ArrayResource(id, 0).asString(context),
-                    UiTexts.ArrayResource(id, 1).asString(context),
-                    zooLogo[i],
-                    UiTexts.ArrayResource(id, 2).asString(context).toInt(),
-                    UiTexts.ArrayResource(id, 3).asString(context),
-                    UiTexts.ArrayResource(id, 4).asString(context).toInt(),
-                    UiTexts.ArrayResource(id, 5).asString(context),
-                    false,
-                    position,
-                    UiTexts.ArrayResource(id, 7).asString(context))
-                )
-            } catch (e: Exception){
-                Log.d("ZooData", "Failed to add zoo (Index: $i) into list.\n"
-                        + e.printStackTrace())
-            }
+        zooId.forEachIndexed{i, id ->
+            val pos = UiTexts.ArrayResource(id, 6).asString(context).split(", ")
+            val latitude = pos[0].toDouble()
+            val longitude = pos[1].toDouble()
+            val position = listOf(latitude, longitude)
+
+            zoos[context.resources.getResourceEntryName(id)] = Zoo(
+                UiTexts.ArrayResource(id, 0).asString(context),
+                UiTexts.ArrayResource(id, 1).asString(context),
+                zooLogo[i],
+                UiTexts.ArrayResource(id, 2).asString(context).toInt(),
+                UiTexts.ArrayResource(id, 3).asString(context),
+                UiTexts.ArrayResource(id, 4).asString(context).toInt(),
+                UiTexts.ArrayResource(id, 5).asString(context),
+                false,
+                position,
+                UiTexts.ArrayResource(id, 7).asString(context)
+            )
+
         }
 
-        return zoos.sortedBy { it.city }.toMutableList()
+        return zoos
     }
 
 
@@ -127,12 +116,12 @@ object ZooData {
 
         LaunchedEffect(scope) {
             scope.launch {
-                allZoosInstance.forEach { zoo ->
+                allZoosInstance.forEach { entry ->
                     val visited = wasZooVisited(
-                        zoo.city,
+                        entry.key,
                         context
                     ) ?: false
-                    zoo.visited = visited
+                    entry.value.visited = visited
                 }
             }
         }

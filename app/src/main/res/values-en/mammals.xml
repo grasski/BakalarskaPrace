@@ -37,19 +37,17 @@
 
 
 
-<!--    <string-array name="agutiInfo">-->
+<!--    <array name="Agouti">-->
+<!--        <item>Agouti Azare</item>-->
+<!--        <item>Mamal</item>-->
 <!--        <item>2.4–3.2 kg</item>-->
 <!--        <item>45–57 cm</item>-->
 <!--        <item>None</item>-->
 <!--        <item>2.5 cm</item>-->
-<!--        <item>Kolem 15 let</item>-->
+<!--        <item>Around 15 let</item>-->
 <!--        <item>Travnaté a lesnaté oblasti Argentiny, Brazílii a Paraguaye</item>-->
-<!--        <item>Po asi 100 dnech vrhne 1 až 4 mláďata</item>-->
-<!--    </string-array>-->
-<!--    <array name="aguti">-->
-<!--        <item>Aguti</item>-->
-<!--        <item>Savec</item>-->
-<!--        <item>Pro tento druh jsou charakteristické výrazné oči, nepatrný ocásek a krátké nohy s rozdílným počtem prstů. Na předních končetinách má prstů pět, na zadních pouze tři. Zásoby plodů a semen, kterými se živí, si ukládají do země. Některou zahrabanou potravu však nenajdou a jsou tak často příčinou vyklíčení nové rostlinky, díky čemuž si tato zvířata vysloužili přezdívku „zahradníci džungle“.  Svými silnými zuby jsou schopni rozkousnout i ty nejtvrdší ořechy.  Za původem slova aguti, které můžeme přeložit jako „pes z hor“, bychom se vydali k mexickým indiánům. Tito hlodavci jsou významnou součástí jídelníčku větších šelem, před kterými se brání útěkem do bezpečí. V běhu vynikají, a kromě toho jsou schopni vyskočit až dva metry vysoko. Jestliže se cítí být ohrožováni menším nepřítelem, snaží se ho zastrašit dupáním a vydáváním chrochtavých a pískavých zvuků.</item>-->
+<!--        <item>1–4 mláďata po 100 dnech</item>-->
+<!--        <item>Pro tento druh jsou charakteristické výrazné oči, nepatrný ocásek a krátké nohy s rozdílným počtem prstů. Na předních končetinách má prstů pět, na zadních pouze tři. Zásoby plodů a semen, kterými se živí, si ukládají do země. Některou zahrabanou potravu však nenajdou a jsou tak často příčinou vyklíčení nové rostlinky, díky čemuž si tato zvířata vysloužili přezdívku „zahradníci džungle“.</item>-->
 <!--    </array>-->
 
 

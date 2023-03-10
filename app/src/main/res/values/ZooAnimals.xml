@@ -1,2 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    
+    <string name="chooseZoo">Vyber zoo</string>
+    <string name="gpsActive">Aktivní</string>
+    <string name="gpsNotActive">Neaktivní</string>
+    <string name="closestZoo">Nejbližší zoo:\u0020</string>
+
+
+    <array name="JaguarZoo">
+        <item>Zlin</item>
+    </array>
+    <array name="CapybaraZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+    </array>
+    <array name="KangarooZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Praha</item>
+    </array>
+    <array name="CatZoo">
+    </array>
+    <array name="DogZoo">
+    </array>
+    <array name="RhinoZoo">
+        <item>Zlin</item>
+    </array>
+    <array name="ElephantZoo">
+        <item>Zlin</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+    </array>
+    <array name="TigerZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+    </array>
+    <array name="ZebraZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+    </array>
+    <array name="GiraffeZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+    </array>
+
+
+    <array name="ParrotZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+    </array>
+    <array name="PenguinZoo">
+        <item>Zlin</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+    </array>
+
+
+    <array name="TurtleZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+    </array>
+</resources>

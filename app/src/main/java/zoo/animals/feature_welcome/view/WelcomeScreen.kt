@@ -1,5 +1,6 @@
 package zoo.animals.feature_welcome.view
 
+import android.util.Log
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -50,7 +51,7 @@ fun WelcomeScreen(
             state = pagerState,
             verticalAlignment = Alignment.Top
         ) { position ->
-            PagerScreen(pages[position])
+            PagerScreen(pages[position], pagerState.currentPage)
         }
         HorizontalPagerIndicator(
             modifier = Modifier
@@ -76,28 +77,14 @@ fun WelcomeScreen(
 }
 
 @Composable
-fun PagerScreen(screenData: WelcomeScreenData) {
+fun PagerScreen(screenData: WelcomeScreenData, page: Int) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        if (screenData.title != ""){
-            val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(screenData.image))
-            val progress by animateLottieCompositionAsState(
-                composition,
-                iterations = LottieConstants.IterateForever
-            )
-
-            LottieAnimation(
-                composition = composition,
-                progress = { progress },
-                modifier = Modifier
-                    .weight(0.5f)
-                    .fillMaxSize()
-            )
-        } else{
+        if (screenData.title == ""){
             val initSize = 550f
             val transition = rememberInfiniteTransition()
             val imgSize by transition.animateFloat(
@@ -122,8 +109,21 @@ fun PagerScreen(screenData: WelcomeScreenData) {
                         .align(Alignment.Center)
                 )
             }
-        }
+        } else{
+            val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(screenData.image))
+            val progress by animateLottieCompositionAsState(
+                composition,
+                iterations = LottieConstants.IterateForever
+            )
 
+            LottieAnimation(
+                composition = composition,
+                progress = { progress },
+                modifier = Modifier
+                    .weight(0.5f)
+                    .fillMaxSize()
+            )
+        }
 
         Text(
             modifier = Modifier

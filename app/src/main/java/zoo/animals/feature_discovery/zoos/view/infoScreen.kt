@@ -1,4 +1,4 @@
-package zoo.animals.feature_discovery.zoos.view.zoo_screens
+package zoo.animals.feature_discovery.zoos.view.view
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background

@@ -3,12 +3,16 @@ package zoo.animals.animations
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import kotlin.reflect.jvm.internal.impl.resolve.constants.BooleanValue
 
 
 @OptIn(ExperimentalAnimationApi::class)
