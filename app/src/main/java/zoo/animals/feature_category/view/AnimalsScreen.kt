@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import coil.compose.rememberAsyncImagePainter
 import zoo.animals.*
 import zoo.animals.R
 import zoo.animals.feature_category.data.Animal
@@ -106,7 +107,7 @@ class CategoryAnimalsScreen {
             ){
                 Box{
                     Image(
-                        painter = painterResource(it.previewImage),
+                        painter = rememberAsyncImagePainter(it.previewImage),
                         contentDescription = null,
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.FillHeight

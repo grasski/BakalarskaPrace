@@ -34,7 +34,7 @@ fun DiscoveryScreen(navController: NavController){
 
     TopBar(title = UiTexts.StringResource(R.string.discoveries).asString(), navController = navController)
     {
-        LazyColumn(){
+        LazyColumn{
             item{
                 LineTextDivider(UiTexts.StringResource(R.string.zoos).asString(), Alignment.Center, Offset(0f, 0f))
 

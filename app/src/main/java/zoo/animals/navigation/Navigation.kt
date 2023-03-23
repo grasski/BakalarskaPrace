@@ -15,7 +15,7 @@ import zoo.animals.feature_discovery.zoos.data.Zoo
 import zoo.animals.feature_discovery.animals.AnimalsDiscoveryScreen
 import zoo.animals.feature_discovery.DiscoveryScreen
 import zoo.animals.feature_discovery.zoos.ZoosDiscoveryScreen
-import zoo.animals.feature_discovery.zoos.view.view.ZooScreen
+import zoo.animals.feature_discovery.zoos.view.ZooScreen
 import zoo.animals.feature_settings.Settigns
 import zoo.animals.feature_welcome.view.WelcomeScreen
 

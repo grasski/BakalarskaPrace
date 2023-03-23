@@ -3,9 +3,7 @@ package zoo.animals.feature_camera.view
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -51,14 +49,13 @@ fun CameraUi(
         // TOP UI - Home button and captured image
         Row(
             Modifier
-                .weight(1.1f)
-                .fillMaxSize(),
+                .fillMaxWidth(),
             verticalAlignment = Alignment.Top
         ) {
-            BtnClose(navController, Modifier.padding(30.dp))
+            BtnClose(navController, Modifier.padding(20.dp))
 
             Box(
-                Modifier.fillMaxSize(),
+                Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.TopEnd
             ){ ShowCapturedImage(captureViewModel.state.imageUri.value) { imageWasDeleted = it } }
 
@@ -71,20 +68,11 @@ fun CameraUi(
             }
         }
 
-//        Box(Modifier
-//            .fillMaxSize()
-//            .weight(1.6f)
-//            .clickable(
-//                onClick = {  }
-//            )
-//        ){}
-
         // BOTTOM UI - Image capture button and classification running toggle button and its notice
         Column(
             Modifier
                 .fillMaxSize()
-                .weight(1.1f)
-                .padding(bottom = 20.dp),
+                .padding(bottom = 0.dp),
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -129,7 +117,6 @@ fun CameraUi(
                             .fillMaxWidth(0.75f)
                     )
                     Box(
-//                        Modifier.fillMaxWidth(),
                         contentAlignment = Alignment.Center
                     ){
                         Text(
@@ -262,7 +249,7 @@ fun DetectionNotice(running: Boolean){
         Row(Modifier.padding(start = 24.dp, end = 24.dp, bottom = 24.dp)) {
             Box(modifier = Modifier
                 .height(50.dp)
-                .fillMaxWidth()
+                .fillMaxWidth(0.8f)
                 .clip(RoundedCornerShape(10.dp))
             ){
 
@@ -295,6 +282,7 @@ fun ShowCapturedImage(
             Modifier
                 .width(100.dp)
                 .height(140.dp)
+                .border(BorderStroke(3.dp, Color.Gray), RoundedCornerShape(10.dp))
         ){
             Box(modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.BottomCenter
@@ -304,6 +292,7 @@ fun ShowCapturedImage(
                     "",
                     modifier = Modifier
                         .clip(RoundedCornerShape(10.dp))
+                        .fillMaxSize()
                 )
             }
 

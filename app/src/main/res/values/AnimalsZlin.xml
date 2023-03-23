@@ -62,33 +62,6 @@
         </item>
     </array>
 
-    <array name="ZlinPenguin">
-        <item>Druh: Tučňák humboldtův</item>
-        <item>Oblast: OKOLÍ ZÁMKU</item>
-        <item>Zajímavost:
-            Patří k nejteplomilnějším tučňákům.;
-            Při plavání dosahuje rychlosti až 7,5 km/h, potopí se až do hloubky 10-20 metrů.
-        </item>
-    </array>
-
-    <array name="ZlinTurtle">
-        <item>Druhy:
-            Želva mohutná;
-            Želva ostruhatá;
-            Želva pardálí;
-            Želva podlouhá;
-            Želva pralesní;
-            Matamata třásnitá;
-            Tereka jednovousá;
-            Vousivka ploskohlavá
-        </item>
-        <item>Oblast: OKOLÍ ZÁMKU</item>
-        <item>Zajímavost:
-            Želva mohutná je jediným druhem želvy, který klade až 50 vajec nad zemí v hnízdě.;
-            Želva ostruhá je třetí největší želva světa.
-        </item>
-    </array>
-
     <array name="ZlinGiraffe">
         <item>Druh: Žirafa rothschildova</item>
         <item>Oblast: AFRIKA</item>
@@ -108,6 +81,36 @@
         </item>
     </array>
 
+    <array name="ZlinSeaLion">
+        <item>Druh: Lachtan hřivnatý</item>
+        <item>Oblast: AMERIKA</item>
+        <item>Zajímavost:
+            Lachtani patří mezi velmi zdatné plavce, vydrží plavat i několik hodin. Po 9 měsíců tráví čas na otevřeném moři, v období rozmnožování pak zamíří na souš. Samec si zde zabírá své teritorium, které brání před ostatními samci a láká do něj samice.;
+            V žaludku lachtanů se často nacházejí kameny, které usnadňují rozmělňování potravy.
+        </item>
+    </array>
+
+    <array name="ZlinLion">
+        <item>Druh: Lev konžský</item>
+        <item>Oblast: AFRIKA</item>
+        <item>Zajímavost:
+            Lev konžský je vzácně chovaným podruhem lva.;
+            Lev dokáže na posezení spořádat až 45 kg masa.
+        </item>
+    </array>
+
+    <array name="ZlinAnteater">
+        <item>Druhy:
+            Mravenečník čtyřprstý;
+            Mravenečník velký
+        </item>
+        <item>Oblast: AMERIKA</item>
+        <item>Zajímavost:
+            Mravenečník čtyřprstý se v sebeobraně postaví na zadní nohy, ocas slouží jako opora a předními prackami s dlouhými drápy se brání.
+        </item>
+    </array>
+
+
     <array name="ZlinParrot">
         <item>Druhy:
             Ara arakanga;
@@ -124,6 +127,66 @@
             Amazoňan oranžovokřídlý má dobrou schopnost naučit se napodobovat zvuky nebo lidská slova.;
             Jako většina papoušků i arové mají jednu nohu šikovnější než druhou.;
             Papoušek šedohlavý při ohrožení chrčivě vrčí podobně jako papoušci žako
+        </item>
+    </array>
+
+    <array name="ZlinPenguin">
+        <item>Druh: Tučňák humboldtův</item>
+        <item>Oblast: OKOLÍ ZÁMKU</item>
+        <item>Zajímavost:
+            Patří k nejteplomilnějším tučňákům.;
+            Při plavání dosahuje rychlosti až 7,5 km/h, potopí se až do hloubky 10-20 metrů.
+        </item>
+    </array>
+
+    <array name="ZlinFlamingo">
+        <item>Druhy:
+            Plameňák malý;
+            Plameňák růžový
+        </item>
+        <item>Oblast: OKOLÍ ZÁMKU</item>
+        <item>Zajímavost:
+            Plameňák malý je to momentálně nejpočetnější druh plameňáka.;
+            Plameňáci žijí ve výjimečně alkalických sodných a slaných vodách, mnohdy je voda natolik žíravá, že může člověku během několika málo vteřin rozleptat kůži na nohou.
+        </item>
+        <item>Informace:
+            Ve zlínské zoo se první mládě plameňáka malého vylíhlo po dlouhých 35 letech chovu.
+        </item>
+    </array>
+
+    <array name="ZlinDuck">
+        <item>Druhy:
+            Pižmovka bělokřídlá;
+            Pižmovka ostruhatá;
+            Polák malý
+        </item>
+        <item>Oblast: ASIE</item>
+        <item>Zajímavost:
+            Pižmovka bělokřídlá je aktivní převážně v noci, kdy vyráží za potravou.;
+            Pižmovka ostruhatá má na ohbí křídel mají rohovité výrůstky - ostruhy.;
+            Polák malý se výborně potápí, většinou ale jen na několik sekund a jen asi do metrové hloubky.
+        </item>
+        <item>Informace:
+            Ve zlínské zoo se první mládě plameňáka malého vylíhlo po dlouhých 35 letech chovu.
+        </item>
+    </array>
+
+
+    <array name="ZlinTurtle">
+        <item>Druhy:
+            Želva mohutná;
+            Želva ostruhatá;
+            Želva pardálí;
+            Želva podlouhá;
+            Želva pralesní;
+            Matamata třásnitá;
+            Tereka jednovousá;
+            Vousivka ploskohlavá
+        </item>
+        <item>Oblast: OKOLÍ ZÁMKU</item>
+        <item>Zajímavost:
+            Želva mohutná je jediným druhem želvy, který klade až 50 vajec nad zemí v hnízdě.;
+            Želva ostruhá je třetí největší želva světa.
         </item>
     </array>
 

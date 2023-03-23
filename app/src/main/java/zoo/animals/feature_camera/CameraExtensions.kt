@@ -83,7 +83,7 @@ class CameraExtensions {
         lateinit var where: String
         lateinit var filesUri: Uri
 
-        if (Build.VERSION.SDK_INT >= 29) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             filesUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             where = MediaStore.Images.Media._ID + "=?"
             selectionArgs = arrayOf(this.name)

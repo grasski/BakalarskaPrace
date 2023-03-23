@@ -30,6 +30,17 @@
         <item>Expozice: Africká vesnice</item>
     </array>
 
+    <array name="BrnoSeaLion">
+        <item>Druh: Lachtan medvědí</item>
+        <item>Expozice: Beringie</item>
+    </array>
+
+    <array name="BrnoLion">
+        <item>Druh: Lev konžský</item>
+        <item>Expozice: Africká vesnice</item>
+    </array>
+
+
     <array name="BrnoParrot">
         <item>Druhy:
             Agapornis Fischerův;
@@ -47,6 +58,24 @@
             Exotárium
         </item>
     </array>
+
+    <array name="BrnoDuck">
+        <item>Druhy:
+            Čírka skořicová;
+            Lžičák novozélandský
+        </item>
+        <item>Expozice:
+            Exotárium;
+            Beringie
+        </item>
+    </array>
+
+    <array name="BrnoFlamingo">
+        <item>Druh: Plameňák růžový
+        </item>
+        <item>Expozice: Beringie</item>
+    </array>
+
 
     <array name="BrnoTurtle">
         <item>Druhy:

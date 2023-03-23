@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="ChlebyKangaroo">
+        <item>Druh: Klokan Bennettův</item>
+        <item>Zajímavost:
+            Březí samice je schopna oddálit porod až do příštího léta (tj. až o 8 měsíců).;
+            U nás byl úspěšně a ve větší míře chován již na počátku 20. stol (v oboře knížete Hohenlohe u Poděbrad)
+        </item>
+    </array>
+
+    <array name="ChlebyParrot">
+        <item>Druhy:
+            Andulka vlnkovaná;
+            Ara ararauna;
+            Aratinga sluneční
+        </item>
+        <item>Zajímavost:
+            Český název andulka pochází ze zkomoleného latinského druhového jména undulatus, což znamená vlnkovaný.;
+            Ara ararauna se učí velmi rychle a dobře mluvit nebo napodobovat různé zvuky.
+        </item>
+    </array>
+
+
+    <array name="ChlebyDuck">
+        <item>Druh: Kachna domácí - indický běžec
+        </item>
+        <item>Zajímavost:
+            Domestikace kachny je zahalena tajemstvím, předpokládá se, že se datuje do 3. nebo 2. tisíciletí př. n. l. a že k ní došlo součastně na dvou nebo třech místech - v Egyptě a Mezopotámii, v Číně a v Řecku a Římě (tam se možné ale dostaly kachny již domestikované).
+        </item>
+    </array>
+
+
+    <array name="ChlebyTurtle">
+        <item>Druhy:
+            Želva nádherná;
+            Želva nádherná žlutolící;
+            Želva ostruhatá;
+            Želva stepní;
+            Želva vroubená
+        </item>
+        <item>Zajímavost:
+            Žlvy nádherné objevil při své plavbě zřejmě James Cook a několik jich přivezl do Evropy.;
+            První zprávy o chovu želv nádherných jsou z roku 1656.;
+            Želva ostruhatá je největší kontinentální druh želvy a třetí největší suchozemská želva (větší jsou jen želvy ostrovní a mořské).
+        </item>
+    </array>
+
+</resources>

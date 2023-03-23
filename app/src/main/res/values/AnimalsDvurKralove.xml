@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="DvurKraloveGorilla">
+        <item>Druh: Gorila nížinná</item>
+        <item>Informace:
+            Safari park v současnosti gorily nížinné nechová. Samotářský samec Tadao uhynul v roce 2021. O budoucnosti druhu ve Dvoře Králové rozhodnou jednání s koordinátorem evropského chovu.
+        </item>
+    </array>
+
+    <array name="DvurKraloveLion">
+        <item>Druh: Lev berberský</item>
+        <item>Zajímavost:
+            Lvi na posezení spořádají velké množství masa a většinu dne tráví jeho trávením a odpočinkem. V dvorském safari parku dostává dospělý lev 4-10 kg masa denně a jednou až dvakrát do týdne má půst.
+        </item>
+        <item>Informace:
+            Smečka lvů obývá Lví safari. To lze navštívit Afrika truckem nebo vlastním vozem v průběhu letní sezony. Po celý rok je lvy možné obdivovat i ve vnitřní expozici jejich pavilonu nebo prostřednictvím vyhlídek do výběhů v pěší části zahrady.
+        </item>
+    </array>
+
+    <array name="DvurKraloveRhino">
+        <item>Druhy:
+            Nosorožec dvourohý východní;
+            Nosorožec tuponosý jižní;
+            Nosorožec tuponosý severní
+        </item>
+        <item>Informace:
+            Safari Park Dvůr Králové chová vzácný východní poddruh nosorožce dvourohého, jehož stavy jsou ve volné přírodě odhadovány na zhruba na 800 jedinců. Dvorský safari park dokázal do Afriky odeslat již 9 nosorožců dvourohých východních, čtyři (Deborah, Jamie, Jabu a Eliška) do Tanzánie a v roce 2019 zorganizoval transport 5 nosorožců (Manny, Jasmína, Jasiri, Mandela a Olmoti) do rwandského národního parku Akagera, jednalo se o největší transport nosorožců z Evropy zpět do Afriky.;
+            V současné době chováme v safari parku pět jedinců nosorožce tuponosého jižního: samce Pamira a samice Tembu, Jessiku, Jabulani a Gayu.;
+            V safari parku se narodila celkem 4 mláďata (Suni, Nabiré, Nájin a Fatu). Samice Nabiré, poslední nosorožec tohoto podruhu v Evropě, uhynula v našem safari parku 27. července 2015 (její kostru můžete vidět v expozici Umění pod kůží). Poslední samec severního tuponosého nosorožce, Sudán, zemřel 19. března 2018.
+        </item>
+    </array>
+
+    <array name="DvurKraloveElephant">
+        <item>Druh: Slon savanový
+        </item>
+        <item>Zajímavost:
+            Velké uši slonů jsou protkané hustou sítí cév kudy prochází krev a slouží tak především jako prostředek k ochlazování těla.;
+            Kly jsou přeměněné řezáky a mají je samci i samice.;
+            Chobot slona vzniká srůstem nosu a horního rtu a je v něm více svalů než v těle člověka.;
+            Slon denně vypije 100 až 300 l vody.;
+            Za celý život porodí samice 7 až 8 mláďat (dospělého věku se dožije pouze 50 %).
+        </item>
+        <item>Informace:
+            V pavilonu žijí starší samice, chovné centrum by mělo vzniknout v nové části safari parku.
+        </item>
+    </array>
+
+    <array name="DvurKraloveZebra">
+        <item>Druhy:
+            Zebra bezhřívá;
+            Zebra Böhmova;
+            Zebra Burchellova;
+            Zebra Grévyho;
+            Zebra Hartmannové;
+            Zebra Chapmanova
+        </item>
+        <item>Informace:
+            Safari park vede mezinárodní snahu o založení funkční populace této formy zebry v lidské péči, významně navíc podporuje ochranu zeber bezhřívých i přímo v Ugandě.;
+            K roku 2019 se v Safari Parku Dvůr Králové narodilo již 132 mláďat zebry Böhmovy.;
+            V naší zoo se velmi dobře množí, do 7. března 2017 se narodilo již 253 mláďat zebry Grévyho.;
+            K roku 2019 se v safari parku narodilo již 134 mláďat zebry Hartmannové.
+        </item>
+    </array>
+
+    <array name="DvurKraloveGiraffe">
+        <item>Druhy:
+            Žirafa Rothschildova;
+            Žirafa síťovaná
+        </item>
+        <item>Zajímavost:
+            Žirafa Rothschildova žijící hlavně v Ugandě spadá do vzácného poddruhu žirafy núbijské rozšířené ve východní Africe.
+        </item>
+        <item>Informace:
+            Od roku 1971 se ve dvorském safari parku narodilo 173 mláďat žiraf Rothschildových.;
+            K jejich ochraně přispívá i Safari Park Dvůr Králové prostřednictvím prodeje korálků Beadworks, jež zajišťují příjmy ženám z komunitních rezervací, kde právě žirafy síťované žijí.
+        </item>
+    </array>
+
+
+    <array name="DvurKraloveParrot">
+        <item>Druhy:
+            Agapornis hnědohlavý;
+            Agapornis růžovohlavý;
+            Agapornis růžovohrdlý;
+            Agapornis šedohlavý;
+            Papoušek oranžovoprsý;
+            Žako šedý;
+            Papoušek zelenobřichý;
+            Papoušek žlutotemenný
+        </item>
+        <item>Zajímavost:
+            Agapornis hnědohlavý je papoušek rodu agapornis s tmavě zbarvenou hlavou.
+        </item>
+    </array>
+
+    <array name="DvurKraloveDuck">
+        <item>Druhy:
+            Čírka černoskvrnná;
+            Čírka hottentotská;
+            Čírka modrá;
+            Čírka obecná;
+            Čírka popelavá;
+            Čírka úzkozobá;
+            Kachna divoká;
+            Kachna madagaskarská;
+            Kachna temná;
+            Kachna žlutozobá;
+            Kachnice africká;
+            Kachnička pestrá;
+            Lžičák kapský;
+            Lžičák pestrý;
+            Ostralka rudozobá;
+            Pižmovka hřebenatá;
+            Pižmovka konžská;
+            Pižmovka ostruhatá;
+            Polák malý;
+            Zrzohlávka rudooká;
+            Zrzohlávka rudozobá
+        </item>
+        <item>Zajímavost:
+            Čírka černoskvrnná je agresivní kachna žijící pouze na Madagaskaru.;
+            V Evropě, Asii a Africe je rozšířená čírka modrá.;
+            Celá populace čírky úzkozobé je podle sčítání ornitologů odhadována na 20 000 jedinců.;
+            Kachna divoká hnízdí v párech v pobřežní vegetaci, v dutinách a starých větších hnízdech na stromech. Mimo období hnízdění žije v hejnech.
+        </item>
+    </array>
+
+    <array name="DvurKraloveFlamingo">
+        <item>Druhy:
+            Plameňák malý;
+            Plameňák růžový
+        </item>
+        <item>Zajímavost:
+            Plameňák malý je nejpočetnější z plameňáků.;
+            Za zbarvení vděčí plameňák růžový barvivům získaným z potravy.
+        </item>
+    </array>
+
+    <array name="DvurKralovePenguin">
+        <item>Druh: Tučňák brýlový
+        </item>
+        <item>Informace:
+            Kromě Dvora Králové chová tučňáky brýlové v Česku a na Slovensku už pouze Zoo Ústí nad Labem.
+        </item>
+        <item>Zajímavost:
+            Tučňák brýlový obývá jihoafrické pobřeží Namibie a Jihoafrické republiky. Patří ke zranitelným druhům a v přírodě jich dál ubývá – od osmdesátých let na méně než polovinu původních počtů.
+        </item>
+    </array>
+
+
+    <array name="DvurKraloveTurtle">
+        <item>Druhy:
+            Tereka africká;
+            Želva obrovská;
+            želva ostruhatá;
+            Želva paprsčitá;
+            želva pavoukovitá;
+            Želva skalní
+        </item>
+        <item>Informace:
+            Do Dvora Králové byly želvy obrovské dovezeny v roce 1974 již jako dospělé, část svého života trávily v zoo Praha a v květnu 2014 se tři z nich, dva samci a jedna samice, vrátily po 18 letech zpět do Dvora Králové.;
+            V safari parku jsou želvy pavoukovité k vidění od roku 2021. Obývají terárium v Ptačím světě.
+        </item>
+        <item>Zajímavost:
+            Po želvě sloní je želva obrovská druhá největší želva obývající naši planetu.;
+            Želvy pavoukovité obývají nehostinné křovité oblasti jihu a jihozápadu Madagaskaru. Pozoruhodný je její krunýř - kromě nádherně zbarvení s kresbou připomínající pavoučí síť se vyznačuje také jakousi klapkou v jeho přední části. Ta je pohyblivá a želva se díky tomu dovede v krunýři "zavřít" v případě nebezpečí.
+        </item>
+    </array>
+
+</resources>

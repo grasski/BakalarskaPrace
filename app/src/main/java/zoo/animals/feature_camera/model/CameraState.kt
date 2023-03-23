@@ -20,7 +20,6 @@ data class CameraState(
     var bottomSheetActive: MutableState<Boolean> = mutableStateOf(false),
     var classificationRunning: MutableState<Boolean> = mutableStateOf(true),
     val animals: MutableList<MutableMap<String, Animal>> = AnimalData.allAnimalsInstance,
-    var animalCenter: MutableState<Offset> = mutableStateOf(Offset(0f, 0f)),
 
     val cameraExecutor: ExecutorService = Executors.newSingleThreadExecutor(),
     val lensFacing: Int = CameraSelector.LENS_FACING_BACK,
@@ -42,4 +41,4 @@ data class CameraState(
     val cameraSelector: CameraSelector = CameraSelector.Builder()
         .requireLensFacing(lensFacing)
         .build(),
-    )
+)

@@ -4,14 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.graphics.RectF
 import android.util.Log
 import androidx.camera.core.ImageProxy
-import androidx.compose.ui.graphics.Canvas
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.asImageBitmap
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.vision.detector.Detection
@@ -43,11 +39,6 @@ class ImageClassifier(private val context: Context) {
             .setMaxResults(1)
             .build()
         val objectDetector = ObjectDetector.createFromFileAndOptions(
-//            context, "lite-model_efficientdet_lite3_detection_metadata_1.tflite", options
-//            context, "ssddetect_metadata_animals.tflite", options
-//            context, "ssddetect_OPS_metadata_ctvrte.tflite", options
-//            context, "ssddetect_OPS_480_background_metadata10.tflite", options
-//            context, "ssd_640_qua_metadata_13.tflite", options
             context, "ssd_640_qua_metadata_19.tflite", options
         )
 
@@ -280,13 +271,14 @@ class ImageClassifier(private val context: Context) {
         val resizedBitmap =
             Bitmap.createScaledBitmap(
                 btm,
-                260,
-                260,
+                280,
+                280,
                 false
             )
 
+        // Anteater, Cat, Dog, Duck, Elephant, Flamingo, Giraffe, Gorilla, Jaguar, Kangaroo, Lion, Parrot, Penguin, Rhino, SeaLion, Tiger, Turtle, Zebra
         val model = AutoModel18animals.newInstance(context)
-//        val model = ModelInt8.newInstance(context)
+//        val model = EfficientnetModelInt8Metadata.newInstance(context)
         val tfImage = TensorImage.fromBitmap(resizedBitmap)
         val outputs = model.process(tfImage)
         model.close()
@@ -305,8 +297,6 @@ class ImageClassifier(private val context: Context) {
         if (tmpScore > 0.45f){
             result = probability[animalIndex].label
         }
-        Log.e("", "LALLA: " + result + " " + tmpScore)
-
         return getAnimalByName(result.trim())
     }
 
@@ -340,6 +330,7 @@ class ImageClassifier(private val context: Context) {
                 result = results[0].categories[0].label
             }
         }
+        Log.e("", "LALLA: " + result)
 
         return getAnimalByName(result.trim())
     }

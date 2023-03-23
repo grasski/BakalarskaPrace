@@ -293,11 +293,12 @@ fun SecondContentScreen(
                         }
                     }
                     Text(
-                        "GPS: ${gpsStatus.value}", color = if (viewModel.state.isGpsEnabled.value) {
-                            Color.Green
-                        } else Color.Red
+                        text ="GPS: ${gpsStatus.value}",
+                        color = if (viewModel.state.isGpsEnabled.value) { Color.Green } else Color.Red
                     )
-                    Text(UiTexts.StringResource(R.string.closestZoo).asString() + (viewModel.state.zoos[viewModel.state.closestZooKey.value ?: ""]?.city ?: "NONE"))
+                    if (viewModel.state.isGpsEnabled.value) {
+                        Text(UiTexts.StringResource(R.string.closestZoo).asString() + (viewModel.state.zoos[viewModel.state.closestZooKey.value ?: ""]?.city ?: "NONE"))
+                    }
 
                     ExposedDropdownMenuBox(
                         expanded = expanded,

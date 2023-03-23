@@ -3,22 +3,19 @@ package zoo.animals.feature_camera.view
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.ScaleGestureDetector
 import androidx.camera.core.Preview
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
@@ -36,7 +33,6 @@ import zoo.animals.R
 import zoo.animals.feature_camera.model.CameraViewModel
 import zoo.animals.feature_category.data.Animal
 import zoo.animals.feature_category.view.CameraSheetInfo
-import kotlin.math.min
 
 /*
 @OptIn(ExperimentalMaterialApi::class)
@@ -610,6 +606,23 @@ fun CameraPreviewScreen(
     var delayState by remember { mutableStateOf(true) }
     var delayedAnimal by remember { mutableStateOf<Animal?>(null)}
 
+    val scope = rememberCoroutineScope()
+
+
+    val sheetState = rememberModalBottomSheetState()
+    if (sheetState.isVisible){
+        ModalBottomSheet(
+            onDismissRequest = {
+                viewModel.state.classificationRunning.value = true
+                delayedAnimal = null
+            },
+            content = {
+                CameraSheetInfo(delayedAnimal)
+            },
+            sheetState = sheetState,
+        )
+    }
+
 
     Box(Modifier.fillMaxSize()){
         Column {
@@ -657,9 +670,12 @@ fun CameraPreviewScreen(
                     preview.setSurfaceProvider(previewView.surfaceProvider)
                 }
 
-                LaunchedEffect(viewModel.state.classificationRunning.value, viewModel.state.bottomSheetActive.value){
+                LaunchedEffect(viewModel.state.classificationRunning.value){
+//                    if (!sheetState.isVisible){
+//                        delayedAnimal = null
+//                    }
                     viewModel.state.classifiedAnimal.value = null
-                    delayedAnimal = null
+
                     viewModel.analyze(viewModel.state.imageAnalysis, viewModel.state.cameraExecutor, context)
                 }
 
@@ -667,26 +683,19 @@ fun CameraPreviewScreen(
                     val animal = viewModel.state.classifiedAnimal.value
                     delay(800)
 
-                    delayedAnimal = if (viewModel.state.classificationRunning.value){
-                        if (viewModel.state.classifiedAnimal.value == animal) { animal } else { null }
+                    if (viewModel.state.classificationRunning.value){
+                        delayedAnimal = if (viewModel.state.classifiedAnimal.value == animal)
+                        { animal } else { null}
                     } else{
-                        null
+//                        if (!sheetState.isVisible){
+//                            delayedAnimal = null
+//                        }
+                        viewModel.state.classifiedAnimal.value = null
                     }
 
                     delayState = !delayState
                 }
-                
-//                if (animalText != null){
-//                    viewModel.state.bottomSheetActive.value = true
-//                    openBottomSheet = true
-//
-//
-//                    LaunchedEffect(key1 = true){
-//                        scope.launch {
-//                            bottomSheetState.show()
-//                        }
-//                    }
-//                }
+
 
                 Box(
                     modifier = Modifier.fillMaxSize()
@@ -706,44 +715,15 @@ fun CameraPreviewScreen(
                         )
                     }
 
-                    val scaleFactor =  min(getScreenSize().width * 1f / 640, getScreenSize().height * 1f / 640)
-
-                    Column {
-                        Text("DELAY ZVIRE: " + delayedAnimal?.name + " " + viewModel.state.bottomSheetActive.value + " " + getScreenSize())
-                        Text(text = "ZVIRE: " + viewModel.state.classifiedAnimal.value?.name + " " + viewModel.state.animalCenter.value)
-                    }
-
                     CameraUi(navController)
 
-                    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.paw_animation))
-                    val progress by animateLottieCompositionAsState(
-                        composition,
-                        iterations = LottieConstants.IterateForever
-                    )
-                    if (viewModel.state.animalCenter.value.isNotNull() && delayedAnimal != null){
-                        Box(
-                            Modifier
-                                .fillMaxWidth()
-                                .fillMaxHeight(0.6f)
-                                .align(Alignment.Center)
-                                .clickable(
-                                    onClick = {
-                                        Log.e("", "CLICK")
-                                    },
-                                    interactionSource = remember { MutableInteractionSource() },
-                                    indication = null
-                                )
-                        ){}
-
-                        LottieAnimation(
-                            composition = composition,
-                            progress = { progress },
-                            modifier = Modifier
-                                .offset(
-                                    viewModel.state.animalCenter.value.x.dp / scaleFactor,
-                                    viewModel.state.animalCenter.value.y.dp
-                                )
-                        )
+                    if (delayedAnimal != null){
+                        LaunchedEffect(key1 = true){
+                            scope.launch {
+                                viewModel.state.classificationRunning.value = false
+                                sheetState.show()
+                            }
+                        }
                     }
                 }
             } else {

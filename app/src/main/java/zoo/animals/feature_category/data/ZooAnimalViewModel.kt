@@ -85,6 +85,7 @@ class ZooAnimalViewModel: ViewModel() {
     fun getAnimalsInZoo(context: Context, animalKey: String) {
         val zoos = context.resources.getIdentifier(animalKey+"Zoo", "array", context.packageName)
         _validZooKeys.value = if (zoos == 0) listOf(null) else UiTexts.ArrayResource(zoos, 0).asArray(context).sorted()
+
         if (state.selectedZooKey.value !in _validZooKeys.value && _validZooKeys.value.isNotEmpty()){
             state.selectedZooKey.value = _validZooKeys.value[0]
 
@@ -101,13 +102,13 @@ class ZooAnimalViewModel: ViewModel() {
             return
         }
 
-        var imgRes = context.resources.getIdentifier((state.selectedZooKey.value+"_"+animalKey+"_1").lowercase(), "drawable", context.packageName)
+        var imgRes = context.resources.getIdentifier((state.selectedZooKey.value?.lowercase()+"_"+animalKey.lowercase()+"_1").lowercase(), "drawable", context.packageName)
         state.image1.value = if(imgRes != 0){imgRes} else null
 
-        imgRes = context.resources.getIdentifier((state.selectedZooKey.value+"_"+animalKey+"_2").lowercase(), "drawable", context.packageName)
+        imgRes = context.resources.getIdentifier((state.selectedZooKey.value?.lowercase()+"_"+animalKey.lowercase()+"_2").lowercase(), "drawable", context.packageName)
         state.image2.value = if(imgRes != 0){imgRes} else null
 
-        imgRes = context.resources.getIdentifier((state.selectedZooKey.value+"_"+animalKey+"_3").lowercase(), "drawable", context.packageName)
+        imgRes = context.resources.getIdentifier((state.selectedZooKey.value?.lowercase()+"_"+animalKey.lowercase()+"_3").lowercase(), "drawable", context.packageName)
         state.image3.value = if(imgRes != 0){imgRes} else null
 
 

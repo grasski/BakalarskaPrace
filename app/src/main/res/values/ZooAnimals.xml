@@ -13,23 +13,31 @@
     <array name="CapybaraZoo">
         <item>Zlin</item>
         <item>Brno</item>
+        <item>Decin</item>
     </array>
     <array name="KangarooZoo">
         <item>Zlin</item>
         <item>Brno</item>
         <item>Praha</item>
+        <item>Chleby</item>
+        <item>Decin</item>
     </array>
     <array name="CatZoo">
+        <item>Decin</item>
+        <item>Praha</item>
     </array>
     <array name="DogZoo">
+        <item>Praha</item>
     </array>
     <array name="RhinoZoo">
         <item>Zlin</item>
+        <item>DvurKralove</item>
     </array>
     <array name="ElephantZoo">
         <item>Zlin</item>
         <item>Liberec</item>
         <item>Praha</item>
+        <item>DvurKralove</item>
     </array>
     <array name="TigerZoo">
         <item>Zlin</item>
@@ -42,12 +50,37 @@
         <item>Brno</item>
         <item>Liberec</item>
         <item>Praha</item>
+        <item>DvurKralove</item>
     </array>
     <array name="GiraffeZoo">
         <item>Zlin</item>
         <item>Brno</item>
         <item>Liberec</item>
         <item>Praha</item>
+        <item>DvurKralove</item>
+    </array>
+    <array name="AnteaterZoo">
+        <item>Zlin</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+        <item>Decin</item>
+    </array>
+    <array name="GorillaZoo">
+        <item>DvurKralove</item>
+        <item>Praha</item>
+    </array>
+    <array name="LionZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Liberec</item>
+        <item>Praha</item>
+        <item>DvurKralove</item>
+    </array>
+    <array name="SeaLionZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Praha</item>
+        <item>Liberec</item>
     </array>
 
 
@@ -56,11 +89,30 @@
         <item>Brno</item>
         <item>Liberec</item>
         <item>Praha</item>
+        <item>Chleby</item>
+        <item>Decin</item>
+        <item>DvurKralove</item>
+    </array>
+    <array name="DuckZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Praha</item>
+        <item>Decin</item>
+        <item>Chleby</item>
+        <item>DvurKralove</item>
     </array>
     <array name="PenguinZoo">
         <item>Zlin</item>
         <item>Liberec</item>
         <item>Praha</item>
+        <item>DvurKralove</item>
+    </array>
+    <array name="FlamingoZoo">
+        <item>Zlin</item>
+        <item>Brno</item>
+        <item>Praha</item>
+        <item>Liberec</item>
+        <item>DvurKralove</item>
     </array>
 
 
@@ -69,5 +121,10 @@
         <item>Brno</item>
         <item>Liberec</item>
         <item>Praha</item>
+        <item>Chleby</item>
+        <item>Decin</item>
+        <item>DvurKralove</item>
     </array>
+
+
 </resources>

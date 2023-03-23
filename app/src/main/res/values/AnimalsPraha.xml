@@ -1,6 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <array name="PrahaKangaroo">
+        <item>Druhy:
+            Klokan;
+            Klokan bažinný;
+            Klokan horský východní;
+            Klokan obrovský;
+            Klokan parma;
+            Klokan rudokrký tasmanský;
+            Klokan rudý;
+            Klokánek králikovitý;
+            Klokánek krysí
+        </item>
+        <item>Umístění v zoo:
+            Horní část zoo;
+            Darwinův kráter
+        </item>
+        <item>Informace:
+            Klokany horské chováme od roku 2013.
+            První klokani rudokrcí (bez určení poddruhu) zamířili do Prahy z Anglie.
+            Klokánek krysí je v pražské zoo úplnou novinkou – expozici Darwinův kráter osídlil na jaře 2020.
+        </item>
+        <item>Zajímavost:
+            Klokan rudý je největším druhem klokana.
+        </item>
+    </array>
+
+    <array name="PrahaElephant">
+        <item>Druh:
+            Slon indický
+        </item>
+        <item>Umístění v zoo:
+            Údolí slonů
+        </item>
+        <item>Informace:
+            Historie chovu slonů v pražské zoo sahá do roku 1933, kdy z tehdejšího Cejlonu (dnešní Srí Lanky) přišel něco přes rok starý slon indický Baby. Poté se zde vystřídali čtyři sloni afričtí, jeden slon pralesní a několik dalších slonů indických. Dnes v zoo chováme pouze slony indické, včetně dvou slonic, které se řadí mezi naše nejstarší obyvatele – obě v zoo žijí již několik desítek let.
+        </item>
+        <item>Zajímavost:
+            Sloni jsou nesmírně zajímavá zvířata, a to nejen pro svou velikost. Snad nejnápadnější je jejich chobot, který vznikl srůstem a prodloužením horního pysku a nozder. Je to nesmírně užitečný orgán, vybavený více než 60 000 svalů a tenkou, citlivou kůží.
+        </item>
+    </array>
+
+    <array name="PrahaTiger">
+        <item>Druhy:
+            Tygr malajský;
+            Tygr sumatérský;
+            Tygr ussurijský
+        </item>
+        <item>Umístění v zoo:
+            Pavilon šelem a plazů
+        </item>
+        <item>Informace:
+            V pražské zoo se první tygři objevili už rok po jejím otevření. Byl to kříženec tygra ussurijského a bengálského samec Bengali a samice tygra indického Mitau. Oba pocházeli z Hagenbeckova cirkusu.
+        </item>
+        <item>Zajímavost:
+            Tygr je největší dnes žijící kočkovitou šelmou, rozšířenou od tropických ostrovů jihovýchodní Asie až po chladné oblasti Rusko-Čínského pomezí. Tygři jsou samotáři a při toulkách za potravou urazí mnoho kilometrů. Výborně plavou, rádi se koupou a dovedou také šplhat po stromech.
+        </item>
+    </array>
+
+    <array name="PrahaZebra">
+        <item>Druhy:
+            Zebra bezhřívá;
+            Zebra Böhmova;
+            Zebra Grévyho
+        </item>
+        <item>Umístění v zoo:
+            Horní část zoo;
+            Africký dům
+        </item>
+        <item>Informace:
+            Zebry bezhřívé se v pražské zoo objevily poprvé v roce 2018, kdy přišla klisna Klea s hříbětem – samečkem Kevinem.;
+            Zebry Böhmovy chovala pražská zoo ve dvou vlnách. Poprvé to bylo v letech 1949−1970, podruhé od roku 2004.;
+            Zebry Grévyho byly v pražské zoo chovány již v letech 1953−1961 a pak nově od roku 1972.
+        </item>
+        <item>Zajímavost:
+            Zebry jsou lichokopytníci, kteří stejně jako jiní koňovití došlapují na špičku prostředního prstu, opatřenou tvrdým kopytem. Kopáním se také brání a zvláště v zadních nohou mají obrovskou sílu. Typickým znakem zeber je tmavé a světlé pruhování, které se liší nejen mezi různými druhy, ale i mezi jedinci. Je tedy stejně jedinečné jako otisky prstů.;
+            Zebra bezhřívá je nejsevernějším poddruhem zebry stepní. Jak je běžné u zeber, vytváří menší harémy, které vede a chrání dospělý hřebec.
+        </item>
+    </array>
+
+    <array name="PrahaGiraffe">
+        <item>Druh:
+            Žirafa severní núbijská
+        </item>
+        <item>Umístění v zoo:
+            Africký dům
+        </item>
+        <item>Informace:
+            Naše zoo byla první zahradou v Československu, která vystavovala žirafy: chováme je už od roku 1954, kdy se u nás mohli návštěvníci podívat na samici žirafy masajské Lenku. Poté se v zoo vystřídalo ještě několik dalších druhů či poddruhů a od 70. let chováme žirafy núbijské (do září 2016 označovány jako žirafy Rothschildovy). V současnosti naše stádo sestává z dospělého samce Johana, několika samic a jejich potomků, a na „kontě“ máme již sedmdesátku odchovaných mláďat.
+        </item>
+        <item>Zajímavost:
+            Domovinou žiraf je subsaharská Afrika s výjimkou souvislých tropických lesů a pouští. Jejich typickým prostředím je buš, tedy křovinatá savana s porosty akácií a dalších stromů a keřů. Živí se takřka výhradně jejich listy ve výšce, která je pro ostatní velké býložravce nedostupná.
+        </item>
+    </array>
+
+    <array name="PrahaAnteater">
+        <item>Druh:
+            Mravenečník velký
+        </item>
+        <item>Umístění v zoo:
+            Dolní část zoo
+        </item>
+        <item>Informace:
+            V pražské zoo byli první mravenečníci chováni již od začátku 50. let, ale nikdy se nerozmnožovali. Mezi roky 1982 a 1997 nastala přestávka a poté dorazila dvě mláďata, považovaná za pár, ukázalo se však, že se jednalo o dvě samice. Oba mravenečníci odcestovali v roce 2002 do zoo v Ústí n. Labem. Nový pár dorazil do zoo v červnu 2014 – samice Ella pochází z Varšavy, samec Hannibal z Madridu. V roce 2016 jsme se od této dvojice dočkali vůbec prvního mláděte v historii Zoo Praha – samečka, který dostal jméno Lecter.
+        </item>
+        <item>Zajímavost:
+            Mravenečník je samotář, aktivní podle prostředí, jež obývá, ve dne nebo v noci. Mnoho času věnuje hledání potravy. Jakmile vyčenichá hnízdo mravenců nebo všekazů, rozhrábne půdu či hromadu silnými drápy na předních nohou a poté je vybírá tak, že rychle kmitá dlouhým jazykem a nalepuje hmyz na lepkavý povrch, načež ho doslova nasaje do hltanu.
+        </item>
+    </array>
+
+    <array name="PrahaGorilla">
+        <item>Druh:
+            Gorila nížinná
+        </item>
+        <item>Umístění v zoo:
+            Rezervace Dja
+        </item>
+        <item>Informace:
+            V pražské zoo chováme gorily od roku 1963, kdy přišla první gorila nížinná – asi roční sameček Titan. Pocházel z přírody podobně jako malá Nigra, která dorazila záhy po něm. V roce 2004 se v pavilonu v dolní části zoo narodilo vůbec první gorilí mládě v českých zoo – slavná samička Moja. Ta už sice žije v jiné zoo, ale do Prahy jsme roku 2022 přivezli její dceru Duni, která se v Rezervaci Dja (novém pavilonu v sousedství Afrického domu) zapojila do rodinné skupiny vedené samcem Kisumuem. V původním pavilonu vytvořili samčí skupinu Richard a jeho synové Nuru a Kiburi.
+        </item>
+        <item>Zajímavost:
+            Domovem goril jsou tropické lesy v rovníkové Africe, kde se vyskytují ve dvou oblastech oddělených deštným lesem konžské pánve. Podle nejnovějších výzkumů rozlišujeme dva druhy (gorilu horskou a nížinnou) a až pět poddruhů. Lépe prozkoumaná gorila horská patří k nejohroženějším. Ani gorila nížinná však nemá na růžích ustláno. V posledních letech jsou tito mírní lidoopi ohrožováni především pytláky, kteří je loví pro maso nebo prodávají mláďata soukromníkům pro zábavu.
+        </item>
+    </array>
+
+    <array name="PrahaCat">
+        <item>Druhy:
+            Kočka krátkouchá;
+            Kočka palawanská;
+            Kočka rybářská
+        </item>
+        <item>Umístění v zoo:
+            Pavilon šelem a plazů
+        </item>
+        <item>Informace:
+            Kočky krátkouché mohli návštěvníci pražské zoo obdivovat již v letech 1992–1999. Po dvacetileté pauze se objevily znovu v roce 2019, kdy přišla samice ze Zoo Jihlava a samec z olomoucké zoo.;
+            První samice kočky rybářské přišla do pražské zoo v roce 2004 z ostravské zoo. Od té doby se v Pavilonu kočkovitých šelem vystřídalo sedm dalších zvířat. Dnes tu spatříte samce Matesa, který se narodil v roce 2004 ve srílanské zoo v Colombu (do Prahy však přišel z brněnské zoo), a samici Oruwu, narozenou v roce 2011 v Zoo Ostrava.
+        </item>
+        <item>Zajímavost:
+            Kočka krátkouchá je největším a nejsevernějším poddruhem kočky bengálské a tomu odpovídá i hustá, poměrně světlá srst.
+        </item>
+    </array>
+
+    <array name="PrahaDog">
+        <item>Druhy:
+            Pes pralesní;
+            Pes ušatý
+        </item>
+        <item>Umístění v zoo:
+            Horní část zoo;
+            Afrika zblízka
+        </item>
+        <item>Informace:
+            Pražská zoo se může pochlubit úspěšnými odchovy těchto zvláštních šelem psů pralesních, které mají v zoologických zahradách pověst obtížně chovatelných zvířat. Dospělí jsou totiž citliví na jakékoliv vyrušování a navíc se často stává, že mláďata samec zabije. První zvířata přišla v roce 1988 a do současnosti se nám podařilo odchovat více než devadesát mláďat.;
+            Psy ušaté chováme od roku 1980, i když se jeden exemplář zřejmě objevil v zoo již v 50. letech. První úspěšný odchov se podařil v roce 1987.
+        </item>
+        <item>Zajímavost:
+            Pes pralesní sice obývá i lesy, ale ve svém rozlehlém areálu se vyskytuje i v mnoha dalších biotopech, od křovinaté savany po pampu nebo mangrove. V důsledku přeměny původního prostředí v zemědělskou krajinu je však na mnoha místech ohrožen, protože populace, která není nijak početná, je rozdrobená. Psi pralesní žijí buď samotářsky, nebo v malých rodinných skupinách.;
+            Při pohledu na psa ušatého každého okamžitě zaujmou právě obrovité boltce, které svou délkou přesahují délku hlavy. V jeho horké africké domovině mu slouží jako víceúčelové zařízení. Jednak napomáhají odvádět z těla přebytečné teplo, jednak zachytávají i velmi slabé zvuky, které vydává hmyz, jímž se pes ušatý živí.
+        </item>
+    </array>
+
+    <array name="PrahaLion">
+        <item>Druh: Lev indický</item>
+        <item>Umístění v zoo:
+            Pavilon šelem a plazů
+        </item>
+        <item>Informace:
+            Lvi, i když ti afričtí, byli v pražské zoo chováni ještě dříve, než byla otevřena pro veřejnost. Prvním z nich se stala lvice Šárka, dar ředitele cirkusu Rebernigg, která žila od března 1930 ve vile zakladatele zoo prof. Jiřího Jandy a později se přestěhovala do pavilonku pojmenovaného na její počest Šárčin (v jeho místě dnes stojí Rákosův pavilon). Chov afrických lvů byl však pozastaven v roce 2002, kdy pražskou zoo postihla povodeň.;
+            Čistokrevné lvy indické chováme v Pavilonu šelem a plazů od roku 2004, kdy jsme se připojili k Evropskému záchovnému programu (EEP). Nejprve u nás žili dva bratři z Polska, Parys a Max, a samice Kala z Británie. Později se u nás vystřídaly ještě tři další samice, lvíčat jsme se ovšem nedočkali.;
+            Současné trio – samec Jamvan a samice Suchi a Ginni – pochází přímo z indického státu Gudžarát a jeho získání v roce 2015 bylo významným mezinárodním úspěchem, kterému předcházela několikaletá diplomatická jednání. Bylo to vůbec poprvé po více než dvaceti letech, kdy se do Evropy dostali čistokrevní lvi indičtí přímo ze své domoviny, navíc nepříbuzní a tedy potenciálně nesmírně cenní pro celý evropský chov. Všichni tři se narodili v lidské péči a do Prahy přicestovali ze Zoo Sakkarbaug, která leží v blízkosti národního parku Girský les. Jak se bohužel časem ukázalo, jen jedna z obou lvic, Ginni, má šanci mít mláďata; druhá je neplodná. A protože Jamvan je natolik submisivní, že mu lvice páření neumožní, přikročili jsme nakonec u Ginni k umělé inseminaci. Šance na úspěch při takovém zákroku je sice u kočkovitých šelem nejistá, ale šance to je, jak se potvrdilo v roce 2019, kdy Ginni zabřezla. Mládě naneštěstí uhynulo při porodu, ale v celé události je záblesk naděje do budoucna: Ginni prokázala schopnost donosit a porodit mládě a projevila i mateřské chování.
+        </item>
+        <item>Zajímavost:
+            Lvi jsou jediné kočkovité šelmy žijící ve smečkách. U afrických lvů mohou mít smečky i několik desítek členů vedených jedním nebo dvěma nejsilnějšími samci, lvi indičtí však žijí o něco samotářštěji a jejich skupiny bývají menší. Tvoří je obvykle dvojice dospělých zvířat, přičemž samci a samice žijí odděleně. Stýkají se jen u větší ulovené kořisti, nebo za účelem rozmnožování.
+        </item>
+    </array>
+
+    <array name="PrahaSeaLion">
+        <item>Druh: Lachtan jihoafrický</item>
+        <item>Umístění v zoo:
+            Lachtani
+        </item>
+        <item>Informace:
+            První lachtani se v pražské zoo objevili v roce 1934. Jednalo se o dva lachtany tmavé (neboli kalifornské), které zoo věnoval Vlasta Burian. V roce 1974 je vystřídali lachtani hřivnatí. Průlom v chovu lachtanů nastal v roce 1991, kdy dorazili přímo z přírody první lachtani jihoafričtí, včetně nejslavnějšího Gastona (uhynul při povodních v roce 2002). Všichni byli velice mladí, a tak s nimi chovatelka začala pravidelně cvičit. Lachtani jsou totiž i v přírodě velice hraví a cvičení je zaměstná a pomůže jim ukrátit dlouhou chvíli. Cvičení je spojeno i s krmením, takže mají chovatelé přehled o tom, kolik ryb které zvíře spořádalo.;
+            Lachtaní expozice v Zoo Praha navozuje atmosféru skalnatého mořského pobřeží jižní Afriky. Její obyvatele můžete pohodlně sledovat z velké tribuny s 250 místy k sezení, nebo třeba z umělé jeskyně nabízející nevšední pohled pod hladinu. Voda v expozici je sladká, ale v zázemí za skalními bloky lachtani využívají menší bazény se slanou vodou.;
+            Malí lachtánci však musejí být první dva měsíce doslova na suchu, protože neumějí plavat. První tempa si tedy mláďata zkoušejí v malém bazénku a mezi ostatní jdou až o pár měsíců později. Každý z lachtanů je povahově trochu jiný a chovatelé k nim podle toho přistupují. Seznamte se s nimi během komentovaných cvičení!
+        </item>
+        <item>Zajímavost:
+            Lachtani jsou šelmy ze vzdáleného příbuzenstva medvědů. Velkou část života tráví v moři, kde loví ryby a jinou menší kořist, a jsou proto skvěle přizpůsobení pohybu ve vodě: oko pod vodou kryje průhledná mžurka, nozdry jsou zcela uzavíratelné a pohon pod vodou zajišťují přední končetiny přeměněné v ploutve společně s vlnivým pohybem těla; zadními končetinami lachtani kormidlují. Ve vodě často loví společně a hodně času zde tráví při hrách, honičkách a různých akrobatických kouscích. Potopit se dovedou do hloubky několika desítek metrů a pod vodou vydrží na jedno nadechnutí až půl hodiny.
+        </item>
+    </array>
+
+
+    <array name="PrahaPenguin">
+        <item>Druh:
+            Tučňák humboldtův
+        </item>
+        <item>Umístění v zoo:
+            Pavilon tučňáků
+        </item>
+        <item>Informace:
+            Pražská zoo chová tučňáky Humboldtovy už od začátku 60. let 20. století a v současné době patří k úspěšným evropským chovatelům.
+        </item>
+        <item>Zajímavost:
+            Tučňáci patří k ptákům skvěle přizpůsobeným k životu ve vodě. Jejich vzhled se za posledních 45 milionů let příliš nezměnil. Většina druhů dnes obývá chladnější vody jižních moří, neplatí to však pro všechny. Dalo by se říci, že tučňák Humboldtův patří k teplomilným druhům.
+        </item>
+    </array>
+
     <array name="PrahaParrot">
         <item>Druhy:
             Amazoňan jamajský;
@@ -59,6 +266,81 @@
         </item>
     </array>
 
+    <array name="PrahaFlamingo">
+        <item>Druhy:
+            Plameňák růžový;
+            Plameňák kubánský;
+            Plameňák chilský
+        </item>
+        <item>Umístění v zoo:
+            Vodní svět a opičí ostrovy
+        </item>
+        <item>Informace:
+            Plameňák růžový patří k tradičně chovaným druhům. Přesná evidence je vedena od roku 1977, kdy přišli ptáci z volné přírody. První doložené mládě se vylíhlo v roce 1986. es můžete hejno plameňáků růžových pozorovat v expozičním celku Vodní svět, v expozici poblíž restaurace Gaston.;
+            První plameňáci kubánští se objevili v zoo v roce 1960 a přišli z Paříže. Ptáci z přírody dorazili v roce 1965. Jeden samec z této skupiny žil v zoo do června 2013, tedy 48 let, jedna ze samic dokonce až do roku 2017. První úspěšný odchov se podařil v roce 1996. Mládě s označením Praha 01 je samec a také on je dodnes součástí naší skupiny.;
+            Plameňáky chilské chováme od 80. let minulého století, ovšem záznamy o pohybu zvířat jsou z této doby velmi neúplné. Doložené je vylíhnutí mláděte v roce 1986.
+        </item>
+        <item>Zajímavost:
+            Díky vysokým nohám, dlouhému krku a především růžovému zbarvení si plameňáky nelze splést s jinými ptáky. Všechny druhy jsou vázány na stojaté vody, hlavně na velká jezera včetně slaných a vysokohorských.
+        </item>
+    </array>
+
+    <array name="PrahaDuck">
+        <item>Druhy:
+            Kačka strakatá;
+            Kachna domácí;
+            Kachna temná;
+            Kachnice bělohlavá;
+            Kachnice kaštanová;
+            Kachnička amazonská;
+            Kachnička karolínská;
+            Kachnička mandarínská;
+            Kachnička obojková;
+            Kachnička šedoboká;
+            Pižmovka bělokřídlá;
+            Pižmovka hřebenatá;
+            Pižmovka jihoamerická;
+            Pižmovka konžská;
+            Pižmovka velká;
+            Pižmovka velká domácí;
+            Polák černohlavý;
+            Polák hnědavý;
+            Polák malý;
+            Čírka australasijská (bělohrdlá);
+            Čírka hottentotská (diamantová);
+            Čírka modrá;
+            Čírka obecná;
+            Čírka úzkozobá;
+            Čírka žlutozobá;
+            Zrzohlávka rudozobá;
+            Ostralka bělolící;
+            Ostralka štíhlá;
+            Lžičák pestrý
+        </item>
+        <item>Umístění v zoo:
+            Dětská zoo;
+            Dolní část zoo;
+            Vodní svět a opičí ostrovy;
+            Ptačí svět;
+            Ptačí mokřady;
+            Sečuán - pavilon ptáků z podhůří Himálaje;
+            Rákosův pavilon
+        </item>
+        <item>Informace:
+            První kachna patagonská žila v zoo v letech 1984−2000. Jednalo se o samici, ke které přišel v roce 1990 samec. V roce 1992 byla poprvé úspěšně odchována mláďata. Také současný pár – samice z plzeňské zoo a samec pocházející ze Zoo Drážďany – se stal rodiči několika mláďat.;
+            Zoo Praha jako první zoologická zahrada v Česku rozmnožila kachny temné v roce 2012. Z vajec se tehdy vylíhlo rekordních 13 mláďat a všechna byla odchována pod matkou.;
+            První pár kachnic přišel v roce 1998. V letech 2002−2004 nastala v důsledku srpnové povodně krátká přestávka a chov byl obnoven příchodem dvou párů. V roce 2013 se podařilo odchovat první mládě.;
+            Divoké pižmovky chováme od roku 2012, domácí od roku 2005.;
+            Do pražské zoo jsme dovezli šestici poláků hnědavých v roce 2019, o rok později osídlili voliéru vodních ptáků v expozičním celku Darwinův kráter.;
+            Zrzohlávka se objevovala v chovech pražské zoo opakovaně, v novodobé historii ji chováme od roku 2014.
+        </item>
+        <item>Zajímavost:
+            Kachny, kachničky i kachnice patří do řádu vrubozobých a dá se říci, že tomuto označení dělají čest. Mají totiž plochý zobák, který je na okrajích lemován drobnými vroubky a lamelami. Ty kachnám umožňují procezovat potravu z vody i z řídkého bahna. Takřka všechny kachny jsou lépe přizpůsobeny k životu na vodě než na souši.;
+            Čírky jsou štíhlé plovavé kachny, proslulé rychlým přímočarým letem. Hnízdo budují v podrostu na břehu vody, někdy však využívají i stromové dutiny nebo králičí nory. V oblastech s dočasnými vodními plochami jsou potulné a pohotově obsadí nově vzniklé jezírko. Zdržují se obvykle v párech nebo malých skupinkách. Jsou téměř ohrožené v důsledku přímého lovu i ničení přirozeného prostředí.
+        </item>
+    </array>
+
+
     <array name="PrahaTurtle">
         <item>Druh:
             Batagur bengálský;
@@ -113,115 +395,6 @@
             Batagurové jsou jedny z nejohroženějších sladkovodních želv světa.;
             Karetka novoguinejská se nejraději zdržuje ve stojatých nebo jen mírně proudících vodách a nevadí jí ani, když řeka či tůň dočasně vyschne.;
             Orlice bornejská patří k největším sladkovodním želvám na světě.
-        </item>
-    </array>
-
-    <array name="PrahaKangaroo">
-        <item>Druhy:
-            Klokan;
-            Klokan bažinný;
-            Klokan horský východní;
-            Klokan obrovský;
-            Klokan parma;
-            Klokan rudokrký tasmanský;
-            Klokan rudý;
-            Klokánek králikovitý;
-            Klokánek krysí
-        </item>
-        <item>Umístění v zoo:
-            Horní část zoo;
-            Darwinův kráter
-        </item>
-        <item>Informace:
-            Klokany horské chováme od roku 2013.
-            První klokani rudokrcí (bez určení poddruhu) zamířili do Prahy z Anglie.
-            Klokánek krysí je v pražské zoo úplnou novinkou – expozici Darwinův kráter osídlil na jaře 2020.
-        </item>
-        <item>Zajímavost:
-            Klokan rudý je největším druhem klokana.
-        </item>
-    </array>
-
-    <array name="PrahaElephant">
-        <item>Druh:
-            Slon indický
-        </item>
-        <item>Umístění v zoo:
-            Údolí slonů
-        </item>
-        <item>Informace:
-            Historie chovu slonů v pražské zoo sahá do roku 1933, kdy z tehdejšího Cejlonu (dnešní Srí Lanky) přišel něco přes rok starý slon indický Baby. Poté se zde vystřídali čtyři sloni afričtí, jeden slon pralesní a několik dalších slonů indických. Dnes v zoo chováme pouze slony indické, včetně dvou slonic, které se řadí mezi naše nejstarší obyvatele – obě v zoo žijí již několik desítek let.
-        </item>
-        <item>Zajímavost:
-            Sloni jsou nesmírně zajímavá zvířata, a to nejen pro svou velikost. Snad nejnápadnější je jejich chobot, který vznikl srůstem a prodloužením horního pysku a nozder. Je to nesmírně užitečný orgán, vybavený více než 60 000 svalů a tenkou, citlivou kůží.
-        </item>
-    </array>
-
-    <array name="PrahaPenguin">
-        <item>Druh:
-            Tučňák humboldtův
-        </item>
-        <item>Umístění v zoo:
-            Pavilon tučňáků
-        </item>
-        <item>Informace:
-            Pražská zoo chová tučňáky Humboldtovy už od začátku 60. let 20. století a v současné době patří k úspěšným evropským chovatelům.
-        </item>
-        <item>Zajímavost:
-            Tučňáci patří k ptákům skvěle přizpůsobeným k životu ve vodě. Jejich vzhled se za posledních 45 milionů let příliš nezměnil. Většina druhů dnes obývá chladnější vody jižních moří, neplatí to však pro všechny. Dalo by se říci, že tučňák Humboldtův patří k teplomilným druhům.
-        </item>
-    </array>
-
-    <array name="PrahaTiger">
-        <item>Druhy:
-            Tygr malajský;
-            Tygr sumatérský;
-            Tygr ussurijský
-        </item>
-        <item>Umístění v zoo:
-            Pavilon šelem a plazů
-        </item>
-        <item>Informace:
-            V pražské zoo se první tygři objevili už rok po jejím otevření. Byl to kříženec tygra ussurijského a bengálského samec Bengali a samice tygra indického Mitau. Oba pocházeli z Hagenbeckova cirkusu.
-        </item>
-        <item>Zajímavost:
-            Tygr je největší dnes žijící kočkovitou šelmou, rozšířenou od tropických ostrovů jihovýchodní Asie až po chladné oblasti Rusko-Čínského pomezí. Tygři jsou samotáři a při toulkách za potravou urazí mnoho kilometrů. Výborně plavou, rádi se koupou a dovedou také šplhat po stromech.
-        </item>
-    </array>
-
-    <array name="PrahaZebra">
-        <item>Druhy:
-            Zebra bezhřívá;
-            Zebra Böhmova;
-            Zebra Grévyho
-        </item>
-        <item>Umístění v zoo:
-            Horní část zoo;
-            Africký dům
-        </item>
-        <item>Informace:
-            Zebry bezhřívé se v pražské zoo objevily poprvé v roce 2018, kdy přišla klisna Klea s hříbětem – samečkem Kevinem.;
-            Zebry Böhmovy chovala pražská zoo ve dvou vlnách. Poprvé to bylo v letech 1949−1970, podruhé od roku 2004.;
-            Zebry Grévyho byly v pražské zoo chovány již v letech 1953−1961 a pak nově od roku 1972.
-        </item>
-        <item>Zajímavost:
-            Zebry jsou lichokopytníci, kteří stejně jako jiní koňovití došlapují na špičku prostředního prstu, opatřenou tvrdým kopytem. Kopáním se také brání a zvláště v zadních nohou mají obrovskou sílu. Typickým znakem zeber je tmavé a světlé pruhování, které se liší nejen mezi různými druhy, ale i mezi jedinci. Je tedy stejně jedinečné jako otisky prstů.;
-            Zebra bezhřívá je nejsevernějším poddruhem zebry stepní. Jak je běžné u zeber, vytváří menší harémy, které vede a chrání dospělý hřebec.
-        </item>
-    </array>
-
-    <array name="PrahaGiraffe">
-        <item>Druh:
-            Žirafa severní núbijská
-        </item>
-        <item>Umístění v zoo:
-            Africký dům
-        </item>
-        <item>Informace:
-            Naše zoo byla první zahradou v Československu, která vystavovala žirafy: chováme je už od roku 1954, kdy se u nás mohli návštěvníci podívat na samici žirafy masajské Lenku. Poté se v zoo vystřídalo ještě několik dalších druhů či poddruhů a od 70. let chováme žirafy núbijské (do září 2016 označovány jako žirafy Rothschildovy). V současnosti naše stádo sestává z dospělého samce Johana, několika samic a jejich potomků, a na „kontě“ máme již sedmdesátku odchovaných mláďat.
-        </item>
-        <item>Zajímavost:
-            Domovinou žiraf je subsaharská Afrika s výjimkou souvislých tropických lesů a pouští. Jejich typickým prostředím je buš, tedy křovinatá savana s porosty akácií a dalších stromů a keřů. Živí se takřka výhradně jejich listy ve výšce, která je pro ostatní velké býložravce nedostupná.
         </item>
     </array>
 

@@ -234,32 +234,50 @@
     </array>
 
 
-<!--    <array name="Gorilla">-->
-<!--        <item>Gorila</item>-->
-<!--        <item>Savec</item>-->
-<!--        <item>140–210 kg</item>-->
-<!--        <item>1.4–1.8 m</item>-->
-<!--        <item>90–110 cm</item>-->
-<!--        <item>None</item>-->
-<!--        <item>30–50 let</item>-->
-<!--        <item>Lesy střední Afriky</item>-->
-<!--        <item>1 mládě po 8.5 měsíce</item>-->
-<!--        <item>Gorily jsou největší a nejmohutnější z lidoopů. Dospělí samci působí velice impozantně, protože mají nejen masivní svaly, ale navíc vysoký hřeben na temenní kosti, který vypadá jako přilba. Ve skutečnosti slouží k úponu žvýkacích svalů. Zbarvení srsti je převážně černé, často s hnědým nádechem na hlavě. Obličej je černý stejně jako dlaně a chodidla. Oči namířené dopředu jsou hnědé a chráněné vystouplými nadočnicovými oblouky.</item>-->
-<!--    </array>-->
+    <array name="Gorilla">
+        <item>Gorila</item>
+        <item>Savec</item>
+        <item>140–210 kg</item>
+        <item>1.4–1.8 m</item>
+        <item>90–110 cm</item>
+        <item>None</item>
+        <item>30–50 let</item>
+        <item>Lesy střední Afriky</item>
+        <item>1 mládě po 8.5 měsíce</item>
+        <item>
+            Gorily jsou velcí a silní primáti, kteří obývají deštné pralesy a horské oblasti Afriky. Jsou největšími opicemi na světě a dorůstají výšky až 1,8 metru a váhy přes 200 kg. Mají dlouhé, silné paže, které jim umožňují pohybovat se po stromech a také se bránit proti predátorům.
+            \n\nGorily jsou býložravci a jejich strava se skládá převážně z listů, stonků a plodů rostlin. Obvykle žijí ve skupinách, které se nazývají hordy a v jejich čele stojí dominantní samec, který je označován jako středisko. Hordy jsou tvořeny několika dospělými samci a samičkami a jejich potomky.
+            \n\nGorily jsou ohroženým druhem a podle Mezinárodního svazu ochrany přírody jsou kriticky ohrožené. Hlavními hrozbami pro gorily jsou ničení jejich přirozeného prostředí, kde jsou nuceny hledat nová území a potravu, a také pytláctví a obchod s částmi jejich těla, které jsou používány v tradiční medicíně. V posledních letech se však díky úsilí ochranářů podařilo zlepšit situaci a počty goril se pomalu zvyšují.
+        </item>
+    </array>
+    <array name="taxonomyGorilla">
+        <item>Primáti</item>
+        <item>Hominidi</item>
+        <item>Gorila</item>
+    </array>
 
 
-<!--    <array name="Lion">-->
-<!--        <item>Lev</item>-->
-<!--        <item>Savec</item>-->
-<!--        <item>Až 250 kg</item>-->
-<!--        <item>1.4–2.5 m</item>-->
-<!--        <item>1–1.2 m</item>-->
-<!--        <item>None</item>-->
-<!--        <item>8–16 let</item>-->
-<!--        <item>Africká savana</item>-->
-<!--        <item>2–4 mláďata po 4 měsících</item>-->
-<!--        <item>Lvi jsou na rozdíl od ostatních kočkovitých šelem společenská zvířata. Žijí ve smečkách, které mají 5-30 členů. Tvoří ji 1-4 samci a samice s mláďaty. Při bojích o teritorium se stává, že některý ze samců přijde o život. Při převzetí smečky nově příchozí samec (nebo samci) obvykle pozabíjí stávající lvíčata ve smečce. Lvice pak brzy přijdou do říje. Po čtyřměsíční březosti lvice porodí o samotě 2-4 mláďata. Ke smečce se vrací, když jsou lvíčata stará 6-8 týdnů. Úmrtnost mláďat je vysoká, 50% z nich se nedožije prvního roku.</item>-->
-<!--    </array>-->
+    <array name="Lion">
+        <item>Lev</item>
+        <item>Savec</item>
+        <item>Až 250 kg</item>
+        <item>1.4–2.5 m</item>
+        <item>1–1.2 m</item>
+        <item>None</item>
+        <item>8–16 let</item>
+        <item>Africká savana</item>
+        <item>2–4 mláďata po 4 měsících</item>
+        <item>
+            Lvi jsou velké kočkovité šelmy, které žijí v savanách a polopouštích Afriky. Jsou to jedny z největších a nejvýraznějších kočkovitých šelem, dorůstají délky až 3,5 metru a váhy až 250 kg. Samec lva se vyznačuje hřívou, která mu slouží jako ochrana před útoky jiných lvů, ale také jako prostředek komunikace a značení svého teritoria.        </item>
+            \n\nLvi jsou masožravci a živí se převážně velkými kopytníky, jako jsou zebry, gazely a buvoli. Loví většinou v noci a jsou velmi rychlí a obratní, takže se dokážou přiblížit k oběti téměř bez zvuku.
+            \n\nLvi žijí ve smečkách, které se skládají z několika samic a jejich potomků a obvykle jednoho až několika samců. Samci jsou zodpovědní za ochranu teritoria smečky a jsou často velmi agresivní k jiným lvům, kteří se na jejich území dostanou.
+            \n\nLvi jsou silně ohroženým druhem a podle Mezinárodního svazu ochrany přírody jsou považováni za kriticky ohrožené. Hlavními hrozbami pro lví populace jsou lov a pytláctví, ničení jejich přirozeného prostředí a také konflikty s lidmi, když se lvi dostanou do kontaktu s osídlenými oblastmi a začnou napadat dobytek.
+    </array>
+    <array name="taxonomyLion">
+        <item>Šelmy</item>
+        <item>Kočkovití</item>
+        <item>Panthera leo</item>
+    </array>
 
 
     <array name="Tiger">
@@ -308,18 +326,36 @@
     </array>
 
 
-<!--    <array name="SeaLion">-->
-<!--        <item>Lachtan</item>-->
-<!--        <item>Savec</item>-->
-<!--        <item>140–350 kg</item>-->
-<!--        <item>230–280 cm</item>-->
-<!--        <item>None</item>-->
-<!--        <item>5–8 cm</item>-->
-<!--        <item>Do 25 let</item>-->
-<!--        <item>Volné moře a pobřeží Jižní Ameriky, Peru a Brazílie</item>-->
-<!--        <item>1 mládě po 350 dnech</item>-->
-<!--        <item>Lachtani patří mezi velmi zdatné plavce, vydrží plavat i několik hodin. Po 9 měsíců tráví čas na otevřeném moři, v období rozmnožování pak zamíří na souš. Samec si zde zabírá své teritorium, které brání před ostatními samci a láká do něj samice. V jednom harému jich může být až 18. Samice krátce po příchodu (po březosti 355 dnů) rodí 1 mládě. Brzy po porodu samice přichází do říje a páří se se samcem. Ve věku 3 – 4 týdnů začne malý lachtan plavat a ani ne ve dvou měsících je skvělým plavcem.</item>-->
-<!--    </array>-->
+    <array name="SeaLion">
+        <item>Lachtan</item>
+        <item>Savec</item>
+        <item>140–350 kg</item>
+        <item>230–280 cm</item>
+        <item>None</item>
+        <item>5–8 cm</item>
+        <item>Do 25 let</item>
+        <item>Volné moře a pobřeží Jižní Ameriky, Peru a Brazílie</item>
+        <item>1 mládě po 350 dnech</item>
+        <item>
+            Čeleď Lachtanovití (Otariidae) je skupina mořských savců patřící do řádu šelem (Carnivora). Tuto čeleď tvoří celkem 16 druhů lachtanů, které jsou rozděleny do dvou podčeledí: Arctocephalinae (jižní lachtani) a Otariinae (severní lachtani).
+            \n\nLachtani jsou charakteristickými zástupci pobřežních šelem, žijí v oblastech se studenými vodami na severním a jižním polokouli. Patří mezi poměrně velké šelmy, dorůstají délky 1,5 až 3 metry a váží až několik stovek kilogramů. Mají velkou hlavu s prodlouženým nosem, který jim umožňuje snadno dýchat i při plavání pod vodou.
+            \n\nLachtani jsou velmi dobrými plavci a potápěči, dokáží zůstat pod vodou až několik minut a dosáhnout velkých hloubek. Jsou to společenská zvířata, často se shlukují v koloniích na plážích, kde si stavějí hnízda a odpočívají.
+            \n\nLachtani jsou významnou součástí ekosystémů mořských pobřeží, ale v posledních letech se stávají také terčem lovců kvůli kožešině a tukům, které jsou využívány v tradiční medicíně a kosmetice. V některých oblastech jsou lachtani ohrožené druhy, a proto jsou chráněni zákony a mezinárodními dohodami.
+        </item>
+    </array>
+    <array name="taxonomySeaLion">
+        <item>Šelmy</item>
+        <item>Lachtanovití</item>
+        <item>
+            Arctocephalus,
+            Callorhinus,
+            Eumetopias,
+            Neophoca,
+            Otaria,
+            Phocarctos,
+            Zalophus
+        </item>
+    </array>
 
 
     <array name="Cat">
@@ -560,6 +596,7 @@
         <item>Panthera onca</item>
     </array>
 
+
     <array name="Rhino">
         <item>Nosorožec</item>
         <item>Savec</item>
@@ -587,7 +624,38 @@
             Dicerorhinus,
             Diceros,
             Elasmotherium,
-            Rhinoceros,
+            Rhinoceros
+        </item>
+    </array>
+
+
+    <array name="Anteater">
+        <item>Mravenečník</item>
+        <item>Savec</item>
+        <item>175 g–65 kg</item>
+
+        <item>35 cm–2 m</item>
+        <item>None</item>
+        <item>Až 90 cm</item>
+
+        <item>Až 25 let</item>
+        <item>Střední a Jižní Amerika</item>
+        <item>1 mládě po 190 dnech</item>
+        <item>
+            Mravenečníkovití (Myrmecophagidae) je čeleď chudozubých savců. Mají zcela bezzubé, trubicovité čelisti, které ale nejsou srostlé. Funkci chrupu nahrazuje mohutně žláznatý žaludek. Jejich, až 60 centimetrů, dlouhý, daleko vysunovatelný jazyk jim umožňuje specializovat se k lovu termitů a mravenců.
+            \n\nMravenečník velký (Myrmecophaga tridactyla), zvaný též mravenečník tříprstý nebo hřivnatý, je největší druh mravenečníka a jediný zástupce rodu Myrmecophaga. Obývá většinou pastviny, listnaté a deštné lesy Střední a Jižní Ameriky.
+            \n\nKe hledání potravy používá mravenečník velký především svůj dobře vyvinutý čich. Zrak a sluch jsou poměrně špatně vyvinuté. Živí se drobným hmyzem, obzvlášť mravenci a termity, ke kterým se dostává pomocí svých ostrých drápů, kterými rozbíjí tvrdá termitiště, případně mraveniště. Občas sežerou i housenku nebo vejce. Často bývají v jejich žaludcích nalézány drobné kamínky, které v žaludku pomáhají ve trávení tím, že potravu rozemelou.
+            \n\nPokud se cítí mravenečník ohrožený, chová se podobně jako medvěd: postaví se na zadní končetiny, přičemž mu ocas pomáhá na udržení rovnováhy a velice rychle začne sekat svými ostrými drápy, což může být pro jeho predátory, které tvoří kočkovité šelmy jako např. jaguár nebo puma velice nebezpečné a občas dochází i ke smrtelným zraněním. Většinou tedy tento obranný manévr uspěje.
+        </item>
+    </array>
+    <array name="taxonomyAnteater">
+        <item>Chudozubí</item>
+        <item>Mravenečníkovití</item>
+        <item>
+            Mravenečník velký (Myrmecophaga tridactyla),
+            Mravenečník čtyřprstý (Tamandua tetradactyla),
+            Mravenečník mexický (Tamandua mexicana),
+            Mravenečník dvouprstý (Cyclopes didactylus)
         </item>
     </array>
 

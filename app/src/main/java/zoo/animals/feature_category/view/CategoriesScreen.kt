@@ -1,5 +1,6 @@
 package zoo.animals.feature_category.view
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,7 +22,6 @@ import zoo.animals.shared.TopBar
 import androidx.compose.foundation.lazy.LazyColumn
 import com.airbnb.lottie.compose.*
 import zoo.animals.feature_category.data.CategoryData
-
 
 @Composable
 fun CategoryScreen(navController: NavController){

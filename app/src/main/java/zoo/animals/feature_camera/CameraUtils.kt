@@ -38,7 +38,6 @@ object CameraUtils {
 
             return ImageDecoder.decodeBitmap(source)
         }
-
     }
 
     fun toBitmap(image: Image): Bitmap? {

@@ -1,4 +1,4 @@
-package zoo.animals.feature_discovery.zoos.view.view
+package zoo.animals.feature_discovery.zoos.view
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*

@@ -2,9 +2,6 @@ package zoo.animals.feature_category.data
 
 
 import android.content.Context
-import android.os.Build
-import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
@@ -17,7 +14,6 @@ import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.common.FileUtil
 import zoo.animals.R
 import zoo.animals.UiTexts
-import java.util.*
 
 
 object AnimalData {
@@ -26,15 +22,14 @@ object AnimalData {
         val key = booleanPreferencesKey(animalKey)
 
         (allAnimalsInstance[0] + allAnimalsInstance[1] + allAnimalsInstance[2])[animalKey]?.seen = true
-
         context.dataStore.edit { animalsSeen ->
             animalsSeen[key] = true
         }
     }
     suspend fun removeFromSeenAnimal(animalKey: String, context: Context) {
         val key = booleanPreferencesKey(animalKey)
-        (allAnimalsInstance[0] + allAnimalsInstance[1] + allAnimalsInstance[2])[animalKey]?.seen = false
 
+        (allAnimalsInstance[0] + allAnimalsInstance[1] + allAnimalsInstance[2])[animalKey]?.seen = false
         context.dataStore.edit { animalsSeen ->
             animalsSeen[key] = false
         }
@@ -89,11 +84,11 @@ object AnimalData {
             listOf(R.array.Kangaroo, R.array.taxonomyKangaroo) to AnimalAppearance.AUSTRALIA.getCoords(),
             listOf(R.array.Elephant, R.array.taxonomyElephant) to AnimalAppearance.AFRICA_SOUTH.getCoords() + AnimalAppearance.AFRICA_CENTER.getCoords(),
             listOf(R.array.Giraffe, R.array.taxonomyGiraffe) to AnimalAppearance.AFRICA_SOUTH.getCoords() + AnimalAppearance.AFRICA_CENTER.getCoords(),
-//            R.array.Gorilla to AnimalAppearance.AFRICA_CENTER.getCoords(),
-//            R.array.Lion to AnimalAppearance.AFRICA.getCoords(),
-            listOf(R.array.Tiger, R.array.taxonomyTiger) to AnimalAppearance.INDIA.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords(),
+            listOf(R.array.Gorilla, R.array.taxonomyGorilla) to AnimalAppearance.AFRICA_CENTER.getCoords(),
+            listOf(R.array.Lion, R.array.taxonomyLion) to AnimalAppearance.AFRICA.getCoords(),
+            listOf(R.array.Tiger, R.array.taxonomyTiger) to AnimalAppearance.ASIA_SOUTH.getCoords(),
             listOf(R.array.Zebra, R.array.taxonomyZebra) to AnimalAppearance.AFRICA_CENTER.getCoords() + AnimalAppearance.AFRICA_SOUTH.getCoords(),
-//            R.array.SeaLion to AnimalAppearance.SOUTH_AMERICA_SEASIDE.getCoords(),
+            listOf(R.array.SeaLion, R.array.taxonomySeaLion) to AnimalAppearance.SOUTH_AMERICA_SEASIDE.getCoords(),
             listOf(R.array.Cat, R.array.taxonomyCat) to AnimalAppearance.WORLD.getCoords(),
             listOf(R.array.Dog, R.array.taxonomyDog) to AnimalAppearance.WORLD.getCoords(),
 
@@ -110,7 +105,8 @@ object AnimalData {
 //            R.array.Meerkat to AnimalAppearance.AFRICA_SOUTH.getCoords(),
 //            R.array.Camel to AnimalAppearance.ASIA_MONGOLIA.getCoords() + AnimalAppearance.ASIA_WEST.getCoords(),
             listOf(R.array.Jaguar, R.array.taxonomyJaguar) to AnimalAppearance.CENTRAL_AMERICA.getCoords() + AnimalAppearance.SOUTH_AMERICA.getCoords(),
-            listOf(R.array.Rhino, R.array.taxonomyRhino) to AnimalAppearance.AFRICA_SOUTH.getCoords()
+            listOf(R.array.Rhino, R.array.taxonomyRhino) to AnimalAppearance.AFRICA_SOUTH.getCoords(),
+            listOf(R.array.Anteater, R.array.taxonomyAnteater) to AnimalAppearance.CENTRAL_AMERICA.getCoords() + AnimalAppearance.SOUTH_AMERICA.getCoords()
         )
         val animalImages: List<List<Int>> = listOf(
 //            listOf(R.drawable.agouti_preview, R.drawable.agouti_main),
@@ -123,11 +119,11 @@ object AnimalData {
             listOf(R.drawable.kangaroo_preview, R.drawable.kangaroo_main),
             listOf(R.drawable.elephant_preview, R.drawable.elephant_main),
             listOf(R.drawable.giraffe_preview, R.drawable.giraffe_main),
-//            listOf(R.drawable.gorilla_preview, R.drawable.gorilla_main),
-//            listOf(R.drawable.lion_preview, R.drawable.lion_main),
+            listOf(R.drawable.gorilla_preview, R.drawable.gorilla_main),
+            listOf(R.drawable.lion_preview, R.drawable.lion_main),
             listOf(R.drawable.tiger_preview, R.drawable.tiger_main),
             listOf(R.drawable.zebra_preview, R.drawable.zebra_main),
-//            listOf(R.drawable.sealion_preview, R.drawable.sealion_main),
+            listOf(R.drawable.sealion_preview, R.drawable.sealion_main),
 
             listOf(R.drawable.cat_preview, R.drawable.cat_main),
             listOf(R.drawable.dog_preview, R.drawable.dog_main),
@@ -146,6 +142,7 @@ object AnimalData {
 //            listOf(R.drawable.camel_preview, R.drawable.camel_main),
             listOf(R.drawable.jaguar_preview, R.drawable.jaguar_main),
             listOf(R.drawable.rhino_preview, R.drawable.rhino_main),
+            listOf(R.drawable.anteater_preview, R.drawable.anteater_main),
         )
 
         return animalsToList(
@@ -159,8 +156,8 @@ object AnimalData {
     fun birds(context: Context): MutableMap<String, Animal> {
 
         val animalInfo: Map<List<Int>, List<List<Float>>> = mapOf(
-//            R.array.Flamingo to AnimalAppearance.AFRICA.getCoords() + AnimalAppearance.MADAGASCAR.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords() + AnimalAppearance.EUROPE_SOUTH.getCoords(),
-//            R.array.Duck to AnimalAppearance.WORLD.getCoords(),
+            listOf(R.array.Flamingo, R.array.taxonomyFlamingo) to AnimalAppearance.AFRICA.getCoords() + AnimalAppearance.MADAGASCAR.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords() + AnimalAppearance.EUROPE_SOUTH.getCoords(),
+            listOf(R.array.Duck, R.array.taxonomyDuck) to AnimalAppearance.WORLD.getCoords(),
 //            R.array.Agapornis to AnimalAppearance.AFRICA.getCoords(),
 //            R.array.Budgerigar to AnimalAppearance.AUSTRALIA.getCoords(),
 //            R.array.Pheasant to AnimalAppearance.WORLD.getCoords(),
@@ -180,8 +177,8 @@ object AnimalData {
             listOf(R.array.Parrot, R.array.taxonomyParrot) to AnimalAppearance.SOUTH_AMERICA.getCoords() + AnimalAppearance.CENTRAL_AMERICA.getCoords() + AnimalAppearance.AUSTRALIA.getCoords() + AnimalAppearance.AFRICA_SOUTH.getCoords() + AnimalAppearance.AFRICA_CENTER.getCoords() + AnimalAppearance.MADAGASCAR.getCoords() + AnimalAppearance.ASIA_SOUTH.getCoords() + AnimalAppearance.ASIA_INDONESIA.getCoords(),
         )
         val animalImages: List<List<Int>> = listOf(
-//            listOf(R.drawable.flamingo_preview, R.drawable.flamingo_main),
-//            listOf(R.drawable.duck_preview, R.drawable.duck_main),
+            listOf(R.drawable.flamingo_preview, R.drawable.flamingo_main),
+            listOf(R.drawable.duck_preview, R.drawable.duck_main),
 //            listOf(R.drawable.agapornis_preview, R.drawable.agapornis_main),
 //            listOf(R.drawable.budgerigar_preview, R.drawable.budgerigar_main),
 //            listOf(R.drawable.pheasant_preview, R.drawable.pheasant_main),
@@ -241,30 +238,32 @@ object AnimalData {
         val taxonomyMain: MutableMap<String, String> = mutableMapOf()
 
         val animalsInfoGlobal = context.resources.getStringArray(R.array.animalInfo)
-        if (category == UiTexts.ArrayResource(R.array.animalCategories, 0).asString(context)
-        ) {
-            val taxonomyMammals = UiTexts.ArrayResource(R.array.mammalsTaxonomy, 0).asArray(context)
-            for ((i, tM) in taxonomyMammals.withIndex()){
-                taxonomyMain[taxonomy[i]] = tM
-            }
+        when (category) {
+            UiTexts.ArrayResource(R.array.animalCategories, 0).asString(context) -> {
+                val taxonomyMammals = UiTexts.ArrayResource(R.array.mammalsTaxonomy, 0).asArray(context)
+                for ((i, tM) in taxonomyMammals.withIndex()){
+                    taxonomyMain[taxonomy[i]] = tM
+                }
 
-            // Mammal -> gets Délka ocasu
-            animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[0]
-        } else if (category == UiTexts.ArrayResource(R.array.animalCategories, 1).asString(context)
-        ) {
-            val taxonomyBirds = UiTexts.ArrayResource(R.array.birdsTaxonomy, 0).asArray(context)
-            for ((i, tM) in taxonomyBirds.withIndex()){
-                taxonomyMain[taxonomy[i]] = tM
+                // Mammal -> gets Délka ocasu
+                animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[0]
             }
+            UiTexts.ArrayResource(R.array.animalCategories, 1).asString(context) -> {
+                val taxonomyBirds = UiTexts.ArrayResource(R.array.birdsTaxonomy, 0).asArray(context)
+                for ((i, tM) in taxonomyBirds.withIndex()){
+                    taxonomyMain[taxonomy[i]] = tM
+                }
 
-            // Bird -> gets Rozpětí křídel
-            animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[1]
-        } else{
-            val taxonomyReptiles = UiTexts.ArrayResource(R.array.reptilesTaxonomy, 0).asArray(context)
-            for ((i, tM) in taxonomyReptiles.withIndex()){
-                taxonomyMain[taxonomy[i]] = tM
+                // Bird -> gets Rozpětí křídel
+                animalsInfoGlobal[3] = animalsInfoGlobal[3].split("/")[1]
             }
+            else -> {
+                val taxonomyReptiles = UiTexts.ArrayResource(R.array.reptilesTaxonomy, 0).asArray(context)
+                for ((i, tM) in taxonomyReptiles.withIndex()){
+                    taxonomyMain[taxonomy[i]] = tM
+                }
 
+            }
         }
         val originalSpecialAnimalInfo = animalsInfoGlobal[3]
 

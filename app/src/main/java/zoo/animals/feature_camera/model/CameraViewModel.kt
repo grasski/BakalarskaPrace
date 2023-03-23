@@ -34,6 +34,8 @@ class CameraViewModel: ViewModel() {
     val state by mutableStateOf(CameraState())
 
     fun analyze(analyzer: ImageAnalysis, cameraExecutor: ExecutorService, context: Context){
+        state.classifiedAnimal.value = null
+
         if ((!state.classificationRunning.value) || state.bottomSheetActive.value){
             state.classifiedAnimal.value = null
             analyzer.clearAnalyzer()
@@ -46,9 +48,6 @@ class CameraViewModel: ViewModel() {
 
                 val detected = ImageClassifier(context).detect(imageProxy)
                 val animalName = detected[0] as String
-
-                val loc = detected[1] as RectF
-                state.animalCenter.value = Offset(loc.left + (loc.width()/2), loc.top + (loc.height()/2))
 
                 state.classifiedAnimal.value = (AnimalData.allAnimalsInstance[0] + AnimalData.allAnimalsInstance[1] + AnimalData.allAnimalsInstance[2])[animalName.trim()]
             }

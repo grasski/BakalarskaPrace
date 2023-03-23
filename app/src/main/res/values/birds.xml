@@ -22,41 +22,6 @@
     </string-array>
 
 
-<!--    <array name="Flamingo">-->
-<!--        <item>Plameňák růžový</item>-->
-<!--        <item>Pták</item>-->
-<!--        <item>2.1–4.1 kg</item>-->
-
-<!--        <item>None</item>-->
-<!--        <item>120–145 cm</item>-->
-<!--        <item>140–170 cm</item>-->
-
-<!--        <item>Kolem 15 let</item>-->
-<!--        <item>Mělké slané laguny Afriky, Madagaskaru, Asie, Evropa.</item>-->
-<!--        <item>Líhne 1 vejce po 27 dnech</item>-->
-<!--        <item>Plameňáci jsou velcí ptáci s neobyčejně dlouhým krkem a nohama vzhledem k celkem malému, oválnému tělu. Krk tvoří 17 obratlů. Nejnápadnějším znakem je silný a lomený zobák, po vnitřních okrajích čelistí lamelovaný. Jsou to společenští ptáci, hnízdí v koloniích čítajících i tisíc jedinců. Probíhá u nich hromadný tok, samičky pak kladou vejce takřka ve stejnou dobu. Hnízdo ve tvaru kužele si pár staví z bláta, na snůšce sedí 31 dnů oba dva rodiče.</item>-->
-<!--    </array>-->
-
-
-<!--    <array name="Duck">-->
-<!--        <item>Kachna divoká</item>-->
-<!--        <item>Pták</item>-->
-<!--        <item>0.7–1.3 kg</item>-->
-
-<!--        <item>50–60 cm</item>-->
-<!--        <item>None</item>-->
-<!--        <item>81–95 cm</item>-->
-
-<!--        <item>5–10 let</item>-->
-<!--        <item>Celý svět</item>-->
-<!--        <item>Líhne 8–16 mláďat po 25 dnech</item>-->
-<!--        <item>Kachna divoká je vodní pták, k životu potřebuje stojaté vody rybníků a jezer nebo pomalu tekoucí řeky s bujnou vegetací. Často je k vidění i ve městech.-->
-<!--            Je všežravec, na jaře tvoří její jídelníček především hmyz, slimáci i drobné rybky či žabky, v létě a na podzim zase nejrůznější semena, vodní rostliny, trávy a řasy.-->
-<!--            Kachna má husté mastné peří, které se nenamočí, a vrstvu tuku, která ji chrání před chladem. Pro život ve vodě jsou uzpůsobeny i její nohy s plovacími blánami mezi prsty, jimiž pod vodou vesluje. Umí ale i skvěle létat.-->
-<!--        </item>-->
-<!--    </array>-->
-
-
 <!--    <array name="Agapornis">-->
 <!--        <item>Agapornis Fischerův</item>-->
 <!--        <item>Pták</item>-->
@@ -346,6 +311,77 @@
         <item>Papoušci</item>
         <item>Papouškovití, Kakaduovití</item>
         <item>MNOHO</item>
+    </array>
+
+
+    <array name="Flamingo">
+        <item>Plameňák růžový</item>
+        <item>Pták</item>
+        <item>2.1–4.1 kg</item>
+
+        <item>None</item>
+        <item>120–145 cm</item>
+        <item>140–170 cm</item>
+
+        <item>Kolem 15 let</item>
+        <item>Mělké slané laguny Afriky, Madagaskaru, Asie, Evropa.</item>
+        <item>Líhne 1 vejce po 27 dnech</item>
+        <item>
+            Plameňákovití (Phoenicopteridae) jsou čeledí ptáků, kteří jsou známí především svou charakteristickou růžovou barvou peří. Tato čeleď zahrnuje 6 druhů plameňáků, kteří se vyskytují v oblastech s teplým a sladkovodním prostředím v Africe, jižní Evropě, Jižní a Střední Americe a Asii.
+            \n\nPlameňáci jsou velcí ptáci, dosahují výšky až 120 cm a váží až 4 kg. Jejich zvláštní růžová barva je způsobena potravou, kterou konzumují - živí se totiž hlavně drobnými mořskými organismy obsahujícími karotenoidy, které barví jejich peří.
+            \n\nPlameňáci jsou neobvyklí svým tvarem a chováním. Mají dlouhé nohy a krk, kterým dokážou ohýbat a svírat do tvaru S, a velmi široký zobák, který používají k filtraci potravy z vody. Když se plameňák potápí, vytváří malé víry, které přilákají potravu na povrch vody, a poté ji zobákem sbírá.
+            \n\nPlameňáci jsou společenská zvířata a žijí v koloniích. Hnízdí na mělkých jezerech a bažinách, kde staví hnízda z bahna a trávy. Samice obvykle snáší jedno nebo dvě vejce, která inkubují oba rodiče.
+            \n\nI když jsou plameňáci poměrně běžným druhem, některé druhy jsou ohrožené a jsou chráněné zákony. V některých oblastech jsou také využívány pro své maso a vejce. Plameňáci jsou také populární v zoo a jako exotická zvířata v domácích chovatelství.
+        </item>
+    </array>
+    <array name="taxonomyFlamingo">
+        <item>Plameňáci</item>
+        <item>Plameňákovití</item>
+        <item>
+            Phoeniconaias,
+            Phoenicoparrus,
+            Phoenicopterus
+        </item>
+    </array>
+
+    <array name="Duck">
+        <item>Kachna divoká</item>
+        <item>Pták</item>
+        <item>0.7–1.3 kg</item>
+
+        <item>50–60 cm</item>
+        <item>None</item>
+        <item>81–95 cm</item>
+
+        <item>5–10 let</item>
+        <item>Celý svět</item>
+        <item>Líhne 8–16 mláďat po 25 dnech</item>
+        <item>
+            Kachny jsou částí čeledi kachnovití (Anatidae) a jsou poměrně rozšířenými ptáky po celém světě. Existuje mnoho různých druhů kachen, z nichž některé jsou chovány pro maso, vejce a pera. Kachny jsou také často viděny v parkových oblastech a na rybnících.
+            \n\nKachny jsou středně velcí ptáci se zakulacenými zobáky, krátkými nohami a širokými plovacími nozdrami. Jejich peří bývá různých barev a typů, včetně bílé, černé, hnědé, šedé a zelené. Kachny se živí převážně rostlinnou stravou, jako jsou vodní rostliny, tráva a semena, ale mohou také požívat hmyz a malé ryby.
+            \n\nKachny jsou často chovány jako zvířata v domácích zahradách a farmách pro jejich maso, vejce a pera. Maso kachen je poměrně oblíbenou potravinou v mnoha kuchyních po celém světě, a vejce kachen jsou také velmi chutná a výživná. Kachny jsou také populární pro své pera, která se používají při výrobě různých produktů, jako jsou polštáře, přikrývky a oblečení.
+            \n\nKachny jsou také často viděny v parcích a na rybnících, kde se stávají oblíbenými zvířaty pro krmění. Nicméně, je důležité si uvědomit, že příliš časté krmení kachen může vést k jejich přemnožení a narušení ekosystému vodní plochy.
+        </item>
+    </array>
+    <array name="taxonomyDuck">
+        <item>Vrubozobí</item>
+        <item>Kachnovití</item>
+        <item>
+            Aix,
+            Amazonetta,
+            Anas,
+            Aythya,
+            Cairina,
+            Callonetta,
+            Chenonetta,
+            Lophonetta,
+            Marmaronetta,
+            Netta,
+            Nettapus,
+            Pteronetta,
+            Rhodonessa,
+            Salvadorina
+        </item>
     </array>
 
 </resources>

@@ -1,4 +1,4 @@
-package zoo.animals.feature_discovery.zoos.view.view
+package zoo.animals.feature_discovery.zoos.view
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -32,7 +32,6 @@ import zoo.animals.feature_discovery.zoos.data.InfoScreenModel
 fun InfoScreen(zoo: Zoo, viewModel: InfoScreenModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     val context = LocalContext.current
 
-    // TODO: Uncomment this once going to 'production'
     LaunchedEffect(Unit) {
         viewModel.fetchPlace(zoo)
     }
@@ -178,7 +177,7 @@ fun InfoScreen(zoo: Zoo, viewModel: InfoScreenModel = androidx.lifecycle.viewmod
                             Text(
                                 text = if (isOpen == true) openStatus[0] else openStatus[1],
                                 fontWeight = FontWeight.Bold,
-                                color = Color.Green,
+                                color = if (isOpen == true) Color.Green else Color.Red,
                                 fontSize = 27.sp,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)

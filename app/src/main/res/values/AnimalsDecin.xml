@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="DecinCapybara">
+        <item>Druh: Kabypara vodní
+        </item>
+        <item>Počet kusů:
+            Kabypara vodní: 6x
+        </item>
+        <item>Zajímavost:
+            Jedná se o největšího hlodavce na světě. Pochází z Jižní Ameriky. Hlavní složku potravy kapybar tvoří vodní rostliny, proto jsou tato zvířata velmi dobře uzpůsobena k pobytu ve vodě.
+        </item>
+    </array>
+
+    <array name="DecinKangaroo">
+        <item>Druhy:
+            Klokan rudokrký;
+            Klokánek králíkovitý
+        </item>
+        <item>Počet kusů:
+            Klokan rudokrký: 6x;
+            Klokánek králíkovitý: 2x
+        </item>
+        <item>Zajímavost:
+            Klokánek králíkovitý je drobný vačnatec dorůstající délky okolo 70 centimetrů, váhy kolem 1,5 kilogramu a svým vzezřením by nám mohl spíše připomínat nějakého hlodavce.
+        </item>
+    </array>
+
+    <array name="DecinCat">
+        <item>Druhy:
+            Kočka rybářská;
+            Kočka divoká
+        </item>
+        <item>Počet kusů:
+            Kočka rybářská: 1x;
+            Kočka divoká: 1x
+        </item>
+        <item>Zajímavost:
+            Kočka rybářská obývá pralesní a lesostepní oblasti, zejména v okolí vodních toků. Ve své domovině v jihovýchodní Asii se specializuje na lov ryb, nebojí se vody a ráda plave a dokonce se i potápí.
+        </item>
+    </array>
+
+    <array name="DecinAnteater">
+        <item>Druh: Mravenečník velký
+        </item>
+        <item>Počet kusů:
+            Mravenečník velký: 2x
+        </item>
+        <item>Zajímavost:
+            Je největší z mravenečníků a vyskytuje se ve Střední až Jižní Americe. Na rozdíl od jiných mravenečníků žije výhradně na zemi. Na předních nohách má čtyři prsty opatřené třemi silnými drápy, při chůzi našlapuje pouze na hřbety prstů.
+        </item>
+    </array>
+
+
+    <array name="DecinParrot">
+        <item>Druhy:
+            Ara arakanga;
+            Papoušek vlnkovaný
+        </item>
+        <item>Počet kusů:
+            Papoušek vlnkovaný: 10x
+        </item>
+        <item>Zajímavost:
+            Ara arakanga je pestrobarevný velký druh papouška, který je jedním z nejznámějších z rodu ara. Ve volné přírodě se vyskytuje ve Střední a v Jižní Americe, kde obývá deštné lesy, savany a plantáže.;
+            Papoušek vlnkovaný, který pochází z Austrálie, je známější pod názvem – andulka. Jedná se o nejpopulárnějšího papouška mezi chovateli. Dožívá se kolem 15 let.
+        </item>
+    </array>
+
+    <array name="DecinDuck">
+        <item>Druhy:
+            Kachnička mandarínská;
+            Kachnička šedoboká
+        </item>
+        <item>Počet kusů:
+            Kachnička mandarínská: 10x;
+            Kachnička šedoboká: 2x
+        </item>
+        <item>Zajímavost:
+            Kachnička mandarínská žije ve východní Asii, vysazena byla na britských ostrovech.;
+            Kachnička šedoboká se vyskytuje v Jižní Americe. Obývá močály v tropických pralesích, bažinatá území, okolí menších jezer a potoků.
+        </item>
+    </array>
+
+
+    <array name="DecinTurtle">
+        <item>Druhy:
+            Želva annámská;
+            Želva nádherná
+        </item>
+        <item>Počet kusů:
+            Želva annámská: 2x;
+            Želva nádherná: 6x
+        </item>
+        <item>Zajímavost:
+            Potravu želvy annámské tvoří hlavně ryby, dále pak v menší míře obojživelníci a vodní rostliny. Detaily rozmnožování v přírodních podmínkách nejsou přesně známy.
+        </item>
+    </array>
+
+</resources>

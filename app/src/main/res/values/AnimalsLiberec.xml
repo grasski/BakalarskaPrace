@@ -30,14 +30,44 @@
 
     <array name="LiberecGiraffe">
         <item>Druh: Žirafa Rothschildova</item>
-        <item>Informace: Žirafa Rothschildova je v Zoo Liberec chována od roku 1985, kdy do zahrady přicestovaly první dvě samice Mahulena a Jesika. Za dobu chovu prošlo zoologickou zahradou více než 50 žiraf.</item>
+        <item>Informace: Žirafa Rothschildova je v Zoo Liberec chována od roku 1985, kdy do zahrady přicestovaly první dvě samice Mahulena a Jesika. Za dobu chovu prošlo zoologickou zahradou více než 50 žiraf.
+        </item>
         <item>Zajímavost: Ze všech savců mají nejvyšší, ale ve srovnání s výškou zároveň nejkratší tělo.</item>
     </array>
 
-    <array name="LiberecParrot">
-        <item>Druhy:
-            Ara hyacintový
+    <array name="LiberecLion">
+        <item>Druh: Lev berberský</item>
+        <item>Informace:
+            V současné době chová a úspěšně rozmnožuje tento vzácný poddruh lva Zoo Olomouc. A právě z této zahrady pochází samec (*2013), který se stal ozdobou Zoo Liberec na jaře roku 2015. Přicestoval spolu se svým bratrem. Ten však na začátku roku 2017 odcestoval do zoologické zahrady ve Francii a vystřídala ho mladá lvice (*2015) z Parc Zoologique v Paříži.
         </item>
+        <item>Zajímavost:
+            V současné době jsou lvi berberští rozmístěni pouze v zoologických zahradách a v soukromých chovech.
+        </item>
+    </array>
+
+    <array name="LiberecAnteater">
+        <item>Druh: Mravenečník velký</item>
+        <item>Informace:
+            Zoo Liberec chová jednoho samce, který k nám přicestoval v létě roku 2017 z maďarské Zoo Sóstó, a jednu samici, která přijela na konci března letošního roku 2018 ze Zoo Budapešť. První mládě se narodilo koncem února roku 2020.
+        </item>
+        <item>Zajímavost:
+            Mravenečníci jsou potravní specialisté, kteří se živí hmyzem, a to mravenci a termity.
+        </item>
+    </array>
+
+    <array name="LiberecSeaLion">
+        <item>Druh: Lachtan hřivnatý</item>
+        <item>Informace:
+            Lachtany hřivnaté chová Zoo Liberec od roku 1975.
+        </item>
+        <item>Zajímavost:
+            Lachtani hřivnatí se dožívají až 25 let.
+        </item>
+    </array>
+
+
+    <array name="LiberecParrot">
+        <item>Druh: Ara hyacintový</item>
         <item>Informace:
             Zoo Liberec chová pár ar hyacintových od roku 2001. K vidění jsou v Pavilonu tropů.
         </item>
@@ -47,9 +77,7 @@
     </array>
 
     <array name="LiberecPenguin">
-        <item>Druhy:
-            Tučňák Humboldtův
-        </item>
+        <item>Druh: Tučňák Humboldtův</item>
         <item>Informace:
             Zoologická zahrada Liberec začala chovat tučňáky Humboldtovi v roce 1982. V současné době je k vidění skupina čítající 7 jedinců. Dalo by se říci, že tučňák Humboldtův patří k teplomilným druhům. Vyskytuje se sice na jižní polokouli, ale svým areálem zasahuje až k rovníku. Z tohoto důvodu jsou v zimním období naši tučňáci umístěni v zázemí zoologické zahrady.
         </item>
@@ -57,6 +85,17 @@
             Tučňáci Humboldtovi se dožívají až 20 let.
         </item>
     </array>
+
+    <array name="LiberecFlamingo">
+        <item>Druh: Plameňák růžový</item>
+        <item>Informace:
+            Zoologická zahrada Liberec chová plameňáky růžové od roku 1991.
+        </item>
+        <item>Zajímavost:
+            Karoten, který obsahují některé řasy, se prostřednictvím korýšů dostává do těla plameňáka. To poté způsobuje jeho červenavé zbarvení.
+        </item>
+    </array>
+
 
     <array name="LiberecTurtle">
         <item>Druhy:
