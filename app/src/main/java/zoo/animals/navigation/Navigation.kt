@@ -67,7 +67,7 @@ fun Navigation(
         composable(route = Routes.AnimalInfo.route){
             val animalObject = navController.previousBackStackEntry?.savedStateHandle?.get<Animal>("animalData")
             animalObject?.let { animal ->
-                ShowAnimalInfo(navController = navController, animalData = animal, true)
+                ShowAnimalInfo(navController = navController, animalData = animal)
             }
         }
 

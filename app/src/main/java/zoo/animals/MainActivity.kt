@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val context = this.baseContext
-        val welcomeScreenViewModel = WelcomeScreenViewModel(context)
+        val welcomeScreenViewModel = WelcomeScreenViewModel()
 
         installSplashScreen().setKeepOnScreenCondition{
             welcomeScreenViewModel.appIsLoading.value

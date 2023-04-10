@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -57,6 +58,10 @@ fun PhotoRecognitionScreen(navController: NavController){
                 imageUri = uri
             }
         }
+        val imagePickerLauncher = rememberLauncherForActivityResult(
+            contract = ActivityResultContracts.PickVisualMedia(),
+            onResult = { uri -> imageUri = uri }
+        )
 
         var counter by remember { mutableStateOf(0) }
 
@@ -78,13 +83,13 @@ fun PhotoRecognitionScreen(navController: NavController){
                 )
             }
 
-            // To prevent Bitmap updating
+
             LaunchedEffect(key1 = imageUri){
                 counter++
                 bitmap = imageUri?.let { uriToBitmap(it, context) }
-                animal = bitmap?.let { ImageClassifier(context).classifyPhoto(it) }
-//                    animal = bitmap?.let { ImageClassifier(context).detectPhoto(it) }
 
+//                animal = bitmap?.let { ImageClassifier(context).classifyPhoto(it) }
+                    animal = bitmap?.let { ImageClassifier(context).detectPhoto(it) }
             }
 
             Column(
@@ -149,7 +154,11 @@ fun PhotoRecognitionScreen(navController: NavController){
                         .weight(0.2f)
                 ){
                     Button(
-                        onClick = { launcher.launch("image/*") },
+                        onClick = {
+                            imagePickerLauncher.launch(
+                                PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                            )
+                        },
                         modifier = Modifier,
                         colors = ButtonDefaults.buttonColors(
                             containerColor = MaterialTheme.colorScheme.surfaceVariant,

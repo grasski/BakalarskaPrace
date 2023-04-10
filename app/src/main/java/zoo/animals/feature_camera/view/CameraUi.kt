@@ -136,8 +136,7 @@ fun CameraUi(
 @Composable
 fun NoCameraPermissionUi(
     navController: NavController,
-    missingCameraPermission: Boolean,
-    missingStoragePermission: Boolean
+    missingCameraPermission: Boolean
 ) {
     TopBar(title = "", navController = navController, showSearch = false, showBackBtn = true) {
         LazyColumn(
@@ -189,15 +188,6 @@ fun NoCameraPermissionUi(
                                         0
                                     ).asString(),
                                     image = Icons.Filled.Camera
-                                )
-                            }
-                            if (!missingStoragePermission){
-                                PermissionMissingIcon(
-                                    permissionName = UiTexts.ArrayResource(
-                                        R.array.permissions,
-                                        1
-                                    ).asString(),
-                                    image = Icons.Filled.SdStorage
                                 )
                             }
                         }

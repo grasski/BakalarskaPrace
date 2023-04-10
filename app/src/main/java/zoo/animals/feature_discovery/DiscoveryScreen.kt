@@ -32,7 +32,7 @@ import zoo.animals.shared.TopBar
 @Composable
 fun DiscoveryScreen(navController: NavController){
 
-    TopBar(title = UiTexts.StringResource(R.string.discoveries).asString(), navController = navController)
+    TopBar(title = UiTexts.StringResource(R.string.discoveries).asString(), navController = navController, animalKey = null, zooKey = null)
     {
         LazyColumn{
             item{
@@ -171,7 +171,6 @@ fun DiscoveryCard(
             }
         }
     }
-
 }
 
 

@@ -31,6 +31,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
@@ -54,16 +55,15 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import zoo.animals.LineTextDivider
+import zoo.animals.*
 import zoo.animals.R
-import zoo.animals.UiTexts
 import zoo.animals.animations.ContentAnimation
 import zoo.animals.feature_category.data.Animal
 import zoo.animals.feature_category.data.AnimalData
 import zoo.animals.feature_category.data.ZooAnimalViewModel
+import zoo.animals.navigation.Routes
 import zoo.animals.shared.BottomContentSwitch
 import zoo.animals.shared.TopBar
-import zoo.animals.stringMapToIndexKey
 import java.util.*
 import kotlin.math.absoluteValue
 
@@ -74,7 +74,6 @@ import kotlin.math.absoluteValue
 fun ShowAnimalInfo(
     navController: NavController,
     animalData: Animal,
-    showTopBar: Boolean,
     viewModel: ZooAnimalViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ){
     var animalKey: String? = ""
@@ -129,37 +128,34 @@ fun ShowAnimalInfo(
         }
     }
 
-    SnackbarContent(animalData, animalKey){
-        Box(modifier = Modifier.fillMaxSize()){
-            if (showTopBar){
-                TopBar(
-                    title = animalData.name,
-                    navController = navController,
-                    showSearch = false,
-                    showBackBtn = true,
-                ) {
-                    if (validZooKeys.isEmpty()){
-                        MainContentScreen(animalData)
-                    } else{
-                        ContentAnimation().ScaleIn(duration = 450) {
-                            BottomContentSwitch(
-                                mainText = "Informace",
-                                secondText = "V zoo",
-//                            thirdText = "Fotogalerie",
-                                thirdText = null,
-                                mainPreview = { MainContentScreen(animalData) },
-                                secondPreview = { animalKey?.let { SecondContentScreen(it, viewModel) } },
-                                thirdPreview = null
-                            )
-                        }
-                    }
-                }
-            } else{
+
+    Box(modifier = Modifier.fillMaxSize()){
+        TopBar(
+            title = animalData.name,
+            navController = navController,
+            showSearch = false,
+            showBackBtn = true,
+            animalKey = animalKey
+        ) {
+            if (validZooKeys.isEmpty()){
                 MainContentScreen(animalData)
+            } else{
+                ContentAnimation().ScaleIn(duration = 450) {
+                    BottomContentSwitch(
+                        mainText = "Informace",
+                        secondText = "V zoo",
+//                            thirdText = "Fotogalerie",
+                        thirdText = null,
+                        mainPreview = { MainContentScreen(animalData) },
+                        secondPreview = { animalKey?.let { SecondContentScreen(it, viewModel) } },
+                        thirdPreview = null
+                    )
+                }
             }
         }
     }
 }
+
 
 @SuppressLint("MissingPermission")
 @Composable
@@ -181,69 +177,6 @@ private fun GpsStatusChecker(update: (Boolean) -> Unit) {
         }
     }
     update(gpsEnabled)
-}
-
-
-@Composable
-fun SnackbarContent(animal: Animal, animalKey: String?, content: @Composable () -> Unit) {
-    val context = LocalContext.current
-    val snackBarTexts = remember {
-        UiTexts.ArrayResource(R.array.snackBar,0).asArray(context)
-    }
-
-    val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
-
-    Scaffold(
-        snackbarHost = {
-            SnackbarHost(snackbarHostState) { data ->
-                Snackbar(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                    contentColor = MaterialTheme.colorScheme.secondary,
-                    action = {
-                        TextButton(
-                            onClick = {
-                                scope.launch {
-                                    animalKey?.let { AnimalData.saveSeenAnimal(it, context) }
-                                }
-                                data.performAction()
-                            },
-                        ) { Text(
-                            snackBarTexts[2],
-                            fontWeight = FontWeight.Bold
-                        ) }
-                    },
-                    dismissAction = {
-                        TextButton(
-                            onClick = { data.dismiss() },
-                        ) { Text(
-                            snackBarTexts[3],
-                            fontStyle = FontStyle.Italic,
-                        ) }
-                    }
-                ) {
-                    Text(snackBarTexts[1])
-                }
-            }
-        },
-        floatingActionButton = {
-            if (!animal.seen){
-                LaunchedEffect(Unit){
-                    scope.launch {
-                        snackbarHostState.showSnackbar(
-                            "",
-                            withDismissAction = true,
-                            duration = SnackbarDuration.Indefinite
-                        )
-                    }
-                }
-            }
-        },
-    ){
-        Box(Modifier.padding(it)){
-            content()
-        }
-    }
 }
 
 
@@ -316,7 +249,7 @@ fun SecondContentScreen(
                             label = { Text(UiTexts.StringResource(R.string.chooseZoo).asString()) },
                             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                             colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(
-                                containerColor = MaterialTheme.colorScheme.background,
+//                                containerColor = MaterialTheme.colorScheme.background,
                                 unfocusedLabelColor = MaterialTheme.colorScheme.primary,
                                 unfocusedBorderColor = MaterialTheme.colorScheme.primary
                             ),
@@ -471,7 +404,7 @@ fun MainContentScreen(animalData: Animal){
         item {
             Box{
                 Image(
-                    painter = painterResource(id = animalData.mainImage),
+                    painter = rememberAsyncImagePainter(animalData.mainImage),
                     contentDescription = animalData.name,
                     modifier = Modifier
                         .height(450.dp)
@@ -578,26 +511,9 @@ fun MainContentScreen(animalData: Animal){
         }
 
         item{
-            var textMaxLines by rememberSaveable { mutableStateOf(6) }
-            Text(
-                text = animalData.description.replaceFirst(" ", ""),
-                modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                    .animateContentSize(
-                        animationSpec = spring(
-                            dampingRatio = 0.8f,
-                            stiffness = Spring.StiffnessLow
-                        )
-                    )
-                    .clickable(
-                        onClick = {
-                            textMaxLines = if (textMaxLines == Int.MAX_VALUE) 6 else Int.MAX_VALUE
-                        },
-                        indication = null,
-                        interactionSource = remember { MutableInteractionSource() }
-                    ),
-                maxLines = textMaxLines,
-                overflow = TextOverflow.Ellipsis
+            ExpandableText(
+                animalData.description,
+                Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
             )
         }
 
@@ -768,11 +684,11 @@ fun MainContentScreen(animalData: Animal){
 
 @Composable
 fun CanvasMap(coords: List<List<Float>>){
-    val painter = painterResource(R.drawable.world_map_clipped)
+    val painter = rememberAsyncImagePainter(R.drawable.world_map_clipped)
     var starter by rememberSaveable { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
-    val originalX by remember { mutableStateOf(2685f) }
-    val originalY by remember { mutableStateOf(1565f) }
+    val originalX =2685f
+    val originalY =1565f
 
     val radiusAnimation: Float by animateFloatAsState(
         targetValue = if (starter) 40f else 30f,
@@ -874,18 +790,18 @@ fun RowDetailsContent(animalData: Animal, infoKey: List<String>){
 
 
 @Composable
-fun CameraSheetInfo(animalData: Animal?){
+fun CameraSheetInfo(animalData: Animal?, navController: NavController, click: (Boolean)->Unit){
     animalData?.let { animal ->
         Box(modifier = Modifier.fillMaxHeight()){
-            LazyColumn(modifier = Modifier
-                .fillMaxHeight(0.5f)
-                .fillMaxWidth()
-                .padding(bottom = 0.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 item {
                     Box(modifier = Modifier
                         .align(Alignment.Center)
-                        .padding(10.dp)
                     ) {
                         Image(
                             painter = painterResource(id = animal.previewImage),
@@ -893,27 +809,33 @@ fun CameraSheetInfo(animalData: Animal?){
                             modifier = Modifier
                                 .align(Alignment.TopCenter)
                                 .size(200.dp)
-                                .clip(CircleShape),
+                                .clip(RoundedCornerShape(16.dp))
+                                .clickable(
+                                    onClick = {
+                                        click(true)
+                                        navController.currentBackStackEntry?.savedStateHandle?.set("animalData", animal)
+                                        navController.navigate(Routes.AnimalInfo.route)
+                                    }
+                                ),
                             contentScale = ContentScale.FillHeight
                         )
-
                     }
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
+
                 item {
-                    Box(
-                        modifier = Modifier
-                            .align(Alignment.Center)
-                            .border(2.dp, Color.White, shape = RoundedCornerShape(35.dp))
-                            .fillMaxWidth(0.7f)
-                    ){
+                    FilledTonalButton(
+                        onClick = {
+                            click(true)
+                            navController.currentBackStackEntry?.savedStateHandle?.set("animalData", animal)
+                            navController.navigate(Routes.AnimalInfo.route)
+                        },
+                        modifier = Modifier.widthIn(min = 200.dp)
+                    ) {
                         Text(
                             text = animal.name,
                             textAlign = TextAlign.Center,
-                            fontSize = 50.sp,
-                            lineHeight = 50.sp,
-                            modifier = Modifier
-                                .padding(10.dp)
-                                .align(Alignment.Center)
+                            fontSize = 35.sp
                         )
                     }
                 }

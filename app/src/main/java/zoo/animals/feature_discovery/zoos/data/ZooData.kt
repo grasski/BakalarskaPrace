@@ -32,11 +32,11 @@ object ZooData {
             zoosVisited[key] = false
         }
     }
-    private suspend fun wasZooVisited(zooKey: String, context: Context): Boolean? {
+    suspend fun wasZooVisited(zooKey: String, context: Context): Boolean {
         val key = booleanPreferencesKey(zooKey)
         val preferences = context.dataStore.data.first()
 
-        return preferences[key]
+        return preferences[key] ?: false
     }
 
     var allZoosInstance = mutableStateMapOf<String, Zoo>()

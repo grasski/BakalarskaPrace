@@ -3,20 +3,26 @@ package zoo.animals.shared
 import android.annotation.SuppressLint
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.TweenSpec
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -29,6 +35,7 @@ import zoo.animals.animations.ContentAnimation
 import zoo.animals.feature_category.data.Animal
 import zoo.animals.feature_category.data.AnimalData
 import zoo.animals.feature_category.view.CategoryAnimalsScreen
+import zoo.animals.feature_discovery.zoos.data.ZooData
 import zoo.animals.navigation.Routes
 import zoo.animals.normalize
 
@@ -42,6 +49,8 @@ fun TopBar(
     showSearch: Boolean = true,
     showBackBtn: Boolean = false,
     gestureEnabled: Boolean = true,
+    animalKey: String? = null,
+    zooKey: String? = null,
     content: @Composable () -> Unit
 ) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -93,6 +102,13 @@ fun TopBar(
                                 drawerState.close()
                             }
                         }
+                    }
+
+                    animalKey?.let {
+                        Saved(key = it, true)
+                    }
+                    zooKey?.let {
+                        Saved(it, false)
                     }
 
                     searchingButton(searching, showSearch, {searching = it}, {searchedAnimals = it})
@@ -212,19 +228,19 @@ fun DrawerView(navController: NavController) {
             verticalArrangement = Arrangement.Bottom,
             modifier = Modifier.fillMaxSize()
         ){
-            NavigationDrawerItem(
-                icon = { Icon(settingsIcon, contentDescription = null) },
-                label = { Text(settingsTitleText.asString(),
-                    fontSize = if (navController.currentDestination?.route.equals(Routes.Settings.route)) 22.sp else 18.sp) },
-                selected = navController.currentDestination?.route.equals(Routes.Settings.route),
-                onClick = {
-                    scope.launch {
-                        navController.navigate(Routes.Settings.route)
-                    }
-                },
-                modifier = Modifier
-                    .padding(NavigationDrawerItemDefaults.ItemPadding)
-            )
+//            NavigationDrawerItem(
+//                icon = { Icon(settingsIcon, contentDescription = null) },
+//                label = { Text(settingsTitleText.asString(),
+//                    fontSize = if (navController.currentDestination?.route.equals(Routes.Settings.route)) 22.sp else 18.sp) },
+//                selected = navController.currentDestination?.route.equals(Routes.Settings.route),
+//                onClick = {
+//                    scope.launch {
+//                        navController.navigate(Routes.Settings.route)
+//                    }
+//                },
+//                modifier = Modifier
+//                    .padding(NavigationDrawerItemDefaults.ItemPadding)
+//            )
 
             NavigationDrawerItem(
                 icon = { Icon(aboutIcon, contentDescription = null) },
@@ -327,3 +343,67 @@ fun searchingButton(
     return searchingText.length >= 2
 }
 
+
+@Composable
+fun Saved(key: String, isAnimal: Boolean) {
+    val interactionSource = MutableInteractionSource()
+    val coroutineScope = rememberCoroutineScope()
+    val context = LocalContext.current
+
+
+    var enabled by remember {
+        mutableStateOf(false)
+    }
+    LaunchedEffect(key1 = Unit){
+        coroutineScope.launch {
+            enabled = if (isAnimal){
+                AnimalData.wasAnimalSeen(key, context)
+            } else{
+                ZooData.wasZooVisited(key, context)
+            }
+        }
+    }
+
+    val scale = remember {
+        androidx.compose.animation.core.Animatable(1f)
+    }
+
+    Icon(
+        imageVector = Icons.Outlined.Favorite,
+        contentDescription = null,
+        tint = if (enabled) Color.Red else Color.LightGray,
+        modifier = Modifier
+            .scale(scale = scale.value)
+            .size(size = 32.dp)
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null
+            ) {
+                enabled = !enabled
+                coroutineScope.launch {
+                    scale.animateTo(
+                        0.8f,
+                        animationSpec = tween(100),
+                    )
+                    scale.animateTo(
+                        1f,
+                        animationSpec = tween(100),
+                    )
+
+                    if (enabled){
+                        if (isAnimal){
+                            AnimalData.saveSeenAnimal(key, context)
+                        } else{
+                            ZooData.saveVisitedZoo(key, context)
+                        }
+                    } else{
+                        if (isAnimal){
+                            AnimalData.removeFromSeenAnimal(key, context)
+                        } else{
+                            ZooData.removeFromVisitedZoo(key, context)
+                        }
+                    }
+                }
+            }
+    )
+}

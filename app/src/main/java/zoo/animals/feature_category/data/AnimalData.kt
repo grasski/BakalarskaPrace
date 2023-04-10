@@ -34,10 +34,10 @@ object AnimalData {
             animalsSeen[key] = false
         }
     }
-    private suspend fun wasAnimalSeen(animalKey: String, context: Context): Boolean? {
+    suspend fun wasAnimalSeen(animalKey: String, context: Context): Boolean {
         val key = booleanPreferencesKey(animalKey)
         val preferences = context.dataStore.data.first()
-        return preferences[key]
+        return preferences[key] ?: false
     }
 
 

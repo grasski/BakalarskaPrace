@@ -8,6 +8,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.net.FetchPlaceRequest
 import com.google.android.libraries.places.api.net.FetchPlaceResponse
+import kotlinx.coroutines.delay
 import zoo.animals.PlaceApi.placesClient
 
 
@@ -21,6 +22,7 @@ class InfoScreenModel: ViewModel() {
     )
 
     fun fetchPlace(zoo: Zoo){
+        Log.e("", "FETCH: ")
         if (state.place.value == null){
             val placeId = zoo.placeID
             val placeFields: List<Place.Field> = DEFAULT_PLACE_FIELDS

@@ -1,6 +1,0 @@
-3 možnosti načítání dat zvířat z jejich XML souborů:
-	1) Ručně psát všechny identifikátory
-	2) Z hlavní kategorie zvířete v XML sebrat názvy s ze stringů vytvořit identifikátory
-		pomocí context.Resources.getIdentificator()... Bohužel velmi neefektivní, při měření
-		jsem zjistil, že vytvoření identifikátorů zabere až 2ms v běhu aplikace
-	3) Vytvoření scriptu, který vygeneruje AnimalsData třídu

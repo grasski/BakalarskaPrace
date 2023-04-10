@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.launch
 import zoo.animals.R
 import zoo.animals.UiTexts
 import zoo.animals.feature_discovery.zoos.data.Zoo
@@ -180,7 +181,9 @@ fun InfoScreen(zoo: Zoo, viewModel: InfoScreenModel = androidx.lifecycle.viewmod
                                 color = if (isOpen == true) Color.Green else Color.Red,
                                 fontSize = 27.sp,
                                 textAlign = TextAlign.Center,
-                                modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .background(MaterialTheme.colorScheme.background)
                             )
                         }
                         weekDays[0]?.size?.let {

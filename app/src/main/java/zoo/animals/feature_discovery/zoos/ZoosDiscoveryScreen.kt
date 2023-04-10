@@ -13,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
@@ -23,7 +24,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import kotlinx.coroutines.launch
-import me.saket.swipe.SwipeableActionsBox
 import zoo.animals.R
 import zoo.animals.UiTexts
 import zoo.animals.feature_discovery.swipeActionEnd
@@ -186,7 +186,8 @@ class ZoosDiscoveryScreen {
             SwipeableActionsBox(
                 startActions = listOf(saveAction),
                 endActions = listOf(deleteAction),
-                swipeThreshold = 100.dp
+                swipeThreshold = 100.dp,
+                modifier = Modifier.clip(RoundedCornerShape(12.dp))
             ) {
                 Card(
                     modifier = Modifier
@@ -269,74 +270,5 @@ class ZoosDiscoveryScreen {
                 }
             }
         }
-
-        /*
-        if (visited){
-            val context = LocalContext.current
-            val scope = rememberCoroutineScope()
-            val removeZoo = remember { UiTexts.StringResource(R.string.removeZoo).asString(context) }
-            val removeText = remember { UiTexts.StringResource(R.string.removeFromDiscovery, removeZoo, zoo.city).asString(context) }
-
-            if (longClick) {
-                AlertDialog(
-                    onDismissRequest = {
-                        longClick = false
-                    },
-                    confirmButton = {
-                        Surface(
-                            modifier = Modifier
-                                .wrapContentWidth()
-                                .wrapContentHeight(),
-                            shape = MaterialTheme.shapes.large
-                        ) {
-                            Column(modifier = Modifier.padding(16.dp)) {
-                                Text(
-                                    text = removeText,
-                                    fontSize = 19.sp,
-                                )
-                                Spacer(modifier = Modifier.height(24.dp))
-
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    verticalAlignment = Alignment.Bottom,
-                                    horizontalArrangement = Arrangement.End
-                                ) {
-                                    TextButton(
-                                        onClick = {
-                                            scope.launch {
-                                                zooKey?.let { ZooData.removeFromVisitedZoo(it, context) }
-                                            }
-                                            viewModel.zoos[zooKey]?.visited = false
-                                            StateChange(true)
-
-                                            visited = false
-                                            longClick = false
-                                        },
-                                    ) {
-                                        Text(
-                                            UiTexts.StringResource(R.string.yes).asString(),
-                                            fontSize = 20.sp
-                                        )
-                                    }
-                                    Spacer(modifier = Modifier.width(24.dp))
-
-                                    TextButton(
-                                        onClick = {
-                                            longClick = false
-                                        },
-                                    ) {
-                                        Text(
-                                            UiTexts.StringResource(R.string.no).asString(),
-                                            fontSize = 20.sp
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
-                )
-            }
-        }
-         */
     }
 }

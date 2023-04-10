@@ -39,7 +39,8 @@ class ImageClassifier(private val context: Context) {
             .setMaxResults(1)
             .build()
         val objectDetector = ObjectDetector.createFromFileAndOptions(
-            context, "ssd_640_qua_metadata_19.tflite", options
+//            context, "ssd_640_qua_metadata_19.tflite", options
+                    context, "ssd_640_qua_metadata20.tflite", options
         )
 
         val mediaImage = imageProxy.image
@@ -254,7 +255,7 @@ class ImageClassifier(private val context: Context) {
         imageProxy.close()
 
 
-        if (tmpScore > 0.75f){
+        if (tmpScore > 0.50f){
             result = probability[animalIndex].label
         }
 
@@ -294,7 +295,7 @@ class ImageClassifier(private val context: Context) {
             }
         }
 
-        if (tmpScore > 0.45f){
+        if (tmpScore > 0.50){
             result = probability[animalIndex].label
         }
         return getAnimalByName(result.trim())
@@ -319,7 +320,7 @@ class ImageClassifier(private val context: Context) {
             .build()
         val objectDetector = ObjectDetector.createFromFileAndOptions(
 //            context, "lite-model_efficientdet_lite3_detection_metadata_1.tflite", options
-            context,  "ssd_640_qua_metadata_19.tflite", options
+            context,  "ssd_640_qua_metadata20.tflite", options
         )
 
         val tfImage = TensorImage.fromBitmap(resizedBitmap)

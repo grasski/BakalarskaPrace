@@ -1,7 +1,6 @@
 package zoo.animals.feature_discovery.animals
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -26,7 +25,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import kotlinx.coroutines.launch
-import me.saket.swipe.SwipeableActionsBox
+import zoo.animals.feature_discovery.zoos.SwipeableActionsBox
 import zoo.animals.R
 import zoo.animals.UiTexts
 import zoo.animals.feature_category.data.Animal
@@ -34,7 +33,6 @@ import zoo.animals.feature_category.data.AnimalData
 import zoo.animals.feature_discovery.animals.data.AnimalsDiscoveryScreenViewModel
 import zoo.animals.feature_discovery.swipeActionEnd
 import zoo.animals.feature_discovery.swipeActionStart
-import zoo.animals.feature_discovery.zoos.data.ZooData
 import zoo.animals.navigation.Routes
 import zoo.animals.shared.TopBar
 import zoo.animals.stringMapToIndexKey
@@ -79,6 +77,7 @@ class AnimalsDiscoveryScreen {
         TopBar(
             title = UiTexts.StringResource(R.string.animals).asString(),
             navController = navController,
+            animalKey = null, zooKey = null
         ){
             LazyColumn(
                 content = {
@@ -210,7 +209,8 @@ class AnimalsDiscoveryScreen {
             SwipeableActionsBox(
                 startActions = listOf(saveAction),
                 endActions = listOf(deleteAction),
-                swipeThreshold = 100.dp
+                swipeThreshold = 100.dp,
+                modifier = Modifier.clip(RoundedCornerShape(12.dp))
             ) {
                 Card(
                     modifier = Modifier
