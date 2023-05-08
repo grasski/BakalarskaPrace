@@ -1,3 +1,5 @@
+# https://stackoverflow.com/a/65367773
+
 from struct import unpack
 import os
 from tqdm import tqdm

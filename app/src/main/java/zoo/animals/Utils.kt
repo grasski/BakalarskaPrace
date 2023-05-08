@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.font.FontWeight
@@ -175,7 +176,8 @@ fun ExpandableText(
                         else
                             Modifier
                     )
-                    .alpha(if (seeMoreOffset != null) 1f else 0f)
+                    .alpha(if (seeMoreOffset != null) 1f else 0f),
+                color = Color(0xff64B5F6)
             )
         }
     }

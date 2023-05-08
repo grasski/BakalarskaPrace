@@ -88,8 +88,8 @@ fun PhotoRecognitionScreen(navController: NavController){
                 counter++
                 bitmap = imageUri?.let { uriToBitmap(it, context) }
 
-//                animal = bitmap?.let { ImageClassifier(context).classifyPhoto(it) }
-                    animal = bitmap?.let { ImageClassifier(context).detectPhoto(it) }
+                animal = bitmap?.let { ImageClassifier(context).classifyPhoto(it) }
+//                    animal = bitmap?.let { ImageClassifier(context).detectPhoto(it) }
             }
 
             Column(
